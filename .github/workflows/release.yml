@@ -74,7 +74,7 @@ jobs:
       - name: Extract release notes from CHANGELOG.md
         id: notes
         run: |
-          NOTES=$(awk -v ver="${GITHUB_REF_NAME}" '
+          NOTES=$(awk -v ver="${GITHUB_REF_NAME#v}" '
             $0 ~ "^## \\[" ver "\\]" {found=1; next}
             found && $0 ~ "^## " {exit}
             found {print}
