@@ -2,7 +2,7 @@
 // the MedTech backend (shared/api/API.md) when settings.apiBaseUrl is set.
 'use client';
 
-import { useSyncExternalStore } from 'react';
+import { useRef, useSyncExternalStore } from 'react';
 import { decks as seedDecks, glossarySeed, questionBank } from './content';
 import { applyReview, isDue, newSchedule } from './fsrs';
 import type {
@@ -149,6 +149,8 @@ function load(): AppState {
 }
 
 let state: AppState = load();
+// Deterministic snapshot used for SSR/static-export parity during hydration.
+const serverState: AppState = initialState();
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -171,15 +173,26 @@ export function setState(mutator: (s: AppState) => AppState): void {
   emit();
 }
 
+function subscribe(cb: () => void): () => void {
+  listeners.add(cb);
+  return () => {
+    listeners.delete(cb);
+  };
+}
+
+/**
+ * React binding for the store. Subscribes to the whole state (stable reference)
+ * and memoizes the selected value per state identity, so selectors may safely
+ * return derived arrays/objects without tripping useSyncExternalStore's
+ * cached-snapshot requirement.
+ */
 export function useStore<T>(selector: (s: AppState) => T): T {
-  return useSyncExternalStore(
-    (cb) => {
-      listeners.add(cb);
-      return () => listeners.delete(cb);
-    },
-    () => selector(state),
-    () => selector(state),
-  );
+  const snapshot = useSyncExternalStore(subscribe, getState, () => serverState);
+  const cache = useRef<{ source: AppState; value: T } | null>(null);
+  if (cache.current === null || cache.current.source !== snapshot) {
+    cache.current = { source: snapshot, value: selector(snapshot) };
+  }
+  return cache.current.value;
 }
 
 export function resetAll(): void {

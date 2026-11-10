@@ -3,9 +3,15 @@
 // App shell: theme handling, responsive navigation, mascot bubble, offline notice.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import { useStore, updateSettings } from '@/lib/store';
 import { cx } from './ui';
+
+// Hydration-safe "mounted" flag: false during SSR/static export, true on the
+// client after hydration. The app renders local-first state that cannot be
+// known at build time, so page content renders only after mount.
+const emptySubscribe = () => () => {};
+const useMounted = () => useSyncExternalStore(emptySubscribe, () => true, () => false);
 
 const NAV = [
   { href: '/', label: 'Home', icon: '🏠' },
@@ -22,6 +28,7 @@ const NAV = [
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const mounted = useMounted();
   const theme = useStore((s) => s.settings.theme);
   const textScale = useStore((s) => s.settings.textScale);
   const seriousMode = useStore((s) => s.settings.seriousMode);
@@ -130,7 +137,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       )}
 
       <main id="main" className="flex-1 max-w-6xl w-full mx-auto px-4 py-6">
-        {children}
+        {mounted ? children : <LoadingSplash />}
       </main>
 
       {!seriousMode && <MascotBubble />}
@@ -147,6 +154,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </a>
         </p>
       </footer>
+    </div>
+  );
+}
+
+function LoadingSplash() {
+  return (
+    <div className="flex flex-col items-center justify-center py-24 gap-4" role="status" aria-live="polite">
+      <div className="text-5xl animate-pulse-soft" aria-hidden>🧬</div>
+      <p className="text-sm text-[var(--ink-muted)]">Loading your study hub…</p>
     </div>
   );
 }
