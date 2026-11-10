@@ -1,11 +1,20 @@
 {
   "id": "lab-operations",
-  "name": "Laboratory Operations",
+  "name": "Laboratory Operations, Quality, and Safety",
   "shortName": "Lab Operations",
-  "description": "Quality assurance, quality control, safety, laboratory management and regulations.",
-  "blueprintNote": "ASCPi BOC content guide weight ~12% ; PH MTLE weight ~10%. Weights are approximations of published outlines.",
-  "colorToken": "amber",
+  "description": "Quality control theory and practice (Levey-Jennings charts, Westgard multirule interpretation), regulatory frameworks (CLIA, accreditation, proficiency testing), method validation concepts (precision, accuracy, LOD/LOQ, reference intervals), biosafety levels, preanalytic error prevention, order of draw, specimen rejection, point-of-care testing, and laboratory mathematics.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS examination laboratory operations/quality content domain and to the PH MTLE clinical laboratory management subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "colorToken": "blue",
   "topics": [
-    { "id": "quality", "name": "Quality Assurance & QC", "lessonIds": ["lab-operations/quality-basics"] }
+    {
+      "id": "quality-safety",
+      "name": "Quality Control, Regulatory Frameworks, and Biosafety",
+      "lessonIds": ["lab-operations/quality-control-regulatory"]
+    },
+    {
+      "id": "preanalytic-operations",
+      "name": "Preanalytic Errors, POCT, and Laboratory Mathematics",
+      "lessonIds": ["lab-operations/preanalytic-poct-math"]
+    }
   ]
 }

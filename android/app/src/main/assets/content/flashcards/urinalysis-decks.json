@@ -1,0 +1,376 @@
+[
+  {
+    "id": "ua-deck-01",
+    "title": "Urinalysis: Dipstick Principles and Sediment",
+    "subjectId": "urinalysis",
+    "cards": [
+      {
+        "id": "ua-fc-001",
+        "type": "BASIC",
+        "front": "What principle does the urine dipstick protein pad use?",
+        "back": "The protein error of indicators at controlled pH - it detects mainly albumin and is less sensitive to globulins and Bence Jones protein.",
+        "tags": ["dipstick", "protein", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-002",
+        "type": "BASIC",
+        "front": "Why can a negative nitrite dipstick NOT exclude urinary tract infection?",
+        "back": "It requires nitrate-reducing organisms and adequate bladder dwell time (commonly about 4 hours); Enterococcus and staphylococci reduce nitrate poorly.",
+        "tags": ["dipstick", "nitrite", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-003",
+        "type": "CLOZE",
+        "front": "Ascorbic acid (vitamin C) causes false-[[1]] results on the [[2]], glucose, nitrite, and bilirubin pads.",
+        "back": "1: negative  2: blood (heme)",
+        "tags": ["dipstick", "interference", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-004",
+        "type": "BASIC",
+        "front": "What does a positive blood (heme) pad with few or no red cells on microscopy suggest?",
+        "back": "Myoglobinuria or hemoglobinuria (the pad detects pseudoperoxidase activity of both) or a chemical false positive.",
+        "tags": ["dipstick", "blood", "myoglobin"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-005",
+        "type": "BASIC",
+        "front": "Which ketone body does the nitroprusside dipstick pad detect, and which does it miss?",
+        "back": "Detects acetoacetate (weakly acetone); misses beta-hydroxybutyrate, the dominant ketone in early diabetic ketoacidosis.",
+        "tags": ["dipstick", "ketones"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-006",
+        "type": "CLOZE",
+        "front": "Alkaline urine pH can cause false-[[1]] protein results; oxidizing contaminants like bleach cause false-[[2]] blood and glucose results.",
+        "back": "1: positive  2: positive",
+        "tags": ["dipstick", "interference"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-007",
+        "type": "BASIC",
+        "front": "What urine finding is most specific for glomerular bleeding?",
+        "back": "Red blood cell casts - always report with urgency and correlate clinically.",
+        "tags": ["sediment", "casts", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-008",
+        "type": "BASIC",
+        "front": "What do muddy brown granular casts indicate?",
+        "back": "Acute tubular injury/necrosis.",
+        "tags": ["sediment", "casts"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-009",
+        "type": "CLOZE",
+        "front": "RBC casts localize to the [[1]]; WBC casts suggest [[2]] or interstitial nephritis; waxy casts suggest advanced [[3]] disease.",
+        "back": "1: glomerulus  2: pyelonephritis  3: chronic kidney",
+        "tags": ["sediment", "casts"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-010",
+        "type": "BASIC",
+        "front": "How do yeast cells differ from red blood cells in urine sediment?",
+        "back": "Yeast show budding, may form pseudohyphae, and do not lyse with dilute acetic acid; red cells lyse with acetic acid.",
+        "tags": ["sediment", "yeast"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-011",
+        "type": "BASIC",
+        "front": "What does the presence of numerous squamous epithelial cells indicate?",
+        "back": "Contamination from skin or vaginal epithelium - report as contaminated and interpret pyuria/culture with caution.",
+        "tags": ["sediment", "contamination"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-012",
+        "type": "CLOZE",
+        "front": "Calcium oxalate dihydrate crystals are [[1]]-shaped in acidic to neutral urine; ethylene glycol poisoning shows [[2]] crystals.",
+        "back": "1: envelope (octahedral)  2: calcium oxalate (monohydrate needle/dumbbell plus dihydrate envelope)",
+        "tags": ["crystals", "oxalate"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-013",
+        "type": "BASIC",
+        "front": "Which crystal has a coffin-lid shape and what does it signal?",
+        "back": "Triple phosphate (magnesium ammonium phosphate, struvite) in alkaline urine - associated with urea-splitting infection and struvite stones.",
+        "tags": ["crystals", "struvite"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-014",
+        "type": "BASIC",
+        "front": "What crystals are pathognomonic for cystinuria?",
+        "back": "Flat hexagonal cystine plates in acidic urine.",
+        "tags": ["crystals", "cystine", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-015",
+        "type": "CLOZE",
+        "front": "Uric acid crystals are [[1]] or rosette shaped in [[2]] urine; leucine and tyrosine crystals appear in severe [[3]] failure.",
+        "back": "1: diamond  2: acidic  3: hepatic (liver)",
+        "tags": ["crystals"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-016",
+        "type": "BASIC",
+        "front": "How does refractometer specific gravity differ from dipstick specific gravity?",
+        "back": "Refractometry measures total solute refractive index (protein and glucose elevate it); the dipstick measures ionic strength via polyelectrolyte exchange and reads low in alkaline urine.",
+        "tags": ["specific-gravity", "methods"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-017",
+        "type": "BASIC",
+        "front": "What does bilirubinuria suggest and what is the pad chemistry?",
+        "back": "Conjugated hyperbilirubinemia (obstruction or liver disease); the pad uses the diazo reaction and is light sensitive.",
+        "tags": ["dipstick", "bilirubin"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      },
+      {
+        "id": "ua-fc-018",
+        "type": "CLOZE",
+        "front": "Leukocyte esterase screens for [[1]] from granulocytes; it does not identify [[2]], which requires culture.",
+        "back": "1: pyuria (leukocyte esterase activity)  2: the organism",
+        "tags": ["dipstick", "leukocyte-esterase"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/physical-chemical-testing" }
+      }
+    ]
+  },
+  {
+    "id": "ua-deck-02",
+    "title": "Body Fluids: CSF, Serous Fluids, Semen, and Crystals",
+    "subjectId": "urinalysis",
+    "cards": [
+      {
+        "id": "ua-fc-019",
+        "type": "BASIC",
+        "front": "State Light's criteria for pleural fluid exudate.",
+        "back": "Exudate if ANY ONE is met: fluid/serum protein ratio above 0.5; fluid/serum LDH ratio above 0.6; fluid LDH above two-thirds the serum upper limit of normal.",
+        "tags": ["light-criteria", "pleural", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-020",
+        "type": "BASIC",
+        "front": "What serum-ascites albumin gradient indicates portal hypertension?",
+        "back": "SAAG of 1.1 g/dL or more (serum albumin minus ascites albumin); below 1.1 g/dL suggests peritoneal causes such as TB or malignancy.",
+        "tags": ["ascites", "saag", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-021",
+        "type": "CLOZE",
+        "front": "Light's criteria is an [[1]] rule: meeting [[2]] of the three criteria classifies the fluid as an exudate.",
+        "back": "1: OR (disjunctive)  2: any one",
+        "tags": ["light-criteria", "high-yield"],
+        "difficulty": 2,
+        "note": "Classic trap: choosing 'all three'.",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-022",
+        "type": "BASIC",
+        "front": "What CSF pattern suggests bacterial meningitis?",
+        "back": "Neutrophilic pleocytosis, low glucose (below about 40 mg/dL or below about 60 percent of paired serum), high protein; intervals vary by laboratory, method, age, and population.",
+        "tags": ["csf", "meningitis"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-023",
+        "type": "BASIC",
+        "front": "How must CSF glucose be interpreted?",
+        "back": "Always against a paired serum glucose drawn near the same time; a fixed number alone can misclassify meningitis.",
+        "tags": ["csf", "glucose", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-024",
+        "type": "CLOZE",
+        "front": "Viral meningitis shows [[1]] pleocytosis with [[2]] glucose; tuberculous or fungal meningitis shows lymphocytes with [[3]] glucose.",
+        "back": "1: lymphocytic  2: normal  3: low",
+        "tags": ["csf", "meningitis"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-025",
+        "type": "BASIC",
+        "front": "How is a traumatic tap distinguished from subarachnoid hemorrhage?",
+        "back": "Traumatic tap: similar red counts across sequential tubes, clear supernatant, no xanthochromia. SAH: xanthochromia and often declining red counts across tubes.",
+        "tags": ["csf", "traumatic-tap"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-026",
+        "type": "BASIC",
+        "front": "What fluid profile defines a chylous (chylothorax) effusion?",
+        "back": "Milky appearance with pleural triglycerides above roughly 110 mg/dL and low cholesterol; pseudochylous fluid is cholesterol-rich with low triglycerides (verify local cutoffs).",
+        "tags": ["pleural", "chylous"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-027",
+        "type": "CLOZE",
+        "front": "Empyema fluid shows purulent appearance, very [[1]] LDH, [[2]] glucose, and often positive Gram stain and [[3]].",
+        "back": "1: high  2: low  3: culture",
+        "tags": ["pleural", "empyema"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-028",
+        "type": "BASIC",
+        "front": "What are WHO semen analysis reference values (fifth percentile of fertile men)?",
+        "back": "Volume 1.5 mL or more; concentration 15 million/mL or more; total count 39 million or more; total motility 40 percent or more; normal morphology 4 percent or more - reference values, not diagnostic cutoffs; intervals vary by laboratory and method.",
+        "tags": ["semen", "reference-values"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-029",
+        "type": "CLOZE",
+        "front": "Semen analysis requires [[1]] days of abstinence, collection into a [[2]] container, and transport at body temperature within about [[3]] hour(s).",
+        "back": "1: 2 to 7  2: wide-mouth sterile  3: one (1)",
+        "tags": ["semen", "preanalytic"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-030",
+        "type": "BASIC",
+        "front": "Why must a single abnormal semen analysis be repeated?",
+        "back": "Semen parameters fluctuate between ejaculates and are highly preanalytic sensitive; repeat after 2 to 4 weeks before interpretation (WHO guidance).",
+        "tags": ["semen", "interpretation"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-031",
+        "type": "BASIC",
+        "front": "What are the classic crystal associations to know cold?",
+        "back": "Calcium oxalate envelope = oxalate/antifreeze context; uric acid diamond/rosette = acidic urine; coffin lid = struvite/alkaline; hexagonal = cystine; leucine + tyrosine = severe liver failure.",
+        "tags": ["crystals", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-032",
+        "type": "CLOZE",
+        "front": "Cystine crystals are [[1]] plates in [[2]] urine and mark inherited [[3]].",
+        "back": "1: hexagonal  2: acidic  3: cystinuria",
+        "tags": ["crystals", "cystine"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-033",
+        "type": "BASIC",
+        "front": "What is proteinocytologic dissociation in CSF and what does it suggest?",
+        "back": "Markedly elevated protein with little or no pleocytosis - classic for Guillain-Barre syndrome.",
+        "tags": ["csf", "guillain-barre"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-034",
+        "type": "BASIC",
+        "front": "How should body fluid reference intervals be reported?",
+        "back": "With units and the caveat that intervals vary by laboratory, method, age, sex, and population, verified against local values before clinical use.",
+        "tags": ["reporting", "reference-intervals"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-035",
+        "type": "CLOZE",
+        "front": "Pleural fluid triglycerides above about [[1]] mg/dL with milky fluid suggests chylothorax; the serum-ascites albumin gradient threshold for portal hypertension is [[2]] g/dL.",
+        "back": "1: 110  2: 1.1",
+        "tags": ["body-fluids", "cutoffs"],
+        "difficulty": 3,
+        "note": "Verify cutoffs against local procedure.",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      },
+      {
+        "id": "ua-fc-036",
+        "type": "BASIC",
+        "front": "What does xanthochromia in CSF indicate?",
+        "back": "Pink-to-yellow supernatant after centrifugation from bilirubin formation - supports subarachnoid hemorrhage rather than a simple traumatic tap.",
+        "tags": ["csf", "xanthochromia"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "urinalysis/body-fluid-analysis" }
+      }
+    ]
+  }
+]

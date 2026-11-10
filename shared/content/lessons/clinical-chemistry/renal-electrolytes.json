@@ -105,7 +105,7 @@
   "relatedFlashcardIds": ["cc-fc-021", "cc-fc-022", "cc-fc-023"],
   "followUp": ["clinical-chemistry/endocrine-glucose", "clinical-chemistry/cardiac-enzymes"],
   "references": [
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., chapters on renal function, electrolytes, and acid-base balance", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on renal function, electrolytes, and acid-base balance", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on electrolytes and kidney disease assessment", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

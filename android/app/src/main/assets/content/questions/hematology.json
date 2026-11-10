@@ -2,82 +2,811 @@
   {
     "id": "hem-q-001",
     "subjectId": "hematology",
-    "topicId": "cbc",
+    "topicId": "cbc-indices",
     "type": "MCQ",
-    "vignette": "CBC: Hb 9.5 g/dL, MCV 72 fL, MCHC 30 g/dL, RDW 18% (elevated).",
-    "stem": "Which pattern best fits these indices?",
+    "vignette": null,
+    "stem": "The mean corpuscular volume (MCV) is derived from which two measurements?",
     "choices": [
-      { "id": "A", "text": "Microcytic hypochromic anemia with anisocytosis (e.g., iron deficiency)" },
-      { "id": "B", "text": "Macrocytic anemia" },
-      { "id": "C", "text": "Normocytic normochromic anemia" },
-      { "id": "D", "text": "Hereditary spherocytosis" }
+      { "id": "A", "text": "Hemoglobin and red cell count" },
+      { "id": "B", "text": "Hematocrit and red cell count" },
+      { "id": "C", "text": "Hemoglobin and hematocrit" },
+      { "id": "D", "text": "Reticulocyte count and red cell count" }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "difficulty": "EASY",
-    "explanation": "Low MCV (microcytic), low-normal MCHC (hypochromic trend) and elevated RDW (anisocytosis) are classic for iron deficiency; thalassemia trait usually has a normal RDW.",
+    "explanation": "MCV represents mean red cell volume and is calculated from hematocrit divided by red cell count (with appropriate scaling to femtoliters). It classifies red cells as microcytic, normocytic, or macrocytic.",
     "rationales": {
-      "A": "Correct: MCV < 80 with high RDW fits iron deficiency.",
-      "B": "Macrocytic anemia has MCV > 100 fL.",
-      "C": "Normocytic anemia has MCV 80-100 fL.",
-      "D": "Hereditary spherocytosis shows spherocytes, high MCHC and often a negative Coombs — not a high RDW pattern like this."
+      "A": "Hemoglobin with red cell count yields MCH (mean corpuscular hemoglobin).",
+      "B": "Correct: MCV is hematocrit over red cell count, scaled to fL.",
+      "C": "Hemoglobin with hematocrit yields MCHC (mean corpuscular hemoglobin concentration).",
+      "D": "Reticulocyte count assesses marrow response; it does not enter MCV."
     },
-    "misconception": "RDW is often ignored; it is what separates iron deficiency (high RDW) from thalassemia trait (normal RDW).",
-    "reference": "Rodak 6th ed., Ch. 15",
+    "misconception": "The three red cell indices are confused; remember MCV = size (Hct/RBC), MCH = weight (Hgb/RBC), MCHC = concentration (Hgb/Hct).",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., red blood cell analysis chapter",
     "lessonId": "hematology/cbc-indices",
-    "examTraps": ["High RDW = mixed population; think iron deficiency first."]
+    "examTraps": ["Classic adult teaching cutoffs: microcytic below about 80 fL, macrocytic above about 100 fL; local reference intervals govern."]
   },
   {
     "id": "hem-q-002",
     "subjectId": "hematology",
-    "topicId": "cbc",
-    "type": "MCQ",
-    "vignette": "An analyzer reports MCV 118 fL in a sample from a patient in the cold clinic room; the smear shows red cell clumps.",
-    "stem": "What is the most likely cause of the elevated MCV?",
+    "topicId": "cbc-indices",
+    "type": "SCENARIO",
+    "vignette": "A 25-year-old woman has MCV 68 fL, elevated RDW, and mild anemia. A 30-year-old man has MCV 66 fL, normal RDW, and mild anemia with a relatively high red cell count for his hemoglobin.",
+    "stem": "Which pattern best distinguishes the likely causes in these two patients?",
     "choices": [
-      { "id": "A", "text": "True megaloblastic anemia" },
-      { "id": "B", "text": "Cold agglutinins falsely elevating the MCV" },
-      { "id": "C", "text": "Iron deficiency" },
-      { "id": "D", "text": "Thalassemia trait" }
+      { "id": "A", "text": "Woman: thalassemia trait; man: iron deficiency" },
+      { "id": "B", "text": "Woman: iron deficiency (anisocytosis); man: thalassemia trait (uniform microcytosis)" },
+      { "id": "C", "text": "Both have sideroblastic anemia" },
+      { "id": "D", "text": "Both have anemia of chronic disease" }
     ],
     "correctChoiceId": "B",
     "difficulty": "MEDIUM",
-    "explanation": "Cold agglutinins cause red cell clumping; the analyzer counts clumps as single large cells, falsely raising MCV (and MCHC). Warming the sample and re-running corrects the artifact.",
+    "explanation": "Iron deficiency produces varied red cell sizes (high RDW) as the deficit evolves; thalassemia trait produces uniform microcytosis (normal RDW) with a red cell count that is high for the degree of anemia. Iron studies and hemoglobin electrophoresis confirm.",
     "rationales": {
-      "A": "Megaloblastic anemia is possible but the clumped smear points to an artifact first.",
-      "B": "Correct: clumping artifact from cold agglutinins.",
-      "C": "Iron deficiency produces low MCV.",
-      "D": "Thalassemia trait produces low MCV with normal RDW."
+      "A": "This reverses the classic index patterns of the two conditions.",
+      "B": "Correct: elevated RDW points to iron deficiency; normal RDW with disproportionate RBC count points to thalassemia trait.",
+      "C": "Sideroblastic anemia shows ring sideroblasts and disordered iron use, not these paired index patterns.",
+      "D": "Anemia of chronic disease is typically normocytic or mildly microcytic with low TIBC, not a uniform trait pattern."
     },
-    "misconception": "Artifacts are underweighted in exam vignettes that give a smear hint (clumps, lipemia, hemolysis).",
-    "reference": "Rodak 6th ed., Ch. 15",
+    "misconception": "All microcytic anemias are iron deficiency; RDW and red cell count are the quick discriminators.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., microcytic anemia chapter",
     "lessonId": "hematology/cbc-indices",
-    "examTraps": ["Cold agglutinins falsely elevate MCV and MCHC."]
+    "examTraps": ["RDW high = mixed/evolving populations (iron deficiency); RDW normal with microcytosis = think thalassemia trait."]
   },
   {
     "id": "hem-q-003",
     "subjectId": "hematology",
-    "topicId": "anemias",
+    "topicId": "cbc-indices",
     "type": "MCQ",
-    "vignette": "A 30-year-old woman with fatigue: Hb 8.8 g/dL, reticulocyte count 1.5%, LDH elevated, haptoglobin undetectable, indirect bilirubin elevated.",
-    "stem": "Which mechanism best explains this anemia?",
+    "vignette": null,
+    "stem": "A patient's platelet count is 40 x10^9/L on an EDTA specimen and the analyzer flags platelet clumps. The smear shows platelet clumping. What is the best next step?",
     "choices": [
-      { "id": "A", "text": "Decreased red cell production" },
-      { "id": "B", "text": "Increased red cell destruction (hemolysis)" },
-      { "id": "C", "text": "Acute blood loss" },
-      { "id": "D", "text": "Hemodilution" }
+      { "id": "A", "text": "Transfuse platelets immediately" },
+      { "id": "B", "text": "Recollect in a citrate (or alternative anticoagulant) tube and retest" },
+      { "id": "C", "text": "Diagnose immune thrombocytopenia" },
+      { "id": "D", "text": "Repeat the same EDTA tube without recollection" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "EDTA-dependent platelet clumping causes pseudothrombocytopenia. The smear confirms clumps, and recollection into citrate (or another anticoagulant) usually yields the true count.",
+    "rationales": {
+      "A": "Transfusing for an artifactual low count exposes the patient to unnecessary risk.",
+      "B": "Correct: alternate anticoagulant recollection resolves EDTA pseudothrombocytopenia.",
+      "C": "Immune thrombocytopenia is a diagnosis of exclusion after artifacts are ruled out.",
+      "D": "The same tube reproduces the same artifact; a different anticoagulant is needed."
+    },
+    "misconception": "Every low platelet count is real; EDTA pseudothrombocytopenia is the classic laboratory trap.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., platelet analysis chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Always correlate low platelet counts with the smear before acting on critical values."]
+  },
+  {
+    "id": "hem-q-004",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "SCENARIO",
+    "vignette": "A 68-year-old man's CBC is flagged by the analyzer for blast/abnormal lymphocyte population. The white cell count is elevated and the automated differential shows a prominent immature population.",
+    "stem": "What is the most appropriate laboratory action?",
+    "choices": [
+      { "id": "A", "text": "Report the automated differential as final" },
+      { "id": "B", "text": "Prepare and review a stained peripheral blood smear and correlate with clinical findings" },
+      { "id": "C", "text": "Repeat the CBC only if the patient develops fever" },
+      { "id": "D", "text": "Cancel the test as instrument error" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Analyzer flags are prompts, not diagnoses. A blast flag requires manual smear review to confirm morphology and often triggers additional workup (repeat count, pathologist review, flow cytometry).",
+    "rationales": {
+      "A": "Automated differentials can misclassify abnormal cells; the flag demands verification.",
+      "B": "Correct: smear review is the standard response to an abnormal population flag.",
+      "C": "Fever is irrelevant to the immediate verification requirement.",
+      "D": "The flag is meaningful clinical information, not grounds for cancellation."
+    },
+    "misconception": "Instrument flags are treated as final results; they exist to route specimens to human review.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., automated hematology chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Flags indicate the analyzer cannot classify events reliably; smear review confirms or refutes the finding."]
+  },
+  {
+    "id": "hem-q-005",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which red cell index is the most physiologically stable and is calculated from hemoglobin and hematocrit?",
+    "choices": [
+      { "id": "A", "text": "MCV" },
+      { "id": "B", "text": "MCH" },
+      { "id": "C", "text": "MCHC" },
+      { "id": "D", "text": "RDW" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "MCHC (hemoglobin divided by hematocrit, scaled) reflects the average hemoglobin concentration in packed red cells and is the most stable of the indices; markedly elevated values suggest spherocytosis or specimen artifact.",
+    "rationales": {
+      "A": "MCV reflects cell volume (Hct/RBC).",
+      "B": "MCH reflects hemoglobin mass per cell (Hgb/RBC).",
+      "C": "Correct: MCHC is Hgb/Hct and is the most constant index.",
+      "D": "RDW measures size variation, not hemoglobin concentration."
+    },
+    "misconception": "MCH and MCHC are confused; MCHC is a concentration (g/dL of packed cells), MCH is a mass (pg per cell).",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., red blood cell analysis chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["A very high MCHC should prompt a smear check for spherocytosis or cold agglutinin interference."]
+  },
+  {
+    "id": "hem-q-006",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "SCENARIO",
+    "vignette": "A newborn CBC shows a white cell count of 28 x10^9/L and a differential reporting 60 nucleated red cells per 100 white cells. (Reference intervals vary by age and laboratory.)",
+    "stem": "What correction should be applied before interpreting the white cell count?",
+    "choices": [
+      { "id": "A", "text": "No correction is needed; nucleated red cells do not affect the count" },
+      { "id": "B", "text": "Correct the WBC for nucleated red cells (the analyzer may count nRBCs as leukocytes)" },
+      { "id": "C", "text": "Double the reported WBC" },
+      { "id": "D", "text": "Report only the hemoglobin" }
     ],
     "correctChoiceId": "B",
     "difficulty": "MEDIUM",
-    "explanation": "Undetectable haptoglobin with elevated LDH and indirect bilirubin is the classic triad of hemolysis. The reticulocyte count should be interpreted as an index (corrected); in hemolysis the bone marrow responds appropriately.",
+    "explanation": "Many analyzers count nucleated red cells in the white cell channel. The corrected WBC is calculated as measured WBC multiplied by 100 divided by 100 plus nRBC per 100 WBC; failure to correct overestimates leukocytosis.",
     "rationales": {
-      "A": "Underproduction shows low reticulocyte production index and normal/low LDH and haptoglobin.",
-      "B": "Correct: low haptoglobin + high LDH + high indirect bilirubin = hemolysis.",
-      "C": "Acute blood loss shows low haptoglobin early but is clinically obvious and retics rise over days.",
-      "D": "Hemodilution lowers all red cell parameters uniformly without hemolysis markers."
+      "A": "nRBCs are counted in the WBC channel on many platforms and must be corrected.",
+      "B": "Correct: apply the standard nRBC correction formula before interpreting leukocyte counts.",
+      "C": "Doubling is arbitrary and incorrect.",
+      "D": "The white cell count itself needs correction and interpretation, not omission."
     },
-    "misconception": "Haptoglobin is overlooked — it is the single most specific marker here.",
-    "reference": "Rodak 6th ed., Ch. 16",
+    "misconception": "Automated WBC counts are assumed pure; nRBC correction is a classic quantitative skill.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., automated hematology chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Corrected WBC = measured WBC x 100 / (100 + nRBC per 100 WBC)."]
+  },
+  {
+    "id": "hem-q-007",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Histograms and flags on an automated hematology analyzer serve primarily to:",
+    "choices": [
+      { "id": "A", "text": "Replace the need for peripheral smears entirely" },
+      { "id": "B", "text": "Identify specimens that require microscopic smear review" },
+      { "id": "C", "text": "Diagnose specific leukemias" },
+      { "id": "D", "text": "Measure coagulation factors" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Histograms display population distributions and flags mark events the analyzer cannot classify confidently; their purpose is quality assurance routing specimens to smear review, not rendering diagnoses.",
+    "rationales": {
+      "A": "Smear review remains essential when flags or abnormal distributions appear.",
+      "B": "Correct: flags direct attention to specimens needing confirmation.",
+      "C": "Leukemia diagnosis requires morphology, flow cytometry, and clinical correlation.",
+      "D": "Coagulation is measured by PT/aPTT systems, not CBC histograms."
+    },
+    "misconception": "Flags are read as diagnoses; they are screening prompts for human verification.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., automated hematology chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Each laboratory defines its own smear-review rules; flags are instrument-specific but universally non-diagnostic."]
+  },
+  {
+    "id": "hem-q-008",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "SCENARIO",
+    "vignette": "A patient with myelodysplasia has an analyzer platelet count of 55 x10^9/L by impedance with a platelet histogram warning. The smear shows numerous giant platelets.",
+    "stem": "What is the most likely explanation of the discrepancy risk here?",
+    "choices": [
+      { "id": "A", "text": "Giant platelets may be counted as red cells by impedance, underestimating the true platelet count" },
+      { "id": "B", "text": "Giant platelets are always counted correctly by all methods" },
+      { "id": "C", "text": "The platelet count is falsely high from rouleaux" },
+      { "id": "D", "text": "The smear is unreliable; ignore it" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Impedance counting classifies cells by volume; giant platelets can exceed the platelet size threshold and be counted as small red cells, underestimating platelets. Optical/fluorescent methods and smear estimates help resolve the count.",
+    "rationales": {
+      "A": "Correct: giant platelets are a classic impedance undercount artifact.",
+      "B": "Method-dependent biases are precisely why multiple counting principles exist.",
+      "C": "Rouleaux affects red cell morphology, not platelet overcounting in this way.",
+      "D": "The smear is the reference for platelet estimation; it must be trusted over an artifact-prone channel."
+    },
+    "misconception": "Automated counts are assumed method-proof; size-based counting has documented failure modes.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., platelet analysis chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["When histogram flags and smear disagree, use optical counts or smear estimation and document the discrepancy."]
+  },
+  {
+    "id": "hem-q-009",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The reticulocyte production index (RPI) corrects the raw reticulocyte percentage for:",
+    "choices": [
+      { "id": "A", "text": "The degree of anemia and reticulocyte maturation time" },
+      { "id": "B", "text": "The patient's age only" },
+      { "id": "C", "text": "Platelet count" },
+      { "id": "D", "text": "White cell count" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "RPI adjusts for the patient's hematocrit relative to normal (anemia correction) and for prolonged maturation of reticulocytes in severe anemia, distinguishing true marrow response from a misleadingly high percentage.",
+    "rationales": {
+      "A": "Correct: both the anemia correction and maturation factor are built into the RPI.",
+      "B": "Age affects reference intervals but is not the RPI correction.",
+      "C": "Platelet count is unrelated to reticulocyte interpretation.",
+      "D": "White cell count is not part of the RPI calculation."
+    },
+    "misconception": "A high reticulocyte percentage always indicates robust response; without correction, severe anemia inflates the percentage misleadingly.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., anemia chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["RPI above about 2 to 3 suggests appropriate marrow response; low RPI points to underproduction (cutoffs are teaching values)."]
+  },
+  {
+    "id": "hem-q-010",
+    "subjectId": "hematology",
+    "topicId": "cbc-indices",
+    "type": "SCENARIO",
+    "vignette": "A patient transfused 2 days ago has an RBC histogram showing a dimorphic (two-population) distribution and a widened RDW.",
+    "stem": "What is the most likely explanation?",
+    "choices": [
+      { "id": "A", "text": "Coexisting donor and recipient red cell populations after transfusion" },
+      { "id": "B", "text": "Instrument malfunction" },
+      { "id": "C", "text": "Iron deficiency alone" },
+      { "id": "D", "text": "Dehydration" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Recent transfusion introduces a second red cell population (donor cells with normal MCV alongside the patient's own), producing a dimorphic histogram and elevated RDW; the analyzer may also show mixed-field agglutination patterns in typing.",
+    "rationales": {
+      "A": "Correct: two red cell populations after transfusion produce the dimorphic pattern.",
+      "B": "The finding is explained clinically; malfunction is a diagnosis of exclusion.",
+      "C": "Iron deficiency shifts one population smaller with high RDW but does not create two discrete peaks.",
+      "D": "Dehydration concentrates cells but does not produce dimorphism."
+    },
+    "misconception": "A dimorphic histogram is read as a single new disorder; transfusion history explains many of them.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., automated hematology chapter",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Dimorphic populations also occur in sideroblastic anemia and dual-nutrient deficiencies; always take a transfusion history."]
+  },
+  {
+    "id": "hem-q-011",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which iron study pattern is classic for iron deficiency anemia?",
+    "choices": [
+      { "id": "A", "text": "Low ferritin, low serum iron, high TIBC, low transferrin saturation" },
+      { "id": "B", "text": "High ferritin, high serum iron, low TIBC" },
+      { "id": "C", "text": "Normal ferritin, normal TIBC, high serum iron" },
+      { "id": "D", "text": "High ferritin, low serum iron, low TIBC" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Iron deficiency depletes stores (ferritin low), lowers circulating iron, and upregulates transferrin production (TIBC high), producing low transferrin saturation. Ferritin can be falsely normal during inflammation because it is an acute-phase reactant.",
+    "rationales": {
+      "A": "Correct: this is the textbook iron deficiency pattern.",
+      "B": "This pattern suggests iron overload or increased stores, not deficiency.",
+      "C": "Normal studies with microcytosis would raise thalassemia trait or anemia of chronic disease.",
+      "D": "This pattern fits anemia of chronic disease (stores adequate or high, transport iron low)."
+    },
+    "misconception": "Ferritin low is required for diagnosis; in inflammation ferritin may be normal despite depleted stores.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., iron metabolism chapter",
     "lessonId": "hematology/anemias",
-    "examTraps": ["Hemolysis triad: haptoglobin down, LDH up, indirect bilirubin up."]
+    "examTraps": ["TIBC high = body hungry for iron (deficiency); TIBC low = body sequestering iron (chronic disease)."]
+  },
+  {
+    "id": "hem-q-012",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "SCENARIO",
+    "vignette": "A 60-year-old with rheumatoid arthritis has microcytic anemia. Serum iron is low, TIBC is low, and ferritin is within the reference interval. CRP is elevated.",
+    "stem": "Which explanation best fits the normal ferritin?",
+    "choices": [
+      { "id": "A", "text": "Ferritin is an acute-phase reactant and may be falsely normal in inflammation despite depleted iron stores" },
+      { "id": "B", "text": "The patient definitely has adequate iron stores and no deficiency" },
+      { "id": "C", "text": "The ferritin assay is always wrong in rheumatoid arthritis" },
+      { "id": "D", "text": "Low TIBC indicates iron overload" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "In inflammation, ferritin rises as an acute-phase reactant and can mask depleted stores. Soluble transferrin receptor (less affected by inflammation), ferritin trends, or a therapeutic trial help resolve iron status in anemia of chronic disease versus combined deficiency.",
+    "rationales": {
+      "A": "Correct: inflammation elevates ferritin independently of iron stores.",
+      "B": "Normal ferritin in an inflamed patient does not exclude iron deficiency.",
+      "C": "The assay is reliable; the biology (acute-phase behavior) explains the value.",
+      "D": "Low TIBC reflects sequestration in chronic disease, not overload by itself."
+    },
+    "misconception": "A normal ferritin rules out iron deficiency; context (inflammation) changes its meaning entirely.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., iron metabolism chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["In anemia of chronic disease: low iron, low TIBC, normal/high ferritin; soluble transferrin receptor is typically not elevated."]
+  },
+  {
+    "id": "hem-q-013",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Beta-thalassemia trait is characteristically confirmed by hemoglobin analysis showing:",
+    "choices": [
+      { "id": "A", "text": "Elevated HbA2" },
+      { "id": "B", "text": "Elevated HbH" },
+      { "id": "C", "text": "Absent HbA with dominant HbS" },
+      { "id": "D", "text": "Elevated HbA2 with elevated HbBart's" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Beta-thalassemia trait shows microcytosis with elevated HbA2 on hemoglobin electrophoresis or HPLC (the diagnostic threshold is method dependent, commonly around 3.5 percent). Alpha-thalassemia trait usually has a normal HbA2 and may show HbH inclusions in some forms.",
+    "rationales": {
+      "A": "Correct: elevated HbA2 is the classic finding in beta-thalassemia trait.",
+      "B": "HbH appears in alpha-thalassemia (HbH disease), not beta trait.",
+      "C": "This describes sickle cell disease, not thalassemia trait.",
+      "D": "HbBart's is seen in alpha-thalassemia neonates (hydrops fetalis in homozygous alpha deletion)."
+    },
+    "misconception": "All thalassemias share one electrophoresis pattern; alpha and beta defects differ markedly.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemoglobinopathies chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["HbA2 thresholds are method specific; interpret with local reference intervals and clinical findings."]
+  },
+  {
+    "id": "hem-q-014",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "SCENARIO",
+    "vignette": "A 70-year-old vegan man has macrocytic anemia (MCV 112 fL), hypersegmented neutrophils on smear, and paresthesias. Serum B12 is low-normal. Methylmalonic acid is elevated and homocysteine is elevated.",
+    "stem": "Which diagnosis is best supported?",
+    "choices": [
+      { "id": "A", "text": "Folate deficiency" },
+      { "id": "B", "text": "Vitamin B12 deficiency" },
+      { "id": "C", "text": "Iron deficiency" },
+      { "id": "D", "text": "Hemolytic anemia" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Elevated methylmalonic acid is specific for vitamin B12 deficiency (folate deficiency raises homocysteine but not MMA). Neurologic symptoms plus megaloblastic changes reinforce B12 deficiency as the cause and urgent treatment target.",
+    "rationales": {
+      "A": "Folate deficiency elevates homocysteine but leaves methylmalonic acid normal.",
+      "B": "Correct: elevated MMA with megaloblastic anemia and neurologic signs points to B12 deficiency.",
+      "C": "Iron deficiency produces microcytic anemia with different iron studies.",
+      "D": "Hemolysis would show reticulocytosis, low haptoglobin, and elevated LDH, not megaloblastic features."
+    },
+    "misconception": "Low-normal B12 excludes deficiency; functional markers (MMA, homocysteine) reveal tissue deficiency in borderline cases.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., megaloblastic anemia chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["MMA high = B12; homocysteine high in both B12 and folate deficiency; neurologic damage is B12-specific risk."]
+  },
+  {
+    "id": "hem-q-015",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which laboratory constellation supports intravascular hemolysis?",
+    "choices": [
+      { "id": "A", "text": "Low haptoglobin, elevated LDH, elevated indirect bilirubin, hemoglobinuria" },
+      { "id": "B", "text": "High haptoglobin, low LDH, normal bilirubin" },
+      { "id": "C", "text": "Low reticulocyte count with elevated haptoglobin" },
+      { "id": "D", "text": "Elevated ferritin and low TIBC" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Hemolysis releases hemoglobin (binding and depleting haptoglobin), raises LDH and indirect bilirubin from heme catabolism, and in intravascular cases spills free hemoglobin into urine. Reticulocytes rise as the marrow responds.",
+    "rationales": {
+      "A": "Correct: this is the classic hemolysis pattern, with hemoglobinuria pointing to intravascular destruction.",
+      "B": "This pattern describes the absence of hemolysis.",
+      "C": "Hemolysis should raise reticulocytes and lower haptoglobin.",
+      "D": "This describes iron studies in chronic disease or overload, not hemolysis."
+    },
+    "misconception": "Anemia of chronic disease is mistaken for hemolysis; the reticulocyte count and haptoglobin separate them.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemolytic anemia chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["Haptoglobin is an acute-phase reactant; interpret with LDH, bilirubin, reticulocytes, and smear together."]
+  },
+  {
+    "id": "hem-q-016",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "SCENARIO",
+    "vignette": "A 45-year-old woman has anemia, thrombocytopenia, fever, and confusion. The smear shows schistocytes and polychromasia. LDH is elevated, haptoglobin is undetectable, and the DAT is negative.",
+    "stem": "Which process best explains these findings?",
+    "choices": [
+      { "id": "A", "text": "Warm autoimmune hemolytic anemia" },
+      { "id": "B", "text": "Microangiopathic hemolysis (e.g., thrombotic thrombocytopenic purpura / hemolytic uremic syndrome spectrum)" },
+      { "id": "C", "text": "Iron deficiency" },
+      { "id": "D", "text": "Megaloblastic anemia" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Schistocytes with thrombocytopenia, high LDH, low haptoglobin, and a negative DAT indicate mechanical fragmentation of red cells in the microvasculature — a thrombotic microangiopathy pattern (TTP/HUS and related disorders), which is a medical emergency.",
+    "rationales": {
+      "A": "Warm AIHA shows spherocytes and a positive DAT, not schistocytes with negative DAT.",
+      "B": "Correct: fragmented cells plus consumptive thrombocytopenia define microangiopathic hemolysis.",
+      "C": "Iron deficiency causes microcytosis without schistocytes or hemolysis markers.",
+      "D": "Megaloblastic anemia shows macrocytosis and hypersegmented neutrophils, not fragmentation."
+    },
+    "misconception": "All hemolytic anemias are immune; the DAT-negative schistocyte pattern is mechanical/consumptive and urgent.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemolytic anemia chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["Schistocytes + thrombocytopenia + negative DAT = think thrombotic microangiopathy; look for organ injury (renal, neurologic)."]
+  },
+  {
+    "id": "hem-q-017",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A solubility screening test (e.g., Sickledex-type) for hemoglobin S will be:",
+    "choices": [
+      { "id": "A", "text": "Positive in sickle cell disease and sickle trait, but does not detect other variants" },
+      { "id": "B", "text": "Positive only in sickle cell disease" },
+      { "id": "C", "text": "Able to detect HbC and HbE as well" },
+      { "id": "D", "text": "Diagnostic for beta-thalassemia trait" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Solubility tests detect the presence of HbS (positive in both HbSS disease and HbAS trait) but cannot distinguish them and do not detect other hemoglobins; electrophoresis/HPLC is required for confirmation and full characterization.",
+    "rationales": {
+      "A": "Correct: the test screens for HbS presence only and is positive in trait and disease.",
+      "B": "Sickle trait also contains HbS and gives a positive screening result.",
+      "C": "Other variants are not detected by solubility screening.",
+      "D": "Beta-thalassemia trait is diagnosed by HbA2 elevation, not HbS screening."
+    },
+    "misconception": "A positive solubility test is read as sickle cell disease; it cannot separate trait from disease.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemoglobinopathies chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["Neonates with high HbF may screen falsely negative for HbS by solubility methods; newborn screening uses electrophoresis."]
+  },
+  {
+    "id": "hem-q-018",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "SCENARIO",
+    "vignette": "A 20-year-old man with anemia and vaso-occlusive pain has a hemoglobin electrophoresis showing a dominant HbS band with reduced HbA and a small HbA2 band; HbF is mildly elevated. A solubility test is positive.",
+    "stem": "Which diagnosis fits best?",
+    "choices": [
+      { "id": "A", "text": "Sickle cell trait (HbAS)" },
+      { "id": "B", "text": "Sickle cell disease (HbSS)" },
+      { "id": "C", "text": "Beta-thalassemia trait" },
+      { "id": "D", "text": "Hemoglobin C disease" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Dominant HbS with little or no HbA, clinical anemia, and vaso-occlusive events indicate sickle cell disease (HbSS). Sickle trait shows both HbA and HbS without clinical disease; electrophoresis quantifies the fractions.",
+    "rationales": {
+      "A": "Sickle trait shows a substantial HbA band and no clinical vaso-occlusive disease.",
+      "B": "Correct: HbS-dominant pattern plus clinical disease defines HbSS.",
+      "C": "Beta-thalassemia trait shows elevated HbA2 with normal HbA dominance, not HbS dominance.",
+      "D": "HbC disease shows a dominant HbC band on electrophoresis."
+    },
+    "misconception": "Positive solubility plus anemia equals disease in every case; trait is positive on screening but clinically silent with preserved HbA.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemoglobinopathies chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["Electrophoresis quantification separates trait from disease; screening tests only detect presence of HbS."]
+  },
+  {
+    "id": "hem-q-019",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which combination best supports thalassemia trait over iron deficiency in a microcytic anemia?",
+    "choices": [
+      { "id": "A", "text": "Elevated RDW, low ferritin, high TIBC" },
+      { "id": "B", "text": "Normal RDW, normal/high ferritin, normal TIBC, high red cell count for the anemia" },
+      { "id": "C", "text": "Low ferritin and low serum iron" },
+      { "id": "D", "text": "Schistocytes and low haptoglobin" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Thalassemia trait features uniform microcytosis (normal RDW), preserved iron stores, and a red cell count that is high relative to the hemoglobin; iron deficiency shows anisocytosis (high RDW) and depleted stores.",
+    "rationales": {
+      "A": "This is the iron deficiency pattern.",
+      "B": "Correct: normal RDW with adequate iron and relatively high RBC count favors thalassemia trait.",
+      "C": "Low ferritin and low iron indicate deficiency, not trait.",
+      "D": "This pattern indicates microangiopathic hemolysis, not a microcytic trait."
+    },
+    "misconception": "All microcytic anemias deserve a trial of iron; thalassemia trait is iron-replete and does not respond.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., microcytic anemia chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["RBC count high for the degree of anemia plus normal RDW is the classic thalassemia trait signature."]
+  },
+  {
+    "id": "hem-q-020",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "SCENARIO",
+    "vignette": "A 35-year-old woman has anemia, jaundice, and splenomegaly. Smear shows spherocytes and polychromasia. Reticulocyte count is elevated, haptoglobin is low, and the DAT is positive with anti-IgG.",
+    "stem": "What is the most likely diagnosis?",
+    "choices": [
+      { "id": "A", "text": "Warm autoimmune hemolytic anemia" },
+      { "id": "B", "text": "Iron deficiency anemia" },
+      { "id": "C", "text": "Thalassemia trait" },
+      { "id": "D", "text": "Aplastic anemia" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "A positive DAT with IgG coating, spherocytes, reticulocytosis, low haptoglobin, and elevated indirect bilirubin define warm autoimmune hemolytic anemia (extravascular hemolysis). Hereditary spherocytosis also shows spherocytes but has a negative DAT.",
+    "rationales": {
+      "A": "Correct: IgG-positive DAT with spherocytic hemolysis is warm AIHA.",
+      "B": "Iron deficiency shows microcytosis without hemolysis markers or spherocytes.",
+      "C": "Thalassemia trait is microcytic with normal RDW and no hemolysis.",
+      "D": "Aplastic anemia presents with pancytopenia and low reticulocytes, not hemolysis."
+    },
+    "misconception": "Spherocytes are assumed hereditary; a positive DAT points to immune destruction instead.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., hemolytic anemia chapter",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["DAT distinguishes immune (positive) from hereditary membrane defects (negative) when spherocytes are present."]
+  },
+  {
+    "id": "hem-q-021",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The prothrombin time (PT/INR) primarily evaluates which pathway(s)?",
+    "choices": [
+      { "id": "A", "text": "Intrinsic pathway only" },
+      { "id": "B", "text": "Extrinsic and common pathways" },
+      { "id": "C", "text": "Fibrinolytic pathway only" },
+      { "id": "D", "text": "Platelet function only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The PT adds thromboplastin (tissue factor) and calcium, assessing factor VII (extrinsic) plus the common pathway factors (X, V, II, fibrinogen). It is prolonged by warfarin, vitamin K deficiency, liver disease, and DIC.",
+    "rationales": {
+      "A": "The intrinsic pathway is assessed by the aPTT.",
+      "B": "Correct: PT covers extrinsic plus common pathways.",
+      "C": "Fibrinolysis is assessed with D-dimer, fibrin degradation products, and specialized assays.",
+      "D": "Platelet function requires platelet-specific testing (aggregometry, function analyzers)."
+    },
+    "misconception": "PT and aPTT are thought to reflect 'arterial' and 'venous' clotting; they map to cascade pathways instead.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation testing chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Isolated PT prolongation points to factor VII (or warfarin/early liver disease); isolated aPTT prolongation points to intrinsic factors or heparin."]
+  },
+  {
+    "id": "hem-q-022",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "SCENARIO",
+    "vignette": "A 25-year-old man with a bleeding history has a normal PT and a prolonged aPTT. A 1:1 mix with normal pooled plasma corrects the aPTT immediately. Factor VIII activity is low; other intrinsic factors are normal.",
+    "stem": "What is the most likely diagnosis?",
+    "choices": [
+      { "id": "A", "text": "Hemophilia A (factor VIII deficiency)" },
+      { "id": "B", "text": "Lupus anticoagulant" },
+      { "id": "C", "text": "Heparin contamination" },
+      { "id": "D", "text": "Vitamin K deficiency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "An isolated prolonged aPTT that corrects on mixing indicates a factor deficiency; low factor VIII with a bleeding history confirms hemophilia A. An inhibitor would fail to correct, and heparin would prolong the thrombin time markedly.",
+    "rationales": {
+      "A": "Correct: correctable aPTT with factor VIII deficiency is hemophilia A.",
+      "B": "Lupus anticoagulant fails to correct on mixing and is associated with thrombosis, not isolated bleeding.",
+      "C": "Heparin does not correct on mixing and markedly prolongs the thrombin time.",
+      "D": "Vitamin K deficiency prolongs both PT and aPTT (common pathway factors)."
+    },
+    "misconception": "Any prolonged aPTT is called an inhibitor; mixing studies separate deficiency (corrects) from inhibitor (does not correct).",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation testing chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Factor XII deficiency also prolongs aPTT but does not bleed; clinical bleeding plus low FVIII confirms hemophilia A."]
+  },
+  {
+    "id": "hem-q-023",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A patient with a prolonged aPTT has a mixing study that does not correct after 1:1 mixing with normal pooled plasma. This finding indicates:",
+    "choices": [
+      { "id": "A", "text": "A factor deficiency" },
+      { "id": "B", "text": "The presence of an inhibitor (e.g., lupus anticoagulant, specific factor inhibitor, or heparin)" },
+      { "id": "C", "text": "A specimen collection error" },
+      { "id": "D", "text": "Vitamin K deficiency" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Failure of the 1:1 mix to correct means something in the patient's plasma interferes with clotting despite normal factor supply: an inhibitor. Further testing (thrombin time for heparin, inhibitor assays, lupus anticoagulant panels) identifies which one.",
+    "rationales": {
+      "A": "Factor deficiencies correct when normal plasma supplies the missing factor.",
+      "B": "Correct: non-correction signals an inhibitor.",
+      "C": "Collection errors can prolong tests but the mixing behavior specifically identifies inhibitor presence.",
+      "D": "Vitamin K deficiency is a factor deficiency pattern and would correct on mixing."
+    },
+    "misconception": "A non-correcting mix is called 'severe deficiency'; dilution by the mix never removes an inhibitor but always supplies factors.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation testing chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Incubated mixing studies reveal time-dependent inhibitors such as acquired anti-FVIII antibodies."]
+  },
+  {
+    "id": "hem-q-024",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "SCENARIO",
+    "vignette": "A 38-year-old woman with recurrent deep vein thrombosis has a prolonged aPTT that does not correct on mixing. Thrombin time is normal. Dilute Russell viper venom testing is abnormal and confirms on repeat/confirmatory steps.",
+    "stem": "Which best explains the prolonged aPTT in this patient?",
+    "choices": [
+      { "id": "A", "text": "Lupus anticoagulant — a thrombosis risk despite prolonging the aPTT" },
+      { "id": "B", "text": "Hemophilia A" },
+      { "id": "C", "text": "Heparin contamination" },
+      { "id": "D", "text": "Factor XII deficiency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Lupus anticoagulant is an antiphospholipid antibody that prolongs phospholipid-dependent tests (aPTT, dRVVT) and fails to correct on mixing, yet paradoxically increases thrombosis risk rather than bleeding. A normal thrombin time argues against heparin.",
+    "rationales": {
+      "A": "Correct: non-correcting aPTT with thrombotic history and confirmatory dRVVT pattern fits lupus anticoagulant.",
+      "B": "Hemophilia A corrects on mixing and presents with bleeding, not thrombosis.",
+      "C": "Heparin markedly prolongs the thrombin time; it is normal here.",
+      "D": "Factor XII deficiency prolongs aPTT but corrects on mixing and causes no bleeding or thrombosis."
+    },
+    "misconception": "Prolonged aPTT is assumed to mean bleeding risk; lupus anticoagulant prolongs the test while causing clots.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation testing chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Lupus anticoagulant testing is best interpreted off anticoagulation or with validated procedures; warfarin and DOACs interfere."]
+  },
+  {
+    "id": "hem-q-025",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which laboratory pattern is most consistent with disseminated intravascular coagulation (DIC)?",
+    "choices": [
+      { "id": "A", "text": "Prolonged PT and aPTT, thrombocytopenia, low fibrinogen, elevated D-dimer, schistocytes" },
+      { "id": "B", "text": "Normal PT/aPTT with elevated platelets" },
+      { "id": "C", "text": "Prolonged PT only with normal fibrinogen and normal D-dimer" },
+      { "id": "D", "text": "Low D-dimer with prolonged thrombin time" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "DIC is consumptive: screening tests prolong, platelets and fibrinogen are consumed, and fibrin degradation (D-dimer) rises with microangiopathic schistocytes. Early DIC may show normal fibrinogen (acute-phase reactant), so trends matter.",
+    "rationales": {
+      "A": "Correct: this panel captures consumption plus secondary fibrinolysis.",
+      "B": "This pattern does not describe a consumptive coagulopathy.",
+      "C": "Isolated PT prolongation suggests factor VII deficiency or warfarin, not DIC.",
+      "D": "DIC raises D-dimer; low D-dimer argues against active DIC."
+    },
+    "misconception": "Fibrinogen must be low to diagnose DIC; early or compensated DIC can have normal fibrinogen due to acute-phase behavior.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation disorders chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Serial trends (platelets, fibrinogen, PT/aPTT, D-dimer) outperform single values in DIC."]
+  },
+  {
+    "id": "hem-q-026",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "SCENARIO",
+    "vignette": "A 65-year-old with atrial fibrillation is started on warfarin. On day 5 of therapy his INR is 2.4. (Therapeutic ranges are guideline and laboratory dependent.)",
+    "stem": "Which statement about this result is correct?",
+    "choices": [
+      { "id": "A", "text": "The INR is within the typical therapeutic target range for most indications (2.0 to 3.0)" },
+      { "id": "B", "text": "The INR is subtherapeutic and warfarin must be stopped" },
+      { "id": "C", "text": "Warfarin should be monitored with aPTT instead" },
+      { "id": "D", "text": "The INR reflects platelet function" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "For most indications (including atrial fibrillation and venous thromboembolism), the typical INR target is 2.0 to 3.0; certain mechanical valves use higher ranges. Targets are guideline dependent and must be confirmed with local protocols.",
+    "rationales": {
+      "A": "Correct: 2.4 sits in the commonly cited 2.0 to 3.0 therapeutic window.",
+      "B": "2.4 is therapeutic for most indications; stopping would risk thrombosis.",
+      "C": "Warfarin is monitored by INR (standardized PT), not aPTT.",
+      "D": "INR reflects vitamin K-dependent clotting factor activity, not platelet function."
+    },
+    "misconception": "INR is a universal number independent of indication; target ranges vary for mechanical valves and other contexts.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., anticoagulant monitoring chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["INR standardizes PT across thromboplastins specifically for warfarin monitoring; ranges are indication specific."]
+  },
+  {
+    "id": "hem-q-027",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which test is most sensitive to heparin contamination of a specimen?",
+    "choices": [
+      { "id": "A", "text": "Prothrombin time" },
+      { "id": "B", "text": "Thrombin time" },
+      { "id": "C", "text": "Bleeding time" },
+      { "id": "D", "text": "Platelet count" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The thrombin time measures conversion of fibrinogen to fibrin and is markedly prolonged by even small amounts of heparin; it is the quickest screen for heparin effect or contamination when aPTT is unexpectedly prolonged.",
+    "rationales": {
+      "A": "PT can be mildly affected but is not the sensitive heparin screen.",
+      "B": "Correct: thrombin time is exquisitely sensitive to heparin.",
+      "C": "Bleeding time assesses primary hemostasis and is largely obsolete.",
+      "D": "Platelet count is unaffected by heparin contamination."
+    },
+    "misconception": "aPTT prolongation is assumed to be heparin every time; thrombin time confirms heparin presence quickly.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation testing chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Unfractionated heparin is monitored by aPTT or anti-Xa using laboratory-specific therapeutic ranges."]
+  },
+  {
+    "id": "hem-q-028",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "SCENARIO",
+    "vignette": "A coagulation specimen is collected in a 3.2 percent sodium citrate tube filled to only 40 percent of its nominal volume. The PT and aPTT are both prolonged; the patient has no bleeding symptoms.",
+    "stem": "What is the most likely explanation?",
+    "choices": [
+      { "id": "A", "text": "Factor deficiency of the common pathway" },
+      { "id": "B", "text": "Excess citrate from underfilling the tube falsely prolongs clotting times" },
+      { "id": "C", "text": "Lupus anticoagulant" },
+      { "id": "D", "text": "Platelet dysfunction" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The standard citrate-to-blood ratio (1:9) requires a properly filled tube; underfilling adds excess citrate that cannot be fully neutralized by calcium in the test, falsely prolonging PT and aPTT. Recollection in a properly filled tube resolves the artifact.",
+    "rationales": {
+      "A": "A true common pathway deficiency would not track with a preanalytical handling error.",
+      "B": "Correct: underfilled citrate tubes are a classic cause of spuriously prolonged clotting times.",
+      "C": "Lupus anticoagulant does not correlate with tube fill volume and is confirmed with specific assays.",
+      "D": "Platelet dysfunction affects primary hemostasis, not PT/aPTT."
+    },
+    "misconception": "All prolonged clotting tests are in vivo pathology; preanalytical tube fill is one of the most common causes of spurious results.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., preanalytical coagulation chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Hematocrit above roughly 55 percent requires citrate volume adjustment; underfilled tubes prolong PT/aPTT artifactually."]
+  },
+  {
+    "id": "hem-q-029",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A patient with a bleeding disorder has normal PT, normal aPTT, and normal platelet count and function testing, yet bleeds after surgery. Which deficiency is most likely?",
+    "choices": [
+      { "id": "A", "text": "Factor VIII deficiency" },
+      { "id": "B", "text": "Factor XIII deficiency" },
+      { "id": "C", "text": "Warfarin effect" },
+      { "id": "D", "text": "Severe thrombocytopenia" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Factor XIII cross-links and stabilizes fibrin but is not detected by PT or aPTT (which end at fibrin formation). Factor XIII deficiency causes delayed bleeding and poor wound healing with completely normal screening tests; specialized assays (clot solubility, quantitative FXIII) are required.",
+    "rationales": {
+      "A": "Factor VIII deficiency prolongs the aPTT.",
+      "B": "Correct: FXIII deficiency leaves screening tests normal and presents with delayed bleeding.",
+      "C": "Warfarin prolongs the PT/INR.",
+      "D": "Thrombocytopenia lowers the platelet count and prolongs primary hemostasis testing."
+    },
+    "misconception": "Normal PT and aPTT exclude coagulation disorders; FXIII is the classic exception taught in hemostasis.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., coagulation disorders chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Also normal on screening: factor XIII deficiency and mild von Willebrand disease; specialized tests are needed."]
+  },
+  {
+    "id": "hem-q-030",
+    "subjectId": "hematology",
+    "topicId": "hemostasis",
+    "type": "SCENARIO",
+    "vignette": "A patient on apixaban (a direct factor Xa inhibitor) presents with major bleeding. The clinical team wants to quantify the drug's anticoagulant effect quickly.",
+    "stem": "Which laboratory approach best estimates the effect of apixaban in this emergency?",
+    "choices": [
+      { "id": "A", "text": "INR" },
+      { "id": "B", "text": "A drug-calibrated anti-factor Xa assay" },
+      { "id": "C", "text": "Bleeding time" },
+      { "id": "D", "text": "Thrombin time" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Direct factor Xa inhibitors are best quantified with anti-Xa assays calibrated for the specific drug; routine monitoring is not required in stable patients but such assays help in bleeding, renal failure, and emergency reversal decisions. INR and aPTT are unreliable gauges of DOAC effect.",
+    "rationales": {
+      "A": "INR monitors vitamin K antagonists and is not calibrated for apixaban.",
+      "B": "Correct: drug-calibrated anti-Xa assays quantify factor Xa inhibitor effect.",
+      "C": "Bleeding time is obsolete and uninformative for DOACs.",
+      "D": "Thrombin time monitors direct thrombin inhibitors (e.g., dabigatran) and heparin, not apixaban."
+    },
+    "misconception": "Standard coagulation screens quantify DOACs; they are insensitive or uninterpretable for these drugs.",
+    "reference": "Rodak's Hematology: Clinical Principles and Applications, 7th ed., anticoagulant monitoring chapter",
+    "lessonId": "hematology/hemostasis",
+    "examTraps": ["Dabigatran is a direct thrombin inhibitor (dilute thrombin time); apixaban/rivaroxaban are factor Xa inhibitors (calibrated anti-Xa)."]
   }
 ]

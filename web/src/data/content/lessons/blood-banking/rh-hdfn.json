@@ -104,7 +104,7 @@
   "relatedFlashcardIds": ["bb-fc-011", "bb-fc-012", "bb-fc-013"],
   "followUp": ["blood-banking/transfusion-practice"],
   "references": [
-    { "title": "Harmening's Blood Banking and Transfusion Fundamentals", "detail": "6th ed., chapters on the Rh system and hemolytic disease of the newborn", "url": null },
+    { "title": "Modern Blood Banking and Transfusion Practices (Harmening)", "detail": "6th ed., F. A. Davis, chapters on the Rh system and hemolytic disease of the newborn", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., immunohematology section (antiglobulin testing)", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

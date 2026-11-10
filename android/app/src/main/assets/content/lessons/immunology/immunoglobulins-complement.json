@@ -1,0 +1,118 @@
+{
+  "id": "immunology/immunoglobulins-complement",
+  "subjectId": "immunology",
+  "topicId": "immunoglobulins-complement",
+  "title": "Immunoglobulins and Complement: Classes, Pathways, and Immunodeficiency Patterns",
+  "summary": "The five immunoglobulin classes and their effector functions, the three complement activation pathways and their cleavage products, and the clinical patterns of primary immunodeficiencies - the conceptual backbone every serology result rests on.",
+  "readingMinutes": 15,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["immunoglobulin G", "immunoglobulin M", "immunoglobulin A", "immunoglobulin E", "complement", "classical pathway", "C3", "membrane attack complex", "hypogammaglobulinemia", "CH50"],
+  "objectives": [
+    "Compare the structure, distribution, and effector functions of IgG, IgM, IgA, IgD, and IgE.",
+    "Trace the classical, alternative, and lectin complement pathways to C3 convertase and the membrane attack complex.",
+    "Relate specific complement and immunoglobulin deficiencies to their characteristic infection and autoimmune patterns.",
+    "Interpret basic immunoglobulin quantitation and CH50 results in context, with correct caveat language about reference intervals."
+  ],
+  "quickReview": {
+    "highYield": [
+      "IgM is a pentamer, is the first antibody of the primary response, and activates complement classically very efficiently.",
+      "IgG is the most abundant serum immunoglobulin, crosses the placenta, and dominates the secondary response with high affinity.",
+      "Secretory IgA is a dimer with a J chain and secretory component that protects mucosal surfaces and is not complement activating by the classical pathway.",
+      "IgE binds mast cells and basophils via Fc receptors and mediates type I hypersensitivity and antiparasitic responses.",
+      "C5-C9 (membrane attack complex) deficiency predisposes specifically to Neisseria infections; C3 deficiency causes severe recurrent pyogenic infections."
+    ],
+    "mustKnowTable": {
+      "columns": ["Class", "Percent of serum Ig", "Structure", "Crosses placenta", "Complement (classical)", "Hallmark role"],
+      "rows": [
+        ["IgG", "About 75-80 percent", "Monomer", "Yes", "Yes", "Secondary response, opsonization, neonatal immunity"],
+        ["IgM", "About 5-10 percent", "Pentamer", "No", "Yes (very efficient)", "Primary response, isohemagglutinins, cold agglutinins"],
+        ["IgA", "About 10-15 percent", "Monomer serum / dimer secretory", "No", "No", "Mucosal immunity, secretions"],
+        ["IgE", "Trace", "Monomer", "No", "No", "Allergy, anaphylaxis, helminth defense"],
+        ["IgD", "Trace", "Monomer", "No", "No", "B-cell receptor surface marker"]
+      ]
+    },
+    "mnemonic": "G-Made (G = most abundant, M = Most early/first), A = secretions/mucosAl, E = allergy/parasitEs, D = B-cell Display."
+  },
+  "deepStudy": {
+    "introduction": "Immunoglobulins and complement are the humoral arm of immunity, and every serologic test - from a pregnancy test to a syphilis algorithm - exploits one of their properties: antigen binding, agglutination, complement fixation, or Fc-mediated signaling. Understanding the five immunoglobulin classes explains why IgM appears early in infection and gives strong agglutination, why IgG-based tests mature over weeks, and why IgE drives allergy testing. Complement explains both the destructive power of serum against certain bacteria and the clinical picture of inherited complement deficiencies. This lesson builds that foundation and connects it to the immunodeficiency patterns you will meet in case vignettes, always keeping in mind that quantitative results must be interpreted against the local laboratory's own reference intervals, which vary by method, age, and population.",
+    "sections": [
+      {
+        "heading": "Immunoglobulin classes: structure dictates function",
+        "body": "All immunoglobulins share a basic structure of two heavy and two light chains with variable regions that bind antigen and constant regions that recruit effector mechanisms. IgG exists as four subclasses with differing complement-fixing and placental-transfer abilities; it is the workhorse of the secondary response, opsonizes microbes for phagocytosis, and provides neonatal protection for the first months of life. IgM is secreted as a pentamer with ten antigen-binding sites, which makes it an outstanding agglutinin and complement activator but a poor extravascular traveler because of its size; natural anti-A and anti-B isohemagglutinins are IgM, which is why ABO incompatibility reactions are immediate and intravascular. IgA dominates secretions as a dimer joined by a J chain and secretory component; it neutralizes toxins and viruses at mucosal surfaces without fixing complement, and its deficiency is the most common primary immunodeficiency, though many patients are asymptomatic. IgE is present in vanishingly small serum concentrations but binds high-affinity Fc receptors on mast cells and basophils, so cross-linking by allergen triggers degranulation. IgD functions mainly as a B-cell surface receptor. Structure predicts test behavior: IgM gives strong room-temperature agglutination, IgG drives 37-degree reactions and Coombs positivity.",
+        "diagram": null
+      },
+      {
+        "heading": "Complement pathways: three doors to one explosion",
+        "body": "Complement is a cascade of serum proteins that converge on C3 and then assemble the membrane attack complex, C5b through C9. The classical pathway begins when C1q binds antigen-antibody complexes, classically IgM or aggregated IgG; it is therefore the pathway your serology tests engage when they fix complement. The alternative pathway is antibody independent, ticked over at a low rate by spontaneous C3 hydrolysis, and amplified on microbial surfaces lacking regulatory proteins; properdin stabilizes its C3 convertase. The lectin pathway begins when mannose-binding lectin or ficolins bind microbial carbohydrate patterns and activate MASP proteases, functionally mirroring the classical pathway without antibody. Each pathway produces a C3 convertase that cleaves C3 into C3b, the major opsonin, and C3a, an anaphylatoxin; the C5 convertase then generates C5a, the most potent anaphylatoxin and chemoattractant, and C5b, which nucleates the membrane attack complex that punches osmotic pores in target membranes. Regulatory proteins such as factor H, factor I, decay-accelerating factor, and protectin keep host cells safe; their failure causes hemolysis, as in paroxysmal nocturnal hemoglobinuria. Cleavage fragments are useful analytically: C3 and C4 consumption reflects activation, while CH50 measures functional classical pathway activity.",
+        "diagram": null
+      },
+      {
+        "heading": "Immunodeficiency patterns: which arm fails, which bug wins",
+        "body": "Antibody (B-cell) deficiencies present with recurrent sinopulmonary infections caused by encapsulated bacteria such as Streptococcus pneumoniae and Haemophilus influenzae beginning after six months of age when maternal IgG wanes. X-linked agammaglobulinemia (Bruton disease, BTK mutation) shows absent B cells and profoundly low all immunoglobulin classes; common variable immunodeficiency presents later with similar infections plus autoimmune and granulomatous features. T-cell deficiencies are more severe and earlier: DiGeorge syndrome (22q11 deletion, thymic hypoplasia) causes viral, fungal, and Pneumocystis infections plus hypocalcemia from absent parathyroids; severe combined immunodeficiency presents in infancy with failure to thrive and opportunistic infection and is a medical emergency for transplant. Combined deficiencies such as hyper-IgM syndrome (CD40 ligand defect) show low IgG and IgA with elevated or normal IgM and Pneumocystis risk. Phagocytic defects - chronic granulomatous disease (DHR or nitroblue tetrazolium testing), leukocyte adhesion deficiency (CD18 defects), and Chediak-Higashi - cause catalase-positive organism infections and poor wound healing. Complement defects have signature patterns: early components (C1, C2, C4) with lupus-like disease, C3 with severe pyogenic infection, and terminal components with recurrent Neisseria. Matching the pattern to the pathogen class is the heart of these questions.",
+        "diagram": null
+      },
+      {
+        "heading": "Laboratory assessment and interpretation discipline",
+        "body": "Quantitative immunoglobulins are measured by nephelometry or turbidimetry and must always be compared with age-matched reference intervals; infant and adult values differ dramatically, and intervals vary by laboratory and method. Serial measurements and functional responses to vaccination (for example, titers to pneumococcal polysaccharide or tetanus toxoid) tell you more than a single concentration. CH50 (total hemolytic complement) is a functional assay of the classical pathway; a low CH50 with low C4 suggests classical pathway activation (as in immune complex disease), whereas a profoundly low CH50 with normal C4 in a well patient suggests a terminal component deficiency until proven otherwise. Alternative pathway function is screened with AH50. When interpreting any serologic test built on immunoglobulins - heterophile antibody assays, autoimmune panels, infectious disease serology - remember that polyclonal activation, monoclonal gammopathies, and rheumatoid factor (IgM anti-IgG) can create interference such as false-positive results or nonspecific agglutination. Document the method and the specific reference interval used in every report, and flag results that are discordant with the clinical picture for repeat or alternative testing rather than releasing them without comment.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Immunoglobulin and complement knowledge drives real decisions: interpreting neonatal serology (maternal IgG crosses placenta and confounds infant testing), choosing assays in suspected immunodeficiency, understanding why IgM-based assays become positive early while IgG-based assays confirm past exposure, and why complement consumption accompanies active lupus or immune complex disease. Terminal complement deficiency mandates counseling about Neisseria risk, and hypogammaglobulinemia mandates immunoglobulin replacement. In transfusion medicine, IgM isohemagglutinins explain immediate hemolytic reactions. In allergy, IgE testing guides desensitization. In every case, the laboratory must state method and reference interval and avoid inventing numeric cutoffs that the local laboratory has not validated.",
+    "labInterpretation": "Report immunoglobulin results in units and with the laboratory's own reference intervals (for example, mg/dL or g/L), noting that intervals vary by method, age, and population. Age-matched intervals are mandatory in pediatrics. A low IgG with normal IgM in a child after six months of age prompts evaluation for antibody deficiency; an absent vaccine response despite normal quantities signals functional antibody failure. CH50 results are typically reported as a functional titer or units per mL against a reference range; values below the assay floor in a patient without infection or consumption suggest inherited complement protein absence and should trigger confirmatory antigenic testing. Correlate all results with clinical findings, medication (immunosuppressants, anticonvulsants can lower Ig), and protein loss (nephrotic syndrome, protein-losing enteropathy) before diagnosing primary deficiency.",
+    "comparisonTables": [
+      {
+        "title": "Complement pathways compared",
+        "columns": ["Feature", "Classical", "Alternative", "Lectin"],
+        "rows": [
+          ["Trigger", "Antigen-antibody complexes (IgM or IgG)", "Microbial surfaces, spontaneous C3 hydrolysis", "Mannose-binding lectin or ficolins on microbes"],
+          ["Initiating protein", "C1q", "C3b plus factor B and D", "MASP-1/MASP-2"],
+          ["C3 convertase", "C4b2a", "C3bBb", "C4b2a"],
+          ["Early deficiency picture", "Lupus-like illness (C1, C2, C4)", "Recurrent pyogenic infection, atypical HUS risk (factor H, I)", "Recurrent infection in early childhood (MBL)"],
+          ["Screening test", "CH50", "AH50", "MBL antigen level"]
+        ]
+      },
+      {
+        "title": "Immunodeficiency pattern quick map",
+        "columns": ["Defect type", "Example", "Typical infections", "Key clue"],
+        "rows": [
+          ["Antibody (B-cell)", "X-linked agammaglobulinemia", "Encapsulated bacteria, enteroviruses", "Absent B cells after 6 months"],
+          ["Combined T and B", "Severe combined immunodeficiency", "Opportunistic, viral, fungal, Pneumocystis", "Failure to thrive in infancy"],
+          ["T-cell", "DiGeorge syndrome", "Viral, fungal, Pneumocystis", "Hypocalcemia, conotruncal heart defects"],
+          ["Phagocyte", "Chronic granulomatous disease", "Catalase-positive bacteria and fungi", "Granulomas, abnormal DHR/NBT"],
+          ["Complement terminal", "C5-C9 deficiency", "Neisseria species", "Recurrent meningococcal or gonococcal disease"],
+          ["Regulatory", "C1 inhibitor deficiency", "Angioedema without urticaria", "Low C4 between attacks"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "IgM does not cross the placenta; a positive IgM serology in a newborn reflects infant infection or production, not passive maternal antibody.",
+      "Rheumatoid factor is IgM anti-IgG and can bridge assays, causing false positives in serologic tests that use IgG reagents.",
+      "A normal IgG concentration does not exclude functional antibody deficiency; vaccine response testing is the proper next step.",
+      "Low C4 with low CH50 suggests classical pathway consumption (immune complexes), not necessarily inherited deficiency - correlate with clinical activity."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "IgM = Most early (pentamer, first responder). IgG = Goes everywhere (placenta, most abundant). IgA = At mucosAl surfaces. IgE = Endless allergy. IgD = Displayed on B cells.",
+      "funny": "Mimi: 'Si IgM ang unang sumugod, si IgG ang naglilibot kahit sa sinapupunan. Si IgA, guard ng mucosa. Si IgE, laging allergic reaction!'"
+    },
+    {
+      "type": "KEYWORD",
+      "text": "Terminal complement (C5-C9) = Neisseria magnet. Remember MAC = Membrane Attack Complex at the very end.",
+      "funny": "Pag nawala ang MAC, Neisseria ang unang bumibisita. Walang pintuan kasi, kaya tuloy-tuloy ang pasok."
+    }
+  ],
+  "practiceQuestionIds": ["imm-q-001", "imm-q-002", "imm-q-003"],
+  "relatedFlashcardIds": ["imm-fc-001", "imm-fc-002", "imm-fc-003"],
+  "followUp": ["immunology/serology-autoimmune"],
+  "references": [
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on immunology and immunoglobulins", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on specific proteins and immune assays", "url": null },
+    { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., immunology fundamentals", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

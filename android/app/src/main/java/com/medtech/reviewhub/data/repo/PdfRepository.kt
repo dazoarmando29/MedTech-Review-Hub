@@ -208,7 +208,10 @@ private fun PdfEntity.toDomain() = PdfDocumentMeta(
 private fun PdfAnnotationEntity.toDomain() = PdfAnnotation(
     id = id, pdfId = pdfId, page = page,
     type = runCatching { AnnotationType.valueOf(type) }.getOrDefault(AnnotationType.HIGHLIGHT),
-    color = runCatching { HighlightColor.valueOf(color) }.getOrDefault(HighlightColor.YELLOW),
+    // Legacy stored color names are mapped via HighlightColor.fromStored
+    // ("RED" -> PINK; legacy "PURPLE" rows were rewritten to "ROSE" by
+    // AppDatabase.MIGRATION_1_2). Other colors load unchanged.
+    color = HighlightColor.fromStored(color),
     selectedText = selectedText, note = note,
     rect = if (hasRect) NormalizedRect(rectX, rectY, rectW, rectH) else null,
     createdAt = createdAtMs

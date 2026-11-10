@@ -2,82 +2,811 @@
   {
     "id": "cc-q-001",
     "subjectId": "clinical-chemistry",
-    "topicId": "enzymes",
+    "topicId": "enzymes-cardiac",
     "type": "MCQ",
-    "vignette": "A 45-year-old man has an elevated ALP of 2.5x the upper reference limit. GGT is normal; calcium is high.",
-    "stem": "Which conclusion is best supported?",
+    "vignette": null,
+    "stem": "The diagnosis of acute myocardial infarction using high-sensitivity cardiac troponin requires:",
     "choices": [
-      { "id": "A", "text": "Cholestatic liver disease" },
-      { "id": "B", "text": "Bone-origin ALP (e.g., Paget's disease or hypercalcemia-related bone turnover)" },
-      { "id": "C", "text": "Acute pancreatitis" },
-      { "id": "D", "text": "Myocardial infarction" }
+      { "id": "A", "text": "A single troponin value above the assay's 99th percentile upper reference limit" },
+      { "id": "B", "text": "A rise and/or fall of troponin with at least one value above the assay-specific 99th percentile upper reference limit" },
+      { "id": "C", "text": "Elevated CK-MB with a normal troponin" },
+      { "id": "D", "text": "Elevated myoglobin within the first two hours" }
     ],
     "correctChoiceId": "B",
     "difficulty": "MEDIUM",
-    "explanation": "ALP has hepatic and bone isoenzymes. A normal GGT argues against a hepatic source. Elevated calcium with high ALP suggests increased bone turnover (e.g., Paget's disease or bone metastases).",
+    "explanation": "Acute myocardial infarction requires evidence of acute injury: a significant rise and/or fall in troponin with at least one value exceeding the assay-specific 99th percentile URL. A single elevated value indicates myocardial injury but does not by itself establish acute infarction.",
     "rationales": {
-      "A": "Hepatic ALP elevation is usually accompanied by GGT elevation.",
-      "B": "Correct: GGT normal excludes liver; high ALP + high calcium points to bone.",
-      "C": "Pancreatitis elevates lipase/amylase, not ALP specifically.",
-      "D": "MI elevates troponin/CK-MB; ALP is not a marker of myocardial injury."
+      "A": "A lone elevated value can reflect chronic myocardial injury (heart failure, renal disease) rather than acute infarction.",
+      "B": "Correct: dynamic change plus a value over the 99th percentile is the accepted laboratory criterion for acute injury.",
+      "C": "CK-MB elevation with normal troponin is discordant; troponin is the preferred marker and would not be normal in true infarction.",
+      "D": "Myoglobin rises early but lacks cardiac specificity and cannot diagnose infarction."
     },
-    "misconception": "Students assume every ALP elevation is liver-related; GGT is the tie-breaker.",
-    "reference": "Tietz 6th ed., Ch. 21",
-    "lessonId": "clinical-chemistry/enzymes",
-    "examTraps": ["ALP up + GGT normal = bone; ALP up + GGT up = liver."]
+    "misconception": "Students treat any troponin above the cutoff as a heart attack; the delta (change over serial samples) is what defines acute events.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., cardiac markers chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Troponin = myocardial injury; infarction requires the dynamic rise/fall pattern plus clinical context."]
   },
   {
     "id": "cc-q-002",
     "subjectId": "clinical-chemistry",
-    "topicId": "enzymes",
-    "type": "MCQ",
-    "vignette": "A patient presents with acute abdominal pain 6 hours ago. Amylase is 3x normal; lipase is within reference range.",
-    "stem": "Which interpretation is most appropriate?",
+    "topicId": "enzymes-cardiac",
+    "type": "SCENARIO",
+    "vignette": "A 78-year-old man with chronic kidney disease presents with atypical chest discomfort. High-sensitivity troponin I is elevated at 0 hours and 3 hours with no significant change between samples. ECG is unremarkable and the patient is clinically stable.",
+    "stem": "What is the best laboratory interpretation?",
     "choices": [
-      { "id": "A", "text": "Acute pancreatitis is confirmed" },
-      { "id": "B", "text": "Consider salivary (or other non-pancreatic) amylase source; repeat/confirm with lipase" },
-      { "id": "C", "text": "The patient has macroamylasemia for sure" },
-      { "id": "D", "text": "Renal failure is the only explanation" }
+      { "id": "A", "text": "Acute myocardial infarction confirmed by the elevated troponin" },
+      { "id": "B", "text": "Chronic myocardial injury elevation without a significant delta; acute infarction not established by lab data" },
+      { "id": "C", "text": "False positive troponin caused by rheumatoid factor in all cases" },
+      { "id": "D", "text": "The patient has an isolated CK-MB elevation" }
     ],
     "correctChoiceId": "B",
-    "difficulty": "MEDIUM",
-    "explanation": "Amylase has salivary and pancreatic sources and rises early but normalizes quickly; lipase is more specific for pancreatitis. A normal lipase with elevated amylase suggests a non-pancreatic source and warrants confirmation.",
+    "difficulty": "HARD",
+    "explanation": "Without a significant rise and/or fall between serial samples, an elevated troponin reflects a chronically elevated baseline, commonly seen in chronic kidney disease and heart failure. The laboratory pattern supports chronic myocardial injury, not acute infarction, and must be interpreted with the assay-specific delta criteria and clinical picture.",
     "rationales": {
-      "A": "Confirmation of pancreatitis relies on lipase and/or imaging; amylase alone is not specific.",
-      "B": "Correct: salivary amylase (parotitis, bowel obstruction) can raise amylase with normal lipase.",
-      "C": "Macroamylasemia is possible but is a diagnosis of exclusion — not 'for sure'.",
-      "D": "Renal impairment can raise amylase but is not the only explanation."
+      "A": "Elevated troponin alone indicates myocardial injury, not necessarily acute infarction; the absent delta argues against a new event.",
+      "B": "Correct: stable elevated values without dynamic change fit chronic myocardial injury.",
+      "C": "Assay interference exists but is uncommon and is not the default explanation; the clinical context points to chronic elevation.",
+      "D": "CK-MB is not mentioned in the case; the pattern concerns troponin kinetics."
     },
-    "misconception": "Amylase is treated as synonymous with pancreatitis; specificity of lipase is the key teaching point.",
-    "reference": "Tietz 6th ed., Ch. 21",
-    "lessonId": "clinical-chemistry/enzymes",
-    "examTraps": ["Lipase is more specific and stays elevated longer than amylase."]
+    "misconception": "Any troponin above the URL in chest pain equals infarction; serial delta criteria exist precisely to avoid this error.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., cardiac markers chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Use the performing assay's own 99th percentile and delta thresholds; assays are not interchangeable."]
   },
   {
     "id": "cc-q-003",
     "subjectId": "clinical-chemistry",
-    "topicId": "renal",
+    "topicId": "enzymes-cardiac",
     "type": "MCQ",
-    "vignette": "A dehydrated patient: BUN 60 mg/dL, creatinine 2.0 mg/dL (reference 0.7-1.3).",
-    "stem": "The BUN/creatinine ratio suggests:",
+    "vignette": null,
+    "stem": "A patient with chest pain ruled out for infarction on day 1 develops recurrent pain on day 2 while troponin remains elevated from the initial event. Which marker is most useful for detecting early reinfarction?",
     "choices": [
-      { "id": "A", "text": "Intrinsic renal disease" },
-      { "id": "B", "text": "Prerenal azotemia" },
-      { "id": "C", "text": "Hepatocellular failure" },
-      { "id": "D", "text": "Rhabdomyolysis" }
+      { "id": "A", "text": "Cardiac troponin T" },
+      { "id": "B", "text": "CK-MB" },
+      { "id": "C", "text": "Myoglobin" },
+      { "id": "D", "text": "Alkaline phosphatase" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "CK-MB returns to normal within 2 to 3 days, so a secondary rise suggests new necrosis even while troponin is still elevated from the first event. This shorter kinetic window is why CK-MB retains a niche in reinfarction detection.",
+    "rationales": {
+      "A": "Troponin stays elevated for days to a week and cannot distinguish a new event from the original one by level alone.",
+      "B": "Correct: CK-MB's short window makes a fresh rise detectable for reinfarction.",
+      "C": "Myoglobin is nonspecific and cleared quickly; it cannot localize reinfarction to the heart.",
+      "D": "Alkaline phosphatase reflects cholestasis or bone turnover, not myocardial necrosis."
+    },
+    "misconception": "Troponin is the best marker overall, so students choose it for every question; reinfarction is the classic CK-MB scenario.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., cardiac markers chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Kinetics decide the marker: long window for diagnosis (troponin), short window for reinfarction (CK-MB)."]
+  },
+  {
+    "id": "cc-q-004",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which enzyme is considered more specific for hepatocellular injury?",
+    "choices": [
+      { "id": "A", "text": "Aspartate aminotransferase (AST)" },
+      { "id": "B", "text": "Alanine aminotransferase (ALT)" },
+      { "id": "C", "text": "Alkaline phosphatase (ALP)" },
+      { "id": "D", "text": "Creatine kinase (CK)" }
     ],
     "correctChoiceId": "B",
     "difficulty": "EASY",
-    "explanation": "BUN/creatinine ratio = 60/2.0 = 30:1 (>20:1) with a clinical history of dehydration — classic prerenal azotemia (increased urea reabsorption).",
+    "explanation": "ALT is concentrated in hepatocyte cytoplasm and is more liver-specific; AST is distributed in liver, heart, skeletal muscle, kidney, and red cells and rises with hemolysis and muscle injury.",
     "rationales": {
-      "A": "Intrinsic renal disease usually shows a ratio < 15-20:1 with rising creatinine.",
-      "B": "Correct: ratio > 20:1 plus dehydration = prerenal.",
-      "C": "Severe liver failure lowers BUN (low ratio < 10:1).",
-      "D": "Rhabdomyolysis raises creatinine from muscle injury and CK — not this ratio pattern."
+      "A": "AST rises in liver disease but also in muscle and cardiac injury and in hemolyzed specimens.",
+      "B": "Correct: ALT is the more liver-specific transaminase.",
+      "C": "ALP is a cholestatic/bone enzyme, not a hepatocellular marker.",
+      "D": "CK reflects skeletal and cardiac muscle, not liver."
     },
-    "misconception": "The ratio is calculated with both units in mg/dL; forgetting to compute it leads to guessing.",
-    "reference": "Tietz 6th ed., Ch. 26",
-    "lessonId": "clinical-chemistry/renal-function",
-    "examTraps": ["Always compute the ratio and pair it with the clinical context."]
+    "misconception": "AST and ALT are treated as interchangeable liver tests; AST's extrahepatic sources frequently confound interpretation.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., liver enzymes chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["AST:ALT patterns (e.g., ratio around 2 in alcoholic injury) are pattern clues, not standalone diagnostics."]
+  },
+  {
+    "id": "cc-q-005",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "SCENARIO",
+    "vignette": "A 15-year-old boy with growing pains has an incidental finding of elevated alkaline phosphatase. ALT, AST, GGT, and bilirubin are all within their reference intervals.",
+    "stem": "What is the most likely source of the elevated alkaline phosphatase?",
+    "choices": [
+      { "id": "A", "text": "Obstructive liver disease" },
+      { "id": "B", "text": "Physiologic bone growth (bone isoenzyme)" },
+      { "id": "C", "text": "Pancreatitis" },
+      { "id": "D", "text": "Acute viral hepatitis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "ALP has bone, liver, placental, and intestinal isoenzymes. In an adolescent with normal liver enzymes and GGT, physiologic bone growth is the expected source; GGT helps confirm or exclude a hepatic origin.",
+    "rationales": {
+      "A": "Obstruction raises ALP with GGT and usually conjugated bilirubin; those are normal here.",
+      "B": "Correct: bone growth in adolescents elevates ALP without hepatic abnormalities.",
+      "C": "Pancreatitis elevates lipase/amylase and does not explain isolated ALP elevation.",
+      "D": "Hepatitis elevates ALT and AST markedly, which are normal in this patient."
+    },
+    "misconception": "Elevated ALP is reflexively labeled liver; the age and normal GGT redirect to bone.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., liver enzymes chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["GGT is the tiebreaker: high with ALP suggests liver; normal GGT with high ALP suggests bone or placenta."]
+  },
+  {
+    "id": "cc-q-006",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "SCENARIO",
+    "vignette": "A 52-year-old man with heavy alcohol use has AST 180 U/L, ALT 90 U/L, GGT markedly elevated, and normal bilirubin. (Reference intervals vary by laboratory and method.)",
+    "stem": "Which pattern best describes these results?",
+    "choices": [
+      { "id": "A", "text": "Predominantly cholestatic pattern from bile duct obstruction" },
+      { "id": "B", "text": "Hepatocellular pattern with AST greater than ALT, often seen in alcoholic liver injury" },
+      { "id": "C", "text": "Isolated bone ALP elevation" },
+      { "id": "D", "text": "Pattern diagnostic of acute myocardial infarction" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "A transaminase-predominant elevation with AST exceeding ALT (classically at a ratio around 2:1) plus elevated GGT fits alcoholic liver injury; GGT is enzyme-inducible with alcohol. The pattern is a clue to etiology, confirmed clinically and with imaging where needed.",
+    "rationales": {
+      "A": "A cholestatic pattern would show ALP and GGT dominant over transaminases and often elevated bilirubin.",
+      "B": "Correct: AST greater than ALT with elevated GGT is the classic alcoholic hepatocellular pattern.",
+      "C": "Bone ALP elevation would not raise AST and ALT.",
+      "D": "Myocardial infarction elevates troponin and CK-MB, not this enzyme constellation."
+    },
+    "misconception": "The AST:ALT ratio is treated as diagnostic on its own; it is a pattern clue and needs clinical correlation.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., liver enzymes chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["GGT elevation supports alcohol or enzyme-inducing drugs but is nonspecific on its own."]
+  },
+  {
+    "id": "cc-q-007",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The main clinical role of gamma-glutamyl transferase (GGT) in liver chemistry is to:",
+    "choices": [
+      { "id": "A", "text": "Diagnose myocardial infarction" },
+      { "id": "B", "text": "Confirm that an elevated alkaline phosphatase is of hepatic origin" },
+      { "id": "C", "text": "Measure vitamin B12 status" },
+      { "id": "D", "text": "Replace ALT for detecting hepatocellular necrosis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "GGT is present in hepatobiliary epithelium and rises with cholestasis and enzyme induction; its chief use is confirming the hepatic source of an elevated ALP and supporting alcohol-related enzyme induction.",
+    "rationales": {
+      "A": "Cardiac diagnosis relies on troponin and CK-MB, not GGT.",
+      "B": "Correct: GGT distinguishes hepatic ALP from bone and other isoenzymes.",
+      "C": "Vitamin B12 status is assessed with B12 levels, methylmalonic acid, and homocysteine.",
+      "D": "GGT is too nonspecific to replace ALT for hepatocellular injury."
+    },
+    "misconception": "GGT's high sensitivity is mistaken for diagnostic specificity; it confirms source, not disease.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., liver enzymes chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["ALP up, GGT up = think liver; ALP up, GGT normal = think bone (or placenta in pregnancy)."]
+  },
+  {
+    "id": "cc-q-008",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "SCENARIO",
+    "vignette": "A 70-year-old woman with septic shock has a mildly elevated troponin I and an elevated lactate. ECG shows no ST elevation and coronary angiography is not performed. The clinical team documents type 2 myocardial injury.",
+    "stem": "Which statement best explains the troponin elevation in this context?",
+    "choices": [
+      { "id": "A", "text": "Troponin is cardiac-specific, so elevation proves a coronary plaque rupture" },
+      { "id": "B", "text": "Myocardial injury from any cause (demand ischemia, sepsis, renal failure) elevates troponin; infarction requires additional criteria" },
+      { "id": "C", "text": "The troponin is a false positive caused by the analyzer" },
+      { "id": "D", "text": "Sepsis lowers troponin, so the value must be a laboratory error" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Troponin indicates myocardial injury, not its mechanism. Sepsis, hypotension, pulmonary embolism, renal failure, and myocarditis can all raise troponin; myocardial infarction requires the dynamic rise/fall pattern and clinical evidence of ischemia.",
+    "rationales": {
+      "A": "Cardiac specificity of the molecule does not equal coronary etiology of the injury.",
+      "B": "Correct: troponin elevation reflects myocardial injury of any cause; infarction is a clinical-ECG-kinetic diagnosis.",
+      "C": "Modern troponin assays are robust; false positives occur but are not the default interpretation.",
+      "D": "Sepsis commonly elevates troponin through myocardial injury and demand ischemia."
+    },
+    "misconception": "Troponin is equated with heart attack; it is a marker of injury with many causes.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., cardiac markers chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Distinguish myocardial injury (troponin up) from myocardial infarction (injury plus ischemic evidence and kinetics)."]
+  },
+  {
+    "id": "cc-q-009",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Myoglobin rises earliest after myocardial injury but is not used as a stand-alone diagnostic marker because it:",
+    "choices": [
+      { "id": "A", "text": "Rises too late to be useful" },
+      { "id": "B", "text": "Is completely specific to cardiac muscle" },
+      { "id": "C", "text": "Lacks cardiac specificity and is released from any muscle injury" },
+      { "id": "D", "text": "Cannot be measured in serum" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Myoglobin appears within 1 to 2 hours but is released from skeletal as well as cardiac muscle and clears quickly, so it cannot localize injury to the heart without more specific markers.",
+    "rationales": {
+      "A": "Myoglobin rises very early; its problem is specificity, not timing.",
+      "B": "The opposite is true: myoglobin is present in all muscle.",
+      "C": "Correct: nonspecific muscle release limits its diagnostic value.",
+      "D": "Myoglobin is routinely measurable in serum; the issue is interpretation."
+    },
+    "misconception": "Early rise is confused with diagnostic power; early and specific are different properties.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., cardiac markers chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Myoglobin rises first but says 'muscle', not 'heart'. Rhabdomyolysis and trauma elevate it too."]
+  },
+  {
+    "id": "cc-q-010",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes-cardiac",
+    "type": "SCENARIO",
+    "vignette": "A routine chemistry panel on a difficult draw shows AST 250 U/L, potassium 5.8 mmol/L, and LDH markedly elevated. The specimen index flags moderate hemolysis. ALT and ALP are within reference intervals.",
+    "stem": "What is the best first step in interpreting these results?",
+    "choices": [
+      { "id": "A", "text": "Diagnose acute hepatitis from the elevated AST" },
+      { "id": "B", "text": "Recognize possible in vitro hemolysis artifact (AST, LDH, potassium affected) and repeat testing on a cleanly collected specimen" },
+      { "id": "C", "text": "Diagnose myocardial infarction from AST and LDH" },
+      { "id": "D", "text": "Report the values as critical with no further action" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Hemolysis releases red cell AST, LDH, and potassium, falsely elevating all three. With a hemolysis index flag and normal ALT/ALP, the correct move is to note the interference and repeat the collection.",
+    "rationales": {
+      "A": "Hepatitis elevates ALT at least as much as AST; isolated AST with hemolysis flag is artifactual until proven otherwise.",
+      "B": "Correct: preanalytical hemolysis explains the pattern and mandates recollection.",
+      "C": "Infarction requires troponin/CK-MB; AST and LDH are legacy nonspecific markers.",
+      "D": "Reporting artifact-prone values without comment risks wrong treatment; recollection is needed."
+    },
+    "misconception": "All elevated enzymes are assumed to be in vivo pathology; the specimen quality check comes first.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., preanalytical sources of error chapter",
+    "lessonId": "clinical-chemistry/cardiac-enzymes",
+    "examTraps": ["Hemolysis elevates AST, LDH, and potassium together; always cross-check the hemolysis index before interpreting."]
+  },
+  {
+    "id": "cc-q-011",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about serum creatinine as a marker of glomerular filtration is correct?",
+    "choices": [
+      { "id": "A", "text": "It is produced at a constant rate independent of muscle mass and diet" },
+      { "id": "B", "text": "It reflects glomerular filtration but is influenced by muscle mass, diet, and assay method" },
+      { "id": "C", "text": "It rises immediately when GFR begins to fall" },
+      { "id": "D", "text": "It is produced by the liver and decreases in liver disease" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Creatinine derives from muscle creatine and is filtered by the glomerulus; production varies with muscle mass and diet (cooked meat), and methods (Jaffe vs enzymatic) differ in bias. It lags behind true GFR changes and can understate renal impairment in low-muscle-mass patients.",
+    "rationales": {
+      "A": "Production depends on muscle mass and diet; it is not constant across individuals.",
+      "B": "Correct: creatinine is a useful but imperfect filtration marker with important interferents.",
+      "C": "Considerable GFR loss can occur before creatinine rises outside the reference interval.",
+      "D": "Urea is the hepatically synthesized marker; creatinine is muscle-derived."
+    },
+    "misconception": "Creatinine is treated as a pure GFR measure; low muscle mass can mask significant renal impairment.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., renal function chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["eGFR equations adjust creatinine for age and sex but still have limits at extremes of muscle mass."]
+  },
+  {
+    "id": "cc-q-012",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "SCENARIO",
+    "vignette": "A 70-year-old woman with poor intake and vomiting has BUN 45 mg/dL and creatinine 1.6 mg/dL (mass units; reference intervals vary by laboratory). Urine sodium is low and urine is concentrated. She improves with fluid resuscitation.",
+    "stem": "Which pattern best fits these findings?",
+    "choices": [
+      { "id": "A", "text": "Prerenal azotemia with an elevated BUN-to-creatinine ratio" },
+      { "id": "B", "text": "Intrinsic renal failure with high urine sodium" },
+      { "id": "C", "text": "Postrenal obstruction from urinary catheter" },
+      { "id": "D", "text": "Hepatocellular failure causing elevated BUN" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Low urine sodium, concentrated urine, an elevated BUN-to-creatinine ratio (classically above about 20:1 in mass units), and improvement with fluids are the classic picture of prerenal azotemia from volume depletion.",
+    "rationales": {
+      "A": "Correct: the ratio, urine indices, and fluid response define prerenal physiology.",
+      "B": "Intrinsic renal injury typically shows higher urine sodium and less response to fluids.",
+      "C": "Obstruction presents with imaging findings and postrenal physiology; the urine indices here suggest prerenal state.",
+      "D": "Advanced liver disease usually lowers urea synthesis rather than raising BUN."
+    },
+    "misconception": "BUN and creatinine rise together proportionally in all renal disease; the ratio carries the prerenal signal.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., renal function chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["BUN-to-creatinine ratio cutoffs are teaching conventions in mass units; verify with local reference intervals."]
+  },
+  {
+    "id": "cc-q-013",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Pseudohyponatremia due to severe hyperlipidemia occurs with which sodium measurement approach?",
+    "choices": [
+      { "id": "A", "text": "Direct (undiluted) ion-selective electrode measurement" },
+      { "id": "B", "text": "Indirect ion-selective electrode measurement that dilutes the specimen" },
+      { "id": "C", "text": "Flame photometry of whole blood" },
+      { "id": "D", "text": "Osmometry of plasma water" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Indirect ISE methods measure an aliquot after dilution and assume a normal plasma water fraction; when lipids or proteins displace plasma water, the calculated sodium is falsely low. Direct ISE and osmolality measurement avoid this artifact.",
+    "rationales": {
+      "A": "Direct ISE measures sodium in the aqueous phase and is not affected by displaced plasma water.",
+      "B": "Correct: indirect ISE with dilution produces the classic pseudohyponatremia artifact.",
+      "C": "Flame photometry measures emission of diluted samples but historically reported on plasma water basis; it is not the classic artifact source taught today.",
+      "D": "Osmometry measures true tonicity and reveals that the patient is not hypotonic."
+    },
+    "misconception": "Low sodium always equals low tonicity; severe lipemia or paraproteinemia can produce a number that is simply not real.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., electrolytes chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["Confirm unexpected sodium with measured osmolality before treating; pseudohyponatremia is normotonic."]
+  },
+  {
+    "id": "cc-q-014",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "SCENARIO",
+    "vignette": "A routine panel shows potassium 6.4 mmol/L (reference intervals vary by laboratory) on a specimen drawn with difficulty after repeated needle sticks. The hemolysis index is elevated. The patient has no symptoms and the ECG is normal.",
+    "stem": "What is the most appropriate action?",
+    "choices": [
+      { "id": "A", "text": "Treat immediately for hyperkalemia without further testing" },
+      { "id": "B", "text": "Repeat the potassium on a cleanly collected specimen and correlate with the hemolysis index" },
+      { "id": "C", "text": "Report the value as a definitive true hyperkalemia" },
+      { "id": "D", "text": "Order a 24-hour urine potassium only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Hemolysis releases intracellular potassium, producing pseudohyperkalemia. A traumatic draw with an elevated hemolysis index and a normal ECG warrants confirmation on a fresh, gently collected specimen before any treatment.",
+    "rationales": {
+      "A": "Treating an artifact with insulin/glucose or resins exposes the patient to unnecessary risk.",
+      "B": "Correct: recollection with attention to technique is the standard response to suspected pseudohyperkalemia.",
+      "C": "Without confirmation, the value cannot be called true hyperkalemia.",
+      "D": "Urine studies do not resolve whether the serum value is artifactual."
+    },
+    "misconception": "All reported numbers are believed as fact; preanalytical artifacts are common with potassium.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., electrolytes chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["Pseudohyperkalemia causes: hemolysis, fist clenching, delayed separation, marked thrombocytosis or leukocytosis."]
+  },
+  {
+    "id": "cc-q-015",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The anion gap is classically calculated as:",
+    "choices": [
+      { "id": "A", "text": "Sodium minus chloride" },
+      { "id": "B", "text": "Sodium minus (chloride plus bicarbonate/total CO2)" },
+      { "id": "C", "text": "Potassium plus chloride minus bicarbonate" },
+      { "id": "D", "text": "Chloride minus bicarbonate" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The anion gap estimates unmeasured anions: sodium minus the sum of chloride and bicarbonate (total CO2). Some laboratories include potassium; the reference interval is method-specific and must come from the performing laboratory.",
+    "rationales": {
+      "A": "Sodium minus chloride ignores bicarbonate and does not estimate unmeasured anions.",
+      "B": "Correct: the classic formula is Na - (Cl + HCO3).",
+      "C": "This combination does not represent the anion gap and has no standard interpretation.",
+      "D": "Chloride minus bicarbonate is not a recognized gap calculation."
+    },
+    "misconception": "The gap is quoted with a fixed universal normal range; the interval depends on the local method and formula choice.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., acid-base chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["Always compare the gap to the local reference interval; newer analyzers often show lower gap values than older teaching norms."]
+  },
+  {
+    "id": "cc-q-016",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "SCENARIO",
+    "vignette": "A 22-year-old with type 1 diabetes presents with nausea and abdominal pain. Glucose is markedly elevated, bicarbonate is low, and the anion gap is high compared with the laboratory's reference interval. Serum ketones are positive.",
+    "stem": "Which category of metabolic acidosis best fits this picture?",
+    "choices": [
+      { "id": "A", "text": "Normal anion gap (hyperchloremic) metabolic acidosis" },
+      { "id": "B", "text": "High anion gap metabolic acidosis from ketoacid accumulation" },
+      { "id": "C", "text": "Primary respiratory alkalosis" },
+      { "id": "D", "text": "Metabolic alkalosis from vomiting" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Diabetic ketoacidosis accumulates ketoacid anions, raising the anion gap with a low bicarbonate; the elevated glucose and positive ketones complete the picture. This is a classic high-gap acidosis (MUDPILES: diabetic ketoacidosis is the D).",
+    "rationales": {
+      "A": "Hyperchloremic acidosis shows a normal gap with chloride retention (e.g., diarrhea, saline resuscitation).",
+      "B": "Correct: unmeasured ketoanions produce the high gap.",
+      "C": "Respiratory alkalosis would show low PaCO2 with near-normal bicarbonate and no ketosis.",
+      "D": "Vomiting causes metabolic alkalosis with elevated bicarbonate, the opposite pattern."
+    },
+    "misconception": "Any acidosis with low bicarbonate is treated as ketoacidosis; the anion gap separates the families first.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., acid-base chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["High-gap acidosis differential (MUDPILES): methanol, uremia, DKA, propylene glycol, isoniazid/iron, lactic acidosis, ethylene glycol, salicylates."]
+  },
+  {
+    "id": "cc-q-017",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The CKD-EPI equation for estimating GFR uses which routinely available inputs?",
+    "choices": [
+      { "id": "A", "text": "Creatinine, age, and sex" },
+      { "id": "B", "text": "BUN, glucose, and albumin" },
+      { "id": "C", "text": "Sodium, potassium, and chloride" },
+      { "id": "D", "text": "Cystatin C and beta-2 microglobulin only" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "The modern CKD-EPI creatinine equation estimates GFR from serum creatinine with age and sex coefficients; current versions are race-free. Cystatin C-based and combined equations are used as confirmatory options.",
+    "rationales": {
+      "A": "Correct: creatinine, age, and sex are the inputs of the CKD-EPI creatinine equation.",
+      "B": "These analytes describe metabolic and nutritional status, not filtration estimation.",
+      "C": "Electrolytes are not inputs to GFR equations.",
+      "D": "Cystatin C equations exist but are not 'only' inputs; creatinine-based eGFR remains the routine estimate."
+    },
+    "misconception": "Older MDRD race coefficients are assumed current; contemporary CKD-EPI equations are race-free.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., renal function chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["eGFR is an estimate with population-level validation; extremes of muscle mass and pregnancy limit accuracy."]
+  },
+  {
+    "id": "cc-q-018",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "SCENARIO",
+    "vignette": "A 60-year-old with hyperglycemic crisis has measured sodium 128 mmol/L and glucose 600 mg/dL. The patient is confused but not hypotonic on clinical assessment. (Reference intervals vary by laboratory.)",
+    "stem": "What is the best interpretation of the sodium result?",
+    "choices": [
+      { "id": "A", "text": "True hypotonic hyponatremia requiring free water restriction only" },
+      { "id": "B", "text": "Translocational (dilutional) effect of hyperglycemia; a corrected sodium should be calculated and interpreted" },
+      { "id": "C", "text": "Pseudohyponatremia from hyperlipidemia" },
+      { "id": "D", "text": "The sodium is irrelevant in hyperglycemic states" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Severe hyperglycemia draws water from cells, diluting measured sodium (translocational hyponatremia). A correction factor (commonly around 1.6 to 2.4 mmol/L sodium rise per 100 mg/dL glucose rise, method and guideline dependent) estimates the true sodium and guides therapy.",
+    "rationales": {
+      "A": "Hypotonicity must be confirmed; hyperglycemia itself lowers measured sodium without true water excess.",
+      "B": "Correct: hyperglycemia-driven translocation explains the low sodium and requires corrected interpretation.",
+      "C": "Pseudohyponatremia involves displaced plasma water from lipids/proteins, not glucose.",
+      "D": "Sodium interpretation is crucial in hyperglycemic emergencies for osmolarity and therapy."
+    },
+    "misconception": "Low sodium in hyperglycemia is treated as ordinary hyponatremia; corrected sodium changes management.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., electrolytes chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["Correction factors for glucose are approximate and method dependent; use local protocols."]
+  },
+  {
+    "id": "cc-q-019",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The total CO2 (bicarbonate) measured on a routine chemistry panel primarily reflects:",
+    "choices": [
+      { "id": "A", "text": "Respiratory acid-base status directly" },
+      { "id": "B", "text": "The metabolic (bicarbonate) component of acid-base balance" },
+      { "id": "C", "text": "Dissolved oxygen content of plasma" },
+      { "id": "D", "text": "Albumin concentration" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Total CO2 on the chemistry panel is dominated by bicarbonate and reflects the metabolic side of acid-base balance; respiratory status requires blood gas PaCO2 measurement.",
+    "rationales": {
+      "A": "Respiratory status is assessed with PaCO2 on a blood gas, not the chemistry total CO2.",
+      "B": "Correct: bicarbonate is the primary measured species in total CO2.",
+      "C": "Oxygen content is measured by blood gas and oximetry.",
+      "D": "Albumin is a separate analyte; it affects unmeasured anions but is not what total CO2 measures."
+    },
+    "misconception": "Total CO2 is equated with 'carbon dioxide gas'; in the panel it is essentially bicarbonate.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., acid-base chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["A low total CO2 signals metabolic acidosis; use the anion gap to subdivide the cause."]
+  },
+  {
+    "id": "cc-q-020",
+    "subjectId": "clinical-chemistry",
+    "topicId": "kidney-electrolytes",
+    "type": "SCENARIO",
+    "vignette": "A patient with severe diarrhea has sodium 138 mmol/L, chloride 112 mmol/L, total CO2 14 mmol/L, and a calculated anion gap within the laboratory's reference interval. (Values in mmol/L; intervals vary by laboratory.)",
+    "stem": "Which acid-base pattern is present?",
+    "choices": [
+      { "id": "A", "text": "High anion gap metabolic acidosis" },
+      { "id": "B", "text": "Normal anion gap (hyperchloremic) metabolic acidosis" },
+      { "id": "C", "text": "Metabolic alkalosis" },
+      { "id": "D", "text": "Respiratory acidosis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Low bicarbonate with a normal anion gap and elevated chloride is a hyperchloremic (normal gap) metabolic acidosis, consistent with bicarbonate loss from diarrhea.",
+    "rationales": {
+      "A": "A high gap would show unmeasured anions with a gap above the local reference interval.",
+      "B": "Correct: normal gap with hyperchloremia fits bicarbonate-loss acidosis.",
+      "C": "Metabolic alkalosis shows elevated bicarbonate, not low total CO2.",
+      "D": "Respiratory acidosis requires elevated PaCO2; it is not diagnosed from electrolytes alone."
+    },
+    "misconception": "Acidosis with low bicarbonate is assumed high-gap; the gap calculation is what separates the two families.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., acid-base chapter",
+    "lessonId": "clinical-chemistry/renal-electrolytes",
+    "examTraps": ["Diarrhea, renal tubular acidosis, and saline resuscitation are classic normal-gap causes."]
+  },
+  {
+    "id": "cc-q-021",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "According to established diagnostic criteria, diabetes mellitus may be diagnosed by a fasting plasma glucose of:",
+    "choices": [
+      { "id": "A", "text": "100 mg/dL (5.6 mmol/L) or higher" },
+      { "id": "B", "text": "110 mg/dL (6.1 mmol/L) or higher" },
+      { "id": "C", "text": "126 mg/dL (7.0 mmol/L) or higher" },
+      { "id": "D", "text": "140 mg/dL (7.8 mmol/L) or higher" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "The established threshold for diabetes is fasting plasma glucose at or above 126 mg/dL (7.0 mmol/L); values of 100 to 125 mg/dL (5.6 to 6.9 mmol/L) fall in the prediabetes range under major guideline criteria. Asymptomatic patients require repeat confirmation.",
+    "rationales": {
+      "A": "100 mg/dL is the lower bound of impaired fasting glucose (prediabetes), not diabetes.",
+      "B": "110 mg/dL is not a diagnostic threshold in major criteria.",
+      "C": "Correct: 126 mg/dL (7.0 mmol/L) is the accepted fasting diagnostic cutpoint.",
+      "D": "140 mg/dL is the 2-hour OGTT threshold for impaired glucose tolerance, not the fasting diabetes cutoff."
+    },
+    "misconception": "Students mix the fasting cutoff with the 2-hour OGTT cutoffs; each test has its own number.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Diagnostic thresholds are guideline-based; always confirm an asymptomatic abnormal result with repeat testing."]
+  },
+  {
+    "id": "cc-q-022",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "SCENARIO",
+    "vignette": "A 48-year-old asymptomatic woman has a fasting plasma glucose of 132 mg/dL (7.3 mmol/L) on a routine screening test. She feels well and has no classic symptoms of hyperglycemia.",
+    "stem": "What is the appropriate next step?",
+    "choices": [
+      { "id": "A", "text": "Diagnose diabetes immediately and start insulin without further testing" },
+      { "id": "B", "text": "Repeat the fasting glucose or perform another accepted confirmatory test on a separate day" },
+      { "id": "C", "text": "Ignore the result because she is asymptomatic" },
+      { "id": "D", "text": "Start sulfonylureas without confirmation" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "In the absence of unequivocal hyperglycemia with classic symptoms, a single abnormal test must be confirmed by a repeat of the same test or a different accepted test on another day before the diagnosis is finalized.",
+    "rationales": {
+      "A": "Starting lifelong therapy on one unconfirmed value risks overtreatment of a possibly transient elevation.",
+      "B": "Correct: confirmatory repeat testing is required for asymptomatic patients.",
+      "C": "Ignoring a frankly diabetic-range value misses an important diagnosis; confirmation, not dismissal, is needed.",
+      "D": "Therapy decisions follow confirmed diagnosis and clinical assessment, not a single screening value."
+    },
+    "misconception": "One elevated value equals diabetes; the criteria explicitly require confirmation when symptoms are absent.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Random glucose of 200 mg/dL or higher diagnoses diabetes only with classic symptoms; otherwise confirm."]
+  },
+  {
+    "id": "cc-q-023",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "HbA1c reflects average glycemia over approximately:",
+    "choices": [
+      { "id": "A", "text": "The past 24 hours" },
+      { "id": "B", "text": "The past 2 to 3 months" },
+      { "id": "C", "text": "The past 6 to 12 months" },
+      { "id": "D", "text": "The past week only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Because red cells circulate for roughly 100 to 120 days, HbA1c integrates glycemia over the preceding 2 to 3 months, weighted toward more recent weeks.",
+    "rationales": {
+      "A": "Day-to-day glucose is captured by glucose measurements, not HbA1c.",
+      "B": "Correct: the red cell lifespan sets the 2 to 3 month window.",
+      "C": "Six to twelve months exceeds red cell lifespan and is not the reflectance period.",
+      "D": "One week is far too short; HbA1c changes slowly over weeks."
+    },
+    "misconception": "HbA1c is treated as a '3-month average' with precise equal weighting; it is weighted toward recent weeks.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Any condition altering red cell lifespan (hemolysis, transfusion, blood loss) distorts HbA1c."]
+  },
+  {
+    "id": "cc-q-024",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "SCENARIO",
+    "vignette": "A 35-year-old woman with hemolytic anemia is being evaluated for gestational diabetes. Her HbA1c is 5.0 percent (31 mmol/mol), but home glucose readings have been repeatedly high.",
+    "stem": "Which approach is most appropriate for assessing her glycemic status?",
+    "choices": [
+      { "id": "A", "text": "Rely on the normal HbA1c and exclude diabetes" },
+      { "id": "B", "text": "Use glucose-based testing (fasting glucose and/or OGTT per obstetric protocol) because HbA1c is unreliable with shortened red cell survival" },
+      { "id": "C", "text": "Repeat HbA1c weekly until it rises" },
+      { "id": "D", "text": "Measure fasting insulin only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Hemolysis shortens red cell survival and falsely lowers HbA1c regardless of true glycemia. In hemoglobinopathies, hemolysis, pregnancy, and recent transfusion, glucose-based testing (or alternative markers such as glycated albumin) is required.",
+    "rationales": {
+      "A": "A falsely low HbA1c cannot exclude diabetes when red cell survival is short.",
+      "B": "Correct: glucose-based criteria are the appropriate alternative when HbA1c is unreliable.",
+      "C": "Repeating an unreliable test does not fix the interference.",
+      "D": "Fasting insulin is not a diagnostic criterion for diabetes."
+    },
+    "misconception": "HbA1c is assumed valid in every patient; red cell lifespan and hemoglobin variants can invalidate it.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Known interferents of HbA1c: hemolysis, blood loss, transfusion, iron deficiency (raises), hemoglobin variants, CKD, pregnancy."]
+  },
+  {
+    "id": "cc-q-025",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "High-dose biotin (vitamin B7) supplements can cause which thyroid function test pattern on common competitive immunoassays?",
+    "choices": [
+      { "id": "A", "text": "Falsely high TSH with falsely low free T4" },
+      { "id": "B", "text": "Falsely low TSH with falsely high free T4" },
+      { "id": "C", "text": "No effect on thyroid immunoassays" },
+      { "id": "D", "text": "Falsely low TSH with falsely low free T4" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Biotin-streptavidin based competitive immunoassays can be disrupted by high circulating biotin, producing falsely low TSH and falsely high free T4, mimicking thyrotoxicosis and leading to unnecessary treatment.",
+    "rationales": {
+      "A": "This pattern suggests primary hypothyroidism and is not the biotin artifact.",
+      "B": "Correct: the classic biotin interference mimics hyperthyroidism on TSH/free T4.",
+      "C": "Biotin can significantly distort immunoassay results; supplement history matters.",
+      "D": "Both low would suggest central hypothyroidism, not the biotin pattern."
+    },
+    "misconception": "Discordant thyroid results are attributed to rare disease; a simple supplement question resolves many cases.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., endocrine function chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Always ask about biotin-containing supplements before diagnosing thyrotoxicosis from TSH/free T4 alone."]
+  },
+  {
+    "id": "cc-q-026",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "SCENARIO",
+    "vignette": "A 55-year-old woman with fatigue and cold intolerance has TSH 12.0 mIU/L (above the laboratory reference interval) and free T4 below her laboratory's reference interval.",
+    "stem": "Which pattern do these results represent?",
+    "choices": [
+      { "id": "A", "text": "Primary hypothyroidism" },
+      { "id": "B", "text": "Primary hyperthyroidism" },
+      { "id": "C", "text": "Central (secondary) hypothyroidism" },
+      { "id": "D", "text": "Euthyroid sick syndrome" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "High TSH with low free T4 indicates failure of the thyroid gland itself: primary hypothyroidism, commonly from autoimmune thyroiditis. The elevated TSH reflects intact pituitary response to low thyroid hormone.",
+    "rationales": {
+      "A": "Correct: elevated TSH plus low free T4 is the classic primary hypothyroid pattern.",
+      "B": "Hyperthyroidism shows low TSH with high free T4.",
+      "C": "Central hypothyroidism shows low or inappropriately normal TSH with low free T4.",
+      "D": "Nonthyroidal illness typically shows altered total hormones and a normal or slightly low TSH with normal free T4 near the low end."
+    },
+    "misconception": "Students read 'high TSH' as overactive thyroid; TSH rises when the gland underperforms.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., endocrine function chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Interpret TSH and free T4 as a pair; single tests misclassify central disease."]
+  },
+  {
+    "id": "cc-q-027",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A pregnant woman in the second trimester has total T4 above the nonpregnant reference interval with normal TSH and normal free T4. The most likely explanation is:",
+    "choices": [
+      { "id": "A", "text": "Graves disease requiring immediate treatment" },
+      { "id": "B", "text": "Estrogen-induced rise in thyroxine-binding globulin with euthyroid status" },
+      { "id": "C", "text": "Biotin interference" },
+      { "id": "D", "text": "Central hypothyroidism" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Estrogen (including pregnancy) increases thyroxine-binding globulin, raising total T4 and total T3 while free hormones and TSH remain normal. The patient is euthyroid; interpretation of total hormones must account for binding proteins.",
+    "rationales": {
+      "A": "Graves disease presents with low TSH and high free T4, not normal TSH and free T4.",
+      "B": "Correct: TBG elevation in pregnancy explains high total T4 with normal free hormones.",
+      "C": "Biotin distorts TSH/free T4 assays rather than selectively raising total T4 with normal TSH.",
+      "D": "Central hypothyroidism shows low free T4 with low or normal TSH."
+    },
+    "misconception": "Total T4 is read without considering binding proteins; free hormones and TSH define thyroid status.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., endocrine function chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Pregnancy-specific reference intervals apply to TSH in many guidelines; verify locally."]
+  },
+  {
+    "id": "cc-q-028",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "SCENARIO",
+    "vignette": "A 28-week pregnant woman undergoes routine gestational diabetes screening with a 50-gram nonfasting glucose challenge test. Her 1-hour glucose is above her laboratory's screening threshold.",
+    "stem": "What is the standard next step in the two-step screening approach?",
+    "choices": [
+      { "id": "A", "text": "Diagnose gestational diabetes immediately and start insulin" },
+      { "id": "B", "text": "Perform a diagnostic oral glucose tolerance test (typically 100-gram, 3-hour protocol) using accepted obstetric criteria" },
+      { "id": "C", "text": "Repeat the 50-gram challenge test daily" },
+      { "id": "D", "text": "Measure HbA1c alone to confirm the diagnosis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "In the two-step approach, an abnormal 50-gram glucose challenge test is a screen only; diagnosis requires a follow-up diagnostic OGTT (commonly the 100-gram, 3-hour test interpreted with Carpenter-Coustan criteria). One-step 75-gram protocols exist but are used where local policy adopts them.",
+    "rationales": {
+      "A": "The challenge test screens; it does not diagnose gestational diabetes.",
+      "B": "Correct: the diagnostic OGTT confirms or excludes gestational diabetes in the two-step pathway.",
+      "C": "Repeated screening tests do not replace the diagnostic evaluation.",
+      "D": "HbA1c is not used to diagnose gestational diabetes in most protocols; glucose-based OGTT criteria apply."
+    },
+    "misconception": "Screening and diagnostic tests are conflated; the 50-gram test screens, the 100-gram (or 75-gram one-step) test diagnoses.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Gestational protocols differ between organizations; always follow the local obstetric standard."]
+  },
+  {
+    "id": "cc-q-029",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "During a standard 75-gram oral glucose tolerance test, a 2-hour plasma glucose of 200 mg/dL (11.1 mmol/L) or higher indicates:",
+    "choices": [
+      { "id": "A", "text": "Normal glucose tolerance" },
+      { "id": "B", "text": "Impaired glucose tolerance (prediabetes)" },
+      { "id": "C", "text": "Diabetes mellitus" },
+      { "id": "D", "text": "Gestational diabetes only" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "A 2-hour value of 200 mg/dL (11.1 mmol/L) or above in a 75-gram OGTT meets the established diagnostic threshold for diabetes mellitus (confirmatory testing required if asymptomatic). Impaired glucose tolerance is the 140 to 199 mg/dL range.",
+    "rationales": {
+      "A": "Normal tolerance is a 2-hour value below 140 mg/dL (7.8 mmol/L).",
+      "B": "Impaired glucose tolerance spans 140 to 199 mg/dL (7.8 to 11.0 mmol/L).",
+      "C": "Correct: 200 mg/dL or higher at 2 hours is the diabetic range.",
+      "D": "The same threshold applies to nonpregnant adults; gestational protocols use different loads and criteria."
+    },
+    "misconception": "The 140 mg/dL impaired-tolerance threshold is remembered as the diabetes threshold; 200 mg/dL is the diabetic cutoff.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., carbohydrate metabolism chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["Memorize the pairs: fasting 126 for diabetes, 2-hour 200 for diabetes; 100-125 and 140-199 for prediabetes ranges."]
+  },
+  {
+    "id": "cc-q-030",
+    "subjectId": "clinical-chemistry",
+    "topicId": "endocrine-glucose",
+    "type": "SCENARIO",
+    "vignette": "A 42-year-old man on no supplements has TSH 0.2 mIU/L (low) and free T4 below his laboratory's reference interval. He has headaches and visual field changes.",
+    "stem": "Which condition do these thyroid results most suggest?",
+    "choices": [
+      { "id": "A", "text": "Primary hypothyroidism" },
+      { "id": "B", "text": "Graves disease" },
+      { "id": "C", "text": "Central (pituitary) hypothyroidism" },
+      { "id": "D", "text": "Biotin interference" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "HARD",
+    "explanation": "Low free T4 with a low (inappropriately normal or low) TSH indicates central hypothyroidism from pituitary or hypothalamic disease; the accompanying headache and visual symptoms raise concern for a pituitary mass. TSH alone cannot evaluate this pattern.",
+    "rationales": {
+      "A": "Primary hypothyroidism shows elevated TSH with low free T4.",
+      "B": "Graves disease shows low TSH with high free T4.",
+      "C": "Correct: low free T4 with non-elevated TSH defines central hypothyroidism and warrants pituitary evaluation.",
+      "D": "The patient takes no supplements, and biotin causes low TSH with high, not low, free T4."
+    },
+    "misconception": "A low TSH is always read as hyperthyroidism; with low free T4 it signals central failure.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed., endocrine function chapter",
+    "lessonId": "clinical-chemistry/endocrine-glucose",
+    "examTraps": ["In central hypothyroidism, TSH is uninformative; free T4 is the key test, and other pituitary axes must be assessed."]
   }
 ]

@@ -103,7 +103,7 @@
   "relatedFlashcardIds": ["cc-fc-001", "cc-fc-002", "cc-fc-003"],
   "followUp": ["clinical-chemistry/renal-electrolytes"],
   "references": [
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., chapters on cardiac markers and on liver function assessment", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on cardiac markers and on liver function assessment", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on enzymes and cardiac biomarkers", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

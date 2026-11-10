@@ -28,8 +28,9 @@ import com.medtech.reviewhub.domain.MascotKind
 import com.medtech.reviewhub.domain.MascotMood
 
 /**
- * Mascot bubble (shared/DESIGN.md "MascotBubble"). Vector-drawable mascot
- * illustrations: res/drawable/mimi_*.xml (cat) and bantay_*.xml (dog) —
+ * Mascot bubble (shared/DESIGN.md v2 "MochiBubble" / "MascotBubble").
+ * Vector-drawable mascot illustrations: res/drawable/mochi_*.xml (Mochi the
+ * cat in a tiny lab coat) and bantay_*.xml (the optional dog companion) —
  * original simple shapes, one drawing per mood.
  */
 @Composable
@@ -38,6 +39,7 @@ fun MascotBubble(
     mood: MascotMood,
     line: String,
     modifier: Modifier = Modifier,
+    name: String = kind.displayName,
     reduceAnimation: Boolean = false,
     sizeDp: Int = 72
 ) {
@@ -49,7 +51,7 @@ fun MascotBubble(
         )
         Image(
             painter = painterResource(mood.drawable(kind)),
-            contentDescription = "${kind.displayName} (${mood.name.lowercase()})",
+            contentDescription = "$name (${mood.name.lowercase()})",
             modifier = Modifier
                 .size(sizeDp.dp)
                 .graphicsLayer { scaleX = scale; scaleY = scale }

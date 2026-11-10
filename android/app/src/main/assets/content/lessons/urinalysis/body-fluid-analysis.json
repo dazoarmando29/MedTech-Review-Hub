@@ -1,0 +1,119 @@
+{
+  "id": "urinalysis/body-fluid-analysis",
+  "subjectId": "urinalysis",
+  "topicId": "body-fluids",
+  "title": "Body Fluid Analysis: CSF, Transudate vs Exudate, Semen Basics, and Crystal Identification",
+  "summary": "A practical guide to counting and differentiating cells in cerebrospinal fluid, applying Light's criteria to serous fluids, understanding semen analysis reference values and pitfalls, and recognizing the classic urinary and body-fluid crystals with their pH and clinical associations.",
+  "readingMinutes": 15,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["cerebrospinal fluid", "Light's criteria", "transudate", "exudate", "semen analysis", "teratozoospermia", "calcium oxalate", "triple phosphate", "cystine crystal", "traumatic tap"],
+  "objectives": [
+    "Perform and interpret CSF cell count, differential, protein, and glucose with correct correlation to serum glucose.",
+    "Apply Light's criteria to distinguish exudate from transudate in pleural fluid and relate results to disease.",
+    "Summarize semen analysis reference values and preanalytic requirements using correct caveat language.",
+    "Identify common urine and body-fluid crystals and link them to pH and clinical conditions."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Normal adult CSF typically has zero to a few leukocytes per microliter, glucose roughly two-thirds of serum glucose, and low protein - all intervals vary by laboratory, method, age, and population.",
+      "Bacterial meningitis pattern: neutrophilic pleocytosis, low CSF glucose, high protein, positive Gram stain; viral meningitis: lymphocytic pleocytosis with normal glucose.",
+      "Light's criteria: pleural fluid is an exudate if any one of fluid-to-serum protein ratio above 0.5, fluid-to-serum LDH ratio above 0.6, or fluid LDH above two-thirds the serum upper limit of normal is met.",
+      "Semen analysis requires 2 to 7 days abstinence and prompt warm transport; WHO reference values (5th percentile of fertile men) must be cited as reference values, not strict normal cutoffs.",
+      "Cystine hexagonal plates, triple phosphate coffin lids, and calcium oxalate envelope shapes are the highest-yield crystals for examinations."
+    ],
+    "mustKnowTable": {
+      "columns": ["Fluid/finding", "Typical textbook reference", "Abnormal pattern suggests", "Caveat"],
+      "rows": [
+        ["CSF leukocytes (adult)", "0 to about 5 per microliter", "Neutrophils = bacterial; lymphocytes = viral/TB/fungal", "Intervals vary by lab, method, age, population"],
+        ["CSF glucose", "Roughly 40 to 70 mg/dL or about 60 percent of serum", "Low = bacterial meningitis, TB, fungal, carcinomatous", "Always paired with serum glucose; intervals vary locally"],
+        ["CSF protein (adult)", "Roughly 15 to 45 mg/dL", "High = infection, block, Guillain-Barre", "Age and method dependent; verify locally"],
+        ["Pleural fluid", "Light's criteria ratios", "Exudate = inflammation, infection, malignancy", "Criteria can overcall exudate in diuresis - clinical correlation needed"],
+        ["Semen volume", "About 1.5 mL or more (WHO 5th ed. reference)", "Low volume = incomplete collection or obstruction", "Reference values from fertile cohorts; verify local methodology"]
+      ]
+    },
+    "mnemonic": "Light's criteria: 'Protein ratio 0.5, LDH ratio 0.6, fluid LDH two-thirds of serum max - if any one fires, it is an exu-date.'"
+  },
+  "deepStudy": {
+    "introduction": "Body fluid analysis is urinalysis logic extended to other compartments: you count cells, measure chemistry, and correlate with the clinical picture, but the specimens are smaller, more urgent, and more easily destroyed by mishandling. Cerebrospinal fluid is a stat specimen where a cell count and glucose result can change antibiotics within minutes. Serous fluids - pleural, peritoneal, pericardial - are classified first as transudate or exudate because that single decision funnels the differential diagnosis. Semen analysis follows strict preanalytic rules because abstinence interval and transport temperature swing results more than biology often does. And crystals appear in urine and fluids as geometric clues to pH, solute concentration, and inherited disease. This lesson keeps every numeric claim tied to its source and caveat, because body fluid reference intervals vary widely by laboratory, method, age, and population and must never be invented or transplanted between institutions.",
+    "sections": [
+      {
+        "heading": "Cerebrospinal fluid: the stat specimen",
+        "body": "CSF analysis begins with appearance (clear, cloudy, xanthochromic, bloody) and a cell count performed in a counting chamber; if red cells are present, the differential is done on a cytocentrifuge preparation to avoid cell lysis artifacts. A traumatic tap gives uniformly bloody fluid whose red cell count does not clear across tubes, whereas subarachnoid hemorrhage shows xanthochromia (pink-to-yellow supernatant from bilirubin after centrifugation) and often declining red counts across sequential tubes. Correction formulas for white cells in bloody taps (for example, roughly one leukocyte per 500 to 1,000 red cells) are approximations only and must not be used to overrule a clinical picture. Glucose is interpreted against a paired serum glucose drawn close in time; CSF glucose below about 40 mg/dL or below roughly 60 percent of serum supports bacterial meningitis, tuberculosis, fungal infection, or carcinomatous meningitis, while viral meningitis usually spares glucose. Protein rises with infection, block, and Guillain-Barre syndrome. Gram stain and culture are mandatory in suspected meningitis; antigen panels or molecular assays add speed when prior antibiotics are given. Every number here is a textbook-typical figure: adult intervals vary by laboratory, method, age, and population, and neonatal values differ substantially, so the local interval governs the report.",
+        "diagram": null
+      },
+      {
+        "heading": "Transudate versus exudate: Light's criteria and beyond",
+        "body": "Serous effusions are classified by mechanism: transudates form when hydrostatic or oncotic pressure imbalance pushes ultrafiltrate across an intact membrane (heart failure, cirrhosis, nephrotic syndrome), while exudates form when inflammation or malignancy increases membrane permeability or blocks lymphatic drainage (pneumonia, malignancy, pulmonary embolism, tuberculosis). Light's criteria classify pleural fluid as exudate if any one of three conditions is met: fluid-to-serum total protein ratio above 0.5, fluid-to-serum LDH ratio above 0.6, or fluid LDH greater than two-thirds the upper limit of the serum reference interval. Applying all three maximizes sensitivity; about 1 to 2 percent of transudates misclassify as exudates under diuresis, so borderline results need clinical correlation and sometimes serum albumin gradients. Peritoneal fluid uses a different tool: the serum-ascites albumin gradient (serum albumin minus ascites albumin) of 1.1 g/dL or more indicates portal hypertension (transudative mechanism) regardless of protein, while lower gradients point to peritoneal causes such as tuberculosis or malignancy. Additional fluid tests - glucose (low in rheumatoid pleurisy and empyema), amylase (esophageal rupture, pancreatitis, malignancy), triglycerides (chylous effusion above roughly 110 mg/dL with milky appearance, versus pseudochylous with high cholesterol) - refine the picture after the transudate-exudate decision is made.",
+        "diagram": null
+      },
+      {
+        "heading": "Semen analysis: preanalytic discipline first",
+        "body": "Semen analysis is dominated by preanalytic variables: 2 to 7 days of abstinence (shorter abstinence lowers volume and count; longer abstinence lowers motility), complete collection into a wide-mouth sterile container, and transport at body temperature (around 37 degrees Celsius) to the laboratory within one hour. Liquefaction should occur within 60 minutes at room temperature; viscosity beyond that delays motility assessment. The WHO reference values (5th edition, derived from fertile men and retained as reference intervals in the 6th edition) include volume at least 1.5 mL, sperm concentration at least 15 million per mL, total sperm count at least 39 million per ejaculate, total motility at least 40 percent with progressive motility at least 32 percent, and normal morphology at least 4 percent by strict criteria. These are fifth-percentile reference values from fertile cohorts - not diagnostic cutoffs - and intervals vary by laboratory, method, and population; a single abnormal result requires repeat testing after 2 to 4 weeks because biology fluctuates. Other measured parameters include pH (typically 7.2 or above), liquefaction time, agglutination (suggesting antisperm antibodies), and the presence of leukocytes (leukocytospermia threshold is generally about 1 million per mL, per current WHO guidance). Round cells must be differentiated from leukocytes to avoid mislabeling infection.",
+        "diagram": null
+      },
+      {
+        "heading": "Crystals: geometry, pH, and clinical clues",
+        "body": "Crystal identification combines shape, pH, and solubility. Calcium oxalate dihydrate forms envelope (octahedral) crystals in neutral to acidic urine, while the monohydrate form appears as dumbbells or hourglasses and is associated with ethylene glycol poisoning alongside needle-shaped calcium oxalate monohydrate and hippuric acid; antifreeze ingestion is a classic vignette. Uric acid crystals are diamond, rosette, or barrel shaped in acidic urine and are the nidus of some stones. Triple phosphate (magnesium ammonium phosphate, struvite) forms coffin-lid crystals in alkaline urine and signals urea-splitting infection with struvite stone risk. Ammonium biurate thorn-apple crystals appear in old, refrigerated, or alkaline specimens and are often artifacts. Cystine forms flat hexagonal plates in acidic urine and marks the inherited transport defect cystinuria - pathognomonic and high-yield. Leucine (oily, concentric rings) and tyrosine (fine needles in sheaves) crystals appear together in severe hepatic failure and are rare but exam-famous. Calcium carbonate appears as dumbbells or spheres in alkaline urine; calcium phosphate can form rosettes or wedge-shaped crystals in alkaline urine; cholesterol crystals are notched plates in lipid-laden fluids. Microscopy is judged on fresh, well-mixed specimens; refrigeration changes pH and precipitates amorphous urates (pink sediment) and phosphates (white sediment) that dissolve on warming or alkalinization, so note storage conditions on the report.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "CSF findings separate bacterial meningitis (emergency) from viral or tuberculous etiologies and guide antibiotic duration. Pleural fluid classification narrows heart failure versus infection versus malignancy in a single step. Peritoneal fluid gradients distinguish cirrhosis from peritoneal disease and prevent futile workups. Semen analysis drives fertility evaluation and can detect obstruction, infection, or endocrine dysfunction; mislabeling results due to abstinence or transport errors leads to needless treatment. Crystal identification spots ethylene glycol poisoning and cystinuria early. Across all body fluids, the laboratory's accurate cell counts and honest contamination warnings directly shape clinical decisions and antibiotic stewardship.",
+    "labInterpretation": "Report CSF with cell counts per microliter, differential percentages with absolute counts, protein and glucose with units (mg/dL) alongside a paired serum glucose value, and a comment on Gram stain and culture status; flag xanthochromia explicitly and state if red counts declined across tubes. For serous fluids, report Light's criteria inputs (fluid and serum protein and LDH with units and the calculated ratios) rather than only the conclusion, and comment when diuresis may confound classification. For semen, state abstinence days, collection completeness, time to analysis, liquefaction, and temperature conditions alongside results. For crystals, name the crystal, urine pH, and storage conditions. Every interval carries the caveat that reference intervals vary by laboratory, method, age, sex, and population and must be verified against local values before clinical use.",
+    "comparisonTables": [
+      {
+        "title": "Meningitis patterns in CSF",
+        "columns": ["Finding", "Bacterial", "Viral", "Tuberculous/fungal"],
+        "rows": [
+          ["Cell type", "Neutrophils dominant", "Lymphocytes dominant", "Lymphocytes (mixed early)"],
+          ["Glucose", "Low (below about 40 mg/dL or below 60 percent serum)", "Usually normal", "Low"],
+          ["Protein", "High", "Normal to mildly high", "High"],
+          ["Gram stain/culture", "Often positive", "Negative", "AFB smear low sensitivity; culture weeks"],
+          ["Opening pressure", "Often elevated", "Normal or mildly elevated", "Often elevated"]
+        ]
+      },
+      {
+        "title": "High-yield crystals",
+        "columns": ["Crystal", "Shape", "Urine pH", "Clinical association"],
+        "rows": [
+          ["Calcium oxalate dihydrate", "Envelope/octahedron", "Acid to neutral", "Ethylene glycol (with monohydrate), calcium stones"],
+          ["Uric acid", "Diamond, rosette, barrel", "Acid", "Tumor lysis, stones, gout"],
+          ["Triple phosphate (struvite)", "Coffin lid", "Alkaline", "Urea-splitting infection, struvite stones"],
+          ["Cystine", "Hexagonal plates", "Acid", "Cystinuria (inherited)"],
+          ["Ammonium biurate", "Thorn apple", "Alkaline/old specimens", "Artifact of storage, liver disease"],
+          ["Leucine", "Oily concentric rings", "Acid", "Severe hepatic failure"],
+          ["Tyrosine", "Needles in sheaves", "Acid", "Severe hepatic failure, tyrosinemia"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "Light's criteria: meeting ANY ONE criterion makes an exudate - not all three, and not an average of the three.",
+      "CSF glucose must always be compared with a simultaneous serum glucose; a fixed number without that pairing can misclassify viral as bacterial or vice versa.",
+      "WHO semen reference values are fifth-percentile values from fertile men, not disease cutoffs; single abnormal results require repeat testing.",
+      "Ammonium biurate and amorphous phosphate/urate precipitates are often refrigeration artifacts; note specimen handling before calling them significant."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "Light's: Protein ratio 0.5, LDH ratio 0.6, fluid LDH above two-thirds of serum max. Any one = exudate.",
+      "funny": "Mimi: 'Sa Light's criteria, isa lang ang kailangan - para sa exudate, hindi kelangan kumpleto ang tropa!'"
+    },
+    {
+      "type": "KEYWORD",
+      "text": "Cystine = hexagonal plates. Think: 'Cystine is a hexagon hero - flat, six sides, and always an acid urine fan.'",
+      "funny": "Cystine crystal: hexagonal plates sa acidic urine. Pag nakita mo to, may inherited defect - wag palampasin!"
+    }
+  ],
+  "practiceQuestionIds": ["ua-q-016", "ua-q-017", "ua-q-018"],
+  "relatedFlashcardIds": ["ua-fc-019", "ua-fc-020", "ua-fc-021"],
+  "followUp": ["urinalysis/physical-chemical-testing", "microbiology/enteric-gnr-sterile-sites"],
+  "references": [
+    { "title": "Urinalysis and Body Fluids (Strasinger's)", "detail": "7th ed., F. A. Davis, chapters on cerebrospinal fluid, serous fluids, semen, and crystals", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., body fluids section", "url": null },
+    { "title": "WHO laboratory guidance on semen analysis", "detail": "Organizational guidance on semen examination reference values", "url": "https://www.who.int/" }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

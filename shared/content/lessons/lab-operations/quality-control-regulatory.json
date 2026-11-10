@@ -6,7 +6,18 @@
   "summary": "How to run and read a Levey-Jennings chart, how to apply the classic Westgard multirule interpretation (1-2s warning, 1-3s, 2-2s, R-4s rejection with supplementary rules), what CLIA and proficiency testing require, how methods are validated for precision, accuracy, LOD/LOQ and reference intervals, and the biosafety level framework for clinical laboratories.",
   "readingMinutes": 17,
   "difficulty": "ADVANCED",
-  "keywords": ["Westgard rules", "Levey-Jennings", "1-3s", "2-2s", "R-4s", "CLIA", "proficiency testing", "limit of detection", "reference interval", "biosafety level"],
+  "keywords": [
+    "Westgard rules",
+    "Levey-Jennings",
+    "1-3s",
+    "2-2s",
+    "R-4s",
+    "CLIA",
+    "proficiency testing",
+    "limit of detection",
+    "reference interval",
+    "biosafety level"
+  ],
   "objectives": [
     "Construct and interpret a Levey-Jennings chart using mean, standard deviation, and standard deviation index logic.",
     "Apply Westgard multirule decision criteria correctly: 1-2s as warning, and 1-3s, 2-2s, and R-4s as rejection rules.",
@@ -22,14 +33,49 @@
       "CLIA categorizes tests as waived, moderate complexity, or high complexity, and nonwaived testing requires proficiency testing participation and documented quality assessment."
     ],
     "mustKnowTable": {
-      "columns": ["Rule", "Signal", "Type of error targeted", "Action in classic multirule scheme"],
+      "columns": [
+        "Rule",
+        "Signal",
+        "Type of error targeted",
+        "Action in classic multirule scheme"
+      ],
       "rows": [
-        ["1-2s", "One control beyond 2 SD", "Early warning", "Warning: evaluate remaining rules before accepting run"],
-        ["1-3s", "One control beyond 3 SD", "Random error", "Reject run"],
-        ["2-2s", "Two controls (same or consecutive runs) beyond 2 SD on the same side", "Systematic error", "Reject run"],
-        ["R-4s", "Range between two controls exceeds 4 SD (one high by 2 SD, one low by 2 SD)", "Random error", "Reject run"],
-        ["4-1s", "Four consecutive controls beyond 1 SD on the same side", "Systematic error", "Reject (supplementary rule)"],
-        ["8x (or 10x)", "Eight (or ten) consecutive controls on one side of mean", "Systematic shift/trend", "Reject (supplementary rule)"]
+        [
+          "1-2s",
+          "One control beyond 2 SD",
+          "Early warning",
+          "Warning: evaluate remaining rules before accepting run"
+        ],
+        [
+          "1-3s",
+          "One control beyond 3 SD",
+          "Random error",
+          "Reject run"
+        ],
+        [
+          "2-2s",
+          "Two controls (same or consecutive runs) beyond 2 SD on the same side",
+          "Systematic error",
+          "Reject run"
+        ],
+        [
+          "R-4s",
+          "Range between two controls exceeds 4 SD (one high by 2 SD, one low by 2 SD)",
+          "Random error",
+          "Reject run"
+        ],
+        [
+          "4-1s",
+          "Four consecutive controls beyond 1 SD on the same side",
+          "Systematic error",
+          "Reject (supplementary rule)"
+        ],
+        [
+          "8x (or 10x)",
+          "Eight (or ten) consecutive controls on one side of mean",
+          "Systematic shift/trend",
+          "Reject (supplementary rule)"
+        ]
       ]
     },
     "mnemonic": "Westgard rejection core: '1-3s breaks, 2-2s systemically sneaks, R-4s randomizes.' 1-2s only waves a warning flag."
@@ -68,25 +114,90 @@
     "comparisonTables": [
       {
         "title": "Accuracy and precision language",
-        "columns": ["Concept", "Question answered", "Measurement", "Typical study"],
+        "columns": [
+          "Concept",
+          "Question answered",
+          "Measurement",
+          "Typical study"
+        ],
         "rows": [
-          ["Precision (repeatability)", "Do repeats agree?", "SD, CV within run", "Replicate measurements within run"],
-          ["Precision (reproducibility)", "Do results agree across days, operators, instruments?", "SD, CV between runs", "Intermediate precision study"],
-          ["Accuracy (trueness)", "Is the result close to the true value?", "Percent recovery, bias", "Recovery and method comparison"],
-          ["Analytical sensitivity", "How little can we see?", "LOD, LOQ", "Low-level dilution series"],
-          ["Analytical specificity", "What confuses the method?", "Interference magnitude", "Spiking hemolysate, bilirubin, lipids, drugs"],
-          ["Reportable range", "Over what span is it linear?", "Slope and intercept", "Linearity panel with dilutions"],
-          ["Reference interval", "What is normal here?", "Percentile-based limits", "Local reference population study or verification"]
+          [
+            "Precision (repeatability)",
+            "Do repeats agree?",
+            "SD, CV within run",
+            "Replicate measurements within run"
+          ],
+          [
+            "Precision (reproducibility)",
+            "Do results agree across days, operators, instruments?",
+            "SD, CV between runs",
+            "Intermediate precision study"
+          ],
+          [
+            "Accuracy (trueness)",
+            "Is the result close to the true value?",
+            "Percent recovery, bias",
+            "Recovery and method comparison"
+          ],
+          [
+            "Analytical sensitivity",
+            "How little can we see?",
+            "LOD, LOQ",
+            "Low-level dilution series"
+          ],
+          [
+            "Analytical specificity",
+            "What confuses the method?",
+            "Interference magnitude",
+            "Spiking hemolysate, bilirubin, lipids, drugs"
+          ],
+          [
+            "Reportable range",
+            "Over what span is it linear?",
+            "Slope and intercept",
+            "Linearity panel with dilutions"
+          ],
+          [
+            "Reference interval",
+            "What is normal here?",
+            "Percentile-based limits",
+            "Local reference population study or verification"
+          ]
         ]
       },
       {
         "title": "Biosafety levels at a glance",
-        "columns": ["Level", "Agent risk", "Example setting", "Hallmark controls"],
+        "columns": [
+          "Level",
+          "Agent risk",
+          "Example setting",
+          "Hallmark controls"
+        ],
         "rows": [
-          ["BSL-1", "Well characterized, low risk", "Teaching labs", "Standard microbiological practices"],
-          ["BSL-2", "Moderate risk, treatable", "Clinical bacteriology bench", "BSC for aerosols, PPE, hepatitis B vaccination, limited access"],
-          ["BSL-3", "Serious, possibly airborne", "M. tuberculosis culture", "Respiratory protection, controlled access, negative-pressure suite"],
-          ["BSL-4", "Exotic, high consequence", "Specialized national labs", "Full containment, positive-pressure suits"]
+          [
+            "BSL-1",
+            "Well characterized, low risk",
+            "Teaching labs",
+            "Standard microbiological practices"
+          ],
+          [
+            "BSL-2",
+            "Moderate risk, treatable",
+            "Clinical bacteriology bench",
+            "BSC for aerosols, PPE, hepatitis B vaccination, limited access"
+          ],
+          [
+            "BSL-3",
+            "Serious, possibly airborne",
+            "M. tuberculosis culture",
+            "Respiratory protection, controlled access, negative-pressure suite"
+          ],
+          [
+            "BSL-4",
+            "Exotic, high consequence",
+            "Specialized national labs",
+            "Full containment, positive-pressure suits"
+          ]
         ]
       }
     ],
@@ -96,10 +207,7 @@
       "LOD and LOQ are not interchangeable: detection does not equal quantitation, and LOQ is defined by acceptable precision/accuracy criteria set in validation.",
       "Waived tests under CLIA still require following manufacturer instructions exactly; waived does not mean unregulated."
     ],
-    "workedExample": {
-      "title": "Reading a two-control run",
-      "body": "Control 1 (normal level) sits at mean plus 1.0 SD and control 2 (pathologic level) sits at mean minus 2.4 SD on the same run. The 1-2s warning is triggered by control 2, and the range between controls is 3.4 SD, which does not exceed 4 SD, so R-4s is not triggered; no 1-3s violation exists and 2-2s needs two results beyond 2 SD. Under the classic multirule set, the run is not rejected - but because a 1-2s warning fired, the operator inspects the chart for trends (4-1s, 8x), checks reagent and calibration status, then accepts the run only if no other rule is violated, documenting the warning. Had the two controls sat at plus 2.2 SD and minus 2.2 SD on one run, the 4.4 SD range would trigger R-4s and the run would be rejected for investigation of random error."
-    }
+    "workedExample": "**Reading a two-control run**\n\nControl 1 (normal level) sits at mean plus 1.0 SD and control 2 (pathologic level) sits at mean minus 2.4 SD on the same run. The 1-2s warning is triggered by control 2, and the range between controls is 3.4 SD, which does not exceed 4 SD, so R-4s is not triggered; no 1-3s violation exists and 2-2s needs two results beyond 2 SD. Under the classic multirule set, the run is not rejected - but because a 1-2s warning fired, the operator inspects the chart for trends (4-1s, 8x), checks reagent and calibration status, then accepts the run only if no other rule is violated, documenting the warning. Had the two controls sat at plus 2.2 SD and minus 2.2 SD on one run, the 4.4 SD range would trigger R-4s and the run would be rejected for investigation of random error."
   },
   "memoryHooks": [
     {
@@ -113,14 +221,40 @@
       "funny": "LOD, kita lang. LOQ, pang-report na talaga. Wag gamitin ang LOD para sa numero sa result sheet!"
     }
   ],
-  "practiceQuestionIds": ["lo-q-001", "lo-q-002", "lo-q-003"],
-  "relatedFlashcardIds": ["lo-fc-001", "lo-fc-002", "lo-fc-003"],
-  "followUp": ["lab-operations/preanalytic-poct-math"],
+  "practiceQuestionIds": [
+    "lo-q-001",
+    "lo-q-002",
+    "lo-q-003"
+  ],
+  "relatedFlashcardIds": [
+    "lo-fc-001",
+    "lo-fc-002",
+    "lo-fc-003"
+  ],
+  "followUp": [
+    "lab-operations/preanalytic-poct-math"
+  ],
   "references": [
-    { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., quality management and laboratory safety chapters", "url": null },
-    { "title": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations", "detail": "9th ed., method evaluation and quality control chapters", "url": null },
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., statistics and method validation sections", "url": null },
-    { "title": "CDC laboratory quality and safety resources", "detail": "Organizational guidance on laboratory quality systems", "url": "https://www.cdc.gov/labquality/" }
+    {
+      "title": "Linne and Ringsrud's Clinical Laboratory Science",
+      "detail": "8th ed., quality management and laboratory safety chapters",
+      "url": null
+    },
+    {
+      "title": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations",
+      "detail": "9th ed., method evaluation and quality control chapters",
+      "url": null
+    },
+    {
+      "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics",
+      "detail": "7th ed., Burtis & Bruns, Elsevier, statistics and method validation sections",
+      "url": null
+    },
+    {
+      "title": "CDC laboratory quality and safety resources",
+      "detail": "Organizational guidance on laboratory quality systems",
+      "url": "https://www.cdc.gov/labquality/"
+    }
   ],
   "editorialStatus": "PUBLISHED",
   "reviewedAt": "2026-01-15",

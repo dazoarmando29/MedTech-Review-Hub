@@ -111,7 +111,7 @@
   "relatedFlashcardIds": ["ua-fc-001", "ua-fc-002", "ua-fc-003"],
   "followUp": ["urinalysis/body-fluid-analysis"],
   "references": [
-    { "title": "Strasinger's Urinalysis and Body Fluids", "detail": "6th ed., chapters on physical and chemical examination and sediment", "url": null },
+    { "title": "Urinalysis and Body Fluids (Strasinger's)", "detail": "7th ed., F. A. Davis, chapters on physical and chemical examination and sediment", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., urinalysis section", "url": null },
     { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., renal function and urinalysis", "url": null }
   ],

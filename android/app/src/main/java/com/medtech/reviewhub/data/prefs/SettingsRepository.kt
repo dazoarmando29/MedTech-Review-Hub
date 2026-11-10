@@ -26,6 +26,7 @@ data class AppSettings(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     val textScalePercent: Int = 100,
     val mascotKind: MascotKind = MascotKind.CAT,
+    val mascotName: String = DEFAULT_MASCOT_NAME,
     val seriousMode: Boolean = false,
     val reduceAnimation: Boolean = false,
     val muteMascot: Boolean = false,
@@ -44,15 +45,27 @@ data class AppSettings(
     val pomodoroWorkMinutes: Int = 25,
     val pomodoroBreakMinutes: Int = 5,
     val customWorkMinutes: Int = 30,
-    val customBreakMinutes: Int = 5
+    val customBreakMinutes: Int = 5,
+    /** User-selectable theme (shared/DESIGN.md v2): strawberry (default), sakura, lavender, night, minimal, system. */
+    val appTheme: String = DEFAULT_APP_THEME,
+    /** Personalized dashboard greeting name. */
+    val displayName: String = DEFAULT_DISPLAY_NAME,
+    /** Optional gift note card text. Blank = show the default gift note. */
+    val giftNote: String = ""
 ) {
     companion object {
+        const val DEFAULT_APP_THEME = "strawberry"
+        const val DEFAULT_DISPLAY_NAME = "future MLS"
+        const val DEFAULT_MASCOT_NAME = "Mochi"
+
+        /** New default meanings per shared/DESIGN.md v2 "Highlight colors". */
         fun defaultHighlightMeanings(): Map<HighlightColor, String> = mapOf(
-            HighlightColor.YELLOW to "Must memorize",
-            HighlightColor.RED to "High-priority exam fact",
-            HighlightColor.BLUE to "Definition",
-            HighlightColor.GREEN to "Understood",
-            HighlightColor.PURPLE to "Needs study"
+            HighlightColor.YELLOW to "Important fact",
+            HighlightColor.PINK to "Must memorize",
+            HighlightColor.PURPLE to "Definition",
+            HighlightColor.BLUE to "Clinical significance",
+            HighlightColor.GREEN to "Already mastered",
+            HighlightColor.ROSE to "Needs review"
         )
     }
 }
@@ -68,8 +81,12 @@ class SettingsRepository(private val context: Context) {
 
     private object Keys {
         val THEME = stringPreferencesKey("theme_mode")
+        val APP_THEME = stringPreferencesKey("app_theme")
         val TEXT_SCALE = intPreferencesKey("text_scale")
         val MASCOT = stringPreferencesKey("mascot_kind")
+        val MASCOT_NAME = stringPreferencesKey("mascot_name")
+        val DISPLAY_NAME = stringPreferencesKey("display_name")
+        val GIFT_NOTE = stringPreferencesKey("gift_note")
         val SERIOUS = booleanPreferencesKey("serious_mode")
         val REDUCE_ANIM = booleanPreferencesKey("reduce_animation")
         val MUTE = booleanPreferencesKey("mute_mascot")
@@ -85,10 +102,11 @@ class SettingsRepository(private val context: Context) {
         val REVIEW_LIMIT = intPreferencesKey("daily_review_limit")
         val RETENTION = floatPreferencesKey("requested_retention")
         val HL_YELLOW = stringPreferencesKey("hl_yellow")
-        val HL_RED = stringPreferencesKey("hl_red")
+        val HL_PINK = stringPreferencesKey("hl_pink")
+        val HL_PURPLE = stringPreferencesKey("hl_purple")
         val HL_BLUE = stringPreferencesKey("hl_blue")
         val HL_GREEN = stringPreferencesKey("hl_green")
-        val HL_PURPLE = stringPreferencesKey("hl_purple")
+        val HL_ROSE = stringPreferencesKey("hl_rose")
         val POM_WORK = intPreferencesKey("pomodoro_work")
         val POM_BREAK = intPreferencesKey("pomodoro_break")
         val CUSTOM_WORK = intPreferencesKey("custom_work")
@@ -99,8 +117,10 @@ class SettingsRepository(private val context: Context) {
     val settings: Flow<AppSettings> = context.dataStore.data.map { p ->
         AppSettings(
             themeMode = runCatching { ThemeMode.valueOf(p[Keys.THEME] ?: "SYSTEM") }.getOrDefault(ThemeMode.SYSTEM),
+            appTheme = p[Keys.APP_THEME]?.takeIf { it.isNotBlank() } ?: AppSettings.DEFAULT_APP_THEME,
             textScalePercent = (p[Keys.TEXT_SCALE] ?: 100).coerceIn(100, 150),
             mascotKind = runCatching { MascotKind.valueOf(p[Keys.MASCOT] ?: "CAT") }.getOrDefault(MascotKind.CAT),
+            mascotName = p[Keys.MASCOT_NAME]?.takeIf { it.isNotBlank() } ?: AppSettings.DEFAULT_MASCOT_NAME,
             seriousMode = p[Keys.SERIOUS] ?: false,
             reduceAnimation = p[Keys.REDUCE_ANIM] ?: false,
             muteMascot = p[Keys.MUTE] ?: false,
@@ -116,16 +136,19 @@ class SettingsRepository(private val context: Context) {
             dailyReviewLimit = p[Keys.REVIEW_LIMIT] ?: 200,
             requestedRetention = p[Keys.RETENTION] ?: 0.9f,
             highlightMeanings = mapOf(
-                HighlightColor.YELLOW to (p[Keys.HL_YELLOW] ?: "Must memorize"),
-                HighlightColor.RED to (p[Keys.HL_RED] ?: "High-priority exam fact"),
-                HighlightColor.BLUE to (p[Keys.HL_BLUE] ?: "Definition"),
-                HighlightColor.GREEN to (p[Keys.HL_GREEN] ?: "Understood"),
-                HighlightColor.PURPLE to (p[Keys.HL_PURPLE] ?: "Needs study")
+                HighlightColor.YELLOW to (p[Keys.HL_YELLOW] ?: "Important fact"),
+                HighlightColor.PINK to (p[Keys.HL_PINK] ?: "Must memorize"),
+                HighlightColor.PURPLE to (p[Keys.HL_PURPLE] ?: "Definition"),
+                HighlightColor.BLUE to (p[Keys.HL_BLUE] ?: "Clinical significance"),
+                HighlightColor.GREEN to (p[Keys.HL_GREEN] ?: "Already mastered"),
+                HighlightColor.ROSE to (p[Keys.HL_ROSE] ?: "Needs review")
             ),
             pomodoroWorkMinutes = p[Keys.POM_WORK] ?: 25,
             pomodoroBreakMinutes = p[Keys.POM_BREAK] ?: 5,
             customWorkMinutes = p[Keys.CUSTOM_WORK] ?: 30,
-            customBreakMinutes = p[Keys.CUSTOM_BREAK] ?: 5
+            customBreakMinutes = p[Keys.CUSTOM_BREAK] ?: 5,
+            displayName = p[Keys.DISPLAY_NAME]?.takeIf { it.isNotBlank() } ?: AppSettings.DEFAULT_DISPLAY_NAME,
+            giftNote = p[Keys.GIFT_NOTE] ?: ""
         )
     }
 
@@ -143,8 +166,18 @@ class SettingsRepository(private val context: Context) {
     }
 
     suspend fun setThemeMode(mode: ThemeMode) = edit { it[Keys.THEME] = mode.name }
+    suspend fun setAppTheme(themeId: String) = edit {
+        it[Keys.APP_THEME] = themeId.lowercase()
+    }
     suspend fun setTextScale(percent: Int) = edit { it[Keys.TEXT_SCALE] = percent.coerceIn(100, 150) }
     suspend fun setMascotKind(kind: MascotKind) = edit { it[Keys.MASCOT] = kind.name }
+    suspend fun setMascotName(name: String) = edit {
+        it[Keys.MASCOT_NAME] = name.trim().ifBlank { AppSettings.DEFAULT_MASCOT_NAME }
+    }
+    suspend fun setDisplayName(name: String) = edit {
+        it[Keys.DISPLAY_NAME] = name.trim().ifBlank { AppSettings.DEFAULT_DISPLAY_NAME }
+    }
+    suspend fun setGiftNote(note: String) = edit { it[Keys.GIFT_NOTE] = note.trim() }
     suspend fun setSeriousMode(enabled: Boolean) = edit { it[Keys.SERIOUS] = enabled }
     suspend fun setReduceAnimation(enabled: Boolean) = edit { it[Keys.REDUCE_ANIM] = enabled }
     suspend fun setMuteMascot(enabled: Boolean) = edit { it[Keys.MUTE] = enabled }
@@ -166,10 +199,11 @@ class SettingsRepository(private val context: Context) {
     suspend fun setHighlightMeaning(color: HighlightColor, meaning: String) = edit {
         when (color) {
             HighlightColor.YELLOW -> it[Keys.HL_YELLOW] = meaning
-            HighlightColor.RED -> it[Keys.HL_RED] = meaning
+            HighlightColor.PINK -> it[Keys.HL_PINK] = meaning
+            HighlightColor.PURPLE -> it[Keys.HL_PURPLE] = meaning
             HighlightColor.BLUE -> it[Keys.HL_BLUE] = meaning
             HighlightColor.GREEN -> it[Keys.HL_GREEN] = meaning
-            HighlightColor.PURPLE -> it[Keys.HL_PURPLE] = meaning
+            HighlightColor.ROSE -> it[Keys.HL_ROSE] = meaning
         }
     }
     suspend fun setPomodoro(work: Int, breakMin: Int) = edit {

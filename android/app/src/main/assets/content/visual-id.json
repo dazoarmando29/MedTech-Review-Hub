@@ -1,0 +1,110 @@
+[
+  {
+    "id": "vid-001",
+    "term": "Neutrophil",
+    "subjectId": "hematology",
+    "svgId": "neutrophil",
+    "choices": ["Neutrophil", "Lymphocyte", "Monocyte", "Eosinophil"],
+    "correct": "Neutrophil",
+    "explanation": "Identified by a multilobed nucleus (typically 3–5 lobes connected by thin chromatin strands) and fine lilac (neutral-staining) cytoplasmic granules. It is the most abundant circulating white blood cell."
+  },
+  {
+    "id": "vid-002",
+    "term": "Lymphocyte",
+    "subjectId": "hematology",
+    "svgId": "lymphocyte",
+    "choices": ["Neutrophil", "Lymphocyte", "Monocyte", "Eosinophil"],
+    "correct": "Lymphocyte",
+    "explanation": "A small agranular cell with a large round densely clumped nucleus and only a thin rim of blue cytoplasm. The high nucleus-to-cytoplasm ratio is the key giveaway."
+  },
+  {
+    "id": "vid-003",
+    "term": "Monocyte",
+    "subjectId": "hematology",
+    "svgId": "monocyte",
+    "choices": ["Neutrophil", "Lymphocyte", "Monocyte", "Eosinophil"],
+    "correct": "Monocyte",
+    "explanation": "The largest peripheral blood leukocyte, with a large kidney- or horseshoe-shaped nucleus and gray-blue cytoplasm containing fine dust-like granules, sometimes with vacuoles."
+  },
+  {
+    "id": "vid-004",
+    "term": "Eosinophil",
+    "subjectId": "hematology",
+    "svgId": "eosinophil",
+    "choices": ["Neutrophil", "Lymphocyte", "Monocyte", "Eosinophil"],
+    "correct": "Eosinophil",
+    "explanation": "Recognized by its bilobed nucleus and abundant uniform brick-red (orange-red) granules that fill the cytoplasm on a Wright-stained smear. The granules are the identifying feature."
+  },
+  {
+    "id": "vid-005",
+    "term": "Basophil",
+    "subjectId": "hematology",
+    "svgId": "basophil",
+    "choices": ["Basophil", "Eosinophil", "Neutrophil", "Lymphocyte"],
+    "correct": "Basophil",
+    "explanation": "Large dark purple-black coarse granules that often obscure the nucleus. It is the least abundant circulating leukocyte, and the intensely basophilic granules are the identifying feature."
+  },
+  {
+    "id": "vid-006",
+    "term": "Normal red blood cells",
+    "subjectId": "hematology",
+    "svgId": "rbc-smear",
+    "choices": ["Normal red blood cells", "Sickle cells", "Schistocytes", "Rouleaux"],
+    "correct": "Normal red blood cells",
+    "explanation": "Anucleate biconcave discs with a smooth round outline and a central pallor occupying about one-third of the cell diameter, uniform in size (MCV roughly 80–100 fL)."
+  },
+  {
+    "id": "vid-007",
+    "term": "Gram-positive cocci in clusters",
+    "subjectId": "microbiology",
+    "svgId": "gram-positive-cocci",
+    "choices": ["Gram-positive cocci in clusters", "Gram-negative bacilli", "Gram-positive bacilli in chains", "Yeast with budding"],
+    "correct": "Gram-positive cocci in clusters",
+    "explanation": "Spherical cells that retain crystal violet and stain purple, arranged in grape-like clusters — the classic Gram-stain appearance of Staphylococcus (chains would suggest Streptococcus)."
+  },
+  {
+    "id": "vid-008",
+    "term": "Gram-negative bacilli",
+    "subjectId": "microbiology",
+    "svgId": "gram-negative-bacilli",
+    "choices": ["Gram-negative bacilli", "Gram-positive cocci", "Gram-positive bacilli", "Gram-negative diplococci"],
+    "correct": "Gram-negative bacilli",
+    "explanation": "Rod-shaped bacteria that lose the crystal violet during decolorization and take up the safranin counterstain, appearing pink-red. The thin peptidoglycan layer with an outer membrane drives this reaction."
+  },
+  {
+    "id": "vid-009",
+    "term": "Yeast with budding",
+    "subjectId": "microbiology",
+    "svgId": "yeast-budding",
+    "choices": ["Yeast with budding", "Mold with septate hyphae", "Gram-positive cocci", "Calcium oxalate crystals"],
+    "correct": "Yeast with budding",
+    "explanation": "Round to oval cells showing narrow-based budding daughter cells without true hyphae; pseudohyphae may accompany them, as commonly seen with Candida species."
+  },
+  {
+    "id": "vid-010",
+    "term": "Calcium oxalate crystals",
+    "subjectId": "urinalysis",
+    "svgId": "calcium-oxalate-crystal",
+    "choices": ["Calcium oxalate crystals", "Uric acid crystals", "Triple phosphate crystals", "Hyaline cast"],
+    "correct": "Calcium oxalate crystals",
+    "explanation": "Colorless, envelope-shaped crystals (a square with an X across the face) — the classic dihydrate form; the monohydrate form appears as dumbbells or ovals. They are common in acidic urine and are notably seen in ethylene glycol poisoning."
+  },
+  {
+    "id": "vid-011",
+    "term": "Hyaline cast",
+    "subjectId": "urinalysis",
+    "svgId": "cast-hyaline",
+    "choices": ["Hyaline cast", "Red blood cell cast", "Waxy cast", "Muddy brown granular cast"],
+    "correct": "Hyaline cast",
+    "explanation": "A translucent, colorless cylindrical structure with parallel sides and rounded ends, formed from Tamm-Horsfall protein in the distal nephron; it is best seen with reduced microscope light and contains no inclusions."
+  },
+  {
+    "id": "vid-012",
+    "term": "Sickle cells",
+    "subjectId": "hematology",
+    "svgId": "sickle-cell",
+    "choices": ["Sickle cells", "Target cells", "Acanthocytes", "Normal red blood cells"],
+    "correct": "Sickle cells",
+    "explanation": "Elongated crescent-shaped red cells with pointed ends, caused by polymerization of deoxygenated hemoglobin S. Irreversibly sickled cells retain the shape even when reoxygenated."
+  }
+]

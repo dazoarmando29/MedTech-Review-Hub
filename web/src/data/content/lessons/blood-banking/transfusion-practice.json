@@ -105,7 +105,7 @@
   "relatedFlashcardIds": ["bb-fc-021", "bb-fc-022", "bb-fc-023"],
   "followUp": ["blood-banking/abo-basics", "blood-banking/rh-hdfn"],
   "references": [
-    { "title": "Harmening's Blood Banking and Transfusion Fundamentals", "detail": "6th ed., chapters on pretransfusion testing, blood components, and transfusion reactions", "url": null },
+    { "title": "Modern Blood Banking and Transfusion Practices (Harmening)", "detail": "6th ed., F. A. Davis, chapters on pretransfusion testing, blood components, and transfusion reactions", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., transfusion medicine section", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

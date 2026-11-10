@@ -1,12 +1,12 @@
 {
-  "name": "MedTech Review Hub — ASCPi Board Exam Reviewer",
-  "short_name": "MedTech Review Hub",
-  "description": "Independent ASCPi MLS board exam review platform: lessons, FSRS flashcards, quizzes, PDF reviewer tools, study analytics.",
+  "name": "MedTech Study Companion - ASCPi Reviewer",
+  "short_name": "Study Companion",
+  "description": "A cozy pink ASCPi MLS board exam study companion for Filipino Medical Technology graduates: lessons, FSRS flashcards, quizzes, PDF tools, study garden, and a cat named Mochi.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
-  "background_color": "#F8FAFC",
-  "theme_color": "#2563EB",
+  "background_color": "#FFF0F5",
+  "theme_color": "#DB2777",
   "lang": "en",
   "categories": ["education", "medical"],
   "icons": [

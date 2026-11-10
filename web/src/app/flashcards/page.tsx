@@ -109,18 +109,24 @@ export default function FlashcardsPage() {
             <div className="flex-1 flex items-center justify-center text-center py-6">
               {!flipped ? (
                 <div>
-                  <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)] mb-2">Question</p>
+                  <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'var(--muted)' }}>Question</p>
                   <p className="text-lg font-semibold">{renderCloze(activeCard.front, false)}</p>
                 </div>
               ) : (
                 <div>
-                  <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)] mb-2">Answer</p>
+                  <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'var(--muted)' }}>Answer</p>
                   <p className="text-lg">
                     {activeCard.type === 'CLOZE'
                       ? renderCloze(activeCard.front, true)
                       : activeCard.front}
                   </p>
-                  <p className="mt-3 text-[var(--brand-2)] font-medium">{activeCard.back}</p>
+                  <p className="mt-3 font-medium" style={{ color: 'var(--primary)' }}>{activeCard.back}</p>
+                  {activeCard.note && (
+                    <div className="sticky-note mt-4 text-xs inline-block text-left max-w-sm">
+                      <strong>Cute memory trick 🐾</strong>
+                      <p className="mt-1">{activeCard.note}</p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

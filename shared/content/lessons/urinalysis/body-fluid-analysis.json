@@ -109,7 +109,7 @@
   "relatedFlashcardIds": ["ua-fc-019", "ua-fc-020", "ua-fc-021"],
   "followUp": ["urinalysis/physical-chemical-testing", "microbiology/enteric-gnr-sterile-sites"],
   "references": [
-    { "title": "Strasinger's Urinalysis and Body Fluids", "detail": "6th ed., chapters on cerebrospinal fluid, serous fluids, semen, and crystals", "url": null },
+    { "title": "Urinalysis and Body Fluids (Strasinger's)", "detail": "7th ed., F. A. Davis, chapters on cerebrospinal fluid, serous fluids, semen, and crystals", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., body fluids section", "url": null },
     { "title": "WHO laboratory guidance on semen analysis", "detail": "Organizational guidance on semen examination reference values", "url": "https://www.who.int/" }
   ],

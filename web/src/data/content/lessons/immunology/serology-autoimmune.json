@@ -110,7 +110,7 @@
   "followUp": ["immunology/immunoglobulins-complement"],
   "references": [
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on serology and autoimmune disease testing", "url": null },
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., immunoassay methodology chapters", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, immunoassay methodology chapters", "url": null },
     { "title": "CDC sexually transmitted infections treatment guidance", "detail": "Organizational guidance for syphilis testing algorithms", "url": "https://www.cdc.gov/" }
   ],
   "editorialStatus": "PUBLISHED",

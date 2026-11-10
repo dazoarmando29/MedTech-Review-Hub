@@ -63,7 +63,7 @@ fun OnboardingScreen(
         MascotBubble(
             kind = MascotKind.CAT,
             mood = MascotMood.ENCOURAGING,
-            line = "Kaya mo 'to, future RMT! Sagutin mo lang ito, tapos may study plan ka na."
+            line = "Kaya mo 'to, future MLS! Sagutin mo lang ito, tapos may study plan ka na."
         )
         Spacer(Modifier.height(16.dp))
 

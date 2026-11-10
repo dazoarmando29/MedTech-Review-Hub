@@ -25,6 +25,7 @@ import f_lessons_microbiology_enteric_gnr_sterile_sites_json from './lessons/mic
 import f_lessons_microbiology_gram_positive_cocci_json from './lessons/microbiology/gram-positive-cocci.json';
 import f_lessons_urinalysis_body_fluid_analysis_json from './lessons/urinalysis/body-fluid-analysis.json';
 import f_lessons_urinalysis_physical_chemical_testing_json from './lessons/urinalysis/physical-chemical-testing.json';
+import f_manifest_json from './manifest.json';
 import f_memes_json from './memes.json';
 import f_questions_blood_banking_json from './questions/blood-banking.json';
 import f_questions_clinical_chemistry_json from './questions/clinical-chemistry.json';
@@ -33,6 +34,7 @@ import f_questions_immunology_json from './questions/immunology.json';
 import f_questions_lab_operations_json from './questions/lab-operations.json';
 import f_questions_microbiology_json from './questions/microbiology.json';
 import f_questions_urinalysis_json from './questions/urinalysis.json';
+import f_resources_json from './resources.json';
 import f_subjects_blood_banking_json from './subjects/blood-banking.json';
 import f_subjects_clinical_chemistry_json from './subjects/clinical-chemistry.json';
 import f_subjects_hematology_json from './subjects/hematology.json';
@@ -40,6 +42,7 @@ import f_subjects_immunology_json from './subjects/immunology.json';
 import f_subjects_lab_operations_json from './subjects/lab-operations.json';
 import f_subjects_microbiology_json from './subjects/microbiology.json';
 import f_subjects_urinalysis_json from './subjects/urinalysis.json';
+import f_visual_id_json from './visual-id.json';
 
 export interface ContentFile { path: string; data: unknown }
 
@@ -70,6 +73,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./lessons/microbiology/gram-positive-cocci.json", data: f_lessons_microbiology_gram_positive_cocci_json },
   { path: "./lessons/urinalysis/body-fluid-analysis.json", data: f_lessons_urinalysis_body_fluid_analysis_json },
   { path: "./lessons/urinalysis/physical-chemical-testing.json", data: f_lessons_urinalysis_physical_chemical_testing_json },
+  { path: "./manifest.json", data: f_manifest_json },
   { path: "./memes.json", data: f_memes_json },
   { path: "./questions/blood-banking.json", data: f_questions_blood_banking_json },
   { path: "./questions/clinical-chemistry.json", data: f_questions_clinical_chemistry_json },
@@ -78,6 +82,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./questions/lab-operations.json", data: f_questions_lab_operations_json },
   { path: "./questions/microbiology.json", data: f_questions_microbiology_json },
   { path: "./questions/urinalysis.json", data: f_questions_urinalysis_json },
+  { path: "./resources.json", data: f_resources_json },
   { path: "./subjects/blood-banking.json", data: f_subjects_blood_banking_json },
   { path: "./subjects/clinical-chemistry.json", data: f_subjects_clinical_chemistry_json },
   { path: "./subjects/hematology.json", data: f_subjects_hematology_json },
@@ -85,4 +90,5 @@ export const contentFiles: ContentFile[] = [
   { path: "./subjects/lab-operations.json", data: f_subjects_lab_operations_json },
   { path: "./subjects/microbiology.json", data: f_subjects_microbiology_json },
   { path: "./subjects/urinalysis.json", data: f_subjects_urinalysis_json },
+  { path: "./visual-id.json", data: f_visual_id_json },
 ];

@@ -1,0 +1,128 @@
+{
+  "id": "microbiology/enteric-gnr-sterile-sites",
+  "subjectId": "microbiology",
+  "topicId": "gram-negative",
+  "title": "Enteric Gram-Negative Rods, Non-Fermenters, and Sterile-Site Workups with AST Essentials",
+  "summary": "A bench-oriented guide to the enteric gram-negative rod workup (oxidase, sugar fermentation, TSI, urease, indole, citrate, lysine), the important non-fermenters, plus sterile-site culture strategy for blood and CSF, anaerobe, fungal, and AFB basics, and the core concepts of antimicrobial susceptibility testing including MIC and disk diffusion.",
+  "readingMinutes": 18,
+  "difficulty": "ADVANCED",
+  "keywords": ["oxidase", "triple sugar iron", "indole", "citrate", "Pseudomonas aeruginosa", "non-fermenter", "blood culture", "CSF culture", "MIC", "disk diffusion", "auramine smear"],
+  "objectives": [
+    "Apply an organized biochemical workup to differentiate Enterobacterales and common non-fermenting gram-negative bacilli.",
+    "Describe the laboratory approach to blood, CSF, anaerobic, fungal, and mycobacterial specimens.",
+    "Explain MIC, disk diffusion, breakpoints, and the meaning of susceptible, intermediate, and resistant categories.",
+    "Recognize common pitfalls such as mixed cultures, misread TSI reactions, and non-fermenters mistaken for enterics."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Oxidase negative plus glucose fermentation suggests Enterobacterales; oxidase positive suggests Pseudomonas, Aeromonas, or Vibrio rather than an enteric rod.",
+      "E. coli is indole positive, citrate negative, and lactose fermenting; Klebsiella pneumoniae is indole negative, citrate positive, VP positive, and urease positive.",
+      "Proteus species are urease strong positive and phenylalanine deaminase positive; Proteus mirabilis is indole negative while Proteus vulgaris is indole positive.",
+      "Pseudomonas aeruginosa is oxidase positive, a non-lactose fermenter with a grape-like odor, and can grow at 42 degrees Celsius.",
+      "A low CSF glucose with neutrophilic pleocytosis and elevated protein supports bacterial meningitis; always pair CSF Gram stain and culture with blood cultures."
+    ],
+    "mustKnowTable": {
+      "columns": ["Organism", "Oxidase", "Lactose", "Indole", "Citrate", "Urease", "Distinctive feature"],
+      "rows": [
+        ["Escherichia coli", "Negative", "Fermenter", "Positive", "Negative", "Negative", "Mucoid green metallic sheen on EMB"],
+        ["Klebsiella pneumoniae", "Negative", "Fermenter", "Negative", "Positive", "Positive", "VP positive, mucoid colonies"],
+        ["Enterobacter cloacae complex", "Negative", "Fermenter", "Negative", "Positive", "Variable", "Ornithine positive, VP positive"],
+        ["Proteus mirabilis", "Negative", "Non-fermenter", "Negative", "Variable", "Strong positive", "Swarming motility, H2S positive"],
+        ["Salmonella spp.", "Negative", "Non-fermenter", "Negative", "Positive", "Negative", "H2S positive, lysine positive"],
+        ["Shigella spp.", "Negative", "Non-fermenter", "Variable", "Negative", "Negative", "H2S negative, non-motile"],
+        ["Pseudomonas aeruginosa", "Positive", "Non-fermenter", "Negative", "Positive", "Negative", "Pigment, growth at 42 C"],
+        ["Acinetobacter baumannii complex", "Negative", "Non-fermenter", "Negative", "Positive", "Negative", "Non-motile oxidase-negative coccobacilli"]
+      ]
+    },
+    "mnemonic": "Indole positive + citrate negative = I in E. coli means 'I do it alone' (no citrate for me)."
+  },
+  "deepStudy": {
+    "introduction": "Gram-negative bacilli from clinical specimens split early into members of the Enterobacterales (oxidase negative, glucose fermenting) and the non-fermenting gram-negative bacilli such as Pseudomonas and Acinetobacter. The traditional workup uses a compact set of biochemical tests - oxidase, sugar fermentation or oxidation-fermentation media, triple sugar iron agar, urease, indole, citrate utilization, lysine decarboxylase, and motility - and understanding the logic of each tube is far more valuable than memorizing isolated reactions. Sterile-site specimens (blood, cerebrospinal fluid, and other normally sterile fluids) demand a broader strategy that includes Gram stain, culture conditions, and special stains for fungi and mycobacteria. Finally, antimicrobial susceptibility testing translates identification into therapy: disk diffusion and MIC methods are interpreted against clinical breakpoints so that report categories - susceptible, intermediate, and resistant - guide clinicians. This lesson integrates these strands so you can move from a colony on a plate to a defensible final report.",
+    "sections": [
+      {
+        "heading": "The enteric workup: tubes with a purpose",
+        "body": "The oxidase test identifies cytochrome c oxidase and is the first split: enterics are oxidase negative, while Pseudomonas, Aeromonas, Vibrio, and Neisseria are oxidase positive. Triple sugar iron agar reads two things at once: the butt (glucose fermentation) and the slant (lactose and sucrose fermentation), plus hydrogen sulfide production as blackening. A yellow butt with red slant (K/A) means glucose only fermentation, typical of Salmonella and Shigella; A/A with gas and blackening fits Salmonella; K/K means no fermentation at all and points to a non-fermenter. Indole testing detects tryptophanase; a red ring with Kovacs reagent is positive and separates E. coli (positive) from Klebsiella and Enterobacter (negative) and helps split Proteus species. Citrate utilization tests growth on citrate as the sole carbon source (Simmons citrate turns blue when alkaline). Urease splits urea to ammonia, turning phenol red pink; Proteus is a strong rapid urease producer, while Klebsiella is slower and weaker. Lysine decarboxylase and ornithine decarboxylase decarboxylate amino acids to amines, producing purple alkaline reactions that further separate Salmonella, Klebsiella, and Enterobacter. Every tube answers one binary question, and the pattern of answers is the identification.",
+        "diagram": null
+      },
+      {
+        "heading": "Non-fermenters: when the tube stays green",
+        "body": "Non-fermenting gram-negative bacilli do not ferment glucose in conventional media; oxidation-fermentation (Hugh-Leifson) medium shows oxidative or inert growth. Pseudomonas aeruginosa is the flagship: oxidase positive, often producing green pyocyanin pigment and a grape-like odor, motile by a single polar flagellum, and able to grow at 42 degrees Celsius, which separates it from many mimics. Acinetobacter baumannii complex appears as plump gram-negative coccobacilli in pairs, is oxidase negative, non-motile, and often misread as a member of the Enterobacterales until the oxidase result and inert sugar reactions are reviewed. Stenotrophomonas maltophilia is oxidase negative but maltose positive, DNase positive, and characteristically resistant to many agents including colistin in older descriptions; it often appears in respiratory specimens from ventilated patients. Burkholderia cepacia complex is another slow-growing oxidase-variable mimic with a risk for cystic fibrosis patients and contaminated solutions. Practical identification increasingly relies on validated automated or mass spectrometry systems, but the bench clues - oxidase, motility, pigment, odor, and growth temperature - remain the safety net when instruments give low-confidence scores or when the specimen is a sterile site.",
+        "diagram": null
+      },
+      {
+        "heading": "Sterile sites: blood, CSF, anaerobes, fungi, and AFB",
+        "body": "Blood cultures use aerobic and anaerobic bottles incubated continuously, usually for up to five days in modern systems, with Gram stain and subculture of any positive signal; two sets from separate venipunctures improve sensitivity and help distinguish contaminants from true bacteremia. Cerebrospinal fluid is a priority specimen: perform a cell count and differential, protein and glucose (with a paired serum glucose), Gram stain, and culture, and consider antigen testing or molecular panels when prior antibiotics are suspected. Normal adult CSF typically shows zero to a few leukocytes per microliter with glucose roughly two-thirds of serum and low protein, but reference intervals vary by laboratory, method, age, and population and must be verified locally. Anaerobic work requires pre-reduced media and anaerobic jars or chambers; specimens must avoid oxygen exposure and transport in appropriate systems, and identification may use gas-liquid chromatography or validated molecular methods. Fungal basics include potassium hydroxide or calcofluor white preparations showing septate hyphae or yeast, and culture on Sabouraud dextrose agar. Mycobacteriology begins with a concentrated, decontaminated specimen and an auramine O fluorescent stain or Ziehl-Neelsen acid-fast stain, followed by culture on liquid and solid media because growth takes weeks.",
+        "diagram": null
+      },
+      {
+        "heading": "Antimicrobial susceptibility testing: zones, MIC, and categories",
+        "body": "Disk diffusion (Kirby-Bauer) places standardized antibiotic disks on Mueller-Hinton agar swabbed to confluent growth; after incubation, inhibition zone diameters are measured in millimeters and interpreted against current clinical breakpoints published by standards organizations such as CLSI or EUCAST. The minimum inhibitory concentration is the lowest antimicrobial concentration preventing visible growth, determined by broth microdilution, gradient diffusion strips, or automated systems; MIC values give a quantitative handle for serious infections and for agents with narrow therapeutic windows. Report categories - susceptible, intermediate, and resistant - are defined by the breakpoint documents and can change over time; note that EUCAST redefined the intermediate category as susceptible with increased exposure, so laboratories must state which standard they use. Quality control uses reference strains such as Escherichia coli ATCC 25922, Staphylococcus aureus ATCC 25923, and Pseudomonas aeruginosa ATCC 27853 to verify that zones and MICs fall within published ranges. Special phenotypes need dedicated tests: cefoxitin disk or PBP2a latex for methicillin-resistant staphylococci, carbapenemase testing for resistant enterics, and confirmatory synergy tests for extended-spectrum beta-lactamases. Report only validated agents and always attach the standard and year in your laboratory records.",
+        "diagram": null
+      },
+      {
+        "heading": "Workflow pitfalls and reporting discipline",
+        "body": "Mixed enteric cultures from stool or wounds should be worked up selectively; stool cultures typically screen on selective media for Salmonella and Shigella and do not report normal flora. A blackened TSI butt is not automatically Salmonella - Citrobacter and Proteus also produce hydrogen sulfide, so combine H2S with lysine, urease, and indole before concluding. Non-fermenters can appear as oxidase-negative rods and be misreported as coliforms when sugar tubes are not checked for oxidation rather than fermentation. Blood culture contaminants such as coagulase-negative staphylococci and Corynebacterium species need clinical correlation rather than reflexive reporting of every isolate as significant. When an identification does not fit the Gram stain or the clinical picture, repeat the Gram stain from the primary plate, subculture for purity, and use a second identification principle before releasing the result. Finally, susceptibility results must never be reported for organisms whose identification is presumptive or for combinations with no established breakpoint; in those cases, report identification only and consult current standards.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Enteric gram-negative bacilli cause urinary tract infections, intra-abdominal infections, bloodstream infections, and neonatal meningitis (E. coli K1), while non-fermenters such as P. aeruginosa and Acinetobacter drive nosocomial pneumonia, wound infections, and infections in immunocompromised hosts. Bloodstream infections are emergencies where accurate Gram stain reporting within an hour changes therapy. CSF findings distinguish bacterial from viral meningitis and directly determine antibiotic duration. Anaerobes complicate abdominal and pelvic infections and require careful specimen handling because exposure to oxygen kills them in transit. Antimicrobial susceptibility results determine whether therapy can be narrowed (de-escalation) or must be escalated, and carbapenem-resistant organisms trigger infection-control action. Timely, accurate reporting is therefore a direct patient-safety function, not an administrative step.",
+    "labInterpretation": "Read every result as a pattern. A lactose-fermenting colony with indole positive and citrate negative supports E. coli identification in urine, while the same lactose fermentation with urease positive and citrate positive supports Klebsiella. Report CSF findings in clinical sequence: cell count and differential first, then Gram stain, then culture and susceptibilities, always noting if the specimen was collected after antibiotics. For blood cultures, report time to positivity as an aid to distinguishing contamination. MIC values should be reported with the interpretive category and the breakpoint standard used; do not average or round MICs across dilutions. Any interval mentioned for body fluids - for example CSF glucose or protein - must carry the caveat that reference intervals vary by laboratory, method, age, and population, and the local laboratory's own interval governs the report. Susceptibility comments such as 'avoid reporting ampicillin for Enterobacter isolates due to inducible resistance' should come from the laboratory's current, validated reporting rules.",
+    "comparisonTables": [
+      {
+        "title": "Classic enteric patterns on key biochemicals",
+        "columns": ["Organism", "TSI", "Indole", "Citrate", "Lysine", "Urease"],
+        "rows": [
+          ["E. coli", "A/A gas", "Positive", "Negative", "Usually positive", "Negative"],
+          ["Klebsiella pneumoniae", "A/A gas", "Negative", "Positive", "Positive", "Positive (slow)"],
+          ["Enterobacter cloacae complex", "A/A gas", "Negative", "Positive", "Positive", "Variable"],
+          ["Proteus mirabilis", "K/A black", "Negative", "Variable", "Negative", "Strong positive"],
+          ["Proteus vulgaris", "K/A black", "Positive", "Variable", "Negative", "Strong positive"],
+          ["Salmonella spp.", "K/A black", "Negative", "Positive", "Positive", "Negative"],
+          ["Shigella spp.", "K/A", "Variable", "Negative", "Negative", "Negative"],
+          ["Pseudomonas aeruginosa", "K/K", "Negative", "Positive", "Negative", "Negative"]
+        ]
+      },
+      {
+        "title": "Susceptibility method comparison",
+        "columns": ["Method", "Output", "Strengths", "Limitations"],
+        "rows": [
+          ["Disk diffusion", "Zone diameter (mm)", "Inexpensive, flexible agent menu", "Slow (overnight), subjective edge reading"],
+          ["Broth microdilution", "MIC", "Quantitative, reference method", "Labor intensive to prepare manually"],
+          ["Gradient diffusion strip", "MIC estimate", "Single strip convenience", "Cost per isolate, off-scale values"],
+          ["Automated panels", "MIC or category", "Fast, standardized, LIS integrated", "Panel agent limits, subscription cost"],
+          ["Molecular resistance genes", "Gene detected", "Rapid, works on direct specimens", "Genotype not always equal phenotype"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "Oxidase is the first split for gram-negative rods; forgetting it leads to reporting Pseudomonas as a coliform or vice versa.",
+      "Triple sugar iron must be read as butt and slant separately; a black butt can be Citrobacter or Proteus as well as Salmonella.",
+      "Intermediate is not a synonym for half-susceptible: under EUCAST it means susceptible with increased exposure, so state the breakpoint system used.",
+      "Anaerobic specimens must never be swabbed and left exposed to air; oxygen exposure destroys the very organisms you are trying to recover."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "TSI: butt = glucose, slant = lactose/sucrose. K/A = glucose only fermentation (think Salmonella/Shigella family). A/A with gas = lactose fermenter like E. coli or Klebsiella.",
+      "funny": "Mimi: 'TSI tube = two moods. Ang butt, glucose lang. Ang slant, lactose pa. Kung black pa - may H2S na naman!'"
+    },
+    {
+      "type": "KEYWORD",
+      "text": "Grapes, 42 degrees, and green pigment: the Pseudomonas aeruginosa calling card.",
+      "funny": "Pseudomonas: 'Amoy grapes, kaya umiinit sa 42 degrees, at green pa ang outfit. Fashion icon ng ICU.'"
+    }
+  ],
+  "practiceQuestionIds": ["mic-q-011", "mic-q-012", "mic-q-021"],
+  "relatedFlashcardIds": ["mic-fc-019", "mic-fc-020", "mic-fc-021"],
+  "followUp": ["microbiology/gram-positive-cocci", "lab-operations/quality-control-regulatory"],
+  "references": [
+    { "title": "Bailey and Scott's Diagnostic Microbiology", "detail": "16th ed., Tille, Elsevier, chapters on Enterobacterales, non-fermenters, anaerobes, mycobacteria, and antimicrobial susceptibility testing", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on body fluid cultures and CSF analysis", "url": null },
+    { "title": "WHO tuberculosis laboratory guidance", "detail": "Organizational guidance for mycobacteriology laboratories", "url": "https://www.who.int/" }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

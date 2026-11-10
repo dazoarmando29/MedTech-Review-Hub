@@ -155,7 +155,6 @@ data class GlossaryTerm(
 
 @Serializable
 data class ContentManifest(
-    val version: Int = 1,
     val generatedAt: String? = null,
     val note: String? = null,
     val subjects: List<ManifestSubject> = emptyList(),

@@ -1,0 +1,256 @@
+{
+  "reviewCenters": [
+    {
+      "id": "pioneer",
+      "name": "Pioneer Review Center Inc. (PRCI)",
+      "location": "3F National Book Store, 1921 C.M. Recto Ave., Sampaloc, Manila",
+      "website": "https://perc.com.ph/ascpireview",
+      "program": "ASCPi online review (1–2 months, weekend classes); also suitable for AMT/AIMS",
+      "description": "Online-only ASCPi review with compiled updated review materials, mock and unlimited practice exams, recorded video lectures (for enrolled students), and an orientation walkthrough of the ASCP/Pearson VUE application and scheduling process. Histopathology and molecular biology are NOT included in their ASCPi package (stated on their site).",
+      "postedFeeNote": "ASCPi Review posted at PHP 7,000 (new student) as of Nov 2026 — confirm with the provider",
+      "inclusions": [
+        "recorded video lectures",
+        "unlimited practice exams",
+        "mock examinations",
+        "application walkthrough",
+        "updated compiled review materials"
+      ],
+      "contactNote": "enroll@perc.com.ph; +63 (02) 7007-3824",
+      "verifiedOn": "2026-11-11"
+    },
+    {
+      "id": "acts",
+      "name": "ACTS Review Center",
+      "location": "Room 509, 5F J&T Building, 3894 Ramon Magsaysay Blvd., Sta. Mesa, Manila (branches in Cebu, Davao, Iloilo)",
+      "website": "https://actsreviewcenter.com/ascpiamtcls/",
+      "program": "ASCPi | AMT | CLS online review course (evening batches, Manila time); 25+ years in the field",
+      "description": "Comprehensive lectures for the 5 board subjects (Clinical Chemistry, Microbiology/Molecular, Clinical Microscopy, Hematology, Immunology/Serology/Blood Banking), knowledge recall exams, Computer-Based Tests I–X, final coaching, soft-copy lecture handouts, and application assistance.",
+      "postedFeeNote": "Online ASCPi|AMT|CLS course posted at PHP 14,500 (2026/2027 posted rates) — confirm with the provider",
+      "inclusions": [
+        "comprehensive lectures for the 5 board subjects",
+        "knowledge recall exams",
+        "Computer-Based Tests I–X",
+        "final coaching",
+        "soft-copy lecture handouts",
+        "application assistance"
+      ],
+      "contactNote": "(02) 8716-7683; +63 917-465-8924",
+      "verifiedOn": "2026-11-11"
+    },
+    {
+      "id": "legend",
+      "name": "Legend Review Center",
+      "location": "Main office Unit 306 Long Se Dy Bldg., Brgy. Teodora Alonzo, Baguio City (branches: Manila, Davao, Pampanga, Cebu, Bicol)",
+      "website": "https://www.legendreviewcenter.com/ascp-review",
+      "program": "ASCPi Intensive Review Program (online)",
+      "description": "Weekend live + asynchronous lectures on all content areas via Zoom, recordings accessible for 1 year, comprehensive and practice exams, free final coaching, and free shipping of review materials within the Philippines.",
+      "postedFeeNote": "Online ASCPi review posted at PHP 7,500 as of Nov 2026 — confirm with the provider",
+      "inclusions": [
+        "weekend live lectures via Zoom",
+        "asynchronous lectures on all content areas",
+        "lecture recordings accessible for 1 year",
+        "comprehensive and practice exams",
+        "free final coaching",
+        "free shipping of review materials within the Philippines"
+      ],
+      "contactNote": "(0962) 358-6715 / (0995) 990-2762",
+      "verifiedOn": "2026-11-11"
+    }
+  ],
+  "officialLinks": [
+    {
+      "id": "ascp-content-guidelines",
+      "title": "ASCP BOC Content Guidelines & Reading Lists",
+      "url": "https://www.ascp.org/boc/earn-a-credential/examination-preparation-resources/content-guidelines---reading-lists",
+      "description": "The official examination content guideline (the authoritative syllabus used to map this app's library).",
+      "category": "READING_LIST"
+    },
+    {
+      "id": "ascp-mls-reading-list",
+      "title": "MLS(ASCP) Reading List",
+      "url": "https://www.ascp.org/boc/explore-credentials/view-all-credentials/reading-lists/mls",
+      "description": "Official ASCP BOC reading list for the Medical Laboratory Scientist credential.",
+      "category": "READING_LIST"
+    },
+    {
+      "id": "ascp-eligibility",
+      "title": "ASCP BOC Eligibility Pathways",
+      "url": "https://www.ascp.org/boc/explore-credentials/eligibility-pathways",
+      "description": "Official overview of eligibility pathways; includes an eligibility assistant. Requirements change — always verify on the official site.",
+      "category": "ELIGIBILITY"
+    },
+    {
+      "id": "ascp-exam-prep",
+      "title": "ASCP BOC Examination Preparation Resources",
+      "url": "https://www.ascp.org/boc/earn-a-credential/examination-preparation-resources",
+      "description": "Official exam preparation resources hub.",
+      "category": "EXAM_PREP"
+    }
+  ],
+  "readingList": [
+    {
+      "id": "book-rodak-hematology",
+      "title": "Rodak's Hematology: Clinical Principles and Applications",
+      "authors": "Elaine M. Keohane, Michelle Montgomery Preston, Kamran M. Mirza, Jeanine M. Walenga",
+      "edition": "7th edition",
+      "publisher": "Elsevier",
+      "year": 2024,
+      "isbn": "9780323936507",
+      "category": "TEXTBOOK",
+      "description": "Widely used hematology/hemostasis text with extensive photomicrographs.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-harmening-blood-banking",
+      "title": "Modern Blood Banking and Transfusion Practices",
+      "authors": "Denise M. Harmening",
+      "edition": "6th edition (7th edition also published)",
+      "publisher": "F. A. Davis Company",
+      "year": 2012,
+      "isbn": "9780803626829",
+      "category": "TEXTBOOK",
+      "description": "Classic immunohematology/transfusion reference.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-tietz-fundamentals",
+      "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics",
+      "authors": "Carl A. Burtis, David E. Bruns",
+      "edition": "7th edition",
+      "publisher": "Elsevier",
+      "year": 2014,
+      "isbn": "9780323292061",
+      "category": "TEXTBOOK",
+      "description": "Student-level companion to the larger Tietz Textbook of Clinical Chemistry and Molecular Diagnostics.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-bailey-scott",
+      "title": "Bailey & Scott's Diagnostic Microbiology",
+      "authors": "Patricia M. Tille",
+      "edition": "16th edition",
+      "publisher": "Elsevier",
+      "year": 2024,
+      "isbn": "9780443118913",
+      "category": "TEXTBOOK",
+      "description": "Bench reference for diagnostic microbiology.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-strasinger-urinalysis",
+      "title": "Urinalysis and Body Fluids (Strasinger's)",
+      "authors": "Susan King Strasinger, Marjorie Schaub Di Lorenzo",
+      "edition": "7th edition",
+      "publisher": "F. A. Davis Company",
+      "year": 2020,
+      "isbn": "9780803675827",
+      "category": "TEXTBOOK",
+      "description": "Non-blood body fluids analysis.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-cls-review-bottom-line",
+      "title": "Clinical Laboratory Science Review: A Bottom Line Approach",
+      "authors": "Patsy Jarreau et al.",
+      "edition": "6th edition",
+      "publisher": "LSU Health Sciences Center Foundation",
+      "year": 2020,
+      "isbn": "9780967043449",
+      "category": "EXAM_PREP",
+      "description": "Condensed bottom-line exam-prep review.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-boc-study-guide",
+      "title": "BOC Study Guide for Clinical Laboratory Examinations",
+      "authors": "ASCP Board of Certification",
+      "edition": "current edition",
+      "publisher": "ASCP Press",
+      "year": "varies",
+      "isbn": "",
+      "category": "EXAM_PREP",
+      "description": "Official BOC study guide; check ASCP store for the current edition.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "book-ascp-quick-compendium",
+      "title": "ASCP Quick Compendium of Clinical Pathology",
+      "authors": "ASCP Press",
+      "edition": "series",
+      "publisher": "ASCP Press",
+      "year": "",
+      "isbn": "",
+      "category": "EXAM_PREP/REFERENCE",
+      "description": "Topic compendiums (e.g. Blood Banking, Chemistry, Hematology, Microbiology); confirm current volumes on the ASCP store.",
+      "licenseNote": "Commercial textbook — purchase or borrow; do not redistribute.",
+      "verified": true
+    },
+    {
+      "id": "tool-labce-exam-simulator",
+      "title": "LabCE Exam Simulator (MediaLab)",
+      "authors": "MediaLab, Inc.",
+      "edition": "",
+      "publisher": "",
+      "year": "",
+      "isbn": "",
+      "category": "EXAM_PREP",
+      "description": "Commercial MLS exam simulator and continuing-education tools (labce.com).",
+      "licenseNote": "Commercial subscription service.",
+      "verified": true
+    },
+    {
+      "id": "tool-wordsology",
+      "title": "Wordsology",
+      "authors": "Wordsology",
+      "edition": "",
+      "publisher": "",
+      "year": "",
+      "isbn": "",
+      "category": "EXAM_PREP",
+      "description": "Free high-yield MLS exam notes and resources at wordsology.org.",
+      "licenseNote": "Free educational site — link and credit; do not copy content.",
+      "verified": true
+    },
+    {
+      "id": "book-quick-review-cards-mls",
+      "title": "Quick Review Cards for Medical Laboratory Science",
+      "authors": "",
+      "edition": "check current edition",
+      "publisher": "verify at purchase",
+      "year": "",
+      "isbn": "",
+      "category": "EXAM_PREP",
+      "description": "Compact review cards commonly used by examinees; confirm the current edition, author, and publisher before buying.",
+      "licenseNote": "",
+      "verified": false
+    }
+  ],
+  "examInfo": [
+    {
+      "id": "exam-eligibility-pathways",
+      "title": "Eligibility pathways",
+      "body": "ASCP BOC offers multiple eligibility routes for international MLS candidates. Check the official Eligibility Assistant on the ASCP website. We do not reproduce specific requirements here because they change — always verify on the official site.",
+      "sourceUrl": "https://www.ascp.org/boc/explore-credentials/eligibility-pathways"
+    },
+    {
+      "id": "exam-application-scheduling",
+      "title": "Application & scheduling",
+      "body": "The application is completed through ASCP BOC, with exam delivery at Pearson VUE test centers. Follow the official process on the ASCP website.",
+      "sourceUrl": "https://www.ascp.org/boc/explore-credentials/eligibility-pathways"
+    },
+    {
+      "id": "exam-format-overview",
+      "title": "Exam format overview",
+      "body": "The MLS examination is computer-adaptive. This app's adaptive practice mode is NOT the ASCP CAT, and practice scores are not ASCP scores.",
+      "sourceUrl": "https://www.ascp.org/boc/explore-credentials/eligibility-pathways"
+    }
+  ],
+  "disclaimer": "MedTech Review Hub is an independent study platform and is not affiliated with, endorsed by, or sponsored by ASCP or any review center listed here. Fees, schedules, and program inclusions are taken from providers' public websites as of November 2026 and may change — confirm directly with the provider. Official ASCP BOC requirements change over time; always verify on the official ASCP website."
+}

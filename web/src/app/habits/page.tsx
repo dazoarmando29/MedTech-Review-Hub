@@ -17,13 +17,15 @@ const MOODS: { id: DiaryEntry['mood']; label: string; emoji: string }[] = [
   { id: 'struggling', label: 'Struggling', emoji: '😣' },
 ];
 
+const STICKERS = ['💗', '⭐', '🧪', '🐱', '🎓', '🌸', '📚', '💪'];
+
 export default function HabitsPage() {
   const habits = useStore((s) => s.habits);
   const habitLogs = useStore((s) => s.habitLogs);
   const diary = useStore((s) => s.diary);
   const streak = useStore((s) => streakDays(s));
   const [newHabit, setNewHabit] = useState({ name: '', targetPerDay: 20, kind: 'COUNT' as Habit['kind'] });
-  const [entry, setEntry] = useState({ mood: 'good' as DiaryEntry['mood'], text: '', tags: '' });
+  const [entry, setEntry] = useState<{ mood: DiaryEntry['mood']; text: string; tags: string; stickers: string[] }>({ mood: 'good', text: '', tags: '', stickers: [] });
 
   const today = todayKey();
   const week = useMemo(() => {
@@ -164,13 +166,38 @@ export default function HabitsPage() {
             {MOODS.map((m) => (
               <button
                 key={m.id}
-                className={cx('btn text-xs', entry.mood === m.id ? 'bg-[var(--brand-3)] text-white' : 'btn-ghost')}
+                className={cx('btn text-xs', entry.mood === m.id ? 'btn-primary' : 'btn-ghost')}
                 onClick={() => setEntry({ ...entry, mood: m.id })}
                 aria-pressed={entry.mood === m.id}
               >
                 {m.emoji} {m.label}
               </button>
             ))}
+          </div>
+          <div className="flex gap-1 flex-wrap mb-3">
+            <span className="text-xs self-center mr-1" style={{ color: 'var(--muted)' }}>stickers:</span>
+            {STICKERS.map((s) => {
+              const on = entry.stickers.includes(s);
+              return (
+                <button
+                  key={s}
+                  className={cx('text-xl rounded-full w-9 h-9', on ? '' : 'opacity-45')}
+                  style={on ? { background: 'var(--chip)' } : undefined}
+                  aria-pressed={on}
+                  aria-label={`Sticker ${s}`}
+                  onClick={() =>
+                    setEntry({
+                      ...entry,
+                      stickers: on
+                        ? entry.stickers.filter((x) => x !== s)
+                        : entry.stickers.length < 3 ? [...entry.stickers, s] : entry.stickers,
+                    })
+                  }
+                >
+                  {s}
+                </button>
+              );
+            })}
           </div>
           <textarea
             className="input"
@@ -192,15 +219,16 @@ export default function HabitsPage() {
                   mood: entry.mood,
                   text: entry.text.trim(),
                   tags: entry.tags.split(',').map((t) => t.trim()).filter(Boolean),
+                  stickers: entry.stickers,
                   createdAt: new Date().toISOString(),
                 });
-                setEntry({ mood: 'good', text: '', tags: '' });
+                setEntry({ mood: 'good', text: '', tags: '', stickers: [] });
               }}
             >
               Save entry
             </button>
           </div>
-          <p className="text-xs text-[var(--ink-muted)] mt-2">
+          <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
             Diary entries are private by default and stored on this device (synced only if you sign in).
           </p>
         </Card>
@@ -218,6 +246,9 @@ export default function HabitsPage() {
                     <ConfirmButton label="Delete" confirmLabel="Confirm?" className="text-xs underline" onConfirm={() => removeDiary(d.id)} />
                   </div>
                   <p className="text-sm mt-1">{d.text}</p>
+                  {d.stickers && d.stickers.length > 0 && (
+                    <div className="text-lg mt-1" aria-label="stickers">{d.stickers.join(' ')}</div>
+                  )}
                   {d.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
                       {d.tags.map((t) => <span key={t} className="chip">{t}</span>)}

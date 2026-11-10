@@ -3,6 +3,44 @@
     <string name="app_name">MedTech Review Hub</string>
     <string name="focus_channel_name">Focus session</string>
     <string name="focus_channel_desc">Reminders while a Pomodoro focus session is running.</string>
-    <string name="blocker_overlay_title">Back to study, future RMT!</string>
+    <string name="blocker_overlay_title">Back to study, future MLS!</string>
     <string name="disclaimer_short">Independent review app. Not affiliated with or endorsed by ASCP.</string>
+
+    <!-- Dashboard greeting (PH timezone aware, shared/DESIGN.md v2 "Voice & copy") -->
+    <string name="greeting_morning">Good morning, %1$s!</string>
+    <string name="greeting_afternoon">Good afternoon, %1$s!</string>
+    <string name="greeting_evening">Good evening, %1$s!</string>
+    <string name="greeting_subtitle">Another day closer to that ASCPi dream.</string>
+
+    <!-- Personal touch -->
+    <string name="display_name_default">future MLS</string>
+    <string name="mascot_name_default">Mochi</string>
+    <string name="gift_note_default">Made with love for a future Medical Laboratory Scientist — someone believes in you. 🌸</string>
+    <string name="motivation_title">Today\'s reminder</string>
+
+    <!-- Rotating motivation lines (rotated deterministically by day-of-year) -->
+    <string-array name="motivation_lines">
+        <item>Your future self is cheering for you!</item>
+        <item>One chapter at a time, future MLS.</item>
+        <item>You remembered that formula! Your brain deserves a little celebration.</item>
+        <item>Small progress is still progress.</item>
+        <item>Kaya mo \'to, future MLS!</item>
+        <item>Every slide you finish is one step closer to that ASCPi dream.</item>
+        <item>Rest is part of the plan — come back fresh, not guilty.</item>
+        <item>Slowly pero surely. Your effort today counts.</item>
+    </string-array>
+
+    <!-- Resources screen -->
+    <string name="resources_title">ASCPi resources</string>
+    <string name="resources_subtitle">Review centers, official links, reading list and exam info for future MLS in the Philippines.</string>
+    <string name="resources_review_centers">Review centers</string>
+    <string name="resources_ascp_links">Official ASCP links</string>
+    <string name="resources_reading_list">Reading list</string>
+    <string name="resources_exam_info">Exam info</string>
+    <string name="resources_open_link">Open link</string>
+    <string name="resources_empty">Resources content is not included in this build yet. It appears automatically once shared/content/resources.json is bundled.</string>
+
+    <!-- Highlight color legend (shared/DESIGN.md v2 "Highlight colors") -->
+    <string name="highlight_legend">Yellow: Important fact \u00b7 Pink: Must memorize \u00b7 Purple: Definition \u00b7 Blue: Clinical significance \u00b7 Green: Already mastered \u00b7 Rose: Needs review</string>
+    <string name="highlight_meanings_hint">Meanings are yours to edit — these are just the defaults.</string>
 </resources>

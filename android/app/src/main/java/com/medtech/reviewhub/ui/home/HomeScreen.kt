@@ -26,12 +26,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.medtech.reviewhub.R
 import com.medtech.reviewhub.domain.model.PlanItem
 import com.medtech.reviewhub.ui.components.AppCard
 import com.medtech.reviewhub.ui.components.MascotBubble
-import com.medtech.reviewhub.ui.components.ProgressRing
+import com.medtech.reviewhub.ui.components.MascotFace
 import com.medtech.reviewhub.ui.components.SectionHeader
 import com.medtech.reviewhub.ui.components.StatTile
 import com.medtech.reviewhub.ui.components.StreakFlame
@@ -47,9 +51,33 @@ fun HomeScreen(
     val state by vm.dashboard.collectAsState()
     LaunchedEffect(Unit) { vm.load() }
 
+    val decorations = state.settings.appTheme != "minimal" && !state.settings.reduceAnimation
+
     Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)) {
-        MascotBubble(kind = state.mascotKind, mood = state.mascotMood, line = state.greeting,
-            reduceAnimation = state.settings.reduceAnimation)
+        // ---- Greeting (PH timezone aware) ----
+        GreetingBanner(state = state, decorations = decorations)
+        Spacer(Modifier.height(12.dp))
+
+        // ---- Motivation card (rotates deterministically by day-of-year) ----
+        MotivationCard(dayOfYear = state.dayOfYear)
+        Spacer(Modifier.height(12.dp))
+
+        // ---- Optional gift note card ----
+        GiftNoteCard(
+            note = state.giftNote.ifBlank { stringResource(R.string.gift_note_default) }
+        )
+
+        if (state.mascotLine.isNotBlank()) {
+            Spacer(Modifier.height(12.dp))
+            MascotBubble(
+                kind = state.mascotKind,
+                mood = state.mascotMood,
+                line = state.mascotLine,
+                name = state.mascotName,
+                reduceAnimation = state.settings.reduceAnimation
+            )
+        }
+
         Spacer(Modifier.height(12.dp))
 
         state.examCountdownDays?.let { days ->
@@ -92,7 +120,7 @@ fun HomeScreen(
                         ?: "No quizzes yet",
                     style = MaterialTheme.typography.bodyMedium
                 )
-                state.weakestSubject?.let { (id, name) ->
+                state.weakestSubject?.let { (_, name) ->
                     Spacer(Modifier.height(4.dp))
                     Text("Weakest: $name", style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -179,6 +207,99 @@ fun HomeScreen(
                 Text(state.suggestedTopic?.second ?: "Explore topics", style = MaterialTheme.typography.bodySmall)
             }
         }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Personal touch (shared/DESIGN.md v2 "Voice & copy")
+// ---------------------------------------------------------------------------
+
+@Composable
+private fun GreetingBanner(state: HomeViewModel.Dashboard, decorations: Boolean) {
+    val greeting = when (state.hourOfDay) {
+        in 5..11 -> stringResource(R.string.greeting_morning, state.displayName)
+        in 12..17 -> stringResource(R.string.greeting_afternoon, state.displayName)
+        else -> stringResource(R.string.greeting_evening, state.displayName)
+    }
+    val container = if (decorations) {
+        Brush.linearGradient(
+            listOf(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.colorScheme.surface)
+        )
+    } else {
+        Brush.linearGradient(
+            listOf(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.colorScheme.primaryContainer)
+        )
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(20.dp))
+            .background(container)
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                greeting,
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                stringResource(R.string.greeting_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+        Spacer(Modifier.width(8.dp))
+        MascotFace(kind = state.mascotKind, mood = state.mascotMood, sizeDp = 64)
+    }
+}
+
+/** MotivationCard (shared/DESIGN.md v2 components) - rotates by day-of-year. */
+@Composable
+private fun MotivationCard(dayOfYear: Int) {
+    val lines = stringArrayResource(R.array.motivation_lines)
+    val line = lines[Math.floorMod(dayOfYear, lines.size)]
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(20.dp))
+            .background(MaterialTheme.colorScheme.tertiaryContainer)
+            .padding(16.dp)
+    ) {
+        Column {
+            Text(
+                stringResource(R.string.motivation_title),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onTertiaryContainer
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                line,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+    }
+}
+
+/** Soft pastel gift-note card (shared/DESIGN.md v2 "Optional gift note card"). */
+@Composable
+private fun GiftNoteCard(note: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(20.dp))
+            .background(MaterialTheme.colorScheme.secondaryContainer)
+            .padding(16.dp)
+    ) {
+        Text(
+            note,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSecondaryContainer
+        )
     }
 }
 

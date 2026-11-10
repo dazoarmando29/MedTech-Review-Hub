@@ -20,12 +20,17 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.time.ZoneId
 
 /**
  * Home dashboard: today's goals checklist, streak, totals, flashcards due,
  * questions today, recent quiz accuracy, weakest subject, exam countdown,
  * weekly minutes calendar, "Continue reading", "Resume quiz", suggested topic,
  * mascot greeting.
+ *
+ * Personal touch (shared/DESIGN.md v2 "Voice & copy"): a PH-timezone (Asia/
+ * Manila) greeting with the user's display name, a MotivationCard line rotated
+ * deterministically by day-of-year, and an optional gift-note card.
  */
 class HomeViewModel(
     private val content: ContentAssetsLoader,
@@ -37,11 +42,21 @@ class HomeViewModel(
     private val nowProvider: () -> Long = { System.currentTimeMillis() }
 ) : ViewModel() {
 
+    companion object {
+        /** Greeting and motivation copy rotate on Philippine time. */
+        val PH_MANILA: ZoneId = ZoneId.of("Asia/Manila")
+    }
+
     data class Dashboard(
         val loading: Boolean = true,
-        val greeting: String = "",
+        val displayName: String = AppSettings.DEFAULT_DISPLAY_NAME,
+        val hourOfDay: Int = 12,
+        val dayOfYear: Int = 1,
+        val giftNote: String = "",
+        val mascotName: String = AppSettings.DEFAULT_MASCOT_NAME,
         val mascotMood: MascotMood = MascotMood.HAPPY,
         val mascotKind: MascotKind = MascotKind.CAT,
+        val mascotLine: String = "",
         val streakDays: Int = 0,
         val streakInfo: StreakInfo? = null,
         val totalMinutes: Int = 0,
@@ -111,18 +126,26 @@ class HomeViewModel(
             val suggested = content.topics(weakest?.first ?: content.subjects().firstOrNull()?.id ?: "")
                 .firstOrNull()?.let { it.id to it.name }
 
-            val hour = java.time.LocalTime.now().hour
+            // Greeting + motivation rotate on Philippine time (Asia/Manila).
+            val phNow = java.time.ZonedDateTime.now(PH_MANILA)
+            val mood = when {
+                streak.current >= 7 -> MascotMood.CELEBRATING
+                streak.restDayMessage != null -> MascotMood.ENCOURAGING
+                items.isNotEmpty() -> MascotMood.HAPPY
+                else -> MascotMood.STUDYING
+            }
             _dashboard.update {
                 Dashboard(
                     loading = false,
-                    greeting = MascotLines.greeting(settings.mascotKind, hour),
-                    mascotMood = when {
-                        streak.current >= 7 -> MascotMood.CELEBRATING
-                        streak.restDayMessage != null -> MascotMood.ENCOURAGING
-                        items.isNotEmpty() -> MascotMood.HAPPY
-                        else -> MascotMood.CURIOUS
-                    },
+                    displayName = settings.displayName,
+                    hourOfDay = phNow.hour,
+                    dayOfYear = phNow.dayOfYear,
+                    giftNote = settings.giftNote,
+                    mascotName = settings.mascotName,
+                    mascotMood = mood,
                     mascotKind = settings.mascotKind,
+                    mascotLine = if (settings.muteMascot || settings.seriousMode) "" else
+                        MascotLines.line(settings.mascotKind, mood, seed = phNow.dayOfYear.toLong()),
                     streakDays = streak.current,
                     streakInfo = streak,
                     totalMinutes = totalMinutes,

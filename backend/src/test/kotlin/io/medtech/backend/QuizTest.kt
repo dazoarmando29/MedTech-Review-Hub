@@ -12,6 +12,7 @@ import io.medtech.backend.domain.QuizAnswerFeedback
 import io.medtech.backend.domain.QuizAnswerRequest
 import io.medtech.backend.domain.QuizAttemptView
 import io.medtech.backend.domain.QuizMode
+import io.medtech.backend.domain.QuizQuestion
 import io.medtech.backend.domain.QuizResult
 import io.medtech.backend.domain.QuizStartRequest
 import io.medtech.backend.domain.QuizStatus
@@ -23,20 +24,45 @@ import kotlin.test.assertTrue
 
 class QuizTest {
 
+    /**
+     * Picks real questions from the served content library so the test works
+     * with both the bundled sample and the full shared/content library.
+     */
+    private suspend fun io.ktor.client.HttpClient.loadQuestionFixture(): QuestionFixture {
+        val resp = get("/api/v1/content/questions")
+        val all: List<QuizQuestion> = decodeJson(resp.text())
+        assertTrue(all.size >= 4, "question bank must have at least 4 questions")
+
+        // Two questions sharing one topic (for weakTopics accuracy 0.5)
+        val sameTopic = all.groupBy { it.topicId }.values.first { it.size >= 2 }
+        val (t1, t2) = sameTopic[0] to sameTopic[1]
+
+        // Two more from a different subject (for bySubject breakdown)
+        val otherSubject = all.first { it.subjectId != t1.subjectId }
+        val otherSubjectSecond = all.first { it.id != otherSubject.id && it.subjectId == otherSubject.subjectId }
+
+        fun wrongChoice(q: QuizQuestion): String = q.choices.first { it.id != q.correctChoiceId }.id
+
+        return QuestionFixture(t1, t2, otherSubject, otherSubjectSecond, ::wrongChoice)
+    }
+
+    private class QuestionFixture(
+        val sameTopicA: QuizQuestion,
+        val sameTopicB: QuizQuestion,
+        val otherA: QuizQuestion,
+        val otherB: QuizQuestion,
+        val wrongChoice: (QuizQuestion) -> String,
+    )
+
     @Test
     fun `quiz start answer finish returns result with bySubject breakdown`() = withApp {
         val user = register("quiz@example.com")
+        val f = client.loadQuestionFixture()
 
+        val ids = listOf(f.sameTopicA.id, f.sameTopicB.id, f.otherA.id, f.otherB.id)
         val startResp = client.post("/api/v1/quizzes/start") {
             bearer(user.accessToken)
-            jsonBody(
-                encodeJson(
-                    QuizStartRequest(
-                        mode = QuizMode.STUDY,
-                        questionIds = listOf("bb-q-001", "bb-q-002", "hema-q-001", "hema-q-002"),
-                    ),
-                ),
-            )
+            jsonBody(encodeJson(QuizStartRequest(mode = QuizMode.STUDY, questionIds = ids)))
         }
         assertEquals(HttpStatusCode.Created, startResp.status)
         val attempt: QuizAttemptView = decodeJson(startResp.bodyAsText())
@@ -56,19 +82,20 @@ class QuizTest {
             return decodeJson(resp.bodyAsText())
         }
 
-        val a1 = answer("bb-q-001", "C") // correct
+        val a1 = answer(f.sameTopicA.id, f.sameTopicA.correctChoiceId!!)
         assertEquals(true, a1.correct)
-        assertEquals("C", a1.correctChoiceId)
+        assertEquals(f.sameTopicA.correctChoiceId, a1.correctChoiceId)
         assertTrue(a1.explanation != null && a1.explanation!!.isNotBlank(), "STUDY feedback must include explanation")
 
-        val a2 = answer("bb-q-002", "A") // wrong (correct is B)
+        val wrong = f.wrongChoice(f.sameTopicB)
+        val a2 = answer(f.sameTopicB.id, wrong)
         assertEquals(false, a2.correct)
-        assertEquals("B", a2.correctChoiceId)
+        assertEquals(f.sameTopicB.correctChoiceId, a2.correctChoiceId)
 
-        val a3 = answer("hema-q-001", "A") // correct
+        val a3 = answer(f.otherA.id, f.otherA.correctChoiceId!!)
         assertEquals(true, a3.correct)
 
-        val a4 = answer("hema-q-002", "B") // correct
+        val a4 = answer(f.otherB.id, f.otherB.correctChoiceId!!)
         assertEquals(true, a4.correct)
 
         val finishResp = client.post("/api/v1/quizzes/${attempt.id}/finish") { bearer(user.accessToken) }
@@ -79,19 +106,19 @@ class QuizTest {
         assertEquals(3, result.correct)
         assertEquals(4, result.total)
         assertTrue(kotlin.math.abs(result.score - 0.75) < 0.001, "score must be 0.75, got ${result.score}")
-        assertEquals(listOf("bb-q-002"), result.incorrectQuestionIds)
+        assertEquals(listOf(f.sameTopicB.id), result.incorrectQuestionIds)
 
         // bySubject breakdown
-        val bb = result.bySubject.first { it.subjectId == "blood-banking" }
-        assertEquals(1, bb.correct)
-        assertEquals(2, bb.total)
-        val hema = result.bySubject.first { it.subjectId == "hematology" }
-        assertEquals(2, hema.correct)
-        assertEquals(2, hema.total)
+        val subA = result.bySubject.first { it.subjectId == f.sameTopicA.subjectId }
+        assertEquals(1, subA.correct)
+        assertEquals(2, subA.total)
+        val subB = result.bySubject.first { it.subjectId == f.otherA.subjectId }
+        assertEquals(2, subB.correct)
+        assertEquals(2, subB.total)
 
-        // weakTopics: abo-system accuracy 0.5
-        val weak = result.weakTopics.first { it.topicId == "abo-system" }
-        assertTrue(kotlin.math.abs(weak.accuracy - 0.5) < 0.001, "abo-system accuracy must be 0.5, got ${weak.accuracy}")
+        // weakTopics: the shared topic has accuracy 0.5 (one right, one wrong)
+        val weak = result.weakTopics.first { it.topicId == f.sameTopicA.topicId }
+        assertTrue(kotlin.math.abs(weak.accuracy - 0.5) < 0.001, "topic accuracy must be 0.5, got ${weak.accuracy}")
 
         // GET attempt after finish exposes the result.
         val fetched = client.get("/api/v1/quizzes/${attempt.id}") { bearer(user.accessToken) }
@@ -109,9 +136,14 @@ class QuizTest {
     @Test
     fun `exam mode masks answers until finished`() = withApp {
         val user = register("exam@example.com")
+        val f = client.loadQuestionFixture()
         val startResp = client.post("/api/v1/quizzes/start") {
             bearer(user.accessToken)
-            jsonBody(encodeJson(QuizStartRequest(mode = QuizMode.EXAM, questionIds = listOf("bb-q-001", "bb-q-002"))))
+            jsonBody(
+                encodeJson(
+                    QuizStartRequest(mode = QuizMode.EXAM, questionIds = listOf(f.sameTopicA.id, f.sameTopicB.id)),
+                ),
+            )
         }
         assertEquals(HttpStatusCode.Created, startResp.status)
         val attempt: QuizAttemptView = decodeJson(startResp.bodyAsText())
@@ -120,7 +152,7 @@ class QuizTest {
 
         val answerResp = client.post("/api/v1/quizzes/${attempt.id}/answer") {
             bearer(user.accessToken)
-            jsonBody(encodeJson(QuizAnswerRequest("bb-q-001", "C")))
+            jsonBody(encodeJson(QuizAnswerRequest(f.sameTopicA.id, f.sameTopicA.choices.first().id)))
         }
         assertEquals(HttpStatusCode.OK, answerResp.status)
         val feedback: QuizAnswerFeedback = decodeJson(answerResp.bodyAsText())

@@ -142,8 +142,8 @@ class AppBlockerService : Service() {
             setPadding(48, 48, 48, 48)
         }
         val message = TextView(this).apply {
-            text = "Meow! Back to study, future RMT!\n\n$appName can wait — your flashcards can't. " +
-                "(Bantay agrees: review muna bago scroll.)"
+            text = "Meow! Back to study, future MLS!\n\n$appName can wait — your flashcards can't. " +
+                "(Mochi agrees: review muna bago scroll.)"
             setTextColor(Color.WHITE)
             textSize = 18f
             gravity = Gravity.CENTER

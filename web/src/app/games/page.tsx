@@ -4,10 +4,11 @@
 // reinforces accurate facts — every entry carries a mandatory scientificFact.
 import React, { useMemo, useState } from 'react';
 import { Badge, Card, EmptyState, SectionTitle, Tabs, cx } from '@/components/ui';
-import { memes as allMemes, subjects } from '@/lib/content';
+import { LabVisual } from '@/components/visuals';
+import { memes as allMemes, subjects, visualIdBank } from '@/lib/content';
 import { addCardFromSeed, useStore } from '@/lib/store';
 
-type Filter = 'ALL' | 'MEME_OF_THE_LESSON' | 'MEMORY_HOOK' | 'GUESS_THE_DIAGNOSIS' | 'LABORATORY_MYSTERY' | 'IMPOSTOR' | 'BOSS_BATTLE' | 'MISTAKE_OF_THE_DAY' | 'KEYWORD_CHALLENGE';
+type Filter = 'ALL' | 'MEME_OF_THE_LESSON' | 'MEMORY_HOOK' | 'GUESS_THE_DIAGNOSIS' | 'LABORATORY_MYSTERY' | 'IMPOSTOR' | 'BOSS_BATTLE' | 'MISTAKE_OF_THE_DAY' | 'KEYWORD_CHALLENGE' | 'VISUAL_ID';
 
 const TYPE_LABEL: Record<string, string> = {
   MEME_OF_THE_LESSON: 'Meme of the lesson',
@@ -58,6 +59,7 @@ export default function GamesPage() {
       <Tabs
         tabs={[
           { id: 'ALL', label: 'All' },
+          { id: 'VISUAL_ID', label: '🔬 Visual ID' },
           { id: 'GUESS_THE_DIAGNOSIS', label: 'Guess the dx' },
           { id: 'LABORATORY_MYSTERY', label: 'Lab mystery' },
           { id: 'IMPOSTOR', label: 'Impostor' },
@@ -71,7 +73,9 @@ export default function GamesPage() {
         onChange={(id) => setFilter(id as Filter)}
       />
 
-      {entries.length === 0 ? (
+      {filter === 'VISUAL_ID' && <VisualIdGame />}
+
+      {filter !== 'VISUAL_ID' && (entries.length === 0 ? (
         <EmptyState icon="🎨" title="No entries in this category yet" hint="Content team: add entries to shared/content/memes.json." />
       ) : (
         <div className="grid sm:grid-cols-2 gap-4">
@@ -152,7 +156,7 @@ export default function GamesPage() {
             );
           })}
         </div>
-      )}
+      ))}
 
       <Card>
         <SectionTitle icon="📜">Humor guidelines</SectionTitle>
@@ -163,6 +167,72 @@ export default function GamesPage() {
           <li>No jokes in formal mock exam mode; no stereotypes or patient humor.</li>
           <li>Want it quiet? Serious Mode in Settings hides everything on this page.</li>
         </ul>
+      </Card>
+    </div>
+  );
+}
+
+function VisualIdGame() {
+  const [idx, setIdx] = useState(0);
+  const [picked, setPicked] = useState<string | null>(null);
+  const [score, setScore] = useState({ right: 0, total: 0 });
+  const items = visualIdBank;
+
+  if (!items.length) {
+    return <EmptyState mood="confused" title="Visual ID bank is loading" hint="Original laboratory illustrations will appear here." />;
+  }
+
+  const item = items[idx % items.length];
+  const done = picked !== null;
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-4">
+      <Card className="flex flex-col items-center">
+        <Badge tone="info">identify this</Badge>
+        <div className="mt-3">
+          <LabVisual id={item.svgId} size={240} />
+        </div>
+        <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
+          Original illustration — {item.subjectId.replace('-', ' ')}
+        </p>
+      </Card>
+      <Card>
+        <SectionTitle icon="🎯">What is it?</SectionTitle>
+        <div className="space-y-2">
+          {item.choices.map((c) => {
+            const correct = c === item.correct;
+            return (
+              <button
+                key={c}
+                disabled={done}
+                onClick={() => {
+                  setPicked(c);
+                  setScore((s) => ({ right: s.right + (c === item.correct ? 1 : 0), total: s.total + 1 }));
+                }}
+                className="w-full text-left rounded-[14px] border p-3 min-h-[44px]"
+                style={{
+                  borderColor: done && correct ? '#4ade80' : done && c === picked ? '#fb7185' : 'var(--line-strong)',
+                  background: done && correct ? '#dcfce7' : done && c === picked ? '#ffe4e6' : 'var(--surface-2)',
+                }}
+              >
+                {c} {done && correct && '✓'} {done && c === picked && !correct && '✗'}
+              </button>
+            );
+          })}
+        </div>
+        {done && (
+          <div className="rounded-[12px] p-3 text-sm mt-3" style={{ background: 'var(--chip)' }}>
+            <strong>{picked === item.correct ? 'Correct! 🌸' : 'Not quite —'}</strong> {item.explanation}
+          </div>
+        )}
+        <div className="flex items-center justify-between mt-4">
+          <span className="text-xs" style={{ color: 'var(--muted)' }}>
+            Score: {score.right}/{score.total} · original artwork, no copyrighted images
+          </span>
+          <button className="btn-primary !py-1.5 text-xs" onClick={() => { setIdx((i) => i + 1); setPicked(null); }}>
+            Next image →
+          </button>
+        </div>
       </Card>
     </div>
   );
