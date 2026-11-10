@@ -1,0 +1,61 @@
+name: Website Deploy
+
+# Deploys the static web export to GitHub Pages on every push to main.
+# Every deployment is traceable to a commit SHA (see the deployment environment).
+# Rollback: redeploy a previous commit (Actions -> Website Deploy -> Re-run, or
+# git revert and push). See docs/DEPLOYMENT.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'shared/**'
+      - '.github/workflows/website-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install and build static export
+        working-directory: web
+        env:
+          NEXT_PUBLIC_BASE_PATH: /MedTech-Review-Hub
+        run: |
+          npm ci
+          npm test
+          npm run build
+      - name: Record deployment metadata (traceable commit)
+        run: |
+          mkdir -p web/out
+          echo "${{ github.sha }}" > web/out/.deployed-commit
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > web/out/.deployed-at
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

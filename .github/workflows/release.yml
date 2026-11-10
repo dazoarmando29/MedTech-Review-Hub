@@ -1,0 +1,111 @@
+name: Release
+
+# Publishes a GitHub Release with APK/AAB artifacts when a version tag is pushed:
+#   git tag v1.0.0 && git push origin v1.0.0
+# Uses semantic versioning: vMAJOR.MINOR.PATCH.
+# Tests MUST pass before artifacts are published (no broken builds).
+# APK signing uses GitHub Actions secrets when configured (never committed):
+#   SIGNING_KEYSTORE_BASE64, SIGNING_STORE_PASSWORD, SIGNING_KEY_ALIAS, SIGNING_KEY_PASSWORD
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate tag matches app versionName
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          echo "tag=$TAG versionName=$VERSION"
+          if [ "$TAG" != "$VERSION" ]; then
+            echo "::error::Tag v$TAG does not match versionName $VERSION in android/app/build.gradle.kts"
+            exit 1
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+      - uses: android-actions/setup-android@v3
+
+      - name: Grant gradlew execute permission
+        run: chmod +x ./gradlew
+
+      - name: Run all unit tests (release is blocked on failure)
+        run: ./gradlew :app:testDebugUnitTest --console=plain
+
+      - name: Build debug APK (always installable fallback)
+        run: ./gradlew :app:assembleDebug --console=plain
+
+      - name: Build release APK + AAB (signed when secrets are configured)
+        env:
+          SIGNING_KEYSTORE_BASE64: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: ./gradlew :app:assembleRelease :app:bundleRelease --console=plain
+
+      - name: Stage artifacts
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk "dist/MedTech-Review-Hub-${GITHUB_REF_NAME}-debug.apk"
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp app/build/outputs/apk/release/app-release.apk "dist/MedTech-Review-Hub-${GITHUB_REF_NAME}-release.apk"
+            echo "SIGNED_OR_UNSIGNED_RELEASE=release" >> "$GITHUB_ENV"
+          else
+            cp app/build/outputs/apk/release/app-release-unsigned.apk "dist/MedTech-Review-Hub-${GITHUB_REF_NAME}-release-unsigned.apk"
+            echo "SIGNED_OR_UNSIGNED_RELEASE=release-unsigned" >> "$GITHUB_ENV"
+          fi
+          cp app/build/outputs/bundle/release/app-release.aab "dist/MedTech-Review-Hub-${GITHUB_REF_NAME}.aab"
+          ls -la dist
+
+      - name: Extract release notes from CHANGELOG.md
+        id: notes
+        run: |
+          NOTES=$(awk -v ver="${GITHUB_REF_NAME}" '
+            $0 ~ "^## " ver {found=1; next}
+            found && $0 ~ "^## " {exit}
+            found {print}
+          ' ../CHANGELOG.md)
+          if [ -z "$NOTES" ]; then
+            NOTES="Release ${GITHUB_REF_NAME}. See CHANGELOG.md."
+          fi
+          {
+            echo "body<<EOF"
+            echo "$NOTES"
+            echo ""
+            echo "---"
+            echo "**Install:** download the APK below and sideload it (or install via \`adb install\`)."
+            if [ "$SIGNED_OR_UNSIGNED_RELEASE" = "release-unsigned" ]; then
+              echo ""
+              echo "> Note: no signing secrets were configured for this workflow run, so the"
+              echo "> \*release-unsigned\* APK is not installable on devices. Use the **debug** APK"
+              echo "> (installable, debug-signed) or configure signing secrets and re-run. See docs/RELEASE.md."
+            fi
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release with artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd ..
+          gh release create "$GITHUB_REF_NAME" \
+            --title "MedTech Review Hub $GITHUB_REF_NAME" \
+            --notes "${{ steps.notes.outputs.body }}" \
+            --verify-tag \
+            android/dist/* \
+            --latest

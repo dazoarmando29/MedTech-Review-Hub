@@ -1,0 +1,44 @@
+name: Android Build
+
+# Builds and tests the Android app on every change; uploads a debug APK artifact.
+# Release APKs are produced by release.yml when a version tag is pushed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
+      - 'shared/**'
+      - '.github/workflows/android-build.yml'
+  pull_request:
+    paths:
+      - 'android/**'
+      - 'shared/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+      - uses: android-actions/setup-android@v3
+      - name: Grant gradlew execute permission
+        run: chmod +x ./gradlew
+      - name: Unit tests
+        run: ./gradlew :app:testDebugUnitTest --console=plain
+      - name: Assemble debug APK
+        run: ./gradlew :app:assembleDebug --console=plain
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: medtech-review-hub-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+          retention-days: 30
