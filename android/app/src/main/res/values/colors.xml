@@ -2,5 +2,6 @@
 <resources>
     <color name="window_background">#F8FAFC</color>
     <color name="window_background_dark">#0F172A</color>
-    <color name="ic_launcher_background">#2563EB</color>
+    <!-- v1.2.0 launcher: dark plum behind the pink book mascot (contrast). -->
+    <color name="ic_launcher_background">#2A2035</color>
 </resources>

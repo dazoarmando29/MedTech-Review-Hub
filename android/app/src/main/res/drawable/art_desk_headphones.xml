@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: desk with headphones (Lo-Fi Study Cafe). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- desk -->
+    <path android:fillColor="#E7BFD0" android:pathData="M8,62 L88,62 L88,70 L8,70 Z" />
+    <path android:fillColor="#D89CB8" android:pathData="M14,70 L20,70 L20,88 L14,88 Z" />
+    <path android:fillColor="#D89CB8" android:pathData="M76,70 L82,70 L82,88 L76,88 Z" />
+    <!-- book -->
+    <path android:fillColor="#F8BBD0" android:pathData="M18,50 L44,50 L44,62 L18,62 Z" />
+    <path android:fillColor="#FFF7FA" android:pathData="M20,52 L30,52 L30,60 L20,60 Z" />
+    <path android:fillColor="#FFF7FA" android:pathData="M32,52 L42,52 L42,60 L32,60 Z" />
+    <!-- coffee cup -->
+    <path android:fillColor="#FFFFFF" android:strokeColor="#E7BFD0" android:strokeWidth="1.5"
+        android:pathData="M62,50 L76,50 L74,62 Q73,64 71,64 L67,64 Q65,64 64,62 Z" />
+    <path android:strokeColor="#E7BFD0" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M76,52 Q81,53 81,56 Q81,59 76,60" />
+    <path android:strokeColor="#F27BAC" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M66,44 Q67,41 66,38 M71,44 Q72,41 71,38" />
+    <!-- headphones -->
+    <path android:strokeColor="#3D2B3D" android:strokeWidth="4" android:fillColor="#00000000"
+        android:pathData="M30,44 A18,18 0 0 1 66,44" />
+    <path android:fillColor="#F27BAC" android:pathData="M26,40 a6,7 0 1,0 12,0 a6,7 0 1,0 -12,0" />
+    <path android:fillColor="#F27BAC" android:pathData="M58,40 a6,7 0 1,0 12,0 a6,7 0 1,0 -12,0" />
+    <!-- sparkle -->
+    <path android:fillColor="#A98CF0" android:pathData="M84,20 C84,12 86,10 94,10 C86,10 84,8 84,0 C84,8 82,10 74,10 C82,10 84,12 84,20 Z" />
+</vector>

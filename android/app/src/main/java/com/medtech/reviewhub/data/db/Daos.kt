@@ -60,6 +60,16 @@ interface StudyDao {
 }
 
 @Dao
+interface LoveNoteDao {
+    @Upsert suspend fun upsert(note: LoveNoteEntity)
+    @Query("DELETE FROM love_notes WHERE id = :id") suspend fun deleteById(id: String)
+    @Query("SELECT * FROM love_notes WHERE id = :id") suspend fun byId(id: String): LoveNoteEntity?
+    @Query("SELECT * FROM love_notes ORDER BY updatedAtMs DESC") fun all(): kotlinx.coroutines.flow.Flow<List<LoveNoteEntity>>
+    @Query("SELECT * FROM love_notes ORDER BY updatedAtMs DESC") suspend fun allOnce(): List<LoveNoteEntity>
+    @Query("SELECT * FROM love_notes WHERE favorite = 1 ORDER BY updatedAtMs DESC") suspend fun favorites(): List<LoveNoteEntity>
+}
+
+@Dao
 interface QuizDao {
     @Upsert suspend fun upsert(attempt: QuizAttemptEntity)
     @Query("SELECT * FROM quiz_attempts WHERE id = :id") suspend fun byId(id: String): QuizAttemptEntity?

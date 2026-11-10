@@ -29,6 +29,9 @@ class SettingsViewModel(
     private val authRepository: AuthRepository,
     private val flashcardRepository: FlashcardRepository,
     private val studyRepository: StudyRepository,
+    private val loveNoteRepository: com.medtech.reviewhub.data.repo.LoveNoteRepository? = null,
+    private val audioEngine: com.medtech.reviewhub.data.music.AudioEngine? = null,
+    private val musicLibrary: com.medtech.reviewhub.data.music.MusicLibrary? = null,
     private val updateChecker: UpdateChecker = UpdateChecker(currentVersion = BuildConfig.VERSION_NAME)
 ) : ViewModel() {
 
@@ -80,6 +83,29 @@ class SettingsViewModel(
     fun setRetention(value: Float) = viewModelScope.launch { settings.setRequestedRetention(value) }
     fun setHighlightMeaning(color: HighlightColor, meaning: String) = viewModelScope.launch {
         settings.setHighlightMeaning(color, meaning)
+    }
+
+    // ---- Study Music / Motivation (v1.2.0) --------------------------------
+
+    fun setDefaultPlaylist(id: String) = viewModelScope.launch { settings.setDefaultPlaylist(id) }
+    fun setMusicVolume(value: Float) = viewModelScope.launch { settings.setMusicVolume(value) }
+    fun setAutoPlayMusicOnSession(enabled: Boolean) = viewModelScope.launch {
+        settings.setAutoPlayMusicOnSession(enabled)
+    }
+    fun setMusicDuringQuizzes(enabled: Boolean) = viewModelScope.launch { settings.setMusicDuringQuizzes(enabled) }
+    fun setMusicDuringFlashcards(enabled: Boolean) = viewModelScope.launch { settings.setMusicDuringFlashcards(enabled) }
+    fun setMusicDuringReading(enabled: Boolean) = viewModelScope.launch { settings.setMusicDuringReading(enabled) }
+    fun setMusicDuringBreaks(enabled: Boolean) = viewModelScope.launch { settings.setMusicDuringBreaks(enabled) }
+    fun setTimerChime(enabled: Boolean) = viewModelScope.launch { settings.setTimerChime(enabled) }
+    fun setMotivationalBanners(enabled: Boolean) = viewModelScope.launch { settings.setMotivationalBanners(enabled) }
+    fun setQuoteFrequency(frequency: String) = viewModelScope.launch { settings.setQuoteFrequency(frequency) }
+    fun clearAudioDownloads() = viewModelScope.launch { audioEngine?.removeAll() }
+
+    suspend fun audioStorageBytes(): Long = audioEngine?.totalBytes() ?: 0L
+
+    fun playlistChoices(): List<Pair<String, String>> {
+        val suggested = musicLibrary?.suggestedPlaylists.orEmpty().map { it.id to it.name }
+        return listOf("" to "None") + suggested
     }
 
     // ---- Network / account ----------------------------------------------
@@ -159,6 +185,9 @@ class SettingsViewModel(
     fun exportData() {
         viewModelScope.launch {
             val cards = flashcardRepository.allCards()
+            // "Little Notes for You" are private: included in this local export
+            // only - never synced to the server (see SyncWorker).
+            val notes = loveNoteRepository?.all().orEmpty()
             val json = buildString {
                 append("{\n")
                 append("  \"app\": \"MedTech Review Hub\",\n")
@@ -170,6 +199,14 @@ class SettingsViewModel(
                     append("\"deck\": \"${c.deckId}\", \"state\": \"${c.schedule.state}\", ")
                     append("\"stability\": ${c.schedule.stability}, \"dueAtMs\": ${c.schedule.dueAtMs}}")
                     if (i < cards.size - 1) append(",")
+                    append("\n")
+                }
+                append("  ],\n")
+                append("  \"loveNotes\": [\n")
+                notes.forEachIndexed { i, n ->
+                    append("    {\"id\": \"${n.id}\", \"text\": ${n.text.json()}, ")
+                    append("\"showOnDate\": ${n.showOnDate?.json() ?: "null"}, \"favorite\": ${n.favorite}}")
+                    if (i < notes.size - 1) append(",")
                     append("\n")
                 }
                 append("  ]\n")

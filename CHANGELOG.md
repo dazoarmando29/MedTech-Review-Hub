@@ -3,6 +3,65 @@
 All notable changes to MedTech Review Hub are documented here.
 Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
+## [1.2.0] — 2026-11-11
+
+### Cozy Study Music & Daily Motivation 🌸
+
+### Added
+- **Study Music** ("Find your focus, one melody at a time."): a real, fully
+  functional player over **22 original generative compositions** across 7
+  categories (Piano Dreams, Violin Serenade, Lo-Fi Study Café, Classical Focus,
+  Nature and Ambient incl. rain/ocean/wind/white/brown noise/night, Cozy Sleepy
+  Study, Deep Focus). Every track is synthesized on-device from the recipes in
+  `shared/MUSIC.md` — original CC0 audio, nothing copyrighted is bundled or
+  streamed. Real controls: play/pause, next/prev, seek, volume, mute, repeat
+  track/playlist, shuffle, progress, duration, title + artist attribution.
+- **Mini-player** docked on every page (lessons, quizzes, flashcards, PDFs,
+  diary) with Media Session / lock-screen integration where the browser
+  supports it; playback never starts without a user gesture.
+- **Offline & downloads**: tracks generate locally so everything works offline;
+  "Download for offline" pre-composes tracks to cache with storage estimates
+  and removable downloads.
+- **Personal playlists**: 6 suggested (My Pink Study Playlist, Midnight ASCPi
+  Review, Blood Banking Focus, Chemistry Calm, Microbiology Marathon, Cozy
+  Rainy Review) plus create/rename/delete custom playlists, favorites, default
+  / morning / late-night picks.
+- **A Little Motivation for You**: deterministic daily quotes (24 original
+  statements — no invented attributions), random quote, favorites, copy, and
+  **shareable quote cards exported as real PNG images** (canvas renderer +
+  Web Share API with download fallback).
+- **Personalized encouragement**: contextual messages after lessons, flashcard
+  sessions, wrong answers, long focus sessions, and daily-goal completion.
+- **Little Notes for You**: private, user-written encouragement notes —
+  add/edit/delete, schedule to specific dates, favorites, random display on the
+  dashboard and in the Study Room. Never auto-generated.
+- **My Cozy Study Room**: full-focus space combining Pomodoro (25/5, 50/10,
+  custom) + music + daily quote + Little Notes + Mochi + study goal + session
+  progress, with 5 backgrounds (Sakura Morning, Rainy Pink Café, Cozy Night,
+  Lavender Evening, Minimal Focus) and a distraction-free mode. Gentle
+  synthesized chime at phase changes (never loud). Music integrates with the
+  timer: focus playlist on start, calmer break playlist optional.
+- **Player preferences**: default/morning/night playlists, volume, auto-play
+  (after user authorization), music-during-quizzes/flashcards/reading/breaks
+  toggles, chime, quote frequency, ambient animations. Privacy-respecting
+  defaults; device caches never sync.
+- **New app icon & logo**: kawaii pink book with a stethoscope heart —
+  recreated as scalable SVG (web PWA icon, header logo) and Android adaptive
+  launcher icon.
+
+### Changed
+- Mochi's idle animation slowed to a gentle 4.5s breathing float (was jumpy).
+- Android 1.2.0: Study Music screen with Media3 playback service (notification +
+  lock-screen controls, audio focus, headphone handling), motivation widget,
+  Little Notes, Cozy Study Room integrated with the existing focus/app-blocker,
+  new launcher icon. 99 unit tests (29 new).
+
+### Honest notes
+- Audio is generated on-device (shared/MUSIC.md) — original compositions under
+  CC0; the catalog is ready for licensed track packs later. Synthetic piano and
+  strings are clearly labeled generative ambience, not recordings.
+- Website has no app blocking (by design; Android owns that feature).
+
 ## [1.1.0] — 2026-11-11
 
 ### Pink MedTech Study Companion 🌸

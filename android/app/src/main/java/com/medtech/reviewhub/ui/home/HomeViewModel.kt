@@ -3,10 +3,12 @@ package com.medtech.reviewhub.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.medtech.reviewhub.data.content.ContentAssetsLoader
+import com.medtech.reviewhub.data.db.LoveNoteEntity
 import com.medtech.reviewhub.data.prefs.AppSettings
 import com.medtech.reviewhub.data.prefs.SettingsRepository
 import com.medtech.reviewhub.data.repo.FlashcardRepository
 import com.medtech.reviewhub.data.repo.HabitRepository
+import com.medtech.reviewhub.data.repo.LoveNoteRepository
 import com.medtech.reviewhub.data.repo.QuizRepository
 import com.medtech.reviewhub.data.repo.StudyRepository
 import com.medtech.reviewhub.domain.MascotKind
@@ -39,6 +41,7 @@ class HomeViewModel(
     private val quizRepository: QuizRepository,
     private val habitRepository: HabitRepository,
     private val settingsRepository: SettingsRepository,
+    private val loveNoteRepository: LoveNoteRepository? = null,
     private val nowProvider: () -> Long = { System.currentTimeMillis() }
 ) : ViewModel() {
 
@@ -72,6 +75,8 @@ class HomeViewModel(
         val continueLessonTitle: String = "",
         val resumeQuiz: Boolean = false,
         val suggestedTopic: Pair<String, String>? = null,
+        /** "Little Notes for You" - a due personal note shown at random (never auto-generated). */
+        val loveNote: LoveNoteEntity? = null,
         val settings: AppSettings = AppSettings()
     )
 
@@ -126,6 +131,12 @@ class HomeViewModel(
             val suggested = content.topics(weakest?.first ?: content.subjects().firstOrNull()?.id ?: "")
                 .firstOrNull()?.let { it.id to it.name }
 
+            // A due "Little Notes for You" note (deterministic pick by day).
+            val loveNote = loveNoteRepository?.let { repo ->
+                val notes = repo.all()
+                repo.pickDisplayNote(notes, today.toString(), phNowDaySeed())
+            }
+
             // Greeting + motivation rotate on Philippine time (Asia/Manila).
             val phNow = java.time.ZonedDateTime.now(PH_MANILA)
             val mood = when {
@@ -161,11 +172,14 @@ class HomeViewModel(
                     continueLessonTitle = continueTitle,
                     resumeQuiz = resumeQuiz,
                     suggestedTopic = suggested,
+                    loveNote = loveNote,
                     settings = settings
                 )
             }
         }
     }
+
+    private fun phNowDaySeed(): Long = java.time.ZonedDateTime.now(PH_MANILA).dayOfYear.toLong()
 
     fun togglePlanItem(item: PlanItem, completed: Boolean) {
         viewModelScope.launch {

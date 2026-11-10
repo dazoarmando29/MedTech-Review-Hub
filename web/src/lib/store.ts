@@ -8,9 +8,9 @@ import { decks as seedDecks, glossarySeed, questionBank } from './content';
 import { applyReview, isDue, newSchedule } from './fsrs';
 import type {
   CatRoomState, ContentIssueReport, DiaryEntry, FlashcardSeed, FocusSession, GardenFlower,
-  Habit, HighlightEntry, HighlightColor, LessonProgress, PdfAnnotation, PdfDocMeta,
-  PlanDay, Profile, QuizAttempt, Rating, ReviewRecord, Settings, StudyPlan, StudySession,
-  ThemeId, UserCard,
+  Habit, HighlightEntry, HighlightColor, LessonProgress, LoveNote, MusicPrefs, PdfAnnotation,
+  PdfDocMeta, PlanDay, Profile, QuizAttempt, Rating, ReviewRecord, Settings, StudyPlan,
+  StudySession, ThemeId, UserCard,
 } from './types';
 
 const STORAGE_KEY = 'mtrh-state-v1';
@@ -44,6 +44,15 @@ export interface AppState {
   admin: AdminOverride;
   garden: { flowers: GardenFlower[] };
   catRoom: CatRoomState;
+  music: {
+    favorites: string[];
+    playlists: { id: string; name: string; trackIds: string[] }[];
+    downloads: string[];
+    lastTrackId: string | null;
+    lastPositionSec: number;
+  };
+  loveNotes: LoveNote[];
+  quoteFavorites: string[];
   lastSyncAt: string | null;
 }
 
@@ -78,6 +87,18 @@ export const DEFAULT_SETTINGS: Settings = {
   dailyNewCards: 20,
   dailyReviewLimit: 200,
   targetRetention: 0.9,
+  music: {
+    defaultPlaylistId: 'pink-study',
+    morningPlaylistId: 'pink-study',
+    nightPlaylistId: 'midnight-review',
+    volume: 0.6,
+    autoplay: false,
+    musicDuring: { quizzes: false, flashcards: true, reading: true, breaks: true },
+    chime: true,
+    soundEffects: true,
+    quoteFrequency: 'daily',
+    ambientAnimations: true,
+  },
   highlightColors: {
     YELLOW: 'Important fact',
     PINK: 'Must memorize',
@@ -147,6 +168,9 @@ export function initialState(): AppState {
     admin: { lessons: {}, questions: {}, statuses: {}, audit: [] },
     garden: { flowers: [] },
     catRoom: { equipped: [] },
+    music: { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 },
+    loveNotes: [],
+    quoteFavorites: [],
     lastSyncAt: null,
   };
 }
@@ -195,6 +219,12 @@ export function migrateState(raw: Partial<AppState>): Partial<AppState> {
   }
   if (!raw.garden) out.garden = { flowers: [] };
   if (!raw.catRoom) out.catRoom = { equipped: [] };
+  if (!raw.music) out.music = { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 };
+  if (!raw.loveNotes) out.loveNotes = [];
+  if (!raw.quoteFavorites) out.quoteFavorites = [];
+  if (out.settings && !out.settings.music) {
+    out.settings.music = DEFAULT_SETTINGS.music;
+  }
   return out;
 }
 
@@ -403,6 +433,74 @@ export function equipCatItem(id: string): void {
       : [...s.catRoom.equipped, id];
     return { ...s, catRoom: { equipped } };
   });
+}
+
+// ---------- study music ----------
+
+export function toggleFavoriteTrack(trackId: string): void {
+  setState((s) => {
+    const favorites = s.music.favorites.includes(trackId)
+      ? s.music.favorites.filter((x) => x !== trackId)
+      : [...s.music.favorites, trackId];
+    return { ...s, music: { ...s.music, favorites } };
+  });
+}
+
+export function toggleDownload(trackId: string): void {
+  setState((s) => {
+    const downloads = s.music.downloads.includes(trackId)
+      ? s.music.downloads.filter((x) => x !== trackId)
+      : [...s.music.downloads, trackId];
+    return { ...s, music: { ...s.music, downloads } };
+  });
+}
+
+export function savePlaylist(playlist: { id: string; name: string; trackIds: string[] }): void {
+  setState((s) => {
+    const exists = s.music.playlists.some((p) => p.id === playlist.id);
+    return {
+      ...s,
+      music: {
+        ...s.music,
+        playlists: exists
+          ? s.music.playlists.map((p) => (p.id === playlist.id ? playlist : p))
+          : [...s.music.playlists, playlist],
+      },
+    };
+  });
+}
+
+export function removePlaylist(id: string): void {
+  setState((s) => ({ ...s, music: { ...s.music, playlists: s.music.playlists.filter((p) => p.id !== id) } }));
+}
+
+export function setLastPlayed(trackId: string | null, positionSec: number): void {
+  setState((s) => ({ ...s, music: { ...s.music, lastTrackId: trackId, lastPositionSec: positionSec } }));
+}
+
+// ---------- little notes & quotes ----------
+
+export function upsertLoveNote(note: LoveNote): void {
+  setState((s) => {
+    const exists = s.loveNotes.some((n) => n.id === note.id);
+    return {
+      ...s,
+      loveNotes: exists ? s.loveNotes.map((n) => (n.id === note.id ? note : n)) : [note, ...s.loveNotes],
+    };
+  });
+}
+
+export function removeLoveNote(id: string): void {
+  setState((s) => ({ ...s, loveNotes: s.loveNotes.filter((n) => n.id !== id) }));
+}
+
+export function toggleQuoteFavorite(text: string): void {
+  setState((s) => ({
+    ...s,
+    quoteFavorites: s.quoteFavorites.includes(text)
+      ? s.quoteFavorites.filter((t) => t !== text)
+      : [text, ...s.quoteFavorites],
+  }));
 }
 
 export function addHabit(habit: Habit): void {

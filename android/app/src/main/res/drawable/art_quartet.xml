@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: string quartet (Classical Focus). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- four simple player figures with violins -->
+    <path android:fillColor="#C9B2F5" android:pathData="M12,34 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path android:fillColor="#C9B2F5" android:pathData="M10,42 Q17,38 24,42 L24,62 L10,62 Z" />
+    <path android:fillColor="#A98CF0" android:pathData="M20,44 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+    <path android:strokeColor="#7C5FC7" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M26,36 L22,56" />
+
+    <path android:fillColor="#F8BBD0" android:pathData="M34,30 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path android:fillColor="#F8BBD0" android:pathData="M32,38 Q39,34 46,38 L46,60 L32,60 Z" />
+    <path android:fillColor="#F27BAC" android:pathData="M42,40 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+    <path android:strokeColor="#D8629B" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M48,32 L44,52" />
+
+    <path android:fillColor="#F8BBD0" android:pathData="M54,30 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path android:fillColor="#F8BBD0" android:pathData="M52,38 Q59,34 66,38 L66,60 L52,60 Z" />
+    <path android:fillColor="#F27BAC" android:pathData="M62,40 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+    <path android:strokeColor="#D8629B" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M68,32 L64,52" />
+
+    <path android:fillColor="#C9B2F5" android:pathData="M76,34 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path android:fillColor="#C9B2F5" android:pathData="M74,42 Q81,38 88,42 L88,62 L74,62 Z" />
+    <path android:fillColor="#A98CF0" android:pathData="M82,44 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+    <path android:strokeColor="#7C5FC7" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M88,36 L84,56" />
+
+    <!-- floor -->
+    <path android:strokeColor="#E7BFD0" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M6,66 L90,66" />
+    <!-- shared notes -->
+    <path android:fillColor="#F27BAC" android:pathData="M30,14 a2.5,2 0 1,0 5,0 a2.5,2 0 1,0 -5,0" />
+    <path android:strokeColor="#F27BAC" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M35,14 L35,24" />
+    <path android:fillColor="#A98CF0" android:pathData="M60,10 a2.5,2 0 1,0 5,0 a2.5,2 0 1,0 -5,0" />
+    <path android:strokeColor="#A98CF0" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M65,10 L65,20" />
+</vector>

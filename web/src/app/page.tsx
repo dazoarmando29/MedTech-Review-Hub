@@ -5,9 +5,10 @@ import Link from 'next/link';
 import React, { useMemo, useState } from 'react';
 import { Badge, Card, EmptyState, SectionTitle, StatTile, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
-import { IconGarden, IconSparkle } from '@/components/icons';
+import { MotivationWidget } from '@/components/MotivationWidget';
+import { IconGarden } from '@/components/icons';
 import { getLesson, getSubject, lessons } from '@/lib/content';
-import { computeStreak, pickMotivation, weeklyWrapped, flowerStage } from '@/lib/cozy';
+import { computeStreak, weeklyWrapped, flowerStage } from '@/lib/cozy';
 import { examCountdownDays, planForDate } from '@/lib/plan';
 import {
   completePlanItem, dueCardList, minutesToday, questionsAnsweredToday,
@@ -116,19 +117,18 @@ export default function DashboardPage() {
       </section>
 
       {/* motivation + gift note */}
+      <MotivationWidget />
       <section className="grid lg:grid-cols-3 gap-4">
-        <div className="card-soft p-5 lg:col-span-2">
-          <div className="flex items-center gap-2">
-            <IconSparkle size={18} />
-            <p className="font-heading font-bold">{settings.motivationNote || pickMotivation()}</p>
-          </div>
-          <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-            {settings.motivationNote ? 'Your personal note (edit in Settings → Personal Touch)' : 'Today’s motivation'}
-          </p>
-        </div>
-        <div className="card p-5 border-l-4" style={{ borderLeftColor: 'var(--primary-soft)' }}>
+        <div className="card p-5 border-l-4 lg:col-span-2" style={{ borderLeftColor: 'var(--primary-soft)' }}>
           <p className="text-sm italic leading-relaxed">“{settings.giftNote}”</p>
           <p className="text-[11px] mt-2" style={{ color: 'var(--muted)' }}>A little note for you — edit it in Settings.</p>
+        </div>
+        <div className="card p-5">
+          <SectionTitle icon="🛋️">Cozy Study Room</SectionTitle>
+          <p className="text-xs" style={{ color: 'var(--muted)' }}>
+            Music + Pomodoro + motivation in one calm, full-focus space.
+          </p>
+          <Link href="/study-room/" className="btn-primary mt-3 w-full">Enter Study Room</Link>
         </div>
       </section>
 

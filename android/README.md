@@ -10,7 +10,7 @@ spaced-repetition scheduler (`shared/FSRS.md`).
 cozy pastel-pink study space with five user-selectable themes (Strawberry Milk
 — default, Sakura Blossom, Lavender Dreams, Cozy Night, Minimal Study) plus a
 System option, pill buttons, 20dp soft-pink cards, and Mochi the lab-coat cat
-as the mascot. Current version: **1.1.0** (versionCode 2).
+as the mascot. Current version: **1.2.0** (versionCode 3).
 
 **This is an independent review app. It is NOT affiliated with, endorsed by, or
 sponsored by ASCP or any examining body.** Adaptive practice is NOT the ASCP
@@ -46,6 +46,12 @@ The Gradle task `copyContentAssets` (wired into `preBuild`) copies
 `shared/content/manifest.json` exists. If `shared/content/` is missing or
 empty, a small embedded sample content set already committed under
 `app/src/main/assets/content/` is used so the build always works fully offline.
+
+The same pattern applies to the music catalog: the copyMusicAssets task
+(also wired into preBuild) copies shared/music/catalog.json into
+pp/src/main/assets/music/; a tiny embedded 4-track fallback catalog keeps
+the build working when shared/music/ is missing. shared/content/motivation.json
+rides along with copyContentAssets (with an embedded fallback too).
 
 ### Intentional dependency deviation (documented)
 
@@ -156,6 +162,66 @@ specified.
     state — content is never invented.
 13. **Offline-first** — every feature works with zero network. Network is used
     only for optional sync, AI tools, and the update check.
+14. **Study Music (generative audio)** - "Find your focus, one melody at a
+    time." Seven category pills with original vector illustrations (pink
+    piano, cat with violin, desk with headphones, string quartet, rainy
+    window with coffee, sleeping moon, focus orb) and 24 tracks whose audio
+    is synthesized ON DEVICE by `domain/StudySynth.kt` - deterministic
+    mulberry32 DSP per `shared/MUSIC.md` (piano arpeggio, violin pad, lo-fi
+    cafe, classical duet, sleepy pads, deep drone, rain, forest, ocean,
+    wind, white/brown/pink noise, night). Original generative compositions -
+    CC0 - artist "MedTech Companion Studio"; no third-party recordings are
+    bundled or redistributed. Playback runs on Media3 (ExoPlayer +
+    MediaSessionService) with a media notification and lock-screen controls
+    (play/pause/next/prev), audio focus handling (pause on loss, duck on
+    transient loss), headphone-unplug pause (ACTION_AUDIO_BECOMING_NOISY),
+    200 ms volume fades and exactly one track at a time. Full player sheet:
+    real ExoPlayer seek bar, time/duration, next/prev, shuffle, repeat
+    track / repeat playlist, volume, mute. Docked mini-player above the
+    bottom bar (content padding keeps it from covering quiz controls).
+    Suggested playlists from `shared/music/catalog.json` + personal
+    playlists (create/rename/delete/add/remove tracks), favorites, and
+    "Morning study" / "Late-night review" quick picks. "Download for
+    offline" simply pre-generates the WAV cache (`cacheDir/audio/<trackId>.wav`)
+    with a per-track progress indicator; "Remove download" deletes it; a
+    storage estimate is shown in Settings and on the Music screen.
+15. **Daily motivation + Little Notes** - "A Little Motivation for You"
+    dashboard widget picks one daily quote deterministically (day-of-year
+    index into `shared/content/motivation.json` - same quote all day, every
+    device) with tiny pastel star decorations, "Show another", "Random",
+    favorite hearts and share (text share always; pastel-card image share is
+    best-effort). Contextual mascot + quote encouragement banners appear
+    after a finished lesson, after 5+ flashcard reviews in one sitting,
+    after incorrect quiz answers, when all daily habits are complete, and
+    after 45+ minutes of continuous focus ("want a short break?").
+    "Little Notes for You": private personal notes (create/edit/delete,
+    optional show-on date, favorite flag) stored in Room, included in the
+    JSON data export only - never synced publicly, and never auto-generated
+    by the app (notes are always written by the user).
+16. **My Cozy Study Room** - the "Room" tab is a full-screen focus
+    interface: Pomodoro timer (25/5, 50/10, custom - reuses the existing
+    `FocusTimerViewModel`), music controls (the chosen playlist auto-plays
+    on session start only after the user has pressed play at least once -
+    the app never forces audio; optional calmer category on breaks), gentle
+    synthesized chime at phase end (toggle; 880 Hz then 1320 Hz sine plucks
+    per `shared/MUSIC.md`), the daily quote card, a current study-goal
+    input, Mochi with moods that change across the session, completed-
+    Pomodoro progress, and 5 gradient background scenes (Sakura Morning,
+    Rainy Pink Cafe, Cozy Night, Lavender Evening, Minimal Focus) with a
+    distraction-free toggle. Animations stay light and respect the
+    reduced-motion setting. The classic focus panel (distraction app picker,
+    permission flows, session stats) is embedded in the same screen - the
+    Android app blocker is integrated exactly as before and was not
+    weakened or removed.
+17. **New app icon (v1.2.0)** - adaptive launcher icon recreated from
+    `web/public/icon.svg`: kawaii open pink book with a kawaii face (two
+    dark oval eyes with white shine, small smile, blush), lavender cover,
+    pink stethoscope tubing arcing into a heart, chest piece and
+    four-point sparkles (`res/drawable/ic_launcher_foreground.xml` +
+    `mipmap-anydpi-v26/ic_launcher*.xml`, dark plum `#2A2035` background for
+    launcher contrast). The same book mascot appears on the About screen
+    (`res/drawable/logo_book.xml`).
+
 
 ## Release signing (GitHub Actions)
 
@@ -227,13 +293,40 @@ variable is absent, the release build is simply unsigned. Example CI step:
 - The mascot illustrations and meme content are original shapes/text; no
   copyrighted meme images are used.
 
+
+- **Study-music audio is generated on-device** - original generative
+  compositions (CC0) synthesized by domain/StudySynth.kt per
+  shared/MUSIC.md. No third-party recordings are bundled or redistributed.
+  The synth is intentionally simple/lo-fi; small documented numeric deviations
+  from the spec (amplitudes/envelope shapes the spec leaves open) are listed
+  in the StudySynth.kt header comment.
+- **Quote-card image share may be unavailable on some devices** (OEM
+  share-sheet / FileProvider quirks); the app then falls back to text share.
+- **Audio focus behaves per OEM.** Media3 pauses on focus loss and ducks on
+  transient loss by default, but some OEM ROMs customize focus and media
+  notification behavior. Pause from the app UI fades out over 200 ms; pause
+  from the notification/lock screen is immediate (a pause is never a spike).
+- **Music "downloads" are pre-generated cache files**, not licensed
+  downloads: removing one never removes access - the track is regenerated
+  deterministically on the next play.
+
 ## Tests
 
-`src/test/kotlin` — plain JUnit 4 (70 tests): FSRS-4.5 scheduler vs
+`src/test/kotlin` - plain JUnit 4 (99 tests): FSRS-4.5 scheduler vs
 `shared/FSRS.md` formulas (retrievability at t=S is 0.9, Good graduation gives
-S=W[2], Again decreases stability, difficulty clamped 1–10, learning steps,
+S=W[2], Again decreases stability, difficulty clamped 1-10, learning steps,
 lapse/relearning flow, sub-1-minute reviews ignored), quiz scoring + the
 adaptive rule, semver comparison for the update checker, the PDF text
 extractor on a tiny embedded sample PDF (uncompressed + Flate-compressed
 streams), study-plan generation rules, and three Compose-less ViewModel tests
 (`OnboardingViewModelTest`, `QuizViewModelTest`, `FocusTimerViewModelTest`).
+
+v1.2.0 adds 29 tests: `StudySynthTest` (mulberry32 determinism - same seed
+gives identical first 256 samples for every recipe, RIFF/WAVE header with
+22050 Hz / 16-bit / mono fields and matching data-chunk size, non-silence for
+all 14 recipes + the chime, 0.85 peak normalization with 0.15 s edge fades,
+byte-identical re-renders, MIDI frequency formula), `MotivationTest`
+(daily-quote rotation determinism over all 366 days, offset rotation + wrap,
+seeded random quotes, context-quote keys/fallbacks) and
+`LoveNoteRepositoryTest` (Little Notes CRUD against a fake DAO, show-on date
+due logic, deterministic display pick).

@@ -1,23 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="MedTech Study Companion icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MedTech Study Companion mascot: a smiling pink book with a stethoscope heart">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="pgL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDE7F1"/>
+      <stop offset="1" stop-color="#F9C4DD"/>
+    </linearGradient>
+    <linearGradient id="pgR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDE7F1"/>
+      <stop offset="1" stop-color="#F8BBD0"/>
+    </linearGradient>
+    <linearGradient id="cover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9B2F5"/>
+      <stop offset="1" stop-color="#A98CF0"/>
+    </linearGradient>
+    <linearGradient id="tube" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#F8BBD0"/>
-      <stop offset="1" stop-color="#DB2777"/>
+      <stop offset="1" stop-color="#F27BAC"/>
     </linearGradient>
   </defs>
-  <rect width="128" height="128" rx="28" fill="url(#g)"/>
-  <circle cx="64" cy="58" r="30" fill="#FFF7FA"/>
-  <path d="M40 40 l-4 -18 17 10 z" fill="#F8BBD0"/>
-  <path d="M88 40 l4 -18 -17 10 z" fill="#F8BBD0"/>
-  <circle cx="53" cy="56" r="4.5" fill="#352735"/>
-  <circle cx="75" cy="56" r="4.5" fill="#352735"/>
-  <circle cx="55" cy="54" r="1.6" fill="#fff"/>
-  <circle cx="77" cy="54" r="1.6" fill="#fff"/>
-  <path d="M60 66 h8 l-4 4 z" fill="#E778A8"/>
-  <path d="M57 72 q7 6 14 0" stroke="#352735" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-  <ellipse cx="44" cy="66" rx="5" ry="3" fill="#FBC4D6"/>
-  <ellipse cx="84" cy="66" rx="5" ry="3" fill="#FBC4D6"/>
-  <rect x="46" y="86" width="36" height="22" rx="8" fill="#FFF7FA"/>
-  <circle cx="56" cy="97" r="4" fill="#F8BBD0" stroke="#DB2777" stroke-width="1.2"/>
-  <path d="M54 97 h4 M56 95 v4" stroke="#DB2777" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- stethoscope tubing behind the book -->
+  <path d="M168 168 C 96 214, 92 330, 172 386" fill="none" stroke="url(#tube)" stroke-width="17" stroke-linecap="round"/>
+  <path d="M344 168 C 416 214, 420 330, 340 386" fill="none" stroke="url(#tube)" stroke-width="17" stroke-linecap="round"/>
+  <!-- heart formed at the bottom -->
+  <path d="M256 442 C 214 410, 196 386, 210 362 C 221 343, 248 344, 256 364 C 264 344, 291 343, 302 362 C 316 386, 298 410, 256 442 Z"
+        fill="none" stroke="url(#tube)" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M172 386 C 186 398, 202 402, 216 392" fill="none" stroke="url(#tube)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M340 386 C 326 398, 310 402, 296 392" fill="none" stroke="url(#tube)" stroke-width="16" stroke-linecap="round"/>
+  <!-- chest piece -->
+  <circle cx="168" cy="152" r="30" fill="#E9D5FF"/>
+  <circle cx="168" cy="152" r="18" fill="#FFF7FA"/>
+  <circle cx="168" cy="152" r="8" fill="#C9B2F5"/>
+
+  <!-- book cover (under pages) -->
+  <path d="M256 252 C 208 230, 148 226, 112 244 C 104 248, 100 256, 102 264 L 112 356 C 114 368, 126 376, 138 372 C 190 358, 228 364, 256 392 C 284 364, 322 358, 374 372 C 386 376, 398 368, 400 356 L 410 264 C 412 256, 408 248, 400 244 C 364 226, 304 230, 256 252 Z"
+        fill="url(#cover)"/>
+  <!-- page stack edge -->
+  <path d="M256 244 C 212 224, 158 220, 126 236 L 132 342 C 172 328, 222 332, 256 360 C 290 332, 340 328, 380 342 L 386 236 C 354 220, 300 224, 256 244 Z"
+        fill="#F8BBD0"/>
+  <!-- left page -->
+  <path d="M256 238 C 218 218, 168 216, 138 230 L 142 330 C 178 316, 226 320, 256 346 Z" fill="url(#pgL)"/>
+  <!-- right page -->
+  <path d="M256 238 C 294 218, 344 216, 374 230 L 370 330 C 334 316, 286 320, 256 346 Z" fill="url(#pgR)"/>
+  <!-- page creases -->
+  <path d="M180 244 C 190 252, 196 262, 198 274" fill="none" stroke="#F2A6C8" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M332 244 C 322 252, 316 262, 314 274" fill="none" stroke="#F2A6C8" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- face -->
+  <ellipse cx="216" cy="282" rx="11" ry="14" fill="#3D2B3D"/>
+  <ellipse cx="296" cy="282" rx="11" ry="14" fill="#3D2B3D"/>
+  <circle cx="220" cy="277" r="4" fill="#FFF7FA"/>
+  <circle cx="300" cy="277" r="4" fill="#FFF7FA"/>
+  <path d="M238 306 Q 256 322 274 306" fill="none" stroke="#3D2B3D" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="192" cy="302" rx="13" ry="8" fill="#F8A8C6" opacity="0.85"/>
+  <ellipse cx="320" cy="302" rx="13" ry="8" fill="#F8A8C6" opacity="0.85"/>
+
+  <!-- sparkles -->
+  <path d="M92 108 C 92 88, 96 84, 116 84 C 96 84, 92 80, 92 60 C 92 80, 88 84, 68 84 C 88 84, 92 88, 92 108 Z" fill="#F48FB1"/>
+  <path d="M412 88 C 412 62, 418 56, 444 56 C 418 56, 412 50, 412 24 C 412 50, 406 56, 380 56 C 406 56, 412 62, 412 88 Z" fill="#B39DDB"/>
+  <path d="M426 316 C 426 302, 430 298, 444 298 C 430 298, 426 294, 426 280 C 426 294, 422 298, 408 298 C 422 298, 426 302, 426 316 Z" fill="#B39DDB"/>
+  <path d="M112 342 C 112 330, 116 326, 128 326 C 116 326, 112 322, 112 310 C 112 322, 108 326, 96 326 C 108 326, 112 330, 112 342 Z" fill="#F48FB1"/>
+  <path d="M330 132 C 330 122, 333 119, 343 119 C 333 119, 330 116, 330 106 C 330 116, 327 119, 317 119 C 327 119, 330 122, 330 132 Z" fill="#C9B2F5"/>
 </svg>

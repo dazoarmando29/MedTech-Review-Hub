@@ -167,3 +167,18 @@ data class BlockedAppEntity(
     @PrimaryKey val packageName: String,
     val label: String
 )
+
+/**
+ * "Little Notes for You" - private personal notes. NEVER synced publicly;
+ * included in the local data export only. The app never auto-generates notes
+ * pretending to be from a person.
+ */
+@Entity(tableName = "love_notes", indices = [Index("showOnDate"), Index("updatedAtMs")])
+data class LoveNoteEntity(
+    @PrimaryKey val id: String,
+    val text: String,
+    val showOnDate: String?,
+    val favorite: Boolean,
+    val createdAtMs: Long,
+    val updatedAtMs: Long
+)

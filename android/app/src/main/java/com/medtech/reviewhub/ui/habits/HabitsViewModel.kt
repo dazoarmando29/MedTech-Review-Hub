@@ -92,6 +92,13 @@ class HabitsViewModel(private val repository: HabitRepository) : ViewModel() {
         viewModelScope.launch {
             repository.logAmount(habitId, LocalDate.now(), delta)
             load()
+            // Contextual encouragement when all daily goals are complete.
+            val rows = _state.value.habits
+            if (rows.isNotEmpty() && rows.all { it.done }) {
+                com.medtech.reviewhub.ui.motivation.EncouragementBus.trigger(
+                    com.medtech.reviewhub.domain.ContextKind.AFTER_GOALS
+                )
+            }
         }
     }
 

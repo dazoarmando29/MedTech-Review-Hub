@@ -12,6 +12,7 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <!-- Package visibility for the distraction-app picker (launcher apps only). -->
     <queries>
@@ -25,6 +26,7 @@
         android:name=".ReviewHubApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedTechReviewHub"
@@ -52,6 +54,29 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="distraction_app_monitoring_during_user_started_focus_sessions" />
         </service>
+
+        <!-- Study-music playback (Media3 MediaSessionService): notification +
+             lock-screen controls, audio focus + headphone-unplug handling.
+             Started only when the user plays music - never hidden playback. -->
+        <service
+            android:name=".data.music.PlaybackService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService" />
+            </intent-filter>
+        </service>
+
+        <!-- Cache file sharing for quote-card image share (best-effort feature). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <!-- Explicitly not declared: no boot receivers, no background trackers, no
              hidden monitoring. Usage stats are read only inside the foreground

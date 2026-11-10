@@ -229,11 +229,11 @@ body {
 .flower-petal { transform-origin: center; }
 
 .loading-mochi {
-  animation: bob 1.2s ease-in-out infinite;
+  animation: bob 4.5s ease-in-out infinite;
 }
 @keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-6px) rotate(2deg); }
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-3px) rotate(0.6deg); }
 }
 
 .confetti-pop {
