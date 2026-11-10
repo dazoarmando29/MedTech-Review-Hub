@@ -75,7 +75,7 @@ jobs:
         id: notes
         run: |
           NOTES=$(awk -v ver="${GITHUB_REF_NAME}" '
-            $0 ~ "^## " ver {found=1; next}
+            $0 ~ "^## \\[" ver "\\]" {found=1; next}
             found && $0 ~ "^## " {exit}
             found {print}
           ' ../CHANGELOG.md)
@@ -83,18 +83,18 @@ jobs:
             NOTES="Release ${GITHUB_REF_NAME}. See CHANGELOG.md."
           fi
           {
-            echo "body<<EOF"
+            echo "body<<RELNOTES"
             echo "$NOTES"
             echo ""
             echo "---"
-            echo "**Install:** download the APK below and sideload it (or install via \`adb install\`)."
+            echo "**Install:** download the APK below and sideload it (or install via adb install)."
             if [ "$SIGNED_OR_UNSIGNED_RELEASE" = "release-unsigned" ]; then
               echo ""
-              echo "> Note: no signing secrets were configured for this workflow run, so the"
-              echo "> \*release-unsigned\* APK is not installable on devices. Use the **debug** APK"
-              echo "> (installable, debug-signed) or configure signing secrets and re-run. See docs/RELEASE.md."
+              echo "Note: no signing secrets were configured for this workflow run, so the"
+              echo "release-unsigned APK is not installable on devices. Use the **debug** APK"
+              echo "(installable, debug-signed) or configure signing secrets and re-run. See docs/RELEASE.md."
             fi
-            echo "EOF"
+            echo "RELNOTES"
           } >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release with artifacts
