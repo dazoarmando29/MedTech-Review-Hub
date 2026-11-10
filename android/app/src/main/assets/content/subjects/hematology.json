@@ -1,0 +1,12 @@
+{
+  "id": "hematology",
+  "name": "Hematology",
+  "shortName": "Hematology",
+  "description": "CBC interpretation, anemias, leukemias, coagulation and hemostasis.",
+  "blueprintNote": "ASCPi BOC content guide weight ~16% ; PH MTLE weight ~20%. Weights are approximations of published outlines.",
+  "colorToken": "violet",
+  "topics": [
+    { "id": "cbc", "name": "CBC & Red Cell Indices", "lessonIds": ["hematology/cbc-indices"] },
+    { "id": "anemias", "name": "Anemias", "lessonIds": ["hematology/anemias"] }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "entries": [
+    { "id": "glos-isohemagglutinin", "term": "Isohemagglutinin", "definition": "Naturally occurring ABO antibody (anti-A/anti-B), primarily IgM, present in plasma of individuals lacking the corresponding antigen.", "subjectId": "blood-banking" },
+    { "id": "glos-hdfn", "term": "HDFN", "definition": "Hemolytic disease of the fetus and newborn — maternal IgG antibodies destroy fetal red cells (classically anti-D).", "subjectId": "blood-banking" },
+    { "id": "glos-azotemia", "term": "Azotemia", "definition": "Elevated urea/creatinine in blood; classified as prerenal, intrinsic renal or postrenal.", "subjectId": "clinical-chemistry" },
+    { "id": "glos-anisocytosis", "term": "Anisocytosis", "definition": "Variation in red cell size; quantified by an elevated RDW.", "subjectId": "hematology" },
+    { "id": "glos-cast", "term": "Urinary cast", "definition": "Cylindrical structure formed in renal tubules; type indicates renal pathology (e.g., RBC casts = glomerulonephritis).", "subjectId": "urinalysis" },
+    { "id": "glos-westgard", "term": "Westgard rules", "definition": "Multirule QC framework: 1_2s warning; 1_3s, 2_2s, R_4s (and others) rejection rules.", "subjectId": "lab-operations" },
+    { "id": "glos-avidity", "term": "Avidity", "definition": "Overall strength of antigen-antibody binding considering multiple binding sites (vs affinity of a single site).", "subjectId": "immunology" }
+  ]
+}

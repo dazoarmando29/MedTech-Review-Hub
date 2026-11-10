@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bantay the dog — happy. Original simple shapes, hand-drawn paths. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <path android:fillColor="#92400E" android:pathData="M22,30 C12,32 10,50 18,58 C22,60 28,54 30,46 Z" />
+    <path android:fillColor="#92400E" android:pathData="M74,30 C84,32 86,50 78,58 C74,60 68,54 66,46 Z" />
+    <path android:fillColor="#B45309" android:pathData="M48,22 C67,22 78,34 78,48 C78,64 65,76 48,76 C31,76 18,64 18,48 C18,34 29,22 48,22 Z" />
+    <path android:fillColor="#FDE68A" android:pathData="M48,52 C58,52 65,57 65,63 C65,70 57,75 48,75 C39,75 31,70 31,63 C31,57 38,52 48,52 Z" />
+    <path android:fillColor="#0F172A" android:pathData="M37,45 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#0F172A" android:pathData="M59,45 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#FFFFFF" android:pathData="M39,43 a1.6,1.6 0 1,0 3.2,0 a1.6,1.6 0 1,0 -3.2,0" />
+    <path android:fillColor="#FFFFFF" android:pathData="M61,43 a1.6,1.6 0 1,0 3.2,0 a1.6,1.6 0 1,0 -3.2,0" />
+    <path android:fillColor="#0F172A" android:pathData="M43,56 C43,53 53,53 53,56 C53,60 48,62 48,62 C48,62 43,60 43,56 Z" />
+    <path android:strokeColor="#78350F" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M48,62 L48,65 M48,65 Q42,71 38,66 M48,65 Q54,71 58,66" />
+</vector>

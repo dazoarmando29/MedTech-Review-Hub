@@ -1,0 +1,25 @@
+{
+  "id": "microbiology",
+  "name": "Diagnostic Microbiology",
+  "shortName": "Microbiology",
+  "description": "Clinical bacteriology, mycology, mycobacteriology, and antimicrobial susceptibility testing as practiced in a diagnostic laboratory: Gram stain interpretation, organism workups, sterile-site cultures, and reporting principles.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS examination microbiology content domain and to the PH MTLE microbiology subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "colorToken": "teal",
+  "topics": [
+    {
+      "id": "gram-positive",
+      "name": "Gram-Positive Cocci",
+      "lessonIds": ["microbiology/gram-positive-cocci"]
+    },
+    {
+      "id": "gram-negative",
+      "name": "Gram-Negative Bacilli",
+      "lessonIds": ["microbiology/enteric-gnr-sterile-sites"]
+    },
+    {
+      "id": "sterile-sites-mycology",
+      "name": "Sterile Sites, Anaerobes, Mycology, AFB, and AST",
+      "lessonIds": ["microbiology/enteric-gnr-sterile-sites"]
+    }
+  ]
+}

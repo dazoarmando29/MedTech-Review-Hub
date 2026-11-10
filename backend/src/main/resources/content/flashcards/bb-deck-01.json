@@ -1,0 +1,37 @@
+{
+  "id": "bb-deck-01",
+  "title": "Blood Banking Essentials",
+  "subjectId": "blood-banking",
+  "cards": [
+    {
+      "id": "bb-fc-001",
+      "type": "BASIC",
+      "front": "Which immunoglobulin class is naturally occurring anti-A, anti-B?",
+      "back": "IgM (with some IgG component)",
+      "tags": ["abo", "high-yield"],
+      "difficulty": 1,
+      "note": "",
+      "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+    },
+    {
+      "id": "bb-fc-002",
+      "type": "CLOZE",
+      "front": "Anti-[[1]] reacts best at room temperature; anti-[[2]] reacts best at 37°C.",
+      "back": "1: A/B (isohemagglutinins)  2: Rh (anti-D)",
+      "tags": ["abo", "rh"],
+      "difficulty": 2,
+      "note": "",
+      "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+    },
+    {
+      "id": "bb-fc-003",
+      "type": "BASIC",
+      "front": "RDW is elevated in iron deficiency but usually normal in which microcytic condition?",
+      "back": "Thalassemia trait (uniformly small red cells)",
+      "tags": ["cbc", "anemia"],
+      "difficulty": 1,
+      "note": "",
+      "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-basics" }
+    }
+  ]
+}

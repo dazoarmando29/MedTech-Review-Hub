@@ -1,0 +1,12 @@
+{
+  "id": "clinical-chemistry",
+  "name": "Clinical Chemistry",
+  "shortName": "Clinical Chemistry",
+  "description": "Enzymes, electrolytes, renal/hepatic function, endocrinology and quality control in the chemistry laboratory.",
+  "blueprintNote": "ASCPi BOC content guide weight ~17% ; PH MTLE weight ~20%. Weights are approximations of published outlines.",
+  "colorToken": "blue",
+  "topics": [
+    { "id": "enzymes", "name": "Diagnostic Enzymes", "lessonIds": ["clinical-chemistry/enzymes"] },
+    { "id": "renal", "name": "Renal Function", "lessonIds": ["clinical-chemistry/renal-function"] }
+  ]
+}

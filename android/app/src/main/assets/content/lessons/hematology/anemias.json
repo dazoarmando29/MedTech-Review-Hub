@@ -1,0 +1,80 @@
+{
+  "id": "hematology/anemias",
+  "subjectId": "hematology",
+  "topicId": "anemias",
+  "title": "Approach to Anemias: Microcytic, Macrocytic and Hemolytic",
+  "summary": "A structured workup of anemia using indices, reticulocyte count and key confirmatory tests.",
+  "readingMinutes": 13,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["anemia", "reticulocyte", "hemolysis", "haptoglobin", "iron deficiency", "megaloblastic"],
+  "objectives": [
+    "Use the reticulocyte index to separate underproduction from destruction/loss.",
+    "Recognize the lab pattern of hemolytic anemia.",
+    "Distinguish iron deficiency from thalassemia trait."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Low reticulocyte production index (< 2) = underproduction; high (> 2) = loss or hemolysis.",
+      "Hemolysis labs: low haptoglobin, high LDH, high indirect bilirubin, positive urine hemoglobin.",
+      "Iron deficiency: low ferritin, high TIBC, low iron; thalassemia trait: normal/high ferritin, normal RDW."
+    ],
+    "mustKnowTable": {
+      "columns": ["Test", "Iron deficiency", "Thalassemia trait"],
+      "rows": [
+        ["Ferritin", "Low", "Normal/high"],
+        ["RDW", "High", "Normal"],
+        ["Hb electrophoresis", "Normal", "A2 or F elevated"]
+      ]
+    },
+    "mnemonic": "Hemolysis: Low haptoglobin, LDH up, indirect bili up."
+  },
+  "deepStudy": {
+    "introduction": "Anemia is a sign, not a diagnosis. The first branch point is the reticulocyte production index (RPI), which corrects the reticulocyte count for the degree of anemia and maturation time.",
+    "sections": [
+      {
+        "heading": "Underproduction anemias",
+        "body": "Microcytic: iron deficiency (most common worldwide), thalassemia trait, anemia of chronic disease (often normocytic), sideroblastic anemia. Macrocytic: B12/folate deficiency (megaloblastic with hypersegmented neutrophils), liver disease, hypothyroidism, myelodysplasia.",
+        "diagram": null
+      },
+      {
+        "heading": "Hemolytic anemias",
+        "body": "Intravascular hemolysis destroys cells in the vessel (e.g., PNH, mechanical valves, ABO incompatibility): hemoglobinemia, hemoglobinuria, low haptoglobin. Extravascular hemolysis (e.g., hereditary spherocytosis, warm AIHA) occurs in the spleen with splenomegaly.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Missing hemolysis delays treatment of life-threatening causes (TTP/HUS, transfusion reactions). Missing B12 deficiency can cause irreversible neurologic damage.",
+    "labInterpretation": "Ferritin is an acute-phase reactant — it can be falsely normal in inflammation; interpret with CRP/ESR.",
+    "comparisonTables": [
+      {
+        "title": "Intravascular vs extravascular hemolysis",
+        "columns": ["Feature", "Intravascular", "Extravascular"],
+        "rows": [
+          ["Site of destruction", "Vessels", "Spleen/liver"],
+          ["Haptoglobin", "Very low", "Low/normal"],
+          ["Urine", "Hemoglobinuria", "Urobilinogen up"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A normal ferritin does not exclude iron deficiency during infection or inflammation.",
+      "Reticulocyte count must be corrected (RPI) — an uncorrected count in severe anemia is misleading."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "Iron studies: TIBC high + ferritin low = iron deficiency (storehouse empty, transport busy).",
+      "funny": "Bantay: 'Ferritin = bodega ng bakal. Pag zero na ang bodega, kahit mag-deliver pa si TIBC, kulang pa rin.'"
+    }
+  ],
+  "practiceQuestionIds": ["hem-q-003"],
+  "relatedFlashcardIds": ["hem-fc-002"],
+  "followUp": ["hematology/cbc-indices"],
+  "references": [
+    { "title": "Rodak's Hematology: Clinical Principles and Applications", "detail": "6th ed., Ch. 16-18", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-14",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

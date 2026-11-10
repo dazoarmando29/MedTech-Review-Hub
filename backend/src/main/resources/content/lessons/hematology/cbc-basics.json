@@ -1,0 +1,85 @@
+{
+  "id": "hematology/cbc-basics",
+  "subjectId": "hematology",
+  "topicId": "cbc",
+  "title": "Complete Blood Count: Indices, Histograms, and Flags",
+  "summary": "One-paragraph overview used in cards and search results: the CBC reports red cell, white cell, and platelet measurements plus derived indices (MCV, MCH, MCHC, RDW) that classify anemias and flag results needing manual review.",
+  "readingMinutes": 10,
+  "difficulty": "BEGINNER",
+  "keywords": ["CBC", "MCV", "MCH", "RDW", "anemia", "histogram"],
+  "objectives": [
+    "Calculate and interpret MCV, MCH, MCHC, and RDW.",
+    "Use red cell indices to classify microcytic, normocytic, and macrocytic anemias.",
+    "Recognize instrument flags that require a peripheral smear review."
+  ],
+  "quickReview": {
+    "highYield": [
+      "MCV < 80 fL suggests microcytic anemia; MCV > 100 fL suggests macrocytic anemia.",
+      "RDW is elevated in iron deficiency but usually normal in thalassemia trait.",
+      "A platelet count must be confirmed on a smear when the histogram or flag suggests clumping."
+    ],
+    "mustKnowTable": {
+      "columns": ["Index", "Formula", "Typical adult reference interval"],
+      "rows": [
+        ["MCV", "Hct / RBC", "80-100 fL"],
+        ["MCH", "Hb / RBC", "27-33 pg"],
+        ["MCHC", "Hb / Hct", "32-36 g/dL"],
+        ["RDW", "SD or CV of RBC volume", "11.5-14.5% (varies by analyzer)"]
+      ]
+    },
+    "mnemonic": "MCV is the siZe index, MCH the weight, MCHC the concentration."
+  },
+  "deepStudy": {
+    "introduction": "The CBC is the most ordered laboratory test. Understanding how each parameter is measured — and which preanalytical issues distort it — turns a printout into a diagnosis.",
+    "sections": [
+      {
+        "heading": "Red cell indices",
+        "body": "Indices are calculated, not directly measured: MCV = Hct/RBC, MCH = Hb/RBC, MCHC = Hb/Hct. They classify anemia size and hemoglobinization; RDW separates iron deficiency (high RDW) from thalassemia trait (normal RDW).",
+        "diagram": null
+      },
+      {
+        "heading": "Flags and histograms",
+        "body": "Automated analyzers produce RBC, WBC, and platelet histograms plus flags (e.g., RBC agglutination, platelet clumps, blast flag). Flags are prompts for a manual differential and smear review, not diagnoses.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Microcytosis with high RDW suggests iron deficiency; microcytosis with normal RDW suggests thalassemia trait. Macrocytosis prompts B12/folate review and alcohol/liver history.",
+    "labInterpretation": "Cold agglutinins falsely raise MCV and MCHC and lower RBC count; sample warming and saline replacement resolve this. Reference intervals vary by laboratory, method, age, sex, and population; verify against your local laboratory.",
+    "comparisonTables": [
+      {
+        "title": "Microcytic anemias",
+        "columns": ["Cause", "RDW", "Ferritin"],
+        "rows": [
+          ["Iron deficiency", "High", "Low"],
+          ["Thalassemia trait", "Normal", "Normal/high"],
+          ["Anemia of chronic disease", "Normal or high", "High"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "MCHC above ~36 g/dL usually signals interference (lipemia, cold agglutinins, hemolysis) rather than a real value.",
+      "A normal MCV does not exclude iron deficiency early on; check ferritin and RDW."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "RDW high = variety (iron deficiency); RDW normal = uniform (thalassemia trait).",
+      "funny": "Bantay-sarado ang RDW: 'pag mataas, may variety show ng sizes; 'pag normal, pare-parehas lang sila ng sukat — boring pero classic thal trait."
+    }
+  ],
+  "practiceQuestionIds": ["hema-q-001", "hema-q-002", "hema-q-003"],
+  "relatedFlashcardIds": ["bb-fc-003"],
+  "followUp": ["blood-banking/abo-basics"],
+  "references": [
+    {
+      "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods",
+      "detail": "24th ed., Hematology section",
+      "url": null
+    }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-10",
+  "reviewerNote": "Medical accuracy reviewed against listed references. Sample lesson shipped as bundled fallback content."
+}

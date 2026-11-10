@@ -1,0 +1,22 @@
+[
+  {
+    "id": "meme-abo-cat",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "blood-banking",
+    "title": "Group O: nO antigens, bOth antibodies",
+    "body": "Picture a cat sitting on the blood bank bench refusing to share: 'I have nO antigens and bOth antibodies — I am the universal red cell donor, but do NOT ask me for plasma.'",
+    "punchline": "Universal RBC donor ≠ universal plasma donor.",
+    "scientificFact": "Group O red cells lack A and B antigens; group O plasma contains anti-A and anti-B, which is why high-titre group O plasma must be handled carefully in platelet and plasma transfusions.",
+    "lessonId": "blood-banking/abo-basics"
+  },
+  {
+    "id": "meme-rdw-variety",
+    "type": "MEMORY_HOOK",
+    "subjectId": "hematology",
+    "title": "RDW variety show",
+    "body": "RDW high = may sizes ang RBCs (variety show). RDW normal = pare-parehas lang (thala-thalassemia trait, boring pero classic).",
+    "punchline": "Kung variety, iron deficiency. Kung uniform, thal trait.",
+    "scientificFact": "RDW measures red cell size distribution; it is typically elevated in iron deficiency anemia and usually normal in thalassemia trait.",
+    "lessonId": "hematology/cbc-basics"
+  }
+]

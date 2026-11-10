@@ -1,0 +1,11 @@
+{
+  "id": "immunology",
+  "name": "Immunology",
+  "shortName": "Immunology",
+  "description": "Immunoglobulins, complement, immunologic testing principles and serology.",
+  "blueprintNote": "ASCPi BOC content guide weight ~10% ; PH MTLE weight ~10%. Weights are approximations of published outlines.",
+  "colorToken": "blue",
+  "topics": [
+    { "id": "immunoglobulins", "name": "Immunoglobulins", "lessonIds": ["immunology/immunoglobulins"] }
+  ]
+}

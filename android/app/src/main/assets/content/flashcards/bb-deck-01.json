@@ -1,0 +1,47 @@
+{
+  "id": "bb-deck-01",
+  "title": "Blood Banking Essentials",
+  "subjectId": "blood-banking",
+  "cards": [
+    {
+      "id": "bb-fc-001",
+      "type": "BASIC",
+      "front": "Which immunoglobulin class is naturally occurring anti-A, anti-B?",
+      "back": "IgM (with some IgG component)",
+      "tags": ["abo", "high-yield"],
+      "difficulty": 1,
+      "note": "",
+      "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+    },
+    {
+      "id": "bb-fc-002",
+      "type": "CLOZE",
+      "front": "Anti-[[1]] reacts best at room temperature; anti-[[2]] reacts best at 37°C.",
+      "back": "1: A/B (isohemagglutinins)  2: Rh (anti-D)",
+      "tags": ["abo", "rh"],
+      "difficulty": 2,
+      "note": "",
+      "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+    },
+    {
+      "id": "bb-fc-003",
+      "type": "BASIC",
+      "front": "How are weak D recipients and weak D donors each handled?",
+      "back": "Weak D recipient = treat as Rh-negative (give Rh-neg RBCs). Weak D donor = treat as Rh-positive.",
+      "tags": ["rh", "high-yield"],
+      "difficulty": 2,
+      "note": "Classic exam pair.",
+      "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-system" }
+    },
+    {
+      "id": "bb-fc-004",
+      "type": "CLOZE",
+      "front": "O group red cells have [[1]] antigens and plasma contains [[2]] antibodies.",
+      "back": "1: no A/B  2: anti-A and anti-B (both)",
+      "tags": ["abo", "mnemonic"],
+      "difficulty": 1,
+      "note": "O has nO antigens and bOth antibodies.",
+      "source": { "kind": "MEME", "lessonId": "blood-banking/abo-basics" }
+    }
+  ]
+}

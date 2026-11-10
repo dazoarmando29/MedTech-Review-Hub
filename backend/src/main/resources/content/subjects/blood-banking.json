@@ -1,0 +1,11 @@
+{
+  "id": "blood-banking",
+  "name": "Blood Banking / Immunohematology",
+  "shortName": "Blood Banking",
+  "description": "ABO and Rh blood group systems, antibody screening and identification, compatibility testing, transfusion reactions, and component therapy.",
+  "blueprintNote": "ASCPi BOC MLS content guide weight ~7-9% (approximate content outline weight, not an official percentage). PH MTLE lists Immunohematology as its own subject. The two exam profiles are kept separate; nothing here claims ASCP endorsement.",
+  "colorToken": "teal",
+  "topics": [
+    { "id": "abo-system", "name": "ABO System", "lessonIds": ["blood-banking/abo-basics"] }
+  ]
+}

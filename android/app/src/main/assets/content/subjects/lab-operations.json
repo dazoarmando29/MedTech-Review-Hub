@@ -1,0 +1,11 @@
+{
+  "id": "lab-operations",
+  "name": "Laboratory Operations",
+  "shortName": "Lab Operations",
+  "description": "Quality assurance, quality control, safety, laboratory management and regulations.",
+  "blueprintNote": "ASCPi BOC content guide weight ~12% ; PH MTLE weight ~10%. Weights are approximations of published outlines.",
+  "colorToken": "amber",
+  "topics": [
+    { "id": "quality", "name": "Quality Assurance & QC", "lessonIds": ["lab-operations/quality-basics"] }
+  ]
+}

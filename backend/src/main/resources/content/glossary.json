@@ -1,0 +1,16 @@
+[
+  {
+    "id": "glossary-isohemagglutinin",
+    "term": "Isohemagglutinin",
+    "definition": "Naturally occurring ABO antibody (usually IgM) directed against the A or B antigen absent from the individual's own red cells.",
+    "subjectId": "blood-banking",
+    "source": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed."
+  },
+  {
+    "id": "glossary-rdw",
+    "term": "RDW (Red cell Distribution Width)",
+    "definition": "A measure of the variation in red cell volume (anisocytosis), reported as RDW-CV or RDW-SD. Reference intervals vary by analyzer and population.",
+    "subjectId": "hematology",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  }
+]

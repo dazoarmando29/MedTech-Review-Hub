@@ -1,0 +1,70 @@
+{
+  "id": "hematology/cbc-indices",
+  "subjectId": "hematology",
+  "topicId": "cbc",
+  "title": "CBC and Red Cell Indices: MCV, MCH, MCHC and RDW",
+  "summary": "How red cell indices classify anemias and how to correlate them with the peripheral smear.",
+  "readingMinutes": 10,
+  "difficulty": "BEGINNER",
+  "keywords": ["CBC", "MCV", "MCH", "MCHC", "RDW", "microcytic", "macrocytic"],
+  "objectives": [
+    "Classify anemias using MCV and MCHC.",
+    "Explain what RDW adds to the classification.",
+    "Correlate indices with smear morphology."
+  ],
+  "quickReview": {
+    "highYield": [
+      "MCV < 80 fL = microcytic; MCV > 100 fL = macrocytic.",
+      "MCHC low = hypochromic (e.g., iron deficiency); MCHC high is seen in hereditary spherocytosis.",
+      "High RDW = mixed or developing population (e.g., iron deficiency); normal RDW in thalassemia trait."
+    ],
+    "mustKnowTable": {
+      "columns": ["Indices", "Pattern", "Classic causes"],
+      "rows": [
+        ["Low MCV, low MCHC", "Microcytic hypochromic", "Iron deficiency, thalassemia trait"],
+        ["High MCV", "Macrocytic", "B12/folate deficiency, liver disease, reticulocytosis"],
+        ["Normal MCV, high RDW", "Dimorphic", "Sideroblastic anemia, transfusion"]
+      ]
+    },
+    "mnemonic": "RDW high = 'Rara Diverse Width' (mixed sizes)."
+  },
+  "deepStudy": {
+    "introduction": "Red cell indices are calculated from the CBC: MCV = Hct/RBC, MCH = Hb/RBC, MCHC = Hb/Hct. They screen for the mechanism of anemia before the smear confirms morphology.",
+    "sections": [
+      {
+        "heading": "Index calculations",
+        "body": "All indices are mathematically derived from hemoglobin, hematocrit and red cell count measured by the automated analyzer. Artifacts (cold agglutinins, hyperglycemia, high WBC) can falsely raise MCV and MCHC.",
+        "diagram": null
+      },
+      {
+        "heading": "RDW in classification",
+        "body": "RDW measures red cell size distribution. Iron deficiency typically shows high RDW early; thalassemia trait shows microcytosis with a normal RDW. A normal RDW with low MCV points toward thalassemia trait.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Index-based classification directs the next lab tests: ferritin and iron studies vs hemoglobin electrophoresis vs B12/folate.",
+    "labInterpretation": "Indices are screening tools; confirm with smear review and specific assays. Reference intervals vary per analyzer and population.",
+    "comparisonTables": [],
+    "examTraps": [
+      "Cold agglutinins falsely elevate MCV and MCHC — warm the sample and re-run.",
+      "A normal MCV does not exclude early iron deficiency (check RDW and ferritin)."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "MCV = Mean Cat Volume… charot. Mean Corpuscular Volume: 80-100 fL is normal.",
+      "funny": "Meow: 'Below 80, microcytic. Above 100, macrocytic. Parang grades — sakto lang dapat.'"
+    }
+  ],
+  "practiceQuestionIds": ["hem-q-001", "hem-q-002"],
+  "relatedFlashcardIds": ["hem-fc-001"],
+  "followUp": ["hematology/anemias"],
+  "references": [
+    { "title": "Rodak's Hematology: Clinical Principles and Applications", "detail": "6th ed., Ch. 15", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-14",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

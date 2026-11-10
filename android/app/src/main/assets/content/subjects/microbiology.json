@@ -1,0 +1,11 @@
+{
+  "id": "microbiology",
+  "name": "Microbiology",
+  "shortName": "Microbiology",
+  "description": "Bacteriology, mycology, virology, parasitology and antimicrobial susceptibility testing.",
+  "blueprintNote": "ASCPi BOC content guide weight ~18% ; PH MTLE weight ~20% (with Parasitology). Weights are approximations of published outlines.",
+  "colorToken": "amber",
+  "topics": [
+    { "id": "gram-stain", "name": "Gram Stain & Identification", "lessonIds": ["microbiology/gram-stain"] }
+  ]
+}

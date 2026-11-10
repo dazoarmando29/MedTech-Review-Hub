@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "subjects": [
+    { "id": "blood-banking", "name": "Blood Banking / Immunohematology" },
+    { "id": "clinical-chemistry", "name": "Clinical Chemistry" },
+    { "id": "hematology", "name": "Hematology" },
+    { "id": "microbiology", "name": "Microbiology" },
+    { "id": "immunology", "name": "Immunology" },
+    { "id": "urinalysis", "name": "Urinalysis / Body Fluids" },
+    { "id": "lab-operations", "name": "Laboratory Operations" }
+  ]
+}

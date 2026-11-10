@@ -1,0 +1,89 @@
+[
+  {
+    "id": "hema-q-001",
+    "subjectId": "hematology",
+    "topicId": "cbc",
+    "type": "MCQ",
+    "vignette": "A 45-year-old woman presents with fatigue. CBC: Hb 9.8 g/dL, Hct 30%, RBC 4.2 × 10^12/L, MCV 71 fL, RDW 18%.",
+    "stem": "Which condition best fits these red cell indices?",
+    "choices": [
+      { "id": "A", "text": "Iron deficiency anemia" },
+      { "id": "B", "text": "Thalassemia trait" },
+      { "id": "C", "text": "Anemia of chronic disease (early)" },
+      { "id": "D", "text": "Megaloblastic anemia" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Microcytosis (MCV 71 fL) with a high RDW (18%) indicates anisocytosis from varying cell sizes — the classic pattern of iron deficiency anemia. Thalassemia trait is microcytic but usually with a normal RDW; megaloblastic anemia is macrocytic (MCV > 100 fL).",
+    "rationales": {
+      "A": "Correct: microcytic anemia with elevated RDW reflects the mixed red cell population typical of iron deficiency.",
+      "B": "Thalassemia trait is microcytic but the red cells are uniformly small, so RDW is usually normal.",
+      "C": "Anemia of chronic disease is typically normocytic (or only mildly microcytic) with a normal or mildly elevated RDW.",
+      "D": "Megaloblastic anemia presents with macrocytosis (MCV > 100 fL), the opposite of these indices."
+    },
+    "misconception": "Students often pick B for any microcytic anemia and forget that RDW separates iron deficiency from thalassemia trait.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "hematology/cbc-basics",
+    "examTraps": [
+      "Microcytic + high RDW → iron deficiency; microcytic + normal RDW → thalassemia trait."
+    ]
+  },
+  {
+    "id": "hema-q-002",
+    "subjectId": "hematology",
+    "topicId": "cbc",
+    "type": "MCQ",
+    "vignette": "An analyzer reports Hb 14.0 g/dL, Hct 42%, RBC 5.0 × 10^12/L, MCHC 33 g/dL, and flags 'RBC agglutination?'. The specimen looks slightly cloudy when cold.",
+    "stem": "Which interference is most likely responsible?",
+    "choices": [
+      { "id": "A", "text": "Lipemia" },
+      { "id": "B", "text": "Cold agglutinins" },
+      { "id": "C", "text": "Hemolysis in the tube" },
+      { "id": "D", "text": "High white cell count" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Cold agglutinins cause red cells to clump at room temperature, falsely lowering the RBC count and raising MCV and MCHC, with an analyzer flag for agglutination and a cloudy appearance when the specimen is cold. Rewarming the sample and performing a saline replacement corrects the parameters.",
+    "rationales": {
+      "A": "Lipemia causes turbidity and falsely elevates hemoglobin by spectrophotometric interference, but it does not cause an RBC agglutination flag.",
+      "B": "Correct: cold-reacting antibodies agglutinate red cells in the cold, producing the described analyzer flag and cold-dependent cloudiness.",
+      "C": "Hemolysis lowers measured hemoglobin-related parameters and may flag plasma integrity, but it does not agglutinate red cells.",
+      "D": "A high WBC count can affect some parameters but does not produce an RBC agglutination flag with cold cloudiness."
+    },
+    "misconception": "Students often blame lipemia for any suspicious chemistry-style interference; the agglutination flag and cold dependence point to cold agglutinins.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "hematology/cbc-basics",
+    "examTraps": [
+      "Cold agglutinins: RBC falsely low, MCV and MCHC falsely high — think of clumping."
+    ]
+  },
+  {
+    "id": "hema-q-003",
+    "subjectId": "hematology",
+    "topicId": "cbc",
+    "type": "MCQ",
+    "vignette": "A routine CBC on a healthy adult reports platelets 42 × 10^9/L with the analyzer flag 'platelet clumps present'. The smear shows clumped platelets.",
+    "stem": "What is the most appropriate next step?",
+    "choices": [
+      { "id": "A", "text": "Report the platelet count as 42 × 10^9/L and request hematology consult" },
+      { "id": "B", "text": "Request a redraw in a sodium citrate (blue-top) tube and recount" },
+      { "id": "C", "text": "Repeat the count on the same EDTA tube after centrifugation" },
+      { "id": "D", "text": "Perform a sickle cell solubility test" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "EDTA-dependent pseudothrombocytopenia is caused by platelet clumping in EDTA anticoagulant. The correct step is to recollect the sample in a different anticoagulant (sodium citrate) and repeat the count, confirming on the smear. The clumped result should not be released as a true count.",
+    "rationales": {
+      "A": "Reporting an artifactual low count risks unnecessary clinical action; the clumped result must be resolved first.",
+      "B": "Correct: a citrate recollection avoids EDTA-induced clumping and yields a reliable platelet count.",
+      "C": "Recentrifuging the same EDTA tube does not reverse the antibody-mediated clumping.",
+      "D": "A sickle cell solubility test answers an unrelated question about hemoglobin S."
+    },
+    "misconception": "Students often accept flagged analyzer values at face value instead of resolving preanalytical artifacts.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "hematology/cbc-basics",
+    "examTraps": [
+      "Platelet clumps on a smear + low count = redraw in citrate, not a diagnosis."
+    ]
+  }
+]

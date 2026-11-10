@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original launcher mark: microscope lens + test tube, simple shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,26 C69,26 81,38 81,53 C81,68 69,80 54,80 C39,80 27,68 27,53 C27,38 39,26 54,26 Z" />
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M54,34 C64.5,34 73,42.5 73,53 C73,63.5 64.5,72 54,72 C43.5,72 35,63.5 35,53 C35,42.5 43.5,34 54,34 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,42 C60,42 65,47 65,53 C65,59 60,64 54,64 C48,64 43,59 43,53 C43,47 48,42 54,42 Z" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M72,62 L84,86 L60,86 Z" />
+</vector>

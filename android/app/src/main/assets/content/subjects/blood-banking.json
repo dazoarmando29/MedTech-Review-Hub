@@ -1,0 +1,12 @@
+{
+  "id": "blood-banking",
+  "name": "Blood Banking / Immunohematology",
+  "shortName": "Blood Banking",
+  "description": "ABO/Rh typing, antibody screening, compatibility testing and transfusion reactions.",
+  "blueprintNote": "ASCPi BOC content guide weight ~9% ; PH MTLE weight ~15%. Weights are approximations of published outlines.",
+  "colorToken": "teal",
+  "topics": [
+    { "id": "abo-system", "name": "ABO System", "lessonIds": ["blood-banking/abo-basics"] },
+    { "id": "rh-system", "name": "Rh System", "lessonIds": ["blood-banking/rh-system"] }
+  ]
+}

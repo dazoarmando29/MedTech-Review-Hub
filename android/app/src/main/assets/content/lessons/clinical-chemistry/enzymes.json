@@ -1,0 +1,87 @@
+{
+  "id": "clinical-chemistry/enzymes",
+  "subjectId": "clinical-chemistry",
+  "topicId": "enzymes",
+  "title": "Diagnostic Enzymes: ALT, AST, ALP, GGT, CK, LD and Amylase",
+  "summary": "Tissue sources, isoenzymes and classic patterns of enzyme elevation used to localize organ injury.",
+  "readingMinutes": 12,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["ALT", "AST", "ALP", "GGT", "CK-MB", "LD isoenzymes", "amylase", "lipase"],
+  "objectives": [
+    "Match each enzyme to its major tissue sources.",
+    "Use enzyme ratios and isoenzymes to localize injury (e.g., liver vs bone vs muscle).",
+    "Explain why GGT is used to confirm an ALP of hepatic origin."
+  ],
+  "quickReview": {
+    "highYield": [
+      "ALT is more liver-specific than AST; AST also rises in myocardial and muscle injury.",
+      "ALP rises in both liver and bone disease — GGT confirms hepatic origin (GGT is not elevated in bone).",
+      "Lipase is more specific for acute pancreatitis than amylase and stays elevated longer."
+    ],
+    "mustKnowTable": {
+      "columns": ["Enzyme", "Main sources", "Classic elevation"],
+      "rows": [
+        ["ALT", "Liver", "Hepatocellular injury"],
+        ["AST", "Liver, heart, muscle", "Hepatic, myocardial, muscle injury"],
+        ["ALP", "Liver (bile), bone, placenta", "Cholestasis, bone growth/Paget"],
+        ["GGT", "Liver, kidney", "Cholestasis, alcohol use"],
+        ["Lipase", "Pancreas", "Acute pancreatitis"]
+      ]
+    },
+    "mnemonic": "ALP up + GGT up = liver. ALP up + GGT normal = bone."
+  },
+  "deepStudy": {
+    "introduction": "Enzymes are catalysts leaking from injured cells; their serum activity reflects tissue damage rather than organ function. Interpretation uses source specificity, time course and isoenzyme patterns.",
+    "sections": [
+      {
+        "heading": "Aminotransferases",
+        "body": "ALT (SGPT) is cytosolic and predominantly hepatic. AST (SGOT) has cytosolic and mitochondrial forms found in liver, myocardium and skeletal muscle. An AST:ALT > 2:1 suggests alcoholic liver disease; both markedly rise in viral hepatitis.",
+        "diagram": null
+      },
+      {
+        "heading": "Cholestatic enzymes",
+        "body": "ALP is a group of isoenzymes; hepatic ALP rises with bile duct obstruction. GGT is induced by alcohol and drugs and is used to verify that an elevated ALP is hepatic rather than osseous.",
+        "diagram": null
+      },
+      {
+        "heading": "Pancreatic and muscle enzymes",
+        "body": "Amylase rises within hours and normalizes in 3-5 days; lipase rises later but remains elevated 8-14 days and is more specific. CK-MB and troponin are preferred over LD1/LD2 (flipped pattern) for myocardial infarction in modern labs.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Enzyme patterns guide the differential diagnosis of jaundice, chest pain and abdominal pain before imaging is available.",
+    "labInterpretation": "Always report enzyme results with reference intervals that vary by method, age, sex and population; verify against your local laboratory.",
+    "comparisonTables": [
+      {
+        "title": "Amylase vs lipase",
+        "columns": ["Feature", "Amylase", "Lipase"],
+        "rows": [
+          ["Onset", "2-12 h", "4-8 h"],
+          ["Return to normal", "3-5 days", "8-14 days"],
+          ["Specificity", "Moderate (salivary source too)", "High for pancreas"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "An elevated ALP alone does not prove liver disease — check GGT and consider bone sources (growth, Paget's, fractures).",
+      "Macroamylasemia causes high amylase with normal lipase and normal urine amylase."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "GGT = 'Good to Go with liver' — it confirms hepatic ALP.",
+      "funny": "Meow: 'GGT ang chaperone ng ALP. Pag wala si GGT, bone ang date ni ALP.'"
+    }
+  ],
+  "practiceQuestionIds": ["cc-q-001", "cc-q-002"],
+  "relatedFlashcardIds": ["cc-fc-001"],
+  "followUp": ["clinical-chemistry/renal-function"],
+  "references": [
+    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "6th ed., Ch. 21", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-12",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

@@ -1,0 +1,79 @@
+{
+  "id": "clinical-chemistry/renal-function",
+  "subjectId": "clinical-chemistry",
+  "topicId": "renal",
+  "title": "Renal Function Tests: BUN, Creatinine, eGFR and Electrolytes",
+  "summary": "Markers of glomerular filtration, the BUN/creatinine ratio and interpretation of sodium and potassium disturbances.",
+  "readingMinutes": 11,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["BUN", "creatinine", "eGFR", "sodium", "potassium", "pseudohyperkalemia"],
+  "objectives": [
+    "Interpret BUN and creatinine together using the BUN/creatinine ratio.",
+    "Calculate and explain eGFR reporting.",
+    "Recognize pseudohyperkalemia and hyponatremia patterns."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Creatinine is a more specific marker of GFR than BUN (BUN is affected by diet, hydration and liver function).",
+      "BUN/creatinine ratio > 20:1 suggests prerenal azotemia or GI bleed; < 10:1 suggests liver disease or rhabdomyolysis.",
+      "Pseudohyperkalemia: hemolyzed sample, prolonged tourniquet use, or marked thrombocytosis/leukocytosis."
+    ],
+    "mustKnowTable": {
+      "columns": ["Pattern", "BUN", "Creatinine", "Likely cause"],
+      "rows": [
+        ["Prerenal", "High", "Normal/High", "Dehydration, heart failure"],
+        ["Intrinsic renal", "High", "High", "Acute tubular necrosis, glomerulonephritis"],
+        ["Postrenal", "High", "High", "Obstruction"]
+      ]
+    },
+    "mnemonic": "Pre-renal: BUN runs ahead (ratio > 20)."
+  },
+  "deepStudy": {
+    "introduction": "Renal function is assessed primarily by estimating glomerular filtration. Creatinine-based equations (CKD-EPI) account for age and sex; reference intervals vary by method and population.",
+    "sections": [
+      {
+        "heading": "Urea vs creatinine",
+        "body": "Urea (BUN) is produced by the liver, reabsorbed in the tubules and influenced by protein intake and catabolism. Creatinine comes from muscle creatine phosphate, is freely filtered and partially secreted; it is relatively stable but method-dependent (Jaffe vs enzymatic).",
+        "diagram": null
+      },
+      {
+        "heading": "Sodium and potassium",
+        "body": "True hyponatremia is usually dilutional (high ADH states). Potassium must be interpreted with hemolysis checks — a single hemolyzed sample is the most common cause of spurious potassium elevation in the lab.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Early detection of reduced eGFR allows intervention that slows progression to end-stage renal disease.",
+    "labInterpretation": "Never report a potassium value from a visibly hemolyzed sample without a comment or recollection; verify reference intervals per local laboratory.",
+    "comparisonTables": [
+      {
+        "title": "Jaffe vs enzymatic creatinine",
+        "columns": ["Feature", "Jaffe (colorimetric)", "Enzymatic"],
+        "rows": [
+          ["Interferences", "Glucose, ketones, cephalosporins", "Fewer"],
+          ["Cost", "Lower", "Higher"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "BUN rises with GI bleeding (protein digestion) — do not automatically attribute a high BUN/creatinine ratio to dehydration.",
+      "eGFR equations are not valid in acute kidney injury (non-steady-state creatinine)."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "BUN = Blame Urine Nitrogen if ratio > 20: think prerenal.",
+      "funny": "Bantay: 'Pag sobrang taas ng BUN: prerenal daw — or kumain ka lang ng maraming lechon.'"
+    }
+  ],
+  "practiceQuestionIds": ["cc-q-003"],
+  "relatedFlashcardIds": ["cc-fc-002"],
+  "followUp": ["clinical-chemistry/enzymes"],
+  "references": [
+    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "6th ed., Ch. 22, 26", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-12",
+  "reviewerNote": "Reference intervals vary by laboratory, method, age, sex and population; verify against your local laboratory."
+}

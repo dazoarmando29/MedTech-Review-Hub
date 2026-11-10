@@ -1,0 +1,56 @@
+[
+  {
+    "id": "imm-q-001",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins",
+    "type": "MCQ",
+    "vignette": "A newborn's serology shows a positive IgM antibody against a pathogen; IgG matches the mother's.",
+    "stem": "What does the positive IgM indicate?",
+    "choices": [
+      { "id": "A", "text": "Passive transfer of maternal antibody" },
+      { "id": "B", "text": "The fetus/newborn has produced its own antibody (possible congenital infection)" },
+      { "id": "C", "text": "Vaccine response" },
+      { "id": "D", "text": "Laboratory error only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "IgM does not cross the placenta. A positive IgM in a newborn indicates fetal production and raises concern for congenital infection; IgG alone can be maternal.",
+    "rationales": {
+      "A": "Only IgG crosses the placenta (FcRn-mediated transfer).",
+      "B": "Correct: IgM = neonatal synthesis.",
+      "C": "Newborns are not typically vaccinated at birth with these antigens.",
+      "D": "While errors happen, the immunologic principle here is the examinable point."
+    },
+    "misconception": "The placental transfer rule applies to IgG only — IgM is too large (pentamer).",
+    "reference": "Henry's 24th ed., Ch. 52",
+    "lessonId": "immunology/immunoglobulins",
+    "examTraps": ["IgM never crosses the placenta."]
+  },
+  {
+    "id": "imm-q-002",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins",
+    "type": "MCQ",
+    "vignette": "A patient with recurrent sinopulmonary infections has undetectable IgG, IgA and IgM on serum protein electrophoresis and quantitation.",
+    "stem": "Which immunoglobulin class is the main target of replacement therapy to prevent infections?",
+    "choices": [
+      { "id": "A", "text": "IgA" },
+      { "id": "B", "text": "IgM" },
+      { "id": "C", "text": "IgG" },
+      { "id": "D", "text": "IgE" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "IgG is the most abundant serum immunoglobulin and the main opsonizing/neutralizing antibody; replacement immunoglobulin therapy (IVIG/SCIG) restores IgG to prevent infections in antibody deficiencies.",
+    "rationales": {
+      "A": "IgA protects mucosal surfaces but is not the main serum replacement target (and can cause anaphylaxis in IgA-deficient patients if not matched).",
+      "B": "IgM is the first responder but is not replaced therapeutically.",
+      "C": "Correct: IgG replacement is standard for antibody deficiency.",
+      "D": "IgE mediates allergy/parasites; it is not the replacement target."
+    },
+    "misconception": "The therapy question tests the functional primacy of IgG, not just class names.",
+    "reference": "Henry's 24th ed., Ch. 52",
+    "lessonId": "immunology/immunoglobulins",
+    "examTraps": ["Replacement therapy = IgG."]
+  }
+]

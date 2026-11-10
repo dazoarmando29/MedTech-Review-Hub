@@ -1,0 +1,81 @@
+{
+  "id": "urinalysis/ua-basics",
+  "subjectId": "urinalysis",
+  "topicId": "ua-basics",
+  "title": "Routine Urinalysis: Physical, Chemical and Microscopic Examination",
+  "summary": "The three parts of routine urinalysis, dipstick limitations and key microscopic findings.",
+  "readingMinutes": 10,
+  "difficulty": "BEGINNER",
+  "keywords": ["urinalysis", "dipstick", "specific gravity", "casts", "crystals", "clean catch"],
+  "objectives": [
+    "Perform and interpret the physical, chemical and microscopic parts of a urinalysis.",
+    "Explain common dipstick interferences.",
+    "Recognize hyaline, granular and waxy casts and their significance."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Dipstick nitrite + leukocyte esterase suggest UTI; nitrite needs gram-negative organisms and bladder dwell time.",
+      "Dipstick blood with no RBCs on microscopy = hemoglobin/myoglobin (check muscle injury).",
+      "Waxy casts indicate chronic renal disease; RBC casts indicate glomerulonephritis."
+    ],
+    "mustKnowTable": {
+      "columns": ["Dipstick finding", "Possible cause", "Interference"],
+      "rows": [
+        ["Glucose", "Diabetes mellitus", "Oxidizing contaminants"],
+        ["Protein", "Glomerular disease", "Alkaline/concentrated urine overestimates"],
+        ["Ketones", "DKA, starvation", "Phenylketonuria metabolites"],
+        ["Blood", "Hematuria, hemoglobinuria, myoglobinuria", "Oxidizers, menses"]
+      ]
+    },
+    "mnemonic": "Casts = kidney's autobiography (they form in the tubules)."
+  },
+  "deepStudy": {
+    "introduction": "Routine urinalysis is one of the oldest and most informative lab tests, combining physical observation, reagent-strip chemistry and sediment microscopy on a well-collected specimen.",
+    "sections": [
+      {
+        "heading": "Specimen and physical exam",
+        "body": "Clean-catch midstream collection minimizes contamination; first morning specimen is most concentrated. Physical exam records color, clarity and specific gravity (refractometer vs dipstick: dipstick is affected by protein and large molecules).",
+        "diagram": null
+      },
+      {
+        "heading": "Chemical and microscopic exam",
+        "body": "Dipstick reagent pads detect pH, protein, glucose, ketones, blood, bilirubin, urobilinogen, nitrite and leukocyte estease. Microscopy identifies cells (RBC, WBC, epithelial), casts (formed in renal tubules), crystals (ammonium magnesium phosphate 'coffin lids' in alkaline urine) and organisms.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Casting of red cells and protein helps localize disease to the glomerulus; yeast and bacteria guide infection management.",
+    "labInterpretation": "Dipsticks are screening tools — confirm abnormal findings microscopically and with quantitative tests when needed. Reference intervals vary by lab and population.",
+    "comparisonTables": [
+      {
+        "title": "Common crystals",
+        "columns": ["Crystal", "Urine pH", "Note"],
+        "rows": [
+          ["Calcium oxalate", "Acid/neutral", "Envelope shape; ethylene glycol if many"],
+          ["Ammonium magnesium phosphate", "Alkaline", "Coffin-lid; struvite stones"],
+          ["Uric acid", "Acid", "Diamond/rosette"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A negative nitrite does not rule out UTI (gram-positive organisms and frequent voiding).",
+      "Menstrual contamination causes false-positive blood and protein — recollect."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "Three parts: Look (physical), Dip (chemical), Spin (microscopic).",
+      "funny": "Meow: 'Look, Dip, Spin — parang dance move, pero pang-urine lang.'"
+    }
+  ],
+  "practiceQuestionIds": ["ua-q-001"],
+  "relatedFlashcardIds": ["ua-fc-001"],
+  "followUp": ["clinical-chemistry/renal-function"],
+  "references": [
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., Ch. 28", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-17",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

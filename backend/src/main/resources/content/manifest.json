@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "generatedAt": "2026-01-10",
+  "note": "Bundled fallback sample content. Full library lives in shared/content/ (loaded at startup when CONTENT_DIR points at it).",
+  "subjects": [
+    {
+      "id": "blood-banking",
+      "topics": [
+        { "id": "abo-system", "name": "ABO System", "lessonIds": ["blood-banking/abo-basics"] }
+      ]
+    },
+    {
+      "id": "hematology",
+      "topics": [
+        { "id": "cbc", "name": "Complete Blood Count", "lessonIds": ["hematology/cbc-basics"] }
+      ]
+    }
+  ],
+  "questionBanks": ["blood-banking", "hematology"],
+  "flashcardDecks": ["bb-deck-01"]
+}

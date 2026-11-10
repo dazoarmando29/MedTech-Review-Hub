@@ -1,0 +1,72 @@
+{
+  "id": "immunology/immunoglobulins",
+  "subjectId": "immunology",
+  "topicId": "immunoglobulins",
+  "title": "Immunoglobulins: Structure, Classes and Clinical Use",
+  "summary": "The five immunoglobulin classes, their properties and how serologic tests exploit antigen-antibody reactions.",
+  "readingMinutes": 10,
+  "difficulty": "BEGINNER",
+  "keywords": ["IgG", "IgM", "IgA", "IgE", "complement", "agglutination", "ELISA"],
+  "objectives": [
+    "Compare the five immunoglobulin classes by structure and function.",
+    "Explain why IgM is efficient at agglutination and complement fixation.",
+    "Describe the principle of agglutination and ELISA-based serology."
+  ],
+  "quickReview": {
+    "highYield": [
+      "IgG is the only class that crosses the placenta and is the main secondary (anamnestic) response.",
+      "IgM is a pentamer, the first antibody produced, and the best at agglutination/complement fixation.",
+      "IgA dominates mucosal secretions; IgE mediates allergy and parasitic defense."
+    ],
+    "mustKnowTable": {
+      "columns": ["Class", "Structure", "Key function"],
+      "rows": [
+        ["IgG", "Monomer", "Placental transfer, opsonization, complement (classical)"],
+        ["IgM", "Pentamer", "Primary response, agglutination, complement"],
+        ["IgA", "Dimer (secretory)", "Mucosal immunity"],
+        ["IgE", "Monomer", "Allergy, helminth defense"],
+        ["IgD", "Monomer", "B-cell receptor"]
+      ]
+    },
+    "mnemonic": "GAMED: G=placenta, A=mucosa, M=first/pentamer, E=allergy, D=receptor."
+  },
+  "deepStudy": {
+    "introduction": "Immunoglobulins are Y-shaped glycoproteins with two heavy and two light chains. The variable regions bind antigen (epitope); the constant regions determine class effector functions.",
+    "sections": [
+      {
+        "heading": "Antigen-antibody reactions",
+        "body": "Binding is non-covalent and reversible; strength is avidity. Agglutination, precipitation, complement fixation and labeled immunoassays (ELISA, CLIA, immunofluorescence) all exploit specific binding for diagnostic testing.",
+        "diagram": null
+      },
+      {
+        "heading": "Primary vs secondary response",
+        "body": "Primary response: slow, mostly IgM, lower affinity. Secondary (memory) response: faster, mostly IgG, higher affinity — the basis of vaccination and of IgG-based serologic diagnosis of past infection.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Quantitative immunoglobulins help diagnose immunodeficiencies (e.g., low IgG in CVID) and plasma cell dyscrasias (e.g., monoclonal spike in multiple myeloma).",
+    "labInterpretation": "Serologic assays report signal, not always titer; confirm positives with a second method when clinically required.",
+    "comparisonTables": [],
+    "examTraps": [
+      "IgM cannot cross the placenta — a positive IgM in a newborn indicates fetal production (congenital infection).",
+      "Rheumatoid factor (IgM anti-IgG) can interfere with IgG-based immunoassays."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "GAMED for the classes in order IgG, IgA, IgM, IgE, IgD.",
+      "funny": "Bantay: 'GAMED — Game na game ang immune system! IgM pa more sa first response.'"
+    }
+  ],
+  "practiceQuestionIds": ["imm-q-001", "imm-q-002"],
+  "relatedFlashcardIds": ["imm-fc-001"],
+  "followUp": ["blood-banking/abo-basics"],
+  "references": [
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., Ch. 52", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-16",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

@@ -1,0 +1,64 @@
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# ---- Secrets & local config ----
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+secrets/
+local.properties
+signing.properties
+google-services.json
+
+# ---- Node / web ----
+node_modules/
+web/.next/
+web/out/
+web/dist/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+coverage/
+web/.vercel/
+.webpack/
+*.tsbuildinfo
+
+# ---- Gradle / Android / Kotlin ----
+.gradle/
+.kotlin/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+backend/logs/
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- Databases / dumps ----
+*.sqlite
+*.db
+!android/app/src/main/assets/*.db
+backups/

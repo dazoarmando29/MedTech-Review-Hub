@@ -1,0 +1,11 @@
+{
+  "id": "hematology",
+  "name": "Hematology",
+  "shortName": "Hematology",
+  "description": "Complete blood count, red cell indices, white cell morphology, hemostasis, and anemias.",
+  "blueprintNote": "ASCPi BOC MLS content guide weight ~15-16% (approximate content outline weight, not an official percentage). PH MTLE lists Hematology with a comparable share. The two exam profiles are kept separate; nothing here claims ASCP endorsement.",
+  "colorToken": "red",
+  "topics": [
+    { "id": "cbc", "name": "Complete Blood Count", "lessonIds": ["hematology/cbc-basics"] }
+  ]
+}

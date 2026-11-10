@@ -1,0 +1,83 @@
+[
+  {
+    "id": "bb-q-001",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": "A 32-year-old woman's pretransfusion sample shows forward typing: anti-A 4+, anti-B 0; reverse typing: A1 cells 0, B cells 4+.",
+    "stem": "Which ABO group is most likely?",
+    "choices": [
+      { "id": "A", "text": "Group A" },
+      { "id": "B", "text": "Group B" },
+      { "id": "C", "text": "Group AB" },
+      { "id": "D", "text": "Group O" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Forward typing shows A antigen on red cells (anti-A 4+); reverse typing shows anti-B in plasma (B cells 4+). Concordant results indicate group A.",
+    "rationales": {
+      "A": "Correct: A antigen present, anti-B present in plasma = group A.",
+      "B": "Group B would react with anti-B in forward typing and show anti-A in reverse.",
+      "C": "Group AB reacts with both anti-A and anti-B and has no antibodies in reverse.",
+      "D": "Group O reacts with neither anti-A nor anti-B but has both antibodies in reverse."
+    },
+    "misconception": "Students often memorize the cell reactions but forget that BOTH forward and reverse must agree — reverse typing confirms the plasma antibodies.",
+    "reference": "Harmening 6th ed., Ch. 2",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Forward and reverse must be concordant before the blood group is reported."]
+  },
+  {
+    "id": "bb-q-002",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": "A newborn's forward typing shows group A cells; reverse typing with A1 and B reagent cells shows no reactions.",
+    "stem": "What is the best explanation for the absent reverse reactions?",
+    "choices": [
+      { "id": "A", "text": "The baby is a secretor" },
+      { "id": "B", "text": "ABO antibodies are not reliably present in newborns" },
+      { "id": "C", "text": "The sample is hemolyzed" },
+      { "id": "D", "text": "The baby has the Bombay phenotype" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Newborns do not reliably produce ABO isohemagglutinins (which develop 3-6 months of age); any antibodies present are maternal IgG. Reverse typing is therefore weak or absent in infants.",
+    "rationales": {
+      "A": "Secretor status affects soluble substances in body fluids, not reverse typing reactions.",
+      "B": "Correct: ABO antibodies develop after birth; reverse typing is unreliable in newborns.",
+      "C": "Hemolysis can interfere but does not explain absent reverse reactions specifically in a newborn.",
+      "D": "Bombay phenotype (Oh) lacks H antigen and would show anti-H plus anti-A/anti-B — very rare."
+    },
+    "misconception": "Examinees expect reverse typing to work like in adults; in newborns the forward type is primary.",
+    "reference": "Harmening 6th ed., Ch. 3",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["In infants under 4 months, report forward typing and note that reverse grouping is not required."]
+  },
+  {
+    "id": "bb-q-003",
+    "subjectId": "blood-banking",
+    "topicId": "rh-system",
+    "type": "MCQ",
+    "vignette": "A weak D positive patient needs a transfusion of red blood cells.",
+    "stem": "How should the patient be managed regarding Rh typing?",
+    "choices": [
+      { "id": "A", "text": "Treat as Rh-positive and give Rh-positive red cells" },
+      { "id": "B", "text": "Treat as Rh-negative and give Rh-negative red cells" },
+      { "id": "C", "text": "Treat as Rh-positive but give Rh-negative plasma" },
+      { "id": "D", "text": "No special consideration; any ABO-identical unit is fine" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Weak D recipients can form anti-D against the missing D epitopes (partial D). To prevent immunization, weak D recipients are treated as Rh-negative and receive Rh-negative red cells. (Weak D DONORS are treated as Rh-positive.)",
+    "rationales": {
+      "A": "This is the rule for weak D donors, not recipients.",
+      "B": "Correct: recipients who are weak D receive Rh-negative blood to avoid anti-D immunization.",
+      "C": "Rh is a red cell antigen; plasma selection does not address D immunization.",
+      "D": "Ignoring weak D in a recipient risks anti-D formation and future hemolytic reactions/HDFN."
+    },
+    "misconception": "The 'weak D donor = positive, weak D recipient = negative' distinction is the classic trap.",
+    "reference": "Harmening 6th ed., Ch. 5",
+    "lessonId": "blood-banking/rh-system",
+    "examTraps": ["Remember donor vs recipient handling of weak D."]
+  }
+]

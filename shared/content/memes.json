@@ -1,0 +1,172 @@
+[
+  {
+    "id": "meme-001",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "microbiology",
+    "title": "Catalase Test: The Bubble Bath Interview",
+    "body": "Staphylococcus walks into the lab. The interviewer drops hydrogen peroxide. Bubbles everywhere. 'You're catalase positive, welcome to the staphylococcus club.' Streptococcus walks in, same test, nothing. 'Sorry, we only take bubbles here - chains of sadness for you.'",
+    "punchline": "Walang bubbles, walang entry. Ang strep, chains of sadness na lang!",
+    "scientificFact": "The catalase test separates staphylococci and micrococci (catalase positive, bubble with hydrogen peroxide) from streptococci and enterococci (catalase negative). Erythrocytes contain catalase, so colonies taken from blood agar can give false-positive bubbling.",
+    "lessonId": "microbiology/gram-positive-cocci"
+  },
+  {
+    "id": "meme-002",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "immunology",
+    "title": "IgM: The Overexcited First Responder",
+    "body": "Day 1 of infection: IgM shows up as a pentamer with ten grabbing hands, agglutinating everything in sight and slamming complement like it is a fire alarm. Week 3: IgG strolls in with high affinity and takes over. IgM: 'I was here first though.'",
+    "punchline": "IgM: malakas sa simula, pero si IgG ang nagta-tagalog sa dulo - este, nagta-tag along sa buong buhay.",
+    "scientificFact": "IgM is a pentamer produced early in the primary immune response and is a very efficient activator of the classical complement pathway; IgG dominates the secondary response, crosses the placenta, and has higher antigen affinity.",
+    "lessonId": "immunology/immunoglobulins-complement"
+  },
+  {
+    "id": "meme-003",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "urinalysis",
+    "title": "Vitamin C: The Ghostwriter of Urine Dipsticks",
+    "body": "Patient: takes megadose vitamin C. Dipstick: blood negative, glucose negative, nitrite negative, bilirubin negative. Microscope: red blood cells everywhere. The technologist: 'May sumulat ng script dito - ghostwriter itong vitamin C!'",
+    "punchline": "Vitamin C: pinapabura ang lahat ng positive - pati ang katotohanan.",
+    "scientificFact": "Ascorbic acid at high concentrations interferes with peroxidase-based dipstick reactions, causing false-negative blood, glucose, nitrite, and bilirubin results; microscopic examination of sediment is the arbiter when chemistry and microscopy disagree.",
+    "lessonId": "urinalysis/physical-chemical-testing"
+  },
+  {
+    "id": "meme-004",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "lab-operations",
+    "title": "1-2s: The Warning Wave, Not the Execution",
+    "body": "Control result at 2.2 SD. New technologist: 'THE RUN IS DEAD!' Senior: 'That is 1-2s. It waves a warning flag, it does not swing the axe. Check 1-3s, 2-2s, and R-4s first.'",
+    "punchline": "1-2s: wave lang yan. Ang axe, para sa 1-3s, 2-2s, at R-4s.",
+    "scientificFact": "In the classic Westgard multirule set, 1-2s is a warning rule requiring evaluation of the remaining rules; 1-3s, 2-2s, and R-4s are rejection rules. Treating 1-2s as automatic rejection inflates false rejection rates.",
+    "lessonId": "lab-operations/quality-control-regulatory"
+  },
+  {
+    "id": "meme-005",
+    "type": "MEMORY_HOOK",
+    "subjectId": "microbiology",
+    "title": "PYR: PYogenes and enteRococcus",
+    "body": "PYR positive means only two regular suspects: Streptococcus pyogenes and Enterococcus. PY = PYogenes, R = enteRococcus. Everything else in the gram-positive coccus tree needs another test.",
+    "punchline": "PYR pa lang, dalawa lang ang bida. The rest, next test na!",
+    "scientificFact": "L-pyrrolidonyl arylamidase (PYR) hydrolysis is positive for Streptococcus pyogenes and Enterococcus species; it must be combined with hemolysis pattern and bile esculin results to separate them.",
+    "lessonId": "microbiology/gram-positive-cocci"
+  },
+  {
+    "id": "meme-006",
+    "type": "MEMORY_HOOK",
+    "subjectId": "immunology",
+    "title": "HBV: sAg Sick, sAb Safe, cAb Contact",
+    "body": "HBsAg = sick now (current infection). Anti-HBs = safe (vaccine or resolved). Anti-HBc = contact ever happened (exposure marker). Anti-HBc IgM = 'just met the virus' (recent infection or window period).",
+    "punchline": "Si sAg, may sakit ngayon. Si sAb, vaccinated - safe. Si cAb, ex lang yan.",
+    "scientificFact": "HBsAg marks current hepatitis B infection; anti-HBs indicates immunity from vaccination or resolved infection; anti-HBc marks exposure and does not disappear after resolution; isolated anti-HBc IgM characterizes the window period of acute infection.",
+    "lessonId": "immunology/serology-autoimmune"
+  },
+  {
+    "id": "meme-007",
+    "type": "MEMORY_HOOK",
+    "subjectId": "urinalysis",
+    "title": "Casts: Who Lives in the Protein Gel?",
+    "body": "RBC cast = glomerulus is bleeding (nephrology now). WBC cast = white cell war upstream (pyelonephritis). Muddy brown granular = tubular ruin (acute tubular injury). Waxy = old ruins (chronic kidney disease). Hyaline = just concentrated soup, relax.",
+    "punchline": "Pag may cast, may galing sa taas. Alamin kung sino ang nakatira sa loob!",
+    "scientificFact": "Urinary casts form in the distal nephron from Tamm-Horsfall protein and entrap their contents: red cell casts localize glomerular bleeding, white cell casts indicate renal inflammation such as pyelonephritis, and muddy brown granular casts mark acute tubular injury.",
+    "lessonId": "urinalysis/physical-chemical-testing"
+  },
+  {
+    "id": "meme-008",
+    "type": "MEMORY_HOOK",
+    "subjectId": "lab-operations",
+    "title": "Order of Draw: Boys Can Really Have Easy Girls",
+    "body": "Blood cultures, Citrate, Red/tiger, Heparin, EDTA, Gray. The mnemonic is silly on purpose so it sticks during a 3 a.m. draw. The science is not silly: additive carryover ruins coagulation and chemistry results.",
+    "punchline": "Boys Can Really Have Easy Girls - para sa order of draw, hindi para sa love life!",
+    "scientificFact": "The CLSI-aligned order of draw exists to prevent additive carryover: EDTA contamination of citrate tubes falsely prolongs PT/aPTT, while citrate carryover can falsely lower potassium; blood culture bottles are drawn first.",
+    "lessonId": "lab-operations/preanalytic-poct-math"
+  },
+  {
+    "id": "meme-009",
+    "type": "KEYWORD_CHALLENGE",
+    "subjectId": "microbiology",
+    "title": "Keyword Blitz: 60 Seconds on Enteric Clues",
+    "body": "Match the keyword to the organism: 1) Swarming + strong urease, 2) Grapes + 42 degrees + green, 3) Indole positive + citrate negative, 4) Coffin lid crystals in alkaline urine. Answers: Proteus, Pseudomonas aeruginosa, E. coli, struvite from urea-splitting infection.",
+    "punchline": "Limang minuto lang, pero pang-buhay-oras na recall!",
+    "scientificFact": "Proteus species show swarming motility and strong urease; Pseudomonas aeruginosa produces pyocyanin and grows at 42 degrees Celsius; E. coli is indole positive and citrate negative; triple phosphate (struvite) crystals form in alkaline urine with urea-splitting organisms.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites"
+  },
+  {
+    "id": "meme-010",
+    "type": "KEYWORD_CHALLENGE",
+    "subjectId": "lab-operations",
+    "title": "Keyword Blitz: Westgard Speed Round",
+    "body": "Shout the rule from the clue: 1) One control beyond 3 SD, 2) Two controls beyond 2 SD same side, 3) Range beyond 4 SD in one run, 4) Eight consecutive on one side. Answers: 1-3s, 2-2s, R-4s, 8x.",
+    "punchline": "Walang pikot sa Westgard - mabilisan, pero tama!",
+    "scientificFact": "1-3s rejects for large random error, 2-2s rejects for systematic error, R-4s rejects when the spread between two controls exceeds 4 SD (random error), and 8x flags a systematic shift or trend as a supplementary rule.",
+    "lessonId": "lab-operations/quality-control-regulatory"
+  },
+  {
+    "id": "meme-011",
+    "type": "GUESS_THE_DIAGNOSIS",
+    "subjectId": "urinalysis",
+    "title": "Guess the Diagnosis: Cola Urine After the Race",
+    "body": "A 25-year-old marathoner finishes a race and passes dark cola-colored urine. Dipstick: large blood. Microscopy: almost no red cells, no casts. CK is markedly elevated. What is the diagnosis and which urine constituent fooled the dipstick?",
+    "punchline": "Myoglobin ang salarin - hindi hematuria! Ang pad, pareho lang ang trato sa kanila.",
+    "scientificFact": "The urine blood pad detects pseudoperoxidase activity of both hemoglobin and myoglobin; blood-positive dipstick with few intact red cells suggests myoglobinuria (as in rhabdomyolysis) or hemoglobinuria.",
+    "lessonId": "urinalysis/physical-chemical-testing"
+  },
+  {
+    "id": "meme-012",
+    "type": "GUESS_THE_DIAGNOSIS",
+    "subjectId": "microbiology",
+    "title": "Guess the Diagnosis: Grapes in the ICU",
+    "body": "An ICU patient's tracheal aspirate grows an oxidase-positive, non-lactose-fermenting rod with a grape-like odor and green pigment that grows at 42 degrees Celsius. Bonus: which patient population sees this organism in catheters and burn wounds?",
+    "punchline": "Pseudomonas aeruginosa - amoy grapes, green ang bihis, at mahilig sa init!",
+    "scientificFact": "Pseudomonas aeruginosa is identified by oxidase positivity, pyocyanin (green) pigment, grape-like odor, and growth at 42 degrees Celsius; it is an important nosocomial pathogen in burns, ventilated patients, and immunocompromised hosts.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites"
+  },
+  {
+    "id": "meme-013",
+    "type": "LABORATORY_MYSTERY",
+    "subjectId": "immunology",
+    "title": "The Mystery of the Reactive RPR in a Pregnant Patient",
+    "body": "A prenatal RPR comes back reactive at 1:2. The patient is asymptomatic with no history of syphilis. FTA-ABS is non-reactive, and a repeat RPR at another laboratory is non-reactive. Who is the impostor behind the reactive screen?",
+    "punchline": "Biologic false positive - pregnancy pa more! Kaya may confirmatory step.",
+    "scientificFact": "Non-treponemal tests (RPR, VDRL) can give biologic false positives in pregnancy, autoimmune disease, infections, and aging; treponemal confirmation (FTA-ABS, TP-PA) resolves whether treponemal infection is present.",
+    "lessonId": "immunology/serology-autoimmune"
+  },
+  {
+    "id": "meme-014",
+    "type": "IMPOSTOR",
+    "subjectId": "microbiology",
+    "title": "Impostor: The Clumping-Factor-Negative S. aureus",
+    "body": "Slide coagulase: negative. The technologist almost reports coagulase-negative staphylococcus from a blood culture. Tube coagulase: clot at 4 hours. The impostor was S. aureus all along, hiding without clumping factor.",
+    "punchline": "Huwag magtiwala sa slide test lang - may S. aureus na hindi marunong mag-clump!",
+    "scientificFact": "Slide coagulase detects bound clumping factor and misses clumping-factor-negative S. aureus strains; a negative slide test must be confirmed by tube coagulase (free coagulase) or a validated latex method before final reporting.",
+    "lessonId": "microbiology/gram-positive-cocci"
+  },
+  {
+    "id": "meme-015",
+    "type": "BOSS_BATTLE",
+    "subjectId": "lab-operations",
+    "title": "Boss Battle: The Out-of-Control Chemistry Run",
+    "body": "Boss appears: control 1 at plus 2.2 SD, control 2 at minus 2.3 SD in the same run. Your weapons: 1-2s, 1-3s, 2-2s, R-4s. Which rule strikes, what error type is it, and what must you do before releasing patient results?",
+    "punchline": "R-4s ang finishing move - random error, reject muna, hanapin ang sanhi bago mag-release!",
+    "scientificFact": "A spread of more than 4 SD between two controls in one run triggers the R-4s rejection rule for random error; patient results are held until the cause is investigated, corrective action taken, and controls repeat within limits - all documented.",
+    "lessonId": "lab-operations/quality-control-regulatory"
+  },
+  {
+    "id": "meme-016",
+    "type": "MISTAKE_OF_THE_DAY",
+    "subjectId": "lab-operations",
+    "title": "Mistake of the Day: Relabeling the Mislabeled Tube",
+    "body": "A nurse calls: 'The tube is mine, just relabel it.' The technologist almost does. Stop. A mislabeled specimen is rejected and recollected - relabeling erases the only evidence of a near-miss patient identification error.",
+    "punchline": "Never relabel! Reject, recollect, document - buhay ang nakasalalay sa label.",
+    "scientificFact": "Specimens without at least two patient identifiers or with mismatched identifiers must be rejected and recollected; relabeling is prohibited because it conceals identification errors that can lead to wrong-blood-in-tube events and misdiagnosis.",
+    "lessonId": "lab-operations/preanalytic-poct-math"
+  },
+  {
+    "id": "meme-017",
+    "type": "MISTAKE_OF_THE_DAY",
+    "subjectId": "urinalysis",
+    "title": "Mistake of the Day: Calling Squamous Cells a UTI",
+    "body": "Dipstick: LE positive, nitrite negative. Microscopy: 'many WBCs' plus a field full of squamous epithelial cells. The report almost went out as pyuria. The mistake: squamous cells mean contamination - report it honestly and let the clinician decide on recollection.",
+    "punchline": "Squamous cells = contamination queen! Wag pangalanan ang pyuria kung kontaminado naman.",
+    "scientificFact": "Numerous squamous epithelial cells in a clean-catch urine indicate contamination from skin or vaginal flora; quantifying pyuria or diagnosing infection from such specimens misleads treatment, so the specimen should be reported as contaminated per laboratory procedure.",
+    "lessonId": "urinalysis/physical-chemical-testing"
+  }
+]

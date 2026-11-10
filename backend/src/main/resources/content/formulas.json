@@ -1,0 +1,23 @@
+[
+  {
+    "id": "calc-corrected-wbc",
+    "title": "Corrected WBC count (nucleated RBCs)",
+    "formula": "Corrected WBC = measured WBC × 100 / (100 + nRBC per 100 WBC)",
+    "variables": [{ "name": "measured WBC", "unit": "×10^9/L" }],
+    "example": "WBC 25×10^9/L with 50 nRBC/100 WBC → 25 × 100/150 = 16.7×10^9/L",
+    "caveat": "Applies when nRBCs are reported per 100 WBC on differential.",
+    "reference": "Henry's Clinical Diagnosis, 24th ed."
+  },
+  {
+    "id": "calc-mcv",
+    "title": "Mean corpuscular volume (MCV)",
+    "formula": "MCV (fL) = Hct (%) × 10 / RBC (×10^12/L)",
+    "variables": [
+      { "name": "Hct", "unit": "%" },
+      { "name": "RBC", "unit": "×10^12/L" }
+    ],
+    "example": "Hct 42%, RBC 5.0 → MCV = 42 × 10 / 5.0 = 84 fL",
+    "caveat": "Reference intervals vary by laboratory, method, age, sex, and population; verify against your local laboratory.",
+    "reference": "Henry's Clinical Diagnosis, 24th ed."
+  }
+]

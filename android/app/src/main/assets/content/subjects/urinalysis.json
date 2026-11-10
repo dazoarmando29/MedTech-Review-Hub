@@ -1,0 +1,11 @@
+{
+  "id": "urinalysis",
+  "name": "Urinalysis / Body Fluids",
+  "shortName": "Urinalysis",
+  "description": "Physical, chemical and microscopic examination of urine and other body fluids.",
+  "blueprintNote": "ASCPi BOC content guide weight ~10% ; PH MTLE weight ~5%. Weights are approximations of published outlines.",
+  "colorToken": "teal",
+  "topics": [
+    { "id": "ua-basics", "name": "Routine Urinalysis", "lessonIds": ["urinalysis/ua-basics"] }
+  ]
+}

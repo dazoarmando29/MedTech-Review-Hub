@@ -1,0 +1,85 @@
+{
+  "id": "blood-banking/abo-basics",
+  "subjectId": "blood-banking",
+  "topicId": "abo-system",
+  "title": "ABO Blood Group System: Basics and Forward/Reverse Typing",
+  "summary": "One-paragraph overview used in cards and search results: the ABO system is defined by A and B antigens on red cells and the matching isohemagglutinins in plasma; forward (cell) and reverse (serum) typing must agree before blood is issued.",
+  "readingMinutes": 12,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["ABO", "forward typing", "reverse typing", "A antigen", "B antigen", "isohemagglutinins"],
+  "objectives": [
+    "Explain the biochemical basis of A and B antigens on red cells.",
+    "Perform and interpret forward and reverse ABO typing.",
+    "Predict ABO group from secretor status and genotype."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Group A red cells carry A antigen; plasma contains anti-B.",
+      "Group O red cells carry neither A nor B antigen; plasma contains anti-A and anti-B.",
+      "Discrepancy between forward and reverse typing must be resolved before issuing blood."
+    ],
+    "mustKnowTable": {
+      "columns": ["ABO group", "RBC antigen", "Plasma antibody", "Genotype"],
+      "rows": [
+        ["A", "A", "anti-B", "AA or AO"],
+        ["B", "B", "anti-A", "BB or BO"],
+        ["AB", "A and B", "none", "AB"],
+        ["O", "none", "anti-A + anti-B", "OO"]
+      ]
+    },
+    "mnemonic": "O has nO antigens and bOth antibodies."
+  },
+  "deepStudy": {
+    "introduction": "ABO typing is the single most important pretransfusion test. A and B antigens are carbohydrate structures added to the H antigen by glycosyltransferases; individuals who lack a given antigen usually make a corresponding IgM antibody (isohemagglutinin) in the first months of life, likely in response to environmental antigens.",
+    "sections": [
+      {
+        "heading": "Molecular basis",
+        "body": "The ABO gene on chromosome 9 encodes a glycosyltransferase. The A allele adds N-acetylgalactosamine to the H substance; the B allele adds D-galactose; the O allele produces a non-functional enzyme so the H antigen remains unmodified.",
+        "diagram": null
+      },
+      {
+        "heading": "Forward and reverse typing",
+        "body": "Forward typing tests patient red cells with known anti-A and anti-B. Reverse typing tests patient serum/plasma with known A1 and B reagent cells. Both must agree; newborns and the elderly may have weak or absent reverse reactions.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "ABO-incompatible transfusion causes immediate intravascular hemolysis and can be fatal; ABO-incompatible organ transplantation must be avoided except in approved protocols.",
+    "labInterpretation": "A forward/reverse discrepancy must be investigated (recent transfusion, newborn, hypogammaglobulinemia, mixed-field reaction, or extra/missing antibodies) before any component is issued. Reference intervals for related titers vary by laboratory, method, age, sex, and population; verify against your local laboratory.",
+    "comparisonTables": [
+      {
+        "title": "Forward vs reverse typing",
+        "columns": ["Feature", "Forward (cell) typing", "Reverse (serum) typing"],
+        "rows": [
+          ["Reagents", "Anti-A, anti-B (and anti-A,B)", "A1 cells, B cells"],
+          ["Detects", "Antigens on patient RBCs", "Antibodies in patient plasma"],
+          ["Weak in", "Newborns (antigen weak)", "Newborns (antibody weak/absent)"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "Reverse typing in newborns is weak or absent because antibodies are IgG maternal or not yet produced; do not rely on reverse typing alone.",
+      "Group O plasma contains both anti-A and anti-B; it is the universal RBC donor, NOT the universal plasma donor."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "O has nO antigens and bOth antibodies.",
+      "funny": "Meow: 'nO antigens, bOth antibodies — like a cat with no manners and all the opinions.'"
+    }
+  ],
+  "practiceQuestionIds": ["bb-q-001", "bb-q-002", "bb-q-003"],
+  "relatedFlashcardIds": ["bb-fc-001", "bb-fc-002"],
+  "followUp": ["hematology/cbc-basics"],
+  "references": [
+    {
+      "title": "Harmening's Blood Banking and Transfusion Fundamentals",
+      "detail": "6th ed., Ch. 2-3",
+      "url": null
+    }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-10",
+  "reviewerNote": "Medical accuracy reviewed against listed references. Sample lesson shipped as bundled fallback content."
+}

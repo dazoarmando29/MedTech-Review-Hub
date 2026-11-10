@@ -1,0 +1,56 @@
+[
+  {
+    "id": "micro-q-001",
+    "subjectId": "microbiology",
+    "topicId": "gram-stain",
+    "type": "MCQ",
+    "vignette": "A blood culture flag is positive; the Gram stain shows gram-positive cocci in clusters.",
+    "stem": "Which is the most appropriate next test to begin identification?",
+    "choices": [
+      { "id": "A", "text": "Oxidase test" },
+      { "id": "B", "text": "Catalase test" },
+      { "id": "C", "text": "Urease test" },
+      { "id": "D", "text": "Coagulase test first, before catalase" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Gram-positive cocci in clusters: the first branch test is catalase (Staphylococcus/Micrococcus are catalase-positive; Streptococcus is catalase-negative). Coagulase follows catalase to identify S. aureus.",
+    "rationales": {
+      "A": "Oxidase differentiates gram-negative rods (Pseudomonas vs Enterobacterales).",
+      "B": "Correct: catalase separates staph from strep first.",
+      "C": "Urease is used later (e.g., Proteus, Helicobacter).",
+      "D": "Coagulase comes after catalase; it cannot separate staph from strep."
+    },
+    "misconception": "Order of testing matters: catalase before coagulase for gram-positive cocci.",
+    "reference": "Bailey & Scott 14th ed., Ch. 13",
+    "lessonId": "microbiology/gram-stain",
+    "examTraps": ["GPC clusters = catalase first."]
+  },
+  {
+    "id": "micro-q-002",
+    "subjectId": "microbiology",
+    "topicId": "gram-stain",
+    "type": "MCQ",
+    "vignette": "A sputum Gram stain shows many squamous epithelial cells (>10 per low-power field) with mixed flora.",
+    "stem": "What should the laboratory do?",
+    "choices": [
+      { "id": "A", "text": "Report the mixed flora and continue full workup" },
+      { "id": "B", "text": "Reject/recall the specimen as contaminated by oropharyngeal flora" },
+      { "id": "C", "text": "Report it as normal flora only" },
+      { "id": "D", "text": "Treat it as a sterile-site specimen" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Squamous epithelial cells >10/LPF indicate saliva contamination; the specimen does not represent the lower respiratory tract and should be recollected to avoid misleading results.",
+    "rationales": {
+      "A": "Continuing a workup on an invalid specimen wastes resources and misleads therapy.",
+      "B": "Correct: standard sputum acceptability criteria require rejection/recollection.",
+      "C": "Reporting 'normal flora' masks the quality problem.",
+      "D": "Sputum is not a sterile-site specimen; its quality must be assessed first."
+    },
+    "misconception": "Specimen quality criteria are as examinable as organism identification.",
+    "reference": "Bailey & Scott 14th ed., Ch. 13",
+    "lessonId": "microbiology/gram-stain",
+    "examTraps": ["Squamous epithelial cells >10/LPF = reject sputum."]
+  }
+]

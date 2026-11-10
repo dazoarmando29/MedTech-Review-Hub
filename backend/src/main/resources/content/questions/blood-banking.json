@@ -1,0 +1,89 @@
+[
+  {
+    "id": "bb-q-001",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": "A 32-year-old woman is typed before surgery. Forward typing shows agglutination with anti-A and anti-B; reverse typing shows agglutination with A1 cells and B cells. The screen is negative.",
+    "stem": "Which of the following is the most likely explanation?",
+    "choices": [
+      { "id": "A", "text": "The patient is group AB" },
+      { "id": "B", "text": "The patient is group O" },
+      { "id": "C", "text": "A forward/reverse ABO discrepancy is present" },
+      { "id": "D", "text": "The patient has a cold autoantibody" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "MEDIUM",
+    "explanation": "Forward typing suggests group AB (A and B antigens present) but reverse typing shows both anti-A and anti-B in the plasma, which contradicts group AB. This is a classic forward/reverse ABO discrepancy that must be resolved — by repeat testing, extended panel, and history (recent transfusion, stem cell transplant, or subgroups) — before any blood is issued.",
+    "rationales": {
+      "A": "Group AB plasma contains neither anti-A nor anti-B, so reverse typing should show no agglutination with A1 or B cells — but it does.",
+      "B": "Group O red cells react with neither anti-A nor anti-B in forward typing — but this patient's cells reacted with both.",
+      "C": "Correct: forward and reverse results disagree, which by definition is an ABO discrepancy requiring resolution before transfusion.",
+      "D": "A cold autoantibody would typically pan-agglutinate in the screen and controls; the antibody screen here is negative."
+    },
+    "misconception": "Students often pick A because they read only the forward typing and forget that reverse typing must agree.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Ch. 3",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": [
+      "Always interpret forward and reverse typing together; disagreement is a discrepancy, not a blood type."
+    ]
+  },
+  {
+    "id": "bb-q-002",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": "A newborn requires an emergency red cell transfusion. Reverse typing has not been performed yet.",
+    "stem": "Why is reverse (serum) typing unreliable in newborns?",
+    "choices": [
+      { "id": "A", "text": "Newborn red cells lack A and B antigens" },
+      { "id": "B", "text": "Newborn plasma antibodies are weak or absent, and any present are often maternal IgG" },
+      { "id": "C", "text": "Newborn plasma contains high-titer anti-D" },
+      { "id": "D", "text": "Newborn samples clot too quickly for reverse typing" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "ABO antigens are present at birth (though weaker than in adults), but isohemagglutinins are not reliably produced until several months of age; any antibody detected may be passively transferred maternal IgG. Reverse typing is therefore unreliable, and forward typing plus history guides newborn transfusion (usually group O, antigen-negative components).",
+    "rationales": {
+      "A": "A and B antigens are expressed on newborn red cells, just at reduced strength compared with adults.",
+      "B": "Correct: isohemagglutinin production is immature in newborns, and detected antibody may be maternal, so reverse typing cannot be trusted.",
+      "C": "Anti-D only exists in RhD-negative individuals who were sensitized; this is irrelevant to ABO reverse typing.",
+      "D": "Sample handling is the same as for adult specimens; clotting is not the reason reverse typing is unreliable."
+    },
+    "misconception": "Students often think newborns lack ABO antigens entirely; they lack reliable antibodies, not antigens.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Ch. 3",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": [
+      "Antigens are present at birth; antibodies are not reliable — the reverse of the usual adult logic."
+    ]
+  },
+  {
+    "id": "bb-q-003",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": "A group O patient with anti-A and anti-B in the plasma needs platelet transfusion.",
+    "stem": "Which statement about group O plasma is correct?",
+    "choices": [
+      { "id": "A", "text": "Group O plasma is the universal plasma donor" },
+      { "id": "B", "text": "Group O red cells are the universal red cell donor because they lack A and B antigens" },
+      { "id": "C", "text": "Group O individuals lack the H antigen" },
+      { "id": "D", "text": "Group O plasma can safely be given to group A recipients in unlimited volumes" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Group O red cells carry neither A nor B antigen, so they can be given to recipients of any ABO group (universal red cell donor). Group O plasma, however, contains anti-A and anti-B and is the LEAST suitable plasma for non-group-O recipients — it is high-titer plasma that can cause hemolysis.",
+    "rationales": {
+      "A": "Wrong: group AB is the universal plasma donor; group O plasma contains anti-A and anti-B.",
+      "B": "Correct: absence of A and B antigens on group O red cells makes them the universal red cell donor.",
+      "C": "Group O individuals have abundant unmodified H antigen (the O allele makes a non-functional transferase).",
+      "D": "Group O plasma contains anti-A that can hemolyze group A recipient red cells, especially in platelet or plasma transfusion."
+    },
+    "misconception": "Students often flip the universal donor concepts: universal RBC donor is group O, universal plasma donor is group AB.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Ch. 2",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": [
+      "'Universal donor' depends on the component: O for red cells, AB for plasma."
+    ]
+  }
+]

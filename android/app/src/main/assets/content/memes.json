@@ -1,0 +1,54 @@
+{
+  "entries": [
+    {
+      "id": "meme-abo-no-manners",
+      "type": "MEME_OF_THE_LESSON",
+      "subjectId": "blood-banking",
+      "title": "Group O: nO antigens, bOth antibodies",
+      "body": "Group O red cells are the minimalist of the blood bank: no A, no B — but the plasma has OPINIONS (anti-A and anti-B).",
+      "punchline": "Like a cat with no manners and all the opinions.",
+      "scientificFact": "Group O individuals lack A and B transferase activity, leaving unmodified H substance; their plasma contains both anti-A and anti-B isohemagglutinins.",
+      "lessonId": "blood-banking/abo-basics"
+    },
+    {
+      "id": "hook-ggt-chaperone",
+      "type": "MEMORY_HOOK",
+      "subjectId": "clinical-chemistry",
+      "title": "GGT: the chaperone of ALP",
+      "body": "ALP wants to go out (up) but you never know if it's liver or bone — GGT is the chaperone that confirms the liver date.",
+      "punchline": "Pag walang GGT, bone ang date ni ALP.",
+      "scientificFact": "GGT is present in hepatobiliary tissue but not in bone; a normal GGT with elevated ALP suggests a bone source.",
+      "lessonId": "clinical-chemistry/enzymes"
+    },
+    {
+      "id": "game-keyword-westgard",
+      "type": "KEYWORD_CHALLENGE",
+      "subjectId": "lab-operations",
+      "title": "Westgard speed round",
+      "body": "1_2s means ___. 2_2s means ___. R_4s means ___.",
+      "punchline": "Warning, rejection, rejection — wag makulit sa 2 SD lang!",
+      "scientificFact": "1_2s is a warning rule; 1_3s, 2_2s and R_4s are rejection rules in the Westgard multirule framework.",
+      "lessonId": "lab-operations/quality-basics"
+    },
+    {
+      "id": "meme-haptoglobin-silent",
+      "type": "MISTAKE_OF_THE_DAY",
+      "subjectId": "hematology",
+      "title": "The silent haptoglobin",
+      "body": "When hemolysis happens, haptoglobin disappears without drama. Students look at Hb and miss it every time.",
+      "punchline": "Low haptoglobin: the quietest scream for help in the lab.",
+      "scientificFact": "Haptoglobin binds free hemoglobin; in hemolysis it is consumed, becoming undetectable while LDH and indirect bilirubin rise.",
+      "lessonId": "hematology/anemias"
+    },
+    {
+      "id": "hook-igm-placenta",
+      "type": "MEMORY_HOOK",
+      "subjectId": "immunology",
+      "title": "IgM is too big for the placenta",
+      "body": "IgM is a pentamer — five units trying to squeeze through the placental gate. Nope.",
+      "punchline": "IgG: 'Excuse me, passing through.' IgM: 'Bakit ako naiwan?!'",
+      "scientificFact": "Only IgG crosses the placenta via the FcRn receptor; IgM is restricted to the intravascular space.",
+      "lessonId": "immunology/immunoglobulins"
+    }
+  ]
+}

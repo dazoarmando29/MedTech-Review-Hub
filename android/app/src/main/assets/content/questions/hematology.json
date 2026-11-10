@@ -1,0 +1,83 @@
+[
+  {
+    "id": "hem-q-001",
+    "subjectId": "hematology",
+    "topicId": "cbc",
+    "type": "MCQ",
+    "vignette": "CBC: Hb 9.5 g/dL, MCV 72 fL, MCHC 30 g/dL, RDW 18% (elevated).",
+    "stem": "Which pattern best fits these indices?",
+    "choices": [
+      { "id": "A", "text": "Microcytic hypochromic anemia with anisocytosis (e.g., iron deficiency)" },
+      { "id": "B", "text": "Macrocytic anemia" },
+      { "id": "C", "text": "Normocytic normochromic anemia" },
+      { "id": "D", "text": "Hereditary spherocytosis" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Low MCV (microcytic), low-normal MCHC (hypochromic trend) and elevated RDW (anisocytosis) are classic for iron deficiency; thalassemia trait usually has a normal RDW.",
+    "rationales": {
+      "A": "Correct: MCV < 80 with high RDW fits iron deficiency.",
+      "B": "Macrocytic anemia has MCV > 100 fL.",
+      "C": "Normocytic anemia has MCV 80-100 fL.",
+      "D": "Hereditary spherocytosis shows spherocytes, high MCHC and often a negative Coombs — not a high RDW pattern like this."
+    },
+    "misconception": "RDW is often ignored; it is what separates iron deficiency (high RDW) from thalassemia trait (normal RDW).",
+    "reference": "Rodak 6th ed., Ch. 15",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["High RDW = mixed population; think iron deficiency first."]
+  },
+  {
+    "id": "hem-q-002",
+    "subjectId": "hematology",
+    "topicId": "cbc",
+    "type": "MCQ",
+    "vignette": "An analyzer reports MCV 118 fL in a sample from a patient in the cold clinic room; the smear shows red cell clumps.",
+    "stem": "What is the most likely cause of the elevated MCV?",
+    "choices": [
+      { "id": "A", "text": "True megaloblastic anemia" },
+      { "id": "B", "text": "Cold agglutinins falsely elevating the MCV" },
+      { "id": "C", "text": "Iron deficiency" },
+      { "id": "D", "text": "Thalassemia trait" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Cold agglutinins cause red cell clumping; the analyzer counts clumps as single large cells, falsely raising MCV (and MCHC). Warming the sample and re-running corrects the artifact.",
+    "rationales": {
+      "A": "Megaloblastic anemia is possible but the clumped smear points to an artifact first.",
+      "B": "Correct: clumping artifact from cold agglutinins.",
+      "C": "Iron deficiency produces low MCV.",
+      "D": "Thalassemia trait produces low MCV with normal RDW."
+    },
+    "misconception": "Artifacts are underweighted in exam vignettes that give a smear hint (clumps, lipemia, hemolysis).",
+    "reference": "Rodak 6th ed., Ch. 15",
+    "lessonId": "hematology/cbc-indices",
+    "examTraps": ["Cold agglutinins falsely elevate MCV and MCHC."]
+  },
+  {
+    "id": "hem-q-003",
+    "subjectId": "hematology",
+    "topicId": "anemias",
+    "type": "MCQ",
+    "vignette": "A 30-year-old woman with fatigue: Hb 8.8 g/dL, reticulocyte count 1.5%, LDH elevated, haptoglobin undetectable, indirect bilirubin elevated.",
+    "stem": "Which mechanism best explains this anemia?",
+    "choices": [
+      { "id": "A", "text": "Decreased red cell production" },
+      { "id": "B", "text": "Increased red cell destruction (hemolysis)" },
+      { "id": "C", "text": "Acute blood loss" },
+      { "id": "D", "text": "Hemodilution" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Undetectable haptoglobin with elevated LDH and indirect bilirubin is the classic triad of hemolysis. The reticulocyte count should be interpreted as an index (corrected); in hemolysis the bone marrow responds appropriately.",
+    "rationales": {
+      "A": "Underproduction shows low reticulocyte production index and normal/low LDH and haptoglobin.",
+      "B": "Correct: low haptoglobin + high LDH + high indirect bilirubin = hemolysis.",
+      "C": "Acute blood loss shows low haptoglobin early but is clinically obvious and retics rise over days.",
+      "D": "Hemodilution lowers all red cell parameters uniformly without hemolysis markers."
+    },
+    "misconception": "Haptoglobin is overlooked — it is the single most specific marker here.",
+    "reference": "Rodak 6th ed., Ch. 16",
+    "lessonId": "hematology/anemias",
+    "examTraps": ["Hemolysis triad: haptoglobin down, LDH up, indirect bilirubin up."]
+  }
+]

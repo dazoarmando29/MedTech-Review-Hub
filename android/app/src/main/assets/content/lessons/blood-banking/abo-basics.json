@@ -1,0 +1,91 @@
+{
+  "id": "blood-banking/abo-basics",
+  "subjectId": "blood-banking",
+  "topicId": "abo-system",
+  "title": "ABO Blood Group System: Basics and Forward/Reverse Typing",
+  "summary": "ABO antigens and antibodies, forward and reverse grouping, and how to resolve discrepancies before issuing blood.",
+  "readingMinutes": 12,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["ABO", "forward typing", "reverse typing", "A antigen", "B antigen", "isohemagglutinins"],
+  "objectives": [
+    "Explain the biochemical basis of A and B antigens on red cells.",
+    "Perform and interpret forward and reverse ABO typing.",
+    "Recognize and start resolving ABO discrepancies."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Group A red cells carry A antigen; plasma contains anti-B.",
+      "Group O red cells carry neither A nor B antigen; plasma contains anti-A and anti-B.",
+      "A discrepancy between forward and reverse typing must be resolved before issuing blood."
+    ],
+    "mustKnowTable": {
+      "columns": ["ABO group", "RBC antigen", "Plasma antibody", "Genotype"],
+      "rows": [
+        ["A", "A", "anti-B", "AA or AO"],
+        ["B", "B", "anti-A", "BB or BO"],
+        ["AB", "A and B", "none", "AB"],
+        ["O", "none", "anti-A + anti-B", "OO"]
+      ]
+    },
+    "mnemonic": "O has nO antigens and bOth antibodies."
+  },
+  "deepStudy": {
+    "introduction": "The ABO system is the most important blood group system in transfusion medicine because naturally occurring IgM antibodies against absent A/B antigens cause rapid complement-mediated intravascular hemolysis.",
+    "sections": [
+      {
+        "heading": "Molecular basis",
+        "body": "A and B antigens are produced by glycosyltransferases encoded by the ABO gene on chromosome 9. The A transferase adds N-acetylgalactosamine; the B transferase adds D-galactose to the H substance. Group O individuals have a nonfunctional enzyme and leave the H substance unmodified.",
+        "diagram": null
+      },
+      {
+        "heading": "Forward and reverse typing",
+        "body": "Forward typing tests patient red cells with known anti-A and anti-B reagents. Reverse typing tests patient serum/plasma with known A1 and B reagent red cells. Both must agree before a blood type is reported. Newborns have weak reverse typing because antibodies are of maternal origin or not yet produced.",
+        "diagram": null
+      },
+      {
+        "heading": "Subgroups and secretors",
+        "body": "A subgroups (A1, A2) differ in the amount of A antigen. Anti-A1 lectin (Dolichos biflorus) identifies A1 cells. Secretors (FUT2 gene) secrete soluble ABH substances in body fluids.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "ABO-incompatible transfusion causes acute hemolytic transfusion reaction — a leading cause of transfusion fatalities. ABO-identical plasma is required because plasma contains isohemagglutinins.",
+    "labInterpretation": "Always confirm the ABO group on two samples for pretransfusion testing when policy requires; investigate every forward/reverse discrepancy before component release.",
+    "comparisonTables": [
+      {
+        "title": "Forward vs reverse grouping",
+        "columns": ["Feature", "Forward typing", "Reverse typing"],
+        "rows": [
+          ["What is tested", "Patient RBC antigens", "Patient plasma antibodies"],
+          ["Reagents", "Anti-A, anti-B", "A1 cells, B cells"],
+          ["Weak in", "Newborns, weak subgroups", "Newborns, elderly, immunosuppressed"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "Reverse typing in newborns is weak/absent because antibodies are maternal IgG or not yet produced — do not expect concordance in infants under 4 months.",
+      "Acquired B (e.g., in bowel obstruction) can make group A cells type as AB — look at the patient's history and plasma reactions."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "O has nO antigens and bOth antibodies.",
+      "funny": "Meow: 'nO antigens, bOth antibodies — like a cat with no manners and all the opinions.'"
+    },
+    {
+      "type": "MNEMONIC",
+      "text": "Forward types the cells; reverse types the serum.",
+      "funny": "Forward = cells first. Parang pag-crush: kilalanin mo muna ang tao (cells), tapos ang feelings (serum)."
+    }
+  ],
+  "practiceQuestionIds": ["bb-q-001", "bb-q-002"],
+  "relatedFlashcardIds": ["bb-fc-001", "bb-fc-002"],
+  "followUp": ["blood-banking/rh-system"],
+  "references": [
+    { "title": "Harmening's Blood Banking and Transfusion Fundamentals", "detail": "6th ed., Ch. 2-3", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-10",
+  "reviewerNote": "Medical accuracy reviewed against listed references."
+}

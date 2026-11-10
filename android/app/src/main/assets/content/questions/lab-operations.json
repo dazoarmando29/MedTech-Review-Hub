@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ops-q-001",
+    "subjectId": "lab-operations",
+    "topicId": "quality",
+    "type": "MCQ",
+    "vignette": "A chemistry control at +2.2 SD is observed on one control material; a second control is at +2.6 SD (both above the mean).",
+    "stem": "Which Westgard rule is violated and what action is required?",
+    "choices": [
+      { "id": "A", "text": "1_2s warning only; accept the run" },
+      { "id": "B", "text": "2_2s; reject the run" },
+      { "id": "C", "text": "R_4s; reject the run" },
+      { "id": "D", "text": "1_3s; reject the run" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Two consecutive controls (or two different controls in the same run) exceeding 2 SD on the same side of the mean = 2_2s rule — a rejection rule indicating systematic error.",
+    "rationales": {
+      "A": "1_2s is a warning for a single control beyond 2 SD; here two controls exceed 2 SD.",
+      "B": "Correct: 2_2s violated — reject the run and investigate.",
+      "C": "R_4s requires a range exceeding 4 SD between controls (one high, one low).",
+      "D": "1_3s requires one control beyond 3 SD; neither control exceeds 3 SD here."
+    },
+    "misconception": "The '2' in 2_2s means TWO controls, not one control twice — the classic Westgard trap.",
+    "reference": "Henry's 24th ed., Ch. 3",
+    "lessonId": "lab-operations/quality-basics",
+    "examTraps": ["2_2s = two controls, same side, beyond 2 SD → reject."]
+  },
+  {
+    "id": "ops-q-002",
+    "subjectId": "lab-operations",
+    "topicId": "quality",
+    "type": "MCQ",
+    "vignette": "A patient's potassium result is 7.8 mmol/L but the sample is visibly hemolyzed; the patient is asymptomatic.",
+    "stem": "What is the most appropriate action?",
+    "choices": [
+      { "id": "A", "text": "Report the result as is with no comment" },
+      { "id": "B", "text": "Add a hemolysis comment and/or recollect a fresh sample before reporting" },
+      { "id": "C", "text": "Automatically correct the potassium mathematically" },
+      { "id": "D", "text": "Cancel the test permanently" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Hemolysis releases intracellular potassium causing pseudohyperkalemia. Best practice: recollect and/or report with an interpretive comment about hemolysis; never silently report or 'correct' the value.",
+    "rationales": {
+      "A": "Reporting a spurious critical value without comment risks inappropriate treatment.",
+      "B": "Correct: comment and/or recollection is standard practice.",
+      "C": "There is no validated universal correction factor for hemolysis.",
+      "D": "Cancelling without follow-up leaves the clinical question unanswered."
+    },
+    "misconception": "Pseudohyperkalemia is the most common spurious electrolyte result in the lab — always check sample quality.",
+    "reference": "Henry's 24th ed., Ch. 26",
+    "lessonId": "lab-operations/quality-basics",
+    "examTraps": ["Hemolyzed sample = spurious potassium; comment/recollect."]
+  }
+]

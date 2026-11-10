@@ -1,0 +1,416 @@
+[
+  {
+    "id": "bb-deck-01",
+    "title": "ABO and Rh Essentials",
+    "subjectId": "blood-banking",
+    "cards": [
+      {
+        "id": "bb-fc-001",
+        "type": "BASIC",
+        "front": "Which immunoglobulin class is naturally occurring anti-A and anti-B (isohemagglutinins)?",
+        "back": "Predominantly IgM (with some IgG component); they react best at room temperature / immediate spin.",
+        "tags": ["abo", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-002",
+        "type": "CLOZE",
+        "front": "Anti-[[1]] (isohemagglutinins) react best at room temperature; immune anti-[[2]] reacts best at the AHG phase.",
+        "back": "1: A/B  2: D (Rh)",
+        "tags": ["abo", "rh"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-003",
+        "type": "BASIC",
+        "front": "What is the rule for handling weak D in donors versus recipients?",
+        "back": "Weak D donor units are issued as Rh-positive; weak D patients are treated as Rh-negative and receive Rh-negative red cells.",
+        "tags": ["rh", "high-yield"],
+        "difficulty": 2,
+        "note": "Classic exam pair — the rule flips by role.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-004",
+        "type": "CLOZE",
+        "front": "Group O red cells have [[1]] A/B antigens and group O plasma contains [[2]].",
+        "back": "1: no (neither)  2: anti-A and anti-B (both)",
+        "tags": ["abo", "mnemonic"],
+        "difficulty": 1,
+        "note": "O has nO antigens and bOth antibodies.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-005",
+        "type": "BASIC",
+        "front": "Which sugar does the A transferase add to H substance to create the A antigen?",
+        "back": "N-acetylgalactosamine (the B transferase adds galactose; the common O allele makes a nonfunctional transferase).",
+        "tags": ["abo", "biochemistry"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-006",
+        "type": "BASIC",
+        "front": "Why is reverse (serum) typing unreliable in newborns?",
+        "back": "Naturally occurring anti-A and anti-B are not yet reliably produced; isohemagglutinins mature over the first months of life. Forward typing (antigens) works at birth.",
+        "tags": ["abo", "pediatric"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-007",
+        "type": "CLOZE",
+        "front": "Forward typing tests [[1]] on patient red cells; reverse typing tests [[2]] in patient plasma.",
+        "back": "1: A/B antigens  2: anti-A/anti-B antibodies",
+        "tags": ["abo", "methodology"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-008",
+        "type": "BASIC",
+        "front": "What is acquired B, and in what clinical settings does it classically occur?",
+        "back": "Bacterial enzymes (deacetylases) modify A antigen so group A cells react with anti-B reagent; classically in gram-negative sepsis or colorectal disease. The patient's plasma still contains anti-B.",
+        "tags": ["abo", "discrepancy"],
+        "difficulty": 3,
+        "note": "Forward looks AB, reverse proves group A.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-009",
+        "type": "BASIC",
+        "front": "Which lectin distinguishes A1 cells from weaker A subgroups such as A2?",
+        "back": "Dolichos biflorus lectin (agglutinates A1 strongly; weak/nonreactive with A2 and weaker subgroups).",
+        "tags": ["abo", "subgroups"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-010",
+        "type": "CLOZE",
+        "front": "Rouleaux in reverse typing is resolved with the [[1]] technique; true agglutination [[2]] after the wash.",
+        "back": "1: saline replacement  2: persists (remains)",
+        "tags": ["abo", "discrepancy"],
+        "difficulty": 2,
+        "note": "Think myeloma / hypergammaglobulinemia.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/abo-basics" }
+      },
+      {
+        "id": "bb-fc-011",
+        "type": "BASIC",
+        "front": "Which red cell antigen is the most immunogenic after ABO?",
+        "back": "The D antigen of the Rh system; anti-D is IgG, AHG-reactive, crosses the placenta.",
+        "tags": ["rh", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-012",
+        "type": "CLOZE",
+        "front": "The direct antiglobulin test (DAT) detects [[1]] bound to patient red cells [[2]].",
+        "back": "1: IgG and/or complement  2: in vivo (in the patient)",
+        "tags": ["dat", "high-yield"],
+        "difficulty": 2,
+        "note": "DAT = direct = cells already coated.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-013",
+        "type": "BASIC",
+        "front": "How does RhIg prevent Rh sensitization?",
+        "back": "Passive anti-D clears fetal D-positive red cells from the maternal circulation before her immune system can mount an active response.",
+        "tags": ["rh", "hdfn", "prophylaxis"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-014",
+        "type": "BASIC",
+        "front": "Compare Rh HDFN and ABO HDFN: parity and severity.",
+        "back": "Rh HDFN: usually second/later pregnancies, can be severe, DAT strongly positive. ABO HDFN: often firstborn, usually mild, DAT often weak or negative.",
+        "tags": ["hdfn", "comparison"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-015",
+        "type": "CLOZE",
+        "front": "In Rh HDFN, maternal [[1]] anti-D crosses the placenta and binds [[2]] fetal red cells.",
+        "back": "1: IgG  2: D-positive",
+        "tags": ["hdfn"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-016",
+        "type": "BASIC",
+        "front": "What is the difference between weak D and partial D?",
+        "back": "Weak D: reduced number of D antigen sites (usually not immunogenic). Partial D: altered/missing D epitopes — the patient can form anti-D against the missing epitopes.",
+        "tags": ["rh", "high-yield"],
+        "difficulty": 3,
+        "note": "Quantity vs quality.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-017",
+        "type": "BASIC",
+        "front": "Which monospecific DAT pattern is typical of warm autoimmune hemolytic anemia vs cold agglutinin disease?",
+        "back": "Warm AIHA: DAT positive with anti-IgG. Cold agglutinin disease: DAT positive mainly with anti-C3 (complement).",
+        "tags": ["dat", "aiha"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-018",
+        "type": "CLOZE",
+        "front": "A positive DAT proves red cell sensitization [[1]]; it does not by itself prove [[2]].",
+        "back": "1: in vivo  2: hemolysis (active destruction)",
+        "tags": ["dat"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-019",
+        "type": "BASIC",
+        "front": "Name the classic indications for performing a DAT on a patient.",
+        "back": "Suspected HDFN, suspected hemolytic transfusion reaction, autoimmune hemolytic anemia, and drug-induced immune hemolysis.",
+        "tags": ["dat", "clinical"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      },
+      {
+        "id": "bb-fc-020",
+        "type": "BASIC",
+        "front": "Why can RhIg administration complicate serologic interpretation after delivery?",
+        "back": "Passive anti-D can appear in the maternal antibody screen and weakly coat the baby's D-positive cells (weak DAT); distinguish passive from active sensitization by timing and titer trends.",
+        "tags": ["rh", "hdfn"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/rh-hdfn" }
+      }
+    ]
+  },
+  {
+    "id": "bb-deck-02",
+    "title": "Transfusion Practice: Panels, Crossmatch, Reactions, Components",
+    "subjectId": "blood-banking",
+    "cards": [
+      {
+        "id": "bb-fc-021",
+        "type": "BASIC",
+        "front": "Why are reagent red cells for antibody screens chosen to be homozygous for common antigens?",
+        "back": "Dosage: homozygous cells give stronger reactions, making true negatives clearer and rule-outs more reliable.",
+        "tags": ["antibody-screen", "dosage"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-022",
+        "type": "CLOZE",
+        "front": "In antibody identification, an antibody is ruled out when its antigen is present on a cell that did [[1]]; the pattern of [[2]] cells confirms the specificity.",
+        "back": "1: not react  2: reacting",
+        "tags": ["antibody-id", "rule-out"],
+        "difficulty": 2,
+        "note": "Exclusion principle.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-023",
+        "type": "BASIC",
+        "front": "What does the immediate-spin phase of the crossmatch detect?",
+        "back": "ABO incompatibility (IgM isohemagglutinins) between donor red cells and recipient plasma.",
+        "tags": ["crossmatch"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-024",
+        "type": "BASIC",
+        "front": "When is an electronic (computer) crossmatch acceptable?",
+        "back": "When the antibody screen is negative and there is no history of unexpected antibodies, under a validated quality system per local policy.",
+        "tags": ["crossmatch", "policy"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-025",
+        "type": "CLOZE",
+        "front": "Acute hemolytic transfusion reactions are most often caused by [[1]] incompatibility, usually from [[2]] error.",
+        "back": "1: ABO  2: clerical (identification/labeling)",
+        "tags": ["reactions", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-026",
+        "type": "BASIC",
+        "front": "List the immediate laboratory workup of a suspected acute hemolytic transfusion reaction.",
+        "back": "Stop transfusion; clerical check of records/labels; DAT on post-reaction sample; visual inspection of plasma/urine; repeat ABO typing of patient and unit; hemolysis markers.",
+        "tags": ["reactions", "workflow"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-027",
+        "type": "BASIC",
+        "front": "How does TRALI differ from TACO?",
+        "back": "TRALI: noncardiogenic lung injury within 6 hours, bilateral infiltrates, hypoxemia, no overload. TACO: volume overload with hypertension, dyspnea, pulmonary edema, treated with diuresis.",
+        "tags": ["reactions", "comparison"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-028",
+        "type": "CLOZE",
+        "front": "Febrile nonhemolytic transfusion reactions are a diagnosis of [[1]] after excluding [[2]] and bacterial contamination.",
+        "back": "1: exclusion  2: hemolysis",
+        "tags": ["reactions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-029",
+        "type": "BASIC",
+        "front": "Which component is richest in fibrinogen and is used for hypofibrinogenemia?",
+        "back": "Cryoprecipitate (also contains factor VIII, von Willebrand factor, and factor XIII).",
+        "tags": ["components"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-030",
+        "type": "BASIC",
+        "front": "Match the modification to its purpose: leukoreduction, irradiation, washing.",
+        "back": "Leukoreduction: fewer febrile reactions, less HLA alloimmunization, lower CMV risk. Irradiation: prevents TA-GVHD. Washing: removes plasma (e.g., IgA-deficient patients with anti-IgA).",
+        "tags": ["components", "modifications"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-031",
+        "type": "CLOZE",
+        "front": "Delayed hemolytic transfusion reactions occur [[1]] after transfusion from an [[2]] antibody response (e.g., Kidd, Rh).",
+        "back": "1: days to weeks  2: anamnestic (memory)",
+        "tags": ["reactions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-032",
+        "type": "BASIC",
+        "front": "What is the classic presentation of an anaphylactic transfusion reaction, and what deficiency is suspected?",
+        "back": "Severe hypotension, bronchospasm, angioedema within minutes; suspect IgA deficiency with anti-IgA in the recipient. Use washed components / IgA-deficient donor products.",
+        "tags": ["reactions", "iga"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-033",
+        "type": "BASIC",
+        "front": "What is the primary indication for packed red cell transfusion?",
+        "back": "Restoring oxygen-carrying capacity in symptomatic anemia or active bleeding; triggers are clinical and restrictive strategies are evidence supported.",
+        "tags": ["components"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-034",
+        "type": "CLOZE",
+        "front": "Platelet transfusion treats [[1]] bleeding or prophylaxis in thrombocytopenia; refractoriness may be [[2]] (HLA/HPA antibodies) or nonimmune.",
+        "back": "1: thrombocytopenic  2: immune",
+        "tags": ["components", "platelets"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-035",
+        "type": "BASIC",
+        "front": "Fresh frozen plasma is indicated for which clinical situations?",
+        "back": "Multiple coagulation factor deficiency with bleeding or before invasive procedures; it must be ABO compatible and is not a volume expander.",
+        "tags": ["components", "plasma"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-036",
+        "type": "BASIC",
+        "front": "What does a positive antibody screen mandate before compatible blood is issued?",
+        "back": "Full antibody identification, patient antigen typing, selection of antigen-negative units, and serologic (AHG) crossmatch; record the antibody permanently.",
+        "tags": ["antibody-screen", "workflow"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-037",
+        "type": "CLOZE",
+        "front": "Bacterial contamination is classically associated with [[1]] components stored at [[2]] temperature.",
+        "back": "1: platelet  2: room",
+        "tags": ["reactions", "components"],
+        "difficulty": 2,
+        "note": "Also: Yersinia can grow in refrigerated red cells.",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-038",
+        "type": "BASIC",
+        "front": "What is the significance of finding anti-Jka in a patient's antibody workup?",
+        "back": "Anti-Jka is clinically significant (can cause delayed hemolytic reactions and HDFN); the patient must receive Jka-negative blood for all future transfusions and the antibody is recorded permanently.",
+        "tags": ["antibody-id", "kidd"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-039",
+        "type": "BASIC",
+        "front": "Why must a pretransfusion specimen be labeled at the bedside?",
+        "back": "Mislabeling is a leading root cause of ABO-incompatible transfusion; bedside positive patient identification prevents wrong-blood-in-tube errors.",
+        "tags": ["safety", "workflow"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      },
+      {
+        "id": "bb-fc-040",
+        "type": "CLOZE",
+        "front": "The minimum required database for a patient with a known antibody includes ABO/Rh type, the antibody [[1]], and patient antigen [[2]].",
+        "back": "1: specificity (identified)  2: typing (or genotyping)",
+        "tags": ["workflow"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "blood-banking/transfusion-practice" }
+      }
+    ]
+  }
+]

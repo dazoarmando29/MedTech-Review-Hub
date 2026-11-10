@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ua-q-001",
+    "subjectId": "urinalysis",
+    "topicId": "ua-basics",
+    "type": "MCQ",
+    "vignette": "Dipstick shows 3+ blood; microscopy shows no red blood cells; the patient is a marathon runner with muscle pain.",
+    "stem": "Which explanation is most likely?",
+    "choices": [
+      { "id": "A", "text": "Glomerulonephritis" },
+      { "id": "B", "text": "Myoglobinuria from muscle injury" },
+      { "id": "C", "text": "Menstrual contamination" },
+      { "id": "D", "text": "Urinary tract infection" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The dipstick blood pad reacts to heme (RBCs, free hemoglobin AND myoglobin). Positive blood with no RBCs on microscopy in a patient with muscle injury indicates myoglobinuria.",
+    "rationales": {
+      "A": "Glomerulonephritis shows dysmorphic RBCs and RBC casts on microscopy.",
+      "B": "Correct: heme-positive, RBC-negative = hemoglobin/myoglobin; context favors myoglobin.",
+      "C": "Menstrual contamination would show actual RBCs.",
+      "D": "UTI typically shows LE/nitrite positive and WBCs/bacteria."
+    },
+    "misconception": "The dipstick cannot distinguish RBCs from hemoglobin or myoglobin — microscopy closes the gap.",
+    "reference": "Henry's 24th ed., Ch. 28",
+    "lessonId": "urinalysis/ua-basics",
+    "examTraps": ["Blood-positive + no RBCs = hemoglobin/myoglobin."]
+  }
+]

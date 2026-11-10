@@ -1,0 +1,83 @@
+[
+  {
+    "id": "cc-q-001",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes",
+    "type": "MCQ",
+    "vignette": "A 45-year-old man has an elevated ALP of 2.5x the upper reference limit. GGT is normal; calcium is high.",
+    "stem": "Which conclusion is best supported?",
+    "choices": [
+      { "id": "A", "text": "Cholestatic liver disease" },
+      { "id": "B", "text": "Bone-origin ALP (e.g., Paget's disease or hypercalcemia-related bone turnover)" },
+      { "id": "C", "text": "Acute pancreatitis" },
+      { "id": "D", "text": "Myocardial infarction" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "ALP has hepatic and bone isoenzymes. A normal GGT argues against a hepatic source. Elevated calcium with high ALP suggests increased bone turnover (e.g., Paget's disease or bone metastases).",
+    "rationales": {
+      "A": "Hepatic ALP elevation is usually accompanied by GGT elevation.",
+      "B": "Correct: GGT normal excludes liver; high ALP + high calcium points to bone.",
+      "C": "Pancreatitis elevates lipase/amylase, not ALP specifically.",
+      "D": "MI elevates troponin/CK-MB; ALP is not a marker of myocardial injury."
+    },
+    "misconception": "Students assume every ALP elevation is liver-related; GGT is the tie-breaker.",
+    "reference": "Tietz 6th ed., Ch. 21",
+    "lessonId": "clinical-chemistry/enzymes",
+    "examTraps": ["ALP up + GGT normal = bone; ALP up + GGT up = liver."]
+  },
+  {
+    "id": "cc-q-002",
+    "subjectId": "clinical-chemistry",
+    "topicId": "enzymes",
+    "type": "MCQ",
+    "vignette": "A patient presents with acute abdominal pain 6 hours ago. Amylase is 3x normal; lipase is within reference range.",
+    "stem": "Which interpretation is most appropriate?",
+    "choices": [
+      { "id": "A", "text": "Acute pancreatitis is confirmed" },
+      { "id": "B", "text": "Consider salivary (or other non-pancreatic) amylase source; repeat/confirm with lipase" },
+      { "id": "C", "text": "The patient has macroamylasemia for sure" },
+      { "id": "D", "text": "Renal failure is the only explanation" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Amylase has salivary and pancreatic sources and rises early but normalizes quickly; lipase is more specific for pancreatitis. A normal lipase with elevated amylase suggests a non-pancreatic source and warrants confirmation.",
+    "rationales": {
+      "A": "Confirmation of pancreatitis relies on lipase and/or imaging; amylase alone is not specific.",
+      "B": "Correct: salivary amylase (parotitis, bowel obstruction) can raise amylase with normal lipase.",
+      "C": "Macroamylasemia is possible but is a diagnosis of exclusion — not 'for sure'.",
+      "D": "Renal impairment can raise amylase but is not the only explanation."
+    },
+    "misconception": "Amylase is treated as synonymous with pancreatitis; specificity of lipase is the key teaching point.",
+    "reference": "Tietz 6th ed., Ch. 21",
+    "lessonId": "clinical-chemistry/enzymes",
+    "examTraps": ["Lipase is more specific and stays elevated longer than amylase."]
+  },
+  {
+    "id": "cc-q-003",
+    "subjectId": "clinical-chemistry",
+    "topicId": "renal",
+    "type": "MCQ",
+    "vignette": "A dehydrated patient: BUN 60 mg/dL, creatinine 2.0 mg/dL (reference 0.7-1.3).",
+    "stem": "The BUN/creatinine ratio suggests:",
+    "choices": [
+      { "id": "A", "text": "Intrinsic renal disease" },
+      { "id": "B", "text": "Prerenal azotemia" },
+      { "id": "C", "text": "Hepatocellular failure" },
+      { "id": "D", "text": "Rhabdomyolysis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "BUN/creatinine ratio = 60/2.0 = 30:1 (>20:1) with a clinical history of dehydration — classic prerenal azotemia (increased urea reabsorption).",
+    "rationales": {
+      "A": "Intrinsic renal disease usually shows a ratio < 15-20:1 with rising creatinine.",
+      "B": "Correct: ratio > 20:1 plus dehydration = prerenal.",
+      "C": "Severe liver failure lowers BUN (low ratio < 10:1).",
+      "D": "Rhabdomyolysis raises creatinine from muscle injury and CK — not this ratio pattern."
+    },
+    "misconception": "The ratio is calculated with both units in mg/dL; forgetting to compute it leads to guessing.",
+    "reference": "Tietz 6th ed., Ch. 26",
+    "lessonId": "clinical-chemistry/renal-function",
+    "examTraps": ["Always compute the ratio and pair it with the clinical context."]
+  }
+]

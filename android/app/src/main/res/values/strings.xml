@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MedTech Review Hub</string>
+    <string name="focus_channel_name">Focus session</string>
+    <string name="focus_channel_desc">Reminders while a Pomodoro focus session is running.</string>
+    <string name="blocker_overlay_title">Back to study, future RMT!</string>
+    <string name="disclaimer_short">Independent review app. Not affiliated with or endorsed by ASCP.</string>
+</resources>
