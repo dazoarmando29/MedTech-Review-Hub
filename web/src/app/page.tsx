@@ -9,6 +9,7 @@ import { MotivationWidget } from '@/components/MotivationWidget';
 import { IconGarden } from '@/components/icons';
 import { getLesson, getSubject, lessons } from '@/lib/content';
 import { computeStreak, weeklyWrapped, flowerStage } from '@/lib/cozy';
+import { dailyQuote } from '@/lib/motivation';
 import { examCountdownDays, planForDate } from '@/lib/plan';
 import {
   completePlanItem, dueCardList, minutesToday, questionsAnsweredToday,
@@ -83,6 +84,7 @@ export default function DashboardPage() {
               personalized ASCPi review plan — it takes about two minutes, and you can change
               anything later.
             </p>
+            <p className="mt-3 text-sm italic max-w-md">“{dailyQuote()}”</p>
             <Link href="/onboarding/" className="btn-primary mt-5">Start onboarding</Link>
           </div>
         </div>
