@@ -7,7 +7,7 @@ compatibility_date = "2026-11-01"
 # Secrets (set with `wrangler secret put <NAME>`): JWT_SECRET, GEMINI_API_KEY
 
 [vars]
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-3.5-flash"
 AUTH_PBKDF2_ITERATIONS = "100000"
 AI_DAILY_TOKEN_BUDGET = "20000"
 # Comma-separated allowed origins; "*" allows any origin (development).

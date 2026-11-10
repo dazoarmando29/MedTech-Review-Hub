@@ -61,44 +61,50 @@ Rules you MUST follow:
 async function callGemini(env: Env, prompt: string): Promise<{ text: string; tokensEstimate: number }> {
   const key = env.GEMINI_API_KEY;
   if (!key) throw new HttpError(503, 'AI_UNAVAILABLE', 'AI features are not configured on this server');
-  const model = env.GEMINI_MODEL ?? 'gemini-2.0-flash';
+  // Preferred model first, then fallbacks (Google retires model versions over time).
+  const models = [...new Set([env.GEMINI_MODEL ?? 'gemini-3.5-flash', 'gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-flash-latest'])];
 
   let lastErr: unknown;
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_RULES }] },
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
-          }),
-        },
-      );
-      if (!res.ok) {
-        const bodyText = await res.text();
-        if (res.status === 429 && attempt < 2) {
-          await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+  for (const model of models) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: SYSTEM_RULES }] },
+              contents: [{ role: 'user', parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
+            }),
+          },
+        );
+        if (res.status === 404) {
+          lastErr = new HttpError(502, 'INTERNAL', `Model ${model} not available`);
+          break; // try next model
+        }
+        if (!res.ok) {
+          const bodyText = await res.text();
+          if ((res.status === 429 || res.status >= 500) && attempt < 1) {
+            await new Promise((r) => setTimeout(r, 700));
+            continue;
+          }
+          lastErr = new HttpError(502, 'INTERNAL', `AI provider error ${res.status}: ${bodyText.slice(0, 200)}`);
           continue;
         }
-        throw new HttpError(502, 'INTERNAL', `AI provider error ${res.status}: ${bodyText.slice(0, 200)}`);
+        const data = (await res.json()) as {
+          candidates?: { content?: { parts?: { text?: string }[] } }[];
+          usageMetadata?: { totalTokenCount?: number };
+        };
+        const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+        return {
+          text: text.trim() || 'No content generated.',
+          tokensEstimate: data.usageMetadata?.totalTokenCount ?? Math.ceil(prompt.length / 4) + 500,
+        };
+      } catch (e) {
+        lastErr = e instanceof HttpError ? e : new HttpError(502, 'INTERNAL', 'AI provider unreachable');
       }
-      const data = (await res.json()) as {
-        candidates?: { content?: { parts?: { text?: string }[] } }[];
-        usageMetadata?: { totalTokenCount?: number };
-      };
-      const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
-      return {
-        text: text.trim() || 'No content generated.',
-        tokensEstimate: data.usageMetadata?.totalTokenCount ?? Math.ceil(prompt.length / 4) + 500,
-      };
-    } catch (e) {
-      lastErr = e;
-      if (e instanceof HttpError && e.status !== 502) throw e;
-      if (attempt < 2) await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
     }
   }
   throw lastErr instanceof HttpError ? lastErr : new HttpError(502, 'INTERNAL', 'AI provider unreachable');

@@ -14,7 +14,7 @@ implementation (PostgreSQL). This Worker implements the same contract with D1
 
 - Cloudflare Workers (TypeScript, no build step — wrangler bundles `src/`)
 - Cloudflare D1 (`schema.sql`, seeded from `shared/content/`)
-- Gemini API (`gemini-2.0-flash` by default) — key stored as a Worker secret
+- Gemini API (`gemini-3.8-flash` by default) — key stored as a Worker secret
 - PBKDF2-SHA256 password hashing, HS256 JWTs (Web Crypto)
 
 ## Implemented endpoints
