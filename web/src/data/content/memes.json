@@ -168,5 +168,105 @@
     "punchline": "Squamous cells = contamination queen! Wag pangalanan ang pyuria kung kontaminado naman.",
     "scientificFact": "Numerous squamous epithelial cells in a clean-catch urine indicate contamination from skin or vaginal flora; quantifying pyuria or diagnosing infection from such specimens misleads treatment, so the specimen should be reported as contaminated per laboratory procedure.",
     "lessonId": "urinalysis/physical-chemical-testing"
+  },
+  {
+    "id": "meme-018",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "blood-banking",
+    "title": "ABO Compatibility: The Only Relationship With Clear Rules",
+    "body": "Dating is chaos: mixed signals, unread messages, complicated situationships. Blood banking is not: forward typing, reverse typing, and a rulebook that never leaves you on read. Group A carries A antigen with anti-B in the plasma; group O red cells carry neither antigen but both antibodies - and that is why group O is the universal red cell donor.",
+    "punchline": "My love life is complicated, but at least ABO compatibility has rules.",
+    "scientificFact": "ABO grouping has defined antigen-antibody rules: group A has A antigen and anti-B; group B has B antigen and anti-A; AB has both antigens and no anti-A/anti-B; O has neither antigen and both antibodies.",
+    "lessonId": "blood-banking/abo-basics"
+  },
+  {
+    "id": "meme-019",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "microbiology",
+    "title": "Staph Screening: CAT First, Then the COAT",
+    "body": "Every gram-positive coccus in grape-like clusters sits the catalase exam: drop hydrogen peroxide, bubbles or no bubbles. Staphylococci all pass the CAT. Then comes the coagulase test - the COAT - and only Staphylococcus aureus wears it. The rest are coagulase-negative staphylococci, and in a blood culture they are not always innocent bystanders.",
+    "punchline": "Staph has the CAT, but S. aureus also wears the COAT.",
+    "scientificFact": "Staphylococci are catalase-positive (CAT); S. aureus is additionally coagulase-positive (COAT), distinguishing it from coagulase-negative staphylococci.",
+    "lessonId": "microbiology/gram-positive-cocci"
+  },
+  {
+    "id": "meme-020",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "hematology",
+    "title": "RBC Workload vs. My Exam Workload",
+    "body": "A mature red blood cell squeezes through capillaries, hauls oxygen on hemoglobin, has no nucleus and no mitochondria, and survives around 120 days on glycolysis alone. Meanwhile I get tired after one chapter. The RBC does not complain - it just carries the load.",
+    "punchline": "RBCs carrying oxygen while I'm carrying exam anxiety.",
+    "scientificFact": "Mature RBCs carry oxygen via hemoglobin; they lack a nucleus and mitochondria, relying on glycolysis.",
+    "lessonId": "hematology/cbc-indices"
+  },
+  {
+    "id": "meme-021",
+    "type": "MEME_OF_THE_LESSON",
+    "subjectId": "clinical-chemistry",
+    "title": "Anion Gap Calculator vs. My Brain Gap",
+    "body": "Serum sodium 138, chloride 102, bicarbonate 18. The anion gap is 138 - (102 + 18) = 18. Meanwhile my brain has its own gap somewhere between the lecture and the exam. At least the chemistry panel follows the arithmetic.",
+    "punchline": "Me calculating anion gap when my brain already has a gap.",
+    "scientificFact": "Anion gap = Na+ - (Cl- + HCO3-), used to classify metabolic acidosis; a normal-gap (hyperchloremic) acidosis exists.",
+    "lessonId": "clinical-chemistry/renal-electrolytes"
+  },
+  {
+    "id": "meme-022",
+    "type": "MEMORY_HOOK",
+    "subjectId": "immunology",
+    "title": "Memory Hook: GAMED for the Five Immunoglobulins",
+    "body": "IgG = Goes across the placenta and sticks around for long-term immunity. IgA = Absent from serum drama, lives in secretions and mucosa. IgM = Massive pentamer, first to arrive. IgE = Enemy of parasites and the reason for allergies. IgD = Displayed on the surface of naive B cells.",
+    "punchline": "GAMED: G-placenta, A-secretions, M-pentamer first, E-allergy/parasites, D-B cell display.",
+    "scientificFact": "IgG is the most abundant serum immunoglobulin and the only class that crosses the placenta; IgA dominates secretions; IgM is a pentamer and the earliest responder; IgE mediates type I hypersensitivity and antiparasitic responses; IgD functions mainly as a B-cell surface receptor.",
+    "lessonId": "immunology/immunoglobulins-complement"
+  },
+  {
+    "id": "meme-023",
+    "type": "MEMORY_HOOK",
+    "subjectId": "lab-operations",
+    "title": "Memory Hook: HIL on the Hill of Interference",
+    "body": "Before releasing results, check the HIL indices: Hemolysis (red) leaks potassium and LDH from red cells, Icterus (yellow) skews bilirubin and diazo reactions, Lipemia (milky) scatters light and fouls photometry. HIL literally sits on the hill above every chemistry result.",
+    "punchline": "HIL sa hill: hemolysis, icterus, lipemia - tatlong trip papunta sa interference.",
+    "scientificFact": "Hemolysis falsely elevates potassium, LDH, and phosphorus; icterus interferes with bilirubin and diazo-based reactions; lipemia causes spectral interference and volume displacement effects; laboratories review HIL indices before result release.",
+    "lessonId": "lab-operations/preanalytic-poct-math"
+  },
+  {
+    "id": "meme-024",
+    "type": "MISTAKE_OF_THE_DAY",
+    "subjectId": "urinalysis",
+    "title": "Mistake of the Day: Reading the Dipstick After the Chitchat",
+    "body": "A technologist dips four strips, finishes a long conversation, then reads all of them at once. Bacterial nitrite looks positive, glucose reads sky-high, and leukocyte esterase turns into confetti. Every pad has its own reaction time - read each strip at the manufacturer's specified time or the whole strip is garbage.",
+    "punchline": "Late reading = late-breaking fake news sa strip!",
+    "scientificFact": "Dipstick reactions are timed (commonly 30-120 seconds depending on the pad and manufacturer); reading too early or too late alters color development and can produce false-positive or false-negative results.",
+    "lessonId": "urinalysis/physical-chemical-testing"
+  },
+  {
+    "id": "meme-025",
+    "type": "MISTAKE_OF_THE_DAY",
+    "subjectId": "hematology",
+    "title": "Mistake of the Day: The Cold Agglutinin That Ate the MCV",
+    "body": "A CBC shows a sky-high MCV and a clumpy smear, and the analyzer dutifully reports macrocytic anemia. The mistake: taking the sample at face value. Cold agglutinins glue red cells together, so the analyzer counts one clump as one giant cell - inflating MCV and MCH while dropping the RBC count and hematocrit.",
+    "punchline": "Hindi macrocytic anemia yan - nagyelo lang ang sample!",
+    "scientificFact": "Cold agglutinins cause in-vitro red cell agglutination that falsely elevates MCV and MCH and falsely lowers RBC count and hematocrit; warming the sample to 37 degrees Celsius and repeating the CBC resolves the artifact.",
+    "lessonId": "hematology/cbc-indices"
+  },
+  {
+    "id": "meme-026",
+    "type": "GUESS_THE_DIAGNOSIS",
+    "subjectId": "blood-banking",
+    "title": "Guess the Diagnosis: The Second Baby Who Got Worse",
+    "body": "An RhD-negative mother did not receive Rh immune globulin after her first pregnancy. Her second newborn is severely jaundiced with anemia, hepatosplenomegaly, and a strongly positive direct antiglobulin test with anti-D eluted from the red cells. Name the disease - and the single intervention that would have prevented it.",
+    "punchline": "Rh HDFN - isang shot ng RhIg, naligtas sana ang pangalawang baby.",
+    "scientificFact": "Rh hemolytic disease of the newborn occurs when an RhD-negative mother sensitized to D (often during a prior D-positive pregnancy without RhIg prophylaxis) makes IgG anti-D that crosses the placenta and destroys fetal D-positive red cells; antenatal and postpartum RhIg prophylaxis prevents this sensitization.",
+    "lessonId": "blood-banking/rh-hdfn"
+  },
+  {
+    "id": "meme-027",
+    "type": "IMPOSTOR",
+    "subjectId": "clinical-chemistry",
+    "title": "Impostor: The Pseudohyperkalemia in the Tube",
+    "body": "A chemistry run reports potassium 7.2 mmol/L - but the patient has no ECG changes and feels fine. A fresh, properly collected repeat comes back normal. The impostor was never in the patient: it was a fist-clenched draw, a tourniquet marathon, hemolysis in transit, or a tube that waited too long before centrifugation.",
+    "punchline": "K 7.2 pero calm ang ECG? Pseudohyperkalemia - nasa tube ang drama, hindi sa pasyente.",
+    "scientificFact": "Pseudohyperkalemia results from in-vitro potassium release due to hemolysis, prolonged tourniquet time, fist clenching, or delayed plasma separation; marked thrombocytosis or leukocytosis can also raise measured potassium, and a properly collected repeat sample confirms the true value.",
+    "lessonId": "clinical-chemistry/renal-electrolytes"
   }
 ]

@@ -118,7 +118,7 @@
   "relatedFlashcardIds": ["mic-fc-019", "mic-fc-020", "mic-fc-021"],
   "followUp": ["microbiology/gram-positive-cocci", "lab-operations/quality-control-regulatory"],
   "references": [
-    { "title": "Bailey and Scott's Diagnostic Microbiology", "detail": "16th ed., chapters on Enterobacterales, non-fermenters, anaerobes, mycobacteria, and antimicrobial susceptibility testing", "url": null },
+    { "title": "Bailey and Scott's Diagnostic Microbiology", "detail": "16th ed., Tille, Elsevier, chapters on Enterobacterales, non-fermenters, anaerobes, mycobacteria, and antimicrobial susceptibility testing", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on body fluid cultures and CSF analysis", "url": null },
     { "title": "WHO tuberculosis laboratory guidance", "detail": "Organizational guidance for mycobacteriology laboratories", "url": "https://www.who.int/" }
   ],

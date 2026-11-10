@@ -283,7 +283,35 @@ data class StreakInfo(val current: Int, val best: Int, val restDayMessage: Strin
 // ---------------------------------------------------------------------------
 
 enum class AnnotationType { HIGHLIGHT, NOTE, BOOKMARK }
-enum class HighlightColor { YELLOW, RED, BLUE, GREEN, PURPLE }
+/**
+ * Six semantic highlight colors (shared/DESIGN.md v2). Default meanings
+ * (editable in Settings): YELLOW = Important fact, PINK = Must memorize,
+ * PURPLE = Definition, BLUE = Clinical significance, GREEN = Already mastered,
+ * ROSE = Needs review.
+ */
+enum class HighlightColor(val label: String) {
+    YELLOW("Yellow"),
+    PINK("Pink"),
+    PURPLE("Purple"),
+    BLUE("Blue"),
+    GREEN("Green"),
+    ROSE("Rose");
+
+    companion object {
+        /**
+         * Maps a stored annotation color name to the current enum. Legacy
+         * v1.0.0 rows store "RED" which is mapped to PINK (high-priority fact
+         * -> must memorize). Legacy "PURPLE" rows are rewritten once to "ROSE"
+         * by the Room migration in [com.medtech.reviewhub.data.db.AppDatabase]
+         * so the new PURPLE (Definition) never collides with old rows. All
+         * other stored names map unchanged.
+         */
+        fun fromStored(value: String): HighlightColor = when (value) {
+            "RED" -> PINK
+            else -> entries.firstOrNull { it.name == value } ?: YELLOW
+        }
+    }
+}
 
 data class NormalizedRect(val x: Float, val y: Float, val w: Float, val h: Float)
 

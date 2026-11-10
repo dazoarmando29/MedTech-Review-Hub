@@ -33,6 +33,7 @@ import f_questions_immunology_json from './questions/immunology.json';
 import f_questions_lab_operations_json from './questions/lab-operations.json';
 import f_questions_microbiology_json from './questions/microbiology.json';
 import f_questions_urinalysis_json from './questions/urinalysis.json';
+import f_resources_json from './resources.json';
 import f_subjects_blood_banking_json from './subjects/blood-banking.json';
 import f_subjects_clinical_chemistry_json from './subjects/clinical-chemistry.json';
 import f_subjects_hematology_json from './subjects/hematology.json';
@@ -40,6 +41,7 @@ import f_subjects_immunology_json from './subjects/immunology.json';
 import f_subjects_lab_operations_json from './subjects/lab-operations.json';
 import f_subjects_microbiology_json from './subjects/microbiology.json';
 import f_subjects_urinalysis_json from './subjects/urinalysis.json';
+import f_visual_id_json from './visual-id.json';
 
 export interface ContentFile { path: string; data: unknown }
 
@@ -78,6 +80,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./questions/lab-operations.json", data: f_questions_lab_operations_json },
   { path: "./questions/microbiology.json", data: f_questions_microbiology_json },
   { path: "./questions/urinalysis.json", data: f_questions_urinalysis_json },
+  { path: "./resources.json", data: f_resources_json },
   { path: "./subjects/blood-banking.json", data: f_subjects_blood_banking_json },
   { path: "./subjects/clinical-chemistry.json", data: f_subjects_clinical_chemistry_json },
   { path: "./subjects/hematology.json", data: f_subjects_hematology_json },
@@ -85,4 +88,5 @@ export const contentFiles: ContentFile[] = [
   { path: "./subjects/lab-operations.json", data: f_subjects_lab_operations_json },
   { path: "./subjects/microbiology.json", data: f_subjects_microbiology_json },
   { path: "./subjects/urinalysis.json", data: f_subjects_urinalysis_json },
+  { path: "./visual-id.json", data: f_visual_id_json },
 ];

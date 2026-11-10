@@ -105,7 +105,7 @@
   "relatedFlashcardIds": ["cc-fc-031", "cc-fc-032", "cc-fc-033"],
   "followUp": ["clinical-chemistry/renal-electrolytes"],
   "references": [
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., chapters on carbohydrate metabolism and on endocrine function", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on carbohydrate metabolism and on endocrine function", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on diabetes testing and thyroid function", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

@@ -1,7 +1,8 @@
 // Access to the shared content library (synced from shared/content at build time).
 import { contentFiles } from '@/data/content';
 import type {
-  Deck, Formula, GlossaryTerm, Lesson, MemeEntry, QuizQuestion, Subject,
+  Deck, Formula, GlossaryTerm, Lesson, MemeEntry, QuizQuestion, ResourcesDoc,
+  Subject, VisualIdItem,
 } from './types';
 
 function pick<T>(predicate: (path: string) => boolean): T[] {
@@ -22,6 +23,11 @@ export const decks: Deck[] = pick<Deck>((p) => p.startsWith('./flashcards/'));
 export const formulas: Formula[] = pick<Formula>((p) => p === './formulas.json');
 export const memes: MemeEntry[] = pick<MemeEntry>((p) => p === './memes.json');
 export const glossarySeed: GlossaryTerm[] = pick<GlossaryTerm>((p) => p === './glossary.json');
+export const visualIdBank: VisualIdItem[] = pick<VisualIdItem>((p) => p === './visual-id.json');
+
+export const resourcesDoc: ResourcesDoc =
+  pick<ResourcesDoc>((p) => p === './resources.json')[0] ??
+  { reviewCenters: [], officialLinks: [], readingList: [], examInfo: [], disclaimer: '' };
 
 export function getSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);

@@ -3,6 +3,57 @@
 All notable changes to MedTech Review Hub are documented here.
 Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
+## [1.1.0] — 2026-11-11
+
+### Pink MedTech Study Companion 🌸
+A complete visual redesign and cozy feature expansion — a personal pink study
+space for a future MLS, with the reviewer itself kept serious and accurate.
+
+### Added
+- **Design system v2** (shared/DESIGN.md): pastel pink palette, five themes —
+  Strawberry Milk (default), Sakura Blossom, Lavender Dreams, Cozy Night (dark),
+  Minimal Study — with AA-contrast guarantees and a decoration budget that
+  disables in Minimal/Serious/low-bandwidth modes. Quicksand/Nunito/Inter
+  typography, rounded pill navigation, soft cards, sticky notes.
+- **Mochi** — original pink-and-white lab-coat study cat (8 moods) with an
+  optional dog companion. Renamable, cosmetic **Cat Room** unlocks (bow,
+  glasses, flower crown, grad cap…), all animations disableable.
+- **Personalized dashboard**: PH-timezone greeting ("Good morning, future MLS!"),
+  daily motivation rotation, customizable display name, personal motivation line,
+  and an editable gift note card.
+- **Study Garden** — pink flowers grow with every study session
+  (seed → sprout → bud → bloom at 75 minutes).
+- **Philippine ASCPi Resources** page: verified directory of Pioneer Review
+  Center (PRCI), ACTS Review Center, and Legend Review Center (fees/schedules as
+  posted by them, Nov 2026 — no endorsements), official ASCP BOC links,
+  a verified reading list with licensing notes, and neutral ASCPi prep info.
+- **Mistake Notebook** — every wrong answer collected with its teaching
+  explanation and misconception note, plus one-click re-practice.
+- **Quick Review hub** — all high-yield facts, mnemonics, and exam traps in one
+  place with mastery check-off.
+- **Visual ID practice** — 12 original SVG laboratory illustrations
+  (cells, crystals, casts, organisms; no copyrighted images).
+- **Lesson actions**: "Turn this into a flashcard", "Explain this simply" (AI),
+  "Quiz me on this!", keyword suggestions with accept/dismiss, sticky-note
+  memory hooks.
+- **Diary stickers**, cute quiz result banners with an optional funny-commentary
+  toggle, "Cute Memory Trick" card backs, Weekly Wrapped recap.
+- Highlight colors refreshed: Yellow = important fact, Pink = must memorize,
+  Purple = definition, Blue = clinical significance, Green = mastered,
+  Rose = needs review (legacy v1.0.0 annotations migrate automatically —
+  no data loss; custom labels preserved).
+
+### Changed (web + Android)
+- Android 1.1.0: five pink themes, Mochi vector mascot, new dashboard copy,
+  PH ASCPi resources screen, new highlight colors with Room migration,
+  updated strings and README.
+- Content: 10 new scientifically-accurate memes/jokes; 13 textbook citations
+  corrected to verified editions (Harmening → *Modern Blood Banking and
+  Transfusion Practices*, Tietz → *Fundamentals* 7th ed., Strasinger 7th ed.,
+  Bailey & Scott 16th ed.).
+- Note for existing users: your study data is preserved — v1.0.0 settings,
+  highlights, and annotations are migrated in place on first load.
+
 ## [Unreleased]
 
 ### Added

@@ -179,6 +179,53 @@ export interface GlossaryTerm {
   source: string;
 }
 
+export interface ResourcesDoc {
+  reviewCenters: {
+    id: string;
+    name: string;
+    location: string;
+    website: string;
+    program: string;
+    description: string;
+    postedFeeNote: string;
+    inclusions: string[];
+    contactNote: string;
+    verifiedOn: string;
+  }[];
+  officialLinks: {
+    id: string;
+    title: string;
+    url: string;
+    description: string;
+    category: 'ELIGIBILITY' | 'EXAM_PREP' | 'APPLICATION' | 'READING_LIST';
+  }[];
+  readingList: {
+    id: string;
+    title: string;
+    authors: string;
+    edition: string;
+    publisher: string;
+    year: string;
+    isbn: string;
+    category: string;
+    description: string;
+    licenseNote: string;
+    verified: boolean;
+  }[];
+  examInfo: { id: string; title: string; body: string; sourceUrl: string }[];
+  disclaimer: string;
+}
+
+export interface VisualIdItem {
+  id: string;
+  term: string;
+  subjectId: string;
+  svgId: string;
+  choices: string[];
+  correct: string;
+  explanation: string;
+}
+
 // ---------- study state ----------
 
 export type SrsState = 'NEW' | 'LEARNING' | 'REVIEW' | 'RELEARNING';
@@ -261,6 +308,7 @@ export interface DiaryEntry {
   mood: 'great' | 'good' | 'okay' | 'tired' | 'struggling';
   text: string;
   tags: string[];
+  stickers?: string[];
   createdAt: string;
 }
 
@@ -285,7 +333,17 @@ export interface StudyPlan {
   days: PlanDay[];
 }
 
-export type HighlightColor = 'YELLOW' | 'RED' | 'BLUE' | 'GREEN' | 'PURPLE';
+export type HighlightColor = 'YELLOW' | 'PINK' | 'PURPLE' | 'BLUE' | 'GREEN' | 'ROSE';
+
+export type ThemeId = 'strawberry' | 'sakura' | 'lavender' | 'night' | 'minimal';
+
+export interface GardenFlower {
+  id: string;
+  kind: 'tulip' | 'daisy' | 'sakura' | 'lavender';
+  minutes: number;
+  plantedAt: string;
+  bloomedAt: string | null;
+}
 
 export interface PdfAnnotation {
   id: string;
@@ -333,12 +391,19 @@ export interface FocusSession {
 }
 
 export interface Settings {
-  theme: 'system' | 'light' | 'dark';
+  theme: 'system' | 'light' | 'dark'; // legacy v1 field — mapped to appTheme on load
+  appTheme: ThemeId | 'system';
   textScale: 100 | 115 | 130 | 150;
   seriousMode: boolean;
   reduceMotion: boolean;
+  lowBandwidth: boolean;
+  funnyCommentary: boolean;
   mascot: 'cat' | 'dog';
+  mascotName: string;
   mascotCommentary: boolean;
+  displayName: string;
+  giftNote: string;
+  motivationNote: string;
   explanationStyle: ExplanationStyle;
   ttsEnabled: boolean;
   apiBaseUrl: string;
@@ -346,6 +411,10 @@ export interface Settings {
   dailyReviewLimit: number;
   targetRetention: number;
   highlightColors: Record<HighlightColor, string>;
+}
+
+export interface CatRoomState {
+  equipped: string[];
 }
 
 export interface ContentIssueReport {

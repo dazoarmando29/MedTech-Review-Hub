@@ -56,8 +56,12 @@ class SettingsViewModel(
     // ---- Appearance -----------------------------------------------------
 
     fun setTheme(mode: ThemeMode) = viewModelScope.launch { settings.setThemeMode(mode) }
+    fun setAppTheme(themeId: String) = viewModelScope.launch { settings.setAppTheme(themeId) }
     fun setTextScale(percent: Int) = viewModelScope.launch { settings.setTextScale(percent) }
     fun setMascot(kind: MascotKind) = viewModelScope.launch { settings.setMascotKind(kind) }
+    fun setMascotName(name: String) = viewModelScope.launch { settings.setMascotName(name) }
+    fun setDisplayName(name: String) = viewModelScope.launch { settings.setDisplayName(name) }
+    fun setGiftNote(note: String) = viewModelScope.launch { settings.setGiftNote(note) }
     fun setSeriousMode(enabled: Boolean) = viewModelScope.launch { settings.setSeriousMode(enabled) }
     fun setReduceAnimation(enabled: Boolean) = viewModelScope.launch { settings.setReduceAnimation(enabled) }
     fun setMuteMascot(enabled: Boolean) = viewModelScope.launch { settings.setMuteMascot(enabled) }

@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import React, { useMemo, useRef, useState } from 'react';
 import { Badge, Card, EmptyState, ProgressRing, SectionTitle, cx } from '@/components/ui';
+import { Mochi } from '@/components/Mochi';
 import { getQuestion, subjects } from '@/lib/content';
 import {
   MOCK_QUESTION_COUNT, MOCK_TIME_LIMIT_SECONDS, computeResult, newAttemptId,
@@ -353,26 +354,37 @@ export default function QuizPage() {
 
 function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: () => void }) {
   const result = useMemo(() => computeResult(attempt), [attempt]);
+  const funny = useStore((s) => s.settings.funnyCommentary);
+  const seriousMode = useStore((s) => s.settings.seriousMode);
+  const mascotName = useStore((s) => s.settings.mascotName);
   const weakLabel = result.weakTopics.slice(0, 3);
+  const showFunny = funny && !seriousMode;
+
+  const banner =
+    result.score >= 0.9 ? { title: 'You ate that quiz! 🌸', mood: 'celebrating' as const }
+    : result.score >= 0.7 ? { title: 'Beautiful work — your brain is blooming!', mood: 'happy' as const }
+    : result.score >= 0.5 ? { title: `${mascotName} believes in you. Let’s review those tricky questions.`, mood: 'encouraging' as const }
+    : { title: 'A brave attempt — every wrong answer is now a teacher.', mood: 'encouraging' as const };
 
   return (
     <div className="space-y-6">
-      <Card>
+      <div className="hero-gradient p-6 confetti-pop">
         <div className="flex flex-wrap items-center gap-6">
+          <Mochi mood={showFunny ? banner.mood : 'happy'} size={110} />
           <ProgressRing percent={result.score} label={`Score ${Math.round(result.score * 100)}%`} />
           <div>
-            <h1 className="font-heading text-2xl font-bold">Quiz complete</h1>
-            <p className="text-sm text-[var(--ink-muted)]">
+            <h1 className="font-display text-2xl font-bold">{showFunny ? banner.title : 'Quiz complete'}</h1>
+            <p className="text-sm" style={{ color: 'var(--muted-strong)' }}>
               {result.correct}/{result.total} correct · {Math.round(result.score * 100)}% ·{' '}
               {Math.round(result.timeSeconds / 60)} min
             </p>
-            <p className="text-xs text-[var(--ink-muted)] mt-1">
+            <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
               Practice estimates only — not ASCP scores and not guarantees of passing.
             </p>
+            <button className="btn-primary mt-3" onClick={onRestart}>New quiz</button>
           </div>
-          <button className="btn-primary ml-auto" onClick={onRestart}>New quiz</button>
         </div>
-      </Card>
+      </div>
 
       <div className="grid lg:grid-cols-2 gap-4">
         <Card>

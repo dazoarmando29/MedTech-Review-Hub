@@ -119,7 +119,7 @@
   "references": [
     { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., quality management and laboratory safety chapters", "url": null },
     { "title": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations", "detail": "9th ed., method evaluation and quality control chapters", "url": null },
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., statistics and method validation sections", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, statistics and method validation sections", "url": null },
     { "title": "CDC laboratory quality and safety resources", "detail": "Organizational guidance on laboratory quality systems", "url": "https://www.cdc.gov/labquality/" }
   ],
   "editorialStatus": "PUBLISHED",

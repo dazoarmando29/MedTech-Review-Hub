@@ -11,12 +11,13 @@ import {
 } from '@/lib/store';
 import type { HighlightColor, PdfAnnotation, PdfDocMeta } from '@/lib/types';
 
-const COLORS: { id: HighlightColor; label: string }[] = [
-  { id: 'YELLOW', label: 'Must memorize' },
-  { id: 'RED', label: 'High-priority exam fact' },
-  { id: 'BLUE', label: 'Definition' },
-  { id: 'GREEN', label: 'Fully understood' },
-  { id: 'PURPLE', label: 'Confusing / needs study' },
+const COLORS: { id: HighlightColor }[] = [
+  { id: 'YELLOW' },
+  { id: 'PINK' },
+  { id: 'PURPLE' },
+  { id: 'BLUE' },
+  { id: 'GREEN' },
+  { id: 'ROSE' },
 ];
 
 export default function PdfPage() {

@@ -6,6 +6,12 @@ monorepo; consumes the same content JSON (`shared/content/`, see
 `shared/CONTENT_SCHEMA.md`) and backend API (`shared/api/API.md`) and the same
 spaced-repetition scheduler (`shared/FSRS.md`).
 
+**Design System v2 — "Pink MedTech Study Companion"** (`shared/DESIGN.md`):
+cozy pastel-pink study space with five user-selectable themes (Strawberry Milk
+— default, Sakura Blossom, Lavender Dreams, Cozy Night, Minimal Study) plus a
+System option, pill buttons, 20dp soft-pink cards, and Mochi the lab-coat cat
+as the mascot. Current version: **1.1.0** (versionCode 2).
+
 **This is an independent review app. It is NOT affiliated with, endorsed by, or
 sponsored by ASCP or any examining body.** Adaptive practice is NOT the ASCP
 computer-adaptive test (CAT). Practice percentages are study estimates, not
@@ -63,7 +69,12 @@ specified.
 2. **Home dashboard** — today's goals checklist, study streak, total minutes,
    flashcards due, questions answered today, recent quiz accuracy, weakest
    subject, exam countdown, weekly minutes calendar, "Continue reading",
-   "Resume quiz", suggested next topic, mascot greeting bubble.
+   "Resume quiz", suggested next topic, mascot greeting bubble. Personal
+   touch (Design System v2): PH-timezone greeting ("Good morning, future
+   MLS!" with the editable display name), the "Another day closer to that
+   ASCPi dream." subtitle, a MotivationCard whose encouraging line rotates
+   deterministically by day-of-year, and an optional soft-pastel gift note
+   card (editable in Settings).
 3. **Review library** — subjects → topics → lessons from bundled JSON;
    QUICK REVIEW / DEEP STUDY tabs, high-yield lists, must-know/comparison
    tables, keywords, exam traps, mnemonics + funny memory hooks, practice
@@ -86,9 +97,13 @@ specified.
    `domain/QuizScoring.kt`) and an on-screen disclaimer: it is NOT ASCP CAT.
 6. **PDF reader** — SAF import (`ACTION_OPEN_DOCUMENT`), rendering via
    `android.graphics.pdf.PdfRenderer`, pinch-zoom, page navigation, bookmarks,
-   resume last page, highlights with 5 semantic colors (YELLOW/RED/BLUE/
-   GREEN/PURPLE, user-editable meanings in Settings) stored as
-   page+rect+color+text in Room, notes, folders, fully offline. Best-effort
+   resume last page, highlights with 6 semantic colors (YELLOW=Important
+   fact, PINK=Must memorize, PURPLE=Definition, BLUE=Clinical significance,
+   GREEN=Already mastered, ROSE=Needs review — user-editable meanings in
+   Settings) stored as page+rect+color+text in Room, notes, folders, fully
+   offline. Legacy v1.0.0 annotations are migrated losslessly (`RED`→`PINK`,
+   `PURPLE`→`ROSE`, other colors unchanged) via a one-time Room migration.
+   Best-effort
    in-app text search via `data/pdf/PdfTextExtractor.kt` (parses content
    streams, FlateDecode via `java.util.zip.Inflater`, Tj/TJ operators).
    AI tools panel (summarize / key terms / flashcards / explain simple
@@ -108,22 +123,38 @@ specified.
    banner when permissions are missing, completed-session stats. Explicit
    toggles only; easy to disable in Settings or by uninstalling. **No hidden
    monitoring.**
-9. **Mascot** — cat "Mimi" and dog "Bantay" as original vector drawables
-   (one hand-drawn shape set per mood: sleeping, happy, curious, disappointed,
-   celebrating, encouraging, dramatic), 12+ original lines each (Taglish
-   voice per `shared/DESIGN.md`), reacts during focus sessions and streaks.
-   Settings: mute, reduce animation, disable commentary, Serious Mode.
+9. **Mascot** — "Mochi", a small fluffy pink-and-white cat in a tiny white
+   lab coat with a mini lab badge (default), and the optional dog companion
+   "Bantay" — original vector drawables (Mochi has one drawing per mood:
+   happy, sleepy, studying, celebrating, confused, encouraging,
+   disappointed, excited), 12+ original lines each (Taglish voice per
+   `shared/DESIGN.md`), reacts during focus sessions and streaks. The mascot
+   is renamable in Settings (default "Mochi"); mute, reduce animation,
+   disable commentary, Serious Mode all supported.
 10. **Update checker** — GitHub Releases API
     (`dazoarmando29/MedTech-Review-Hub`) compared against
     `BuildConfig.VERSION_NAME` with semver; dismissible dialog with release
     notes, "Download" link (`ACTION_VIEW`), "Later", "Don't remind for this
     version" (stored in DataStore). **Never auto-installs APKs.**
-11. **Settings** — theme (system/light/dark), text scale (100–150%),
-    explanation style, notification prefs, focus permission status + deep
+11. **Settings** — Design System v2 theme picker: **Strawberry Milk**
+    (default), **Sakura Blossom**, **Lavender Dreams**, **Cozy Night**
+    (dark), **Minimal Study**, plus **System** (keeps the legacy
+    system/light/dark behaviour); text scale (100–150%), mascot companion +
+    mascot name (default "Mochi"), display name (default "future MLS"),
+    gift note, explanation style, highlight color meanings with the v2
+    legend labels, notification prefs, focus permission status + deep
     links, API base URL (default empty = fully offline), account sign-in
     against `/auth/*` with best-effort background sync (WorkManager), JSON
     data export (share via SAF), About + disclaimers screen.
-12. **Offline-first** — every feature works with zero network. Network is used
+12. **Philippine ASCPi resources** — a Resources screen (bottom nav) reading
+    `shared/content/resources.json` via the `copyContentAssets` Gradle task:
+    review centers (name, location, program, description, posted fee note,
+    inclusions, contact), official ASCP links (opened via `ACTION_VIEW`),
+    reading list (title, authors, edition, publisher, year, description,
+    licenseNote), exam info entries and the disclaimer at the bottom. When
+    the file is not bundled in a build the screen shows an honest empty
+    state — content is never invented.
+13. **Offline-first** — every feature works with zero network. Network is used
     only for optional sync, AI tools, and the update check.
 
 ## Release signing (GitHub Actions)

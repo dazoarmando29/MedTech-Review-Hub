@@ -298,13 +298,15 @@ private fun HighlightDialog(
         text = {
             Column {
                 Text("Semantic color (meanings editable in Settings):", style = MaterialTheme.typography.bodySmall)
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    HighlightColor.entries.forEach { c ->
-                        FilterChip(
-                            selected = color == c,
-                            onClick = { color = c },
-                            label = { Text(c.name.take(1), color = c.composeColor()) }
-                        )
+                HighlightColor.entries.toList().chunked(3).forEach { chunk ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        chunk.forEach { c ->
+                            FilterChip(
+                                selected = color == c,
+                                onClick = { color = c },
+                                label = { Text(c.label, color = c.composeColor()) }
+                            )
+                        }
                     }
                 }
                 Text(meanings[color] ?: "", style = MaterialTheme.typography.bodySmall)

@@ -263,7 +263,7 @@ fun QuizResultScreen(
         val pct = (result.score * 100).toInt()
         MascotBubble(
             kind = mascotKind,
-            mood = if (pct >= 75) MascotMood.CELEBRATING else if (pct >= 50) MascotMood.ENCOURAGING else MascotMood.DRAMATIC,
+            mood = if (pct >= 75) MascotMood.CELEBRATING else if (pct >= 50) MascotMood.HAPPY else MascotMood.ENCOURAGING,
             line = when {
                 pct >= 75 -> "Grabe! $pct% — pang-topnotcher ang performance!"
                 pct >= 50 -> "Solid, $pct%. Konting polish pa sa weak topics."

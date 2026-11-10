@@ -109,7 +109,7 @@
   "followUp": ["immunology/serology-autoimmune"],
   "references": [
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on immunology and immunoglobulins", "url": null },
-    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., chapters on specific proteins and immune assays", "url": null },
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on specific proteins and immune assays", "url": null },
     { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., immunology fundamentals", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

@@ -94,7 +94,7 @@
   "relatedFlashcardIds": ["bb-fc-001", "bb-fc-002", "bb-fc-003"],
   "followUp": ["blood-banking/rh-hdfn", "blood-banking/transfusion-practice"],
   "references": [
-    { "title": "Harmening's Blood Banking and Transfusion Fundamentals", "detail": "6th ed., Ch. 2 (ABO Blood Group System)", "url": null },
+    { "title": "Modern Blood Banking and Transfusion Practices (Harmening)", "detail": "6th ed., F. A. Davis, Ch. 2 (ABO Blood Group System)", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., blood banking section (immunohematology)", "url": null }
   ],
   "editorialStatus": "PUBLISHED",

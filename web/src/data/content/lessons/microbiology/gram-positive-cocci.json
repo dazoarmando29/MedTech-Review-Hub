@@ -102,7 +102,7 @@
   "relatedFlashcardIds": ["mic-fc-001", "mic-fc-002", "mic-fc-003"],
   "followUp": ["microbiology/enteric-gnr-sterile-sites"],
   "references": [
-    { "title": "Bailey and Scott's Diagnostic Microbiology", "detail": "16th ed., chapters on gram-positive cocci and aerobic bacteriology", "url": null },
+    { "title": "Bailey and Scott's Diagnostic Microbiology", "detail": "16th ed., Tille, Elsevier, chapters on gram-positive cocci and aerobic bacteriology", "url": null },
     { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., sections on bacteriology and culture interpretation", "url": null },
     { "title": "CDC laboratory resources", "detail": "General laboratory practice guidance", "url": "https://www.cdc.gov/labquality/" }
   ],

@@ -1,29 +1,33 @@
 'use client';
 
-// Home dashboard — answers "What should I study next?" first.
+// Personalized pink dashboard — answers "What should I study next?" first.
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useMemo } from 'react';
-import { Badge, Card, EmptyState, ProgressRing, SectionTitle, StatTile } from '@/components/ui';
+import React, { useMemo, useState } from 'react';
+import { Badge, Card, EmptyState, SectionTitle, StatTile, cx } from '@/components/ui';
+import { Mochi } from '@/components/Mochi';
+import { IconGarden, IconSparkle } from '@/components/icons';
 import { getLesson, getSubject, lessons } from '@/lib/content';
+import { computeStreak, pickMotivation, weeklyWrapped, flowerStage } from '@/lib/cozy';
 import { examCountdownDays, planForDate } from '@/lib/plan';
 import {
-  dueCardList, minutesToday, questionsAnsweredToday, recentAccuracy, streakDays,
-  todayKey, totalMinutes, useStore, completePlanItem,
+  completePlanItem, dueCardList, minutesToday, questionsAnsweredToday,
+  recentAccuracy, todayKey, totalMinutes, useStore,
 } from '@/lib/store';
 
 export default function DashboardPage() {
-  const router = useRouter();
   const profile = useStore((s) => s.profile);
   const plan = useStore((s) => s.plan);
   const lessonProgress = useStore((s) => s.lessonProgress);
   const quizAttempts = useStore((s) => s.quizAttempts);
+  const settings = useStore((s) => s.settings);
+  const garden = useStore((s) => s.garden);
   const cardsDue = useStore((s) => dueCardList(s).length);
-  const streak = useStore((s) => streakDays(s));
+  const streak = useStore((s) => computeStreak(s));
   const minutes = useStore((s) => minutesToday(s));
   const answered = useStore((s) => questionsAnsweredToday(s));
   const accuracy = useStore((s) => recentAccuracy(s));
   const total = useStore((s) => totalMinutes(s));
+  const [showWrapped, setShowWrapped] = useState(false);
 
   const todayPlan = planForDate(plan, todayKey());
   const countdown = examCountdownDays(profile);
@@ -37,10 +41,7 @@ export default function DashboardPage() {
     return lessons.find((l) => !lessonProgress[l.id]?.completedAt) ?? lessons[0];
   }, [lessonProgress]);
 
-  const resumeQuiz = useMemo(() => {
-    const unfinished = quizAttempts.filter((a) => !a.finished).slice(-1)[0];
-    return unfinished ?? null;
-  }, [quizAttempts]);
+  const resumeQuiz = useMemo(() => quizAttempts.filter((a) => !a.finished).slice(-1)[0] ?? null, [quizAttempts]);
 
   const suggested = useMemo(() => {
     const weakest = profile?.weakestSubjects?.[0];
@@ -67,65 +68,90 @@ export default function DashboardPage() {
     return out;
   });
 
+  const wrapped = useStore((s) => weeklyWrapped(s));
+
   if (!profile?.onboardingCompleted) {
     return (
-      <EmptyState
-        icon="🎓"
-        title="Welcome to MedTech Review Hub"
-        hint="Let's build your personalized ASCPi review plan. It takes about two minutes — and you can change anything later."
-        action={
-          <Link href="/onboarding/" className="btn-primary">
-            Start onboarding
-          </Link>
-        }
-      />
+      <div className="hero-gradient p-8 sm:p-12">
+        <div className="flex flex-wrap items-center gap-8">
+          <Mochi mood="excited" size={150} className="loading-mochi" />
+          <div className="flex-1 min-w-[260px]">
+            <h1 className="font-display text-3xl font-bold">Welcome to your study companion 🌸</h1>
+            <p className="mt-2 text-sm max-w-md" style={{ color: 'var(--muted-strong)' }}>
+              A cozy little corner for a future Medical Laboratory Scientist. Let’s build your
+              personalized ASCPi review plan — it takes about two minutes, and you can change
+              anything later.
+            </p>
+            <Link href="/onboarding/" className="btn-primary mt-5">Start onboarding</Link>
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      <section className="flex flex-wrap items-center gap-4">
-        <div className="flex-1 min-w-[240px]">
-          <h1 className="font-heading text-2xl font-bold">
-            {greeting()}, future RMT {profile.examTarget === 'PH_BOARD' ? '(PH Board)' : profile.examTarget === 'MLS_ASCPI' ? '(MLS ASCPi)' : ''}
-          </h1>
-          <p className="text-[var(--ink-muted)] text-sm mt-1">
-            {countdown !== null
-              ? `${countdown} days to your target exam date. `
-              : 'Set your exam date in Settings to enable the countdown. '}
-            You have studied {total} minutes in total.
-          </p>
+      {/* greeting hero */}
+      <section className="hero-gradient p-6 sm:p-8">
+        <div className="flex flex-wrap items-center gap-6">
+          <div className="flex-1 min-w-[260px]">
+            <h1 className="font-display text-2xl sm:text-3xl font-bold">
+              {greeting()}, {settings.displayName || 'future MLS'}! 🌸
+            </h1>
+            <p className="mt-1 text-sm" style={{ color: 'var(--muted-strong)' }}>
+              Another day closer to that ASCPi dream.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {countdown !== null && (
+                <span className="chip">
+                  🌷 {countdown} {countdown === 1 ? 'day' : 'days'} to your target exam
+                </span>
+              )}
+              <span className="chip">🔥 {streak}-day streak</span>
+              <span className="chip">⏱ {minutes} min today</span>
+            </div>
+          </div>
+          <Mochi mood={minutes > 0 ? 'happy' : 'encouraging'} size={130} />
         </div>
-        <ProgressRing
-          percent={todayPlan ? completedToday / Math.max(1, todayPlan.items.length) : 0}
-          label="Today's plan completion"
-        />
       </section>
 
+      {/* motivation + gift note */}
+      <section className="grid lg:grid-cols-3 gap-4">
+        <div className="card-soft p-5 lg:col-span-2">
+          <div className="flex items-center gap-2">
+            <IconSparkle size={18} />
+            <p className="font-heading font-bold">{settings.motivationNote || pickMotivation()}</p>
+          </div>
+          <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+            {settings.motivationNote ? 'Your personal note (edit in Settings → Personal Touch)' : 'Today’s motivation'}
+          </p>
+        </div>
+        <div className="card p-5 border-l-4" style={{ borderLeftColor: 'var(--primary-soft)' }}>
+          <p className="text-sm italic leading-relaxed">“{settings.giftNote}”</p>
+          <p className="text-[11px] mt-2" style={{ color: 'var(--muted)' }}>A little note for you — edit it in Settings.</p>
+        </div>
+      </section>
+
+      {/* stats */}
       <section aria-label="Key statistics" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-        <StatTile label="Streak" value={<span className="streak-flame">{streak} 🔥</span>} sub="consecutive study days" />
-        <StatTile label="Minutes today" value={minutes} sub={`goal ${profile.minutesPerDay} min`} accent="var(--brand-2)" />
-        <StatTile label="Flashcards due" value={cardsDue} sub="FSRS schedule" accent="var(--brand-3)" href="/flashcards/" />
+        <StatTile label="Streak" value={<span>{streak} 🔥</span>} sub="study days in a row" />
+        <StatTile label="Minutes today" value={minutes} sub={`goal ${profile.minutesPerDay} min`} />
+        <StatTile label="Flashcards due" value={cardsDue} sub="FSRS schedule" href="/flashcards/" />
         <StatTile label="Questions today" value={answered} sub="answered" href="/quiz/" />
         <StatTile
           label="Recent accuracy"
           value={accuracy === null ? '—' : `${Math.round(accuracy * 100)}%`}
-          sub="last 5 quizzes (estimate, not ASCP score)"
-          accent="var(--accent)"
+          sub="your own estimate — not an ASCP score"
           href="/quiz/"
         />
-        <StatTile
-          label="Exam countdown"
-          value={countdown === null ? '—' : `${countdown}d`}
-          sub="target date"
-          href="/settings/"
-        />
+        <StatTile label="Total studied" value={`${Math.round(total / 60)}h`} sub="all time" href="/planner/" />
       </section>
 
+      {/* plan + continue */}
       <section className="grid lg:grid-cols-3 gap-4">
-        <Card className="lg:col-span-2">
-          <SectionTitle icon="📋" action={<Link href="/planner/" className="text-sm underline">Full plan</Link>}>
-            Today&rsquo;s study goals
+        <div className="card p-5 lg:col-span-2">
+          <SectionTitle icon="📋" action={<Link href="/planner/" className="text-sm link-cute">Full plan</Link>}>
+            Today’s study plan
           </SectionTitle>
           {todayPlan ? (
             <ul className="space-y-2">
@@ -133,26 +159,26 @@ export default function DashboardPage() {
                 const subject = getSubject(item.subjectId);
                 const lesson = item.lessonId ? getLesson(item.lessonId) : null;
                 return (
-                  <li key={item.id} className="flex items-center gap-3 rounded-md border border-slate-200 dark:border-slate-700 p-3">
+                  <li key={item.id} className="flex items-center gap-3 rounded-[14px] border p-3" style={{ borderColor: 'var(--line)', background: 'var(--surface-2)' }}>
                     <input
                       type="checkbox"
                       checked={item.completed}
                       onChange={(e) => completePlanItem(todayPlan.date, item.id, e.target.checked)}
-                      className="h-5 w-5"
+                      className="h-5 w-5 rounded accent-pink-600"
                       aria-label={`Mark ${item.type} complete`}
                     />
                     <div className="flex-1">
                       <div className="text-sm font-semibold">
                         {lesson ? lesson.title : `${item.type.replace('_', ' ')} — ${subject?.shortName ?? item.subjectId}`}
                       </div>
-                      <div className="text-xs text-[var(--ink-muted)]">
+                      <div className="text-xs" style={{ color: 'var(--muted)' }}>
                         {item.targetMinutes} min · {subject?.shortName}
                       </div>
                     </div>
                     {lesson && (
                       <Link
                         href={`/library/${lesson.subjectId}/${encodeURIComponent(lesson.id.split('/')[1])}/`}
-                        className="btn-ghost !py-1.5 !px-3 !min-h-[36px] text-xs"
+                        className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs"
                       >
                         Open
                       </Link>
@@ -162,19 +188,24 @@ export default function DashboardPage() {
               })}
             </ul>
           ) : (
-            <p className="text-sm text-[var(--ink-muted)]">
-              No plan yet. <Link href="/onboarding/" className="underline">Generate your study plan</Link>.
+            <p className="text-sm" style={{ color: 'var(--muted)' }}>
+              No plan yet. <Link href="/onboarding/" className="link-cute">Generate your study plan</Link>.
             </p>
           )}
-        </Card>
+          {todayPlan && (
+            <p className="text-xs mt-3" style={{ color: 'var(--muted)' }}>
+              {completedToday}/{todayPlan.items.length} done today — small progress is still progress.
+            </p>
+          )}
+        </div>
 
         <div className="space-y-4">
-          <Card>
-            <SectionTitle icon="📖">Continue reading</SectionTitle>
+          <div className="card p-5">
+            <SectionTitle icon="📖">Continue learning</SectionTitle>
             {continueLesson && (
               <div>
                 <div className="font-semibold text-sm">{continueLesson.title}</div>
-                <p className="text-xs text-[var(--ink-muted)] mt-1 line-clamp-2">{continueLesson.summary}</p>
+                <p className="text-xs mt-1 line-clamp-2" style={{ color: 'var(--muted)' }}>{continueLesson.summary}</p>
                 <Link
                   href={`/library/${continueLesson.subjectId}/${encodeURIComponent(continueLesson.id.split('/')[1])}/`}
                   className="btn-primary mt-3 w-full"
@@ -183,9 +214,9 @@ export default function DashboardPage() {
                 </Link>
               </div>
             )}
-          </Card>
+          </div>
 
-          <Card>
+          <div className="card p-5">
             <SectionTitle icon="⚡">Suggested next</SectionTitle>
             {suggested && (
               <div>
@@ -199,90 +230,96 @@ export default function DashboardPage() {
                 </Link>
               </div>
             )}
-          </Card>
+          </div>
 
           {resumeQuiz && (
-            <Card>
+            <div className="card p-5">
               <SectionTitle icon="📝">Resume quiz</SectionTitle>
-              <p className="text-xs text-[var(--ink-muted)]">
-                {resumeQuiz.questionIds.length - resumeQuiz.answers.length} questions remaining in your last session.
+              <p className="text-xs" style={{ color: 'var(--muted)' }}>
+                {resumeQuiz.questionIds.length - resumeQuiz.answers.length} questions remaining.
               </p>
               <Link href="/quiz/" className="btn-ghost mt-3 w-full">Resume session</Link>
-            </Card>
+            </div>
           )}
         </div>
       </section>
 
-      <section className="grid lg:grid-cols-2 gap-4">
-        <Card>
+      {/* week + garden + wrapped */}
+      <section className="grid lg:grid-cols-3 gap-4">
+        <div className="card p-5">
           <SectionTitle icon="📊">This week</SectionTitle>
-          <div className="flex items-end gap-2 h-32" role="img" aria-label="Weekly study minutes chart">
+          <div className="flex items-end gap-2 h-28" role="img" aria-label="Weekly study minutes chart">
             {weekly.map((d) => {
               const max = Math.max(60, ...weekly.map((x) => x.minutes));
               return (
                 <div key={d.date} className="flex-1 flex flex-col items-center gap-1">
                   <div
-                    className="w-full rounded-t-md"
+                    className="w-full rounded-t-full"
                     style={{
-                      height: `${Math.max(4, (d.minutes / max) * 100)}%`,
-                      background: d.minutes > 0 ? 'var(--brand-2)' : 'var(--slate-200, #e2e8f0)',
+                      height: `${Math.max(6, (d.minutes / max) * 100)}%`,
+                      background: d.minutes > 0 ? 'var(--primary-soft)' : 'var(--chip)',
                     }}
                     title={`${d.date}: ${d.minutes} min`}
                   />
-                  <span className="text-[10px] text-[var(--ink-muted)]">{d.date.slice(5)}</span>
+                  <span className="text-[10px]" style={{ color: 'var(--muted)' }}>{d.date.slice(5)}</span>
                 </div>
               );
             })}
           </div>
-          <p className="text-xs text-[var(--ink-muted)] mt-2">
-            Rest days are part of the plan — a missed day never resets your progress data.
-          </p>
-        </Card>
+        </div>
 
-        <Card>
-          <SectionTitle icon="🎯">Weakest subject focus</SectionTitle>
-          <WeakSubjectPanel />
-        </Card>
+        <div className="card p-5">
+          <SectionTitle icon="🌷" action={<Link href="/garden/" className="text-sm link-cute"><IconGarden size={16} /></Link>}>
+            Study Garden
+          </SectionTitle>
+          <div className="flex items-end gap-1 h-24">
+            {garden.flowers.slice(-8).map((f) => (
+              <span key={f.id} className="text-2xl" title={`${f.kind} — ${flowerStage(f)}`}>
+                {flowerStage(f) === 'bloom' ? '🌸' : flowerStage(f) === 'bud' ? '🌱' : flowerStage(f) === 'sprout' ? '🌿' : '🫘'}
+              </span>
+            ))}
+            {garden.flowers.length === 0 && (
+              <p className="text-xs self-center" style={{ color: 'var(--muted)' }}>
+                Study sessions plant flowers here. Your first seed is waiting! 🌱
+              </p>
+            )}
+          </div>
+          <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
+            {garden.flowers.filter((f) => flowerStage(f) === 'bloom').length} bloomed · {garden.flowers.length} planted
+          </p>
+        </div>
+
+        <div className="card p-5">
+          <SectionTitle icon="🎁">Weekly Wrapped</SectionTitle>
+          {!showWrapped ? (
+            <button className="btn-primary w-full" onClick={() => setShowWrapped(true)}>
+              Open this week’s recap
+            </button>
+          ) : (
+            <div className="text-sm space-y-1.5 confetti-pop">
+              <p><strong>{wrapped.minutes} minutes</strong> of study this week 🌸</p>
+              <p><strong>{wrapped.cardsReviewed}</strong> flashcards reviewed</p>
+              <p><strong>{wrapped.quizzesFinished}</strong> quizzes finished{wrapped.accuracy !== null && <> · {Math.round(wrapped.accuracy * 100)}% accuracy</>}</p>
+              {wrapped.bestSubject && <p>Best subject: <strong>{getSubject(wrapped.bestSubject)?.shortName ?? wrapped.bestSubject}</strong></p>}
+              <p className="italic" style={{ color: 'var(--muted-strong)' }}>{wrapped.topCompliment}</p>
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );
 }
 
-function WeakSubjectPanel() {
-  const profile = useStore((s) => s.profile);
-  const weak = profile?.weakestSubjects ?? [];
-  if (!weak.length) {
-    return (
-      <p className="text-sm text-[var(--ink-muted)]">
-        No weak subjects marked yet. Add them in{' '}
-        <Link href="/onboarding/" className="underline">onboarding</Link> and the planner will
-        automatically schedule extra time for them.
-      </p>
-    );
-  }
-  return (
-    <ul className="space-y-2">
-      {weak.map((id) => {
-        const subject = getSubject(id);
-        return (
-          <li key={id} className="flex items-center justify-between gap-2">
-            <div>
-              <div className="font-semibold text-sm">{subject?.name ?? id}</div>
-              <div className="text-xs text-[var(--ink-muted)]">1.5x planned study time</div>
-            </div>
-            <Link href={`/library/${id}/`} className="btn-ghost !py-1.5 !px-3 !min-h-[36px] text-xs">
-              Review
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
 function greeting(): string {
-  const h = new Date().getHours();
-  if (h < 12) return 'Good morning';
-  if (h < 18) return 'Good afternoon';
-  return 'Good evening';
+  try {
+    const hour = Number(
+      new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila', hour: 'numeric', hour12: false }),
+    );
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  } catch {
+    const h = new Date().getHours();
+    return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+  }
 }

@@ -60,9 +60,11 @@ import com.medtech.reviewhub.ui.quiz.QuizResultScreen
 import com.medtech.reviewhub.ui.quiz.QuizRunScreen
 import com.medtech.reviewhub.ui.quiz.QuizSetupScreen
 import com.medtech.reviewhub.ui.quiz.QuizViewModel
+import com.medtech.reviewhub.ui.resources.ResourcesScreen
 import com.medtech.reviewhub.ui.settings.AboutScreen
 import com.medtech.reviewhub.ui.settings.SettingsScreen
 import com.medtech.reviewhub.ui.settings.SettingsViewModel
+import com.medtech.reviewhub.ui.theme.AppTheme
 import com.medtech.reviewhub.ui.theme.MedTechTheme
 
 class MainActivity : ComponentActivity() {
@@ -74,12 +76,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             val settings by container.settings.settings.collectAsState(initial = null)
             val appSettings = settings
-            val dark = when (appSettings?.themeMode) {
-                ThemeMode.DARK -> true
-                ThemeMode.LIGHT -> false
-                else -> isSystemInDarkTheme()
+            // Design System v2: the persisted appTheme setting selects one of
+            // the five themes; "system" keeps the legacy ThemeMode behaviour
+            // (follow system / light / dark) with the new palette.
+            val appTheme = AppTheme.fromId(appSettings?.appTheme)
+            val dark = when (appTheme) {
+                AppTheme.NIGHT -> true
+                AppTheme.SYSTEM -> when (appSettings?.themeMode) {
+                    ThemeMode.DARK -> true
+                    ThemeMode.LIGHT -> false
+                    else -> isSystemInDarkTheme()
+                }
+                else -> false
             }
-            MedTechTheme(darkTheme = dark) {
+            MedTechTheme(appTheme = appTheme, darkTheme = dark) {
                 val density = LocalDensity.current
                 CompositionLocalProvider(
                     LocalDensity provides Density(
@@ -133,6 +143,7 @@ object Routes {
     const val PDF_READER = "pdf/{pdfId}"
     const val HABITS = "habits"
     const val FOCUS = "focus"
+    const val RESOURCES = "resources"
     const val SETTINGS = "settings"
     const val ABOUT = "about"
 
@@ -142,7 +153,7 @@ object Routes {
 
 private val bottomBarRoutes = setOf(
     Routes.HOME, Routes.LIBRARY, Routes.FLASHCARDS, Routes.QUIZ_SETUP,
-    Routes.HABITS, Routes.FOCUS, Routes.SETTINGS
+    Routes.HABITS, Routes.FOCUS, Routes.RESOURCES, Routes.SETTINGS
 )
 
 @Composable
@@ -182,6 +193,7 @@ fun ReviewHubNavGraph(container: AppContainer) {
                         Triple(Routes.QUIZ_SETUP, "Quiz", "Quiz"),
                         Triple(Routes.HABITS, "Habits", "Habits"),
                         Triple(Routes.FOCUS, "Focus", "Focus"),
+                        Triple(Routes.RESOURCES, "Resources", "Resources"),
                         Triple(Routes.SETTINGS, "Settings", "Settings")
                     ).forEach { (route, label, iconLabel) ->
                         NavigationBarItem(
@@ -409,6 +421,10 @@ fun ReviewHubNavGraph(container: AppContainer) {
                         mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
                         focusFeatureEnabled = settingsState?.focusFeatureEnabled ?: true
                     )
+                }
+
+                composable(Routes.RESOURCES) {
+                    ResourcesScreen()
                 }
 
                 composable(Routes.SETTINGS) {

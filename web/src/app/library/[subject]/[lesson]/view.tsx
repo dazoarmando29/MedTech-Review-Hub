@@ -3,29 +3,83 @@
 // Lesson view: Quick Review / Deep Study modes, keyword learning, highlights,
 // text-to-speech, practice questions, memory hooks, references.
 import Link from 'next/link';
-import { notFound, useParams } from 'next/navigation';
+import { notFound, useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Badge, Card, DataTable, EmptyState, RichText, SectionTitle, Tabs, cx } from '@/components/ui';
 import { getLesson, getQuestion, getSubject, questionBank } from '@/lib/content';
 import {
-  addHighlight, addCardFromSeed, setLessonProgress, toggleSavedQuestion, useStore,
+  addCardFromSeed, addGlossaryTerm, addHighlight, setLessonProgress, toggleSavedQuestion, useStore,
 } from '@/lib/store';
+import { newAttemptId, selectQuestions } from '@/lib/quiz';
+import { startQuiz } from '@/lib/store';
+import { api as ai, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
 import { speak, stopSpeaking, ttsSupported } from '@/lib/tts';
-import type { HighlightColor } from '@/lib/types';
+import type { HighlightColor, QuizAttempt } from '@/lib/types';
 
-const COLORS: HighlightColor[] = ['YELLOW', 'RED', 'BLUE', 'GREEN', 'PURPLE'];
+const COLORS: HighlightColor[] = ['YELLOW', 'PINK', 'PURPLE', 'BLUE', 'GREEN', 'ROSE'];
 
 export default function LessonView() {
   const params = useParams<{ subject: string; lesson: string }>();
+  const router = useRouter();
   const lesson = getLesson(`${params.subject}/${params.lesson}`);
   const [mode, setMode] = useState<'quick' | 'deep' | 'practice'>('quick');
   const [hideKeywords, setHideKeywords] = useState(false);
   const [selection, setSelection] = useState<string | null>(null);
   const [showHook, setShowHook] = useState(true);
+  const [aiText, setAiText] = useState<string | null>(null);
+  const [aiNote, setAiNote] = useState<string | null>(null);
+  const [rejected, setRejected] = useState<Record<string, boolean>>({});
   const seriousMode = useStore((s) => s.settings.seriousMode);
+  const apiBase = useStore((s) => s.settings.apiBaseUrl);
   const progress = useStore((s) => s.lessonProgress[lesson?.id ?? '']);
   const savedQuestions = useStore((s) => s.savedQuestions);
   const wrongQuestions = useStore((s) => s.wrongQuestions);
+
+  const explainSimply = async () => {
+    if (!lesson) return;
+    configureApi(apiBase);
+    setAiNote(null);
+    setAiText('Asking Mochi’s AI helper…');
+    try {
+      const res = await ai.aiExplain(
+        `${lesson.title}\n${lesson.summary}\n${lesson.deepStudy.introduction}\n${lesson.deepStudy.sections.map((s) => s.body).join('\n')}`,
+        'SIMPLE_ENGLISH',
+      );
+      setAiText(typeof res.result === 'string' ? res.result : JSON.stringify(res.result, null, 2));
+    } catch (e) {
+      setAiText(null);
+      setAiNote(
+        e instanceof AiUnavailableError
+          ? 'AI is not configured on the server right now — everything else in this lesson works offline.'
+          : e instanceof ApiUnavailableError
+            ? 'No server connection — try again later or study the Deep Study tab meanwhile.'
+            : 'Something went wrong asking the AI. Please try again.',
+      );
+    }
+  };
+
+  const quizMe = () => {
+    if (!lesson) return;
+    const selected = selectQuestions(
+      { kind: 'incorrect', questionIds: lesson.practiceQuestionIds, wrongQuestions: {} },
+      lesson.practiceQuestionIds.length,
+    );
+    const fallback = questionBank.filter((q) => q.subjectId === lesson.subjectId).slice(0, 5);
+    const use = selected.length ? selected : fallback;
+    const attempt: QuizAttempt = {
+      id: newAttemptId(),
+      startedAt: new Date().toISOString(),
+      finishedAt: null,
+      mode: 'STUDY',
+      filters: { label: `Quiz me — ${lesson.title}` },
+      questionIds: use.map((q) => q.id),
+      answers: [],
+      timeLimitSeconds: null,
+      finished: false,
+    };
+    startQuiz(attempt);
+    router.push('/quiz/');
+  };
 
   useEffect(() => {
     if (lesson) setLessonProgress(lesson.id, { percent: Math.max(progress?.percent ?? 0, 10) });
@@ -68,6 +122,29 @@ export default function LessonView() {
           <Badge tone={lesson.editorialStatus === 'PUBLISHED' ? 'success' : 'warn'}>
             {lesson.editorialStatus.toLowerCase()}
           </Badge>
+          <button className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={() => {
+            addCardFromSeed(
+              {
+                id: `fc-lesson-${Date.now()}`,
+                type: 'BASIC',
+                front: `Key points: ${lesson.title}`,
+                back: lesson.quickReview.highYield.slice(0, 3).join(' · '),
+                tags: ['from-lesson', lesson.topicId],
+                difficulty: 2,
+                source: { kind: 'MANUAL', lessonId: lesson.id },
+              },
+              'lesson-notes',
+              lesson.subjectId,
+            );
+          }}>
+            🃏 Turn this into a flashcard
+          </button>
+          <button className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={explainSimply}>
+            💬 Explain this simply
+          </button>
+          <button className="btn-primary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={quizMe}>
+            📝 Quiz me on this!
+          </button>
           {ttsSupported() && (
             <button
               className="btn-ghost !py-1.5 !px-3 !min-h-[36px] text-xs"
@@ -81,6 +158,59 @@ export default function LessonView() {
           <button className="btn-ghost !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={markRead}>
             ✅ Mark as studied
           </button>
+        </div>
+      </div>
+
+      {(aiText || aiNote) && (
+        <div className="card-soft p-4">
+          <SectionTitle icon="🤖">Simply explained</SectionTitle>
+          {aiNote && <p className="text-sm" style={{ color: 'var(--muted-strong)' }}>{aiNote}</p>}
+          {aiText && <RichText text={aiText} className="text-sm" />}
+          <button className="btn-ghost !py-1 !px-3 !min-h-[32px] text-xs mt-2" onClick={() => { setAiText(null); setAiNote(null); }}>
+            Close
+          </button>
+        </div>
+      )}
+
+      {/* automatic keyword suggestions — accept adds to your glossary */}
+      <div className="card-soft p-4">
+        <SectionTitle icon="🔑">Keyword suggestions for this lesson</SectionTitle>
+        <p className="text-xs mb-2" style={{ color: 'var(--muted)' }}>
+          Tap a keyword to save it to your personal glossary. Dismiss the ones you already know.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {lesson.keywords.map((k) => (
+            rejected[k] ? (
+              <button key={k} className="chip opacity-50" onClick={() => setRejected((r) => ({ ...r, [k]: false }))}>
+                {k} · dismissed (tap to restore)
+              </button>
+            ) : (
+              <span key={k} className="inline-flex gap-1">
+                <button
+                  className="chip hover:shadow-lift"
+                  title="Save to glossary"
+                  onClick={() =>
+                    addGlossaryTerm({
+                      id: `glo-key-${Date.now()}-${k.slice(0, 4)}`,
+                      term: k,
+                      definition: `Keyword from “${lesson.title}”. Add your own definition as you study.`,
+                      subjectId: lesson.subjectId,
+                      source: `lesson: ${lesson.id}`,
+                    })
+                  }
+                >
+                  ✨ {k}
+                </button>
+                <button
+                  className="chip"
+                  aria-label={`Dismiss ${k}`}
+                  onClick={() => setRejected((r) => ({ ...r, [k]: true }))}
+                >
+                  ✕
+                </button>
+              </span>
+            )
+          ))}
         </div>
       </div>
 
@@ -175,17 +305,17 @@ export default function LessonView() {
           </Card>
 
           {lesson.memoryHooks.length > 0 && !seriousMode && (
-            <Card className="bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900">
+            <Card className="border-l-4" style={{ borderLeftColor: 'var(--primary-soft)' }}>
               <SectionTitle icon="😹">Meme of the lesson</SectionTitle>
               {lesson.memoryHooks.map((h, i) => (
-                <div key={i} className="text-sm space-y-1">
+                <div key={i} className="sticky-note my-2">
                   <p>{h.text}</p>
                   {h.funny && showHook && (
-                    <p className="italic text-[var(--ink-muted)]">{h.funny}</p>
+                    <p className="italic mt-1 text-xs" style={{ color: 'var(--muted-strong)' }}>{h.funny}</p>
                   )}
                 </div>
               ))}
-              <p className="text-[11px] text-[var(--ink-muted)] mt-2">
+              <p className="text-[11px] mt-2" style={{ color: 'var(--muted)' }}>
                 Playful explanations are clearly labeled — the joke never replaces the clinical explanation.
                 <button className="underline ml-2" onClick={() => setShowHook((v) => !v)}>
                   {showHook ? 'hide joke' : 'show joke'}

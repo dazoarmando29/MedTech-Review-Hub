@@ -92,10 +92,10 @@ fun FocusScreen(
         MascotBubble(
             kind = mascotKind,
             mood = when (timer.phase) {
-                FocusTimerViewModel.Phase.WORK -> MascotMood.ENCOURAGING
-                FocusTimerViewModel.Phase.BREAK -> MascotMood.HAPPY
+                FocusTimerViewModel.Phase.WORK -> MascotMood.STUDYING
+                FocusTimerViewModel.Phase.BREAK -> MascotMood.SLEEPY
                 FocusTimerViewModel.Phase.DONE -> MascotMood.CELEBRATING
-                else -> MascotMood.CURIOUS
+                else -> MascotMood.HAPPY
             },
             line = when (timer.phase) {
                 FocusTimerViewModel.Phase.WORK -> "Focus mode ON. Blood Banking muna bago TikTok!"

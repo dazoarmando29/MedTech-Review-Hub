@@ -2,6 +2,7 @@ package com.medtech.reviewhub.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -34,28 +35,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.medtech.reviewhub.domain.model.HighlightColor
+import com.medtech.reviewhub.ui.theme.AppColors
 import com.medtech.reviewhub.ui.theme.HighlightBlue
 import com.medtech.reviewhub.ui.theme.HighlightGreen
+import com.medtech.reviewhub.ui.theme.HighlightPink
 import com.medtech.reviewhub.ui.theme.HighlightPurple
-import com.medtech.reviewhub.ui.theme.HighlightRed
+import com.medtech.reviewhub.ui.theme.HighlightRose
 import com.medtech.reviewhub.ui.theme.HighlightYellow
 
-/** Card container used across screens (shared/DESIGN.md "AppCard"). */
+/** Card container used across screens (shared/DESIGN.md v2 "SoftCard" / "AppCard"): 20dp radius, soft pink paper. */
 @Composable
 fun AppCard(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
+    val dark = MaterialTheme.colorScheme.background.luminance() < 0.5f
     Card(
         modifier = modifier.then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        border = BorderStroke(1.dp, if (dark) AppColors.cardBorderNight else AppColors.cardBorder),
         content = { Column(modifier = Modifier.padding(16.dp), content = content) }
     )
 }
@@ -184,8 +190,9 @@ fun Progressbar(percent: Float, modifier: Modifier = Modifier) {
 
 fun HighlightColor.composeColor(): Color = when (this) {
     HighlightColor.YELLOW -> HighlightYellow
-    HighlightColor.RED -> HighlightRed
+    HighlightColor.PINK -> HighlightPink
+    HighlightColor.PURPLE -> HighlightPurple
     HighlightColor.BLUE -> HighlightBlue
     HighlightColor.GREEN -> HighlightGreen
-    HighlightColor.PURPLE -> HighlightPurple
+    HighlightColor.ROSE -> HighlightRose
 }

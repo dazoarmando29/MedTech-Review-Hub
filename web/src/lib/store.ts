@@ -3,12 +3,14 @@
 'use client';
 
 import { useRef, useSyncExternalStore } from 'react';
+import { addGardenMinutes } from './cozy';
 import { decks as seedDecks, glossarySeed, questionBank } from './content';
 import { applyReview, isDue, newSchedule } from './fsrs';
 import type {
-  ContentIssueReport, DiaryEntry, FlashcardSeed, FocusSession, Habit, HighlightEntry,
-  LessonProgress, PdfAnnotation, PdfDocMeta, PlanDay, Profile, QuizAttempt, Rating,
-  ReviewRecord, Settings, StudyPlan, StudySession, UserCard,
+  CatRoomState, ContentIssueReport, DiaryEntry, FlashcardSeed, FocusSession, GardenFlower,
+  Habit, HighlightEntry, HighlightColor, LessonProgress, PdfAnnotation, PdfDocMeta,
+  PlanDay, Profile, QuizAttempt, Rating, ReviewRecord, Settings, StudyPlan, StudySession,
+  ThemeId, UserCard,
 } from './types';
 
 const STORAGE_KEY = 'mtrh-state-v1';
@@ -40,6 +42,8 @@ export interface AppState {
   glossary: GlossaryTermSeed[];
   reports: ContentIssueReport[];
   admin: AdminOverride;
+  garden: { flowers: GardenFlower[] };
+  catRoom: CatRoomState;
   lastSyncAt: string | null;
 }
 
@@ -56,11 +60,18 @@ interface GlossaryTermSeed {
 
 export const DEFAULT_SETTINGS: Settings = {
   theme: 'system',
+  appTheme: 'strawberry',
   textScale: 100,
   seriousMode: false,
   reduceMotion: false,
+  lowBandwidth: false,
+  funnyCommentary: true,
   mascot: 'cat',
+  mascotName: 'Mochi',
   mascotCommentary: true,
+  displayName: 'future MLS',
+  giftNote: 'Made with love for a future Medical Laboratory Scientist — someone believes in you. 🌸',
+  motivationNote: '',
   explanationStyle: 'FORMAL_ENGLISH',
   ttsEnabled: false,
   apiBaseUrl: 'https://medtech-review-hub-api.dazoarmando.workers.dev',
@@ -68,12 +79,23 @@ export const DEFAULT_SETTINGS: Settings = {
   dailyReviewLimit: 200,
   targetRetention: 0.9,
   highlightColors: {
-    YELLOW: 'Must memorize',
-    RED: 'High-priority exam fact',
-    BLUE: 'Definition',
-    GREEN: 'Fully understood',
-    PURPLE: 'Confusing / needs further study',
+    YELLOW: 'Important fact',
+    PINK: 'Must memorize',
+    PURPLE: 'Definition',
+    BLUE: 'Clinical significance',
+    GREEN: 'Already mastered',
+    ROSE: 'Needs review',
   },
+};
+
+// v1.0.0 default meanings — replaced by v2 defaults on migration only when the
+// user never customized them (custom labels are always preserved).
+const V1_HIGHLIGHT_DEFAULTS = {
+  YELLOW: 'Must memorize',
+  RED: 'High-priority exam fact',
+  BLUE: 'Definition',
+  GREEN: 'Fully understood',
+  PURPLE: 'Confusing / needs further study',
 };
 
 function seedCards(): Record<string, UserCard> {
@@ -102,7 +124,7 @@ function seedCards(): Record<string, UserCard> {
   return out;
 }
 
-function initialState(): AppState {
+export function initialState(): AppState {
   return {
     profile: null,
     settings: { ...DEFAULT_SETTINGS },
@@ -123,8 +145,57 @@ function initialState(): AppState {
     glossary: glossarySeed.map((g) => ({ ...g })),
     reports: [],
     admin: { lessons: {}, questions: {}, statuses: {}, audit: [] },
+    garden: { flowers: [] },
+    catRoom: { equipped: [] },
     lastSyncAt: null,
   };
+}
+
+/** Upgrades v1.0.0 persisted state to the v2 (pink) schema without data loss. */
+export function migrateState(raw: Partial<AppState>): Partial<AppState> {
+  const out: Partial<AppState> = { ...raw };
+  const settings = { ...(raw.settings ?? {}) } as Partial<Settings> & Record<string, unknown>;
+
+  // theme (v1: system|light|dark) -> appTheme (v2: theme id or 'system')
+  if (settings.appTheme === undefined) {
+    settings.appTheme =
+      settings.theme === 'dark' ? 'night' : settings.theme === 'light' ? 'strawberry' : 'system';
+  }
+  // highlight color labels: upgrade untouched v1 defaults to v2 defaults
+  const hc = settings.highlightColors as Record<string, string> | undefined;
+  if (hc) {
+    const isUntouchedV1 =
+      hc.YELLOW === V1_HIGHLIGHT_DEFAULTS.YELLOW &&
+      hc.BLUE === V1_HIGHLIGHT_DEFAULTS.BLUE &&
+      hc.GREEN === V1_HIGHLIGHT_DEFAULTS.GREEN &&
+      hc.PURPLE === V1_HIGHLIGHT_DEFAULTS.PURPLE;
+    if (isUntouchedV1 || hc.RED !== undefined) {
+      // legacy keys are remapped: RED annotation colors become PINK, PURPLE become ROSE
+      // (see DESIGN.md v2 migration table); labels get the v2 defaults unless customized.
+      settings.highlightColors = {
+        YELLOW: hc.YELLOW === V1_HIGHLIGHT_DEFAULTS.YELLOW ? DEFAULT_SETTINGS.highlightColors.YELLOW : hc.YELLOW,
+        PINK: hc.RED === V1_HIGHLIGHT_DEFAULTS.RED || hc.RED === undefined ? DEFAULT_SETTINGS.highlightColors.PINK : hc.RED,
+        PURPLE: hc.BLUE === V1_HIGHLIGHT_DEFAULTS.BLUE ? DEFAULT_SETTINGS.highlightColors.PURPLE : hc.BLUE ?? hc.PURPLE ?? DEFAULT_SETTINGS.highlightColors.PURPLE,
+        BLUE: DEFAULT_SETTINGS.highlightColors.BLUE,
+        GREEN: hc.GREEN === V1_HIGHLIGHT_DEFAULTS.GREEN ? DEFAULT_SETTINGS.highlightColors.GREEN : hc.GREEN,
+        ROSE: hc.PURPLE === V1_HIGHLIGHT_DEFAULTS.PURPLE || hc.PURPLE === undefined ? DEFAULT_SETTINGS.highlightColors.ROSE : hc.PURPLE,
+      } as Settings['highlightColors'];
+    }
+  }
+  out.settings = settings as Settings;
+
+  // legacy annotation/highlight color keys -> v2 keys
+  const mapLegacy = (c: string): HighlightColor =>
+    c === 'RED' ? 'PINK' : c === 'PURPLE' ? 'ROSE' : (c as HighlightColor);
+  if (raw.pdfAnnotations) {
+    out.pdfAnnotations = raw.pdfAnnotations.map((a) => ({ ...a, color: mapLegacy(a.color) }));
+  }
+  if (raw.highlights) {
+    out.highlights = raw.highlights.map((h) => ({ ...h, color: mapLegacy(h.color) }));
+  }
+  if (!raw.garden) out.garden = { flowers: [] };
+  if (!raw.catRoom) out.catRoom = { equipped: [] };
+  return out;
 }
 
 function load(): AppState {
@@ -132,7 +203,7 @@ function load(): AppState {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return initialState();
-    const parsed = JSON.parse(raw) as Partial<AppState>;
+    const parsed = migrateState(JSON.parse(raw) as Partial<AppState>);
     const base = initialState();
     const merged: AppState = {
       ...base,
@@ -140,8 +211,9 @@ function load(): AppState {
       settings: { ...base.settings, ...(parsed.settings ?? {}) },
       cards: { ...base.cards, ...(parsed.cards ?? {}) },
       admin: { ...base.admin, ...(parsed.admin ?? {}) },
+      garden: parsed.garden ?? base.garden,
+      catRoom: parsed.catRoom ?? base.catRoom,
     };
-    // New library cards added since last visit are merged in.
     return merged;
   } catch {
     return initialState();
@@ -316,7 +388,21 @@ export function toggleSavedQuestion(questionId: string): void {
 // ---------- sessions / habits / diary ----------
 
 export function logSession(session: StudySession): void {
-  setState((s) => ({ ...s, sessions: [...s.sessions, session] }));
+  setState((s) => ({
+    ...s,
+    sessions: [...s.sessions, session],
+    // every completed study session helps the Study Garden grow
+    garden: { flowers: addGardenMinutes(s.garden.flowers, session.minutes) },
+  }));
+}
+
+export function equipCatItem(id: string): void {
+  setState((s) => {
+    const equipped = s.catRoom.equipped.includes(id)
+      ? s.catRoom.equipped.filter((x) => x !== id)
+      : [...s.catRoom.equipped, id];
+    return { ...s, catRoom: { equipped } };
+  });
 }
 
 export function addHabit(habit: Habit): void {
