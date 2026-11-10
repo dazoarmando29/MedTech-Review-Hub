@@ -20,7 +20,13 @@ Honest inventory as of v1.0.0.
 
 ## Simplifications
 
-- **Backend rate limiting** is an in-memory token bucket (fine for a single
+- **Cloudflare Worker backend** (production) vs Ktor backend (reference):
+  the Worker implements the same v1 contract but does not include the admin CMS
+  routes, mail-based password reset, or PDF binary file storage (metadata +
+  annotations do sync; R2 binding is prepared in `cloudflare-worker/wrangler.toml`).
+- **Worker rate limiting** is per-isolate in-memory (best-effort); use Durable
+  Objects for strict global limits.
+- **Backend rate limiting** (Ktor) is an in-memory token bucket (fine for a single
   instance; swap in Redis for horizontal scaling).
 - **PDF file storage** on the backend is local disk (`MEDIA_ROOT`); swap `PdfService`
   for S3-compatible object storage in production.

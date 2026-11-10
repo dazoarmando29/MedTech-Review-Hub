@@ -106,13 +106,15 @@ export default function SettingsPage() {
       <Card>
         <SectionTitle icon="☁️">Sync &amp; account (optional)</SectionTitle>
         <p className="text-sm text-[var(--ink-muted)]">
-          The app is fully functional offline. If you want cross-device sync (website ↔ Android), run
-          the backend (see backend/README.md) and enter its URL here. Credentials are stored only on
-          this device and sent to the server you specify.
+          The app is fully functional offline. A hosted backend already exists on Cloudflare
+          (default below) — sign in on the Login page to sync this website with the Android app.
+          You can also self-host (see backend/README.md or cloudflare-worker/README.md) and
+          point the URL there. Credentials are stored only on this device and sent only to the
+          server you specify.
         </p>
         <label className="block text-sm mt-3">
           Backend API base URL
-          <input className="input mt-1" placeholder="https://api.example.com/api/v1 or http://10.0.2.2:8080/api/v1"
+          <input className="input mt-1" placeholder="https://medtech-review-hub-api.dazoarmando.workers.dev"
             value={settings.apiBaseUrl} onChange={(e) => patch({ apiBaseUrl: e.target.value })} />
         </label>
       </Card>

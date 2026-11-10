@@ -26,10 +26,26 @@ directory `out`. Set `NEXT_PUBLIC_BASE_PATH` only if serving from a subpath.
 Rollback = promote a previous deployment in the provider's dashboard (each one
 maps to a commit).
 
-## Backend
+## Backend (Cloudflare Worker — current production)
 
-The backend deploys separately (the website is static; GitHub Pages cannot host
-Ktor/PostgreSQL). Recommended: Render / Railway / Fly.io / any JVM host.
+Live at `https://medtech-review-hub-api.dazoarmando.workers.dev` (code:
+`cloudflare-worker/`). Deployed with `npx wrangler deploy` from that directory
+(Node 22.12+). Database: Cloudflare D1 (`schema.sql`, content seeded from
+`shared/content/`). Secrets: `JWT_SECRET`, `GEMINI_API_KEY` (set via
+`npx wrangler secret put <NAME>` — never committed).
+
+- **Logs:** `npx wrangler tail` (live) or the Cloudflare dashboard → Workers →
+  medtech-review-hub-api → Logs.
+- **Rollback:** Cloudflare dashboard → Workers → Deployments → previous version →
+  "Rollback" (or `npx wrangler rollback <version-id>`).
+- **Backups:** `npx wrangler d1 export medtech-review-hub --remote --output=backup.sql`
+  on a schedule (D1 also has Time Travel point-in-time recovery).
+
+## Backend (Ktor + PostgreSQL — self-host reference)
+
+The Kotlin backend in `backend/` deploys separately (JVM host: Render / Railway /
+Fly.io / any JVM platform — the website is static; GitHub Pages cannot host
+Ktor/PostgreSQL).
 
 1. Provision PostgreSQL 15+ and note the JDBC URL.
 2. Set the environment variables from `backend/.env.example` (use a strong

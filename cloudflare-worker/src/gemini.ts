@@ -1,0 +1,173 @@
+// Gemini AI adapter (provider-agnostic per shared/api/API.md).
+// The API key exists ONLY as a Worker secret — never shipped to clients.
+// Every response must cite the source passage or explicitly say the answer is
+// not found in the provided document.
+
+import { HttpError, json, type Env } from './auth';
+
+interface AiEnvelope {
+  result: unknown;
+  citations: { pdfId?: string | null; page?: number | null; quote: string }[];
+  warnings: string[];
+  usage: { cached: boolean; tokensEstimate: number };
+}
+
+const cache = new Map<string, AiEnvelope>();
+const CACHE_LIMIT = 200;
+
+function cacheGet(key: string): AiEnvelope | null {
+  const hit = cache.get(key);
+  if (hit) {
+    cache.delete(key);
+    cache.set(key, hit);
+  }
+  return hit ?? null;
+}
+
+function cacheSet(key: string, value: AiEnvelope): void {
+  if (cache.size >= CACHE_LIMIT) {
+    const oldest = cache.keys().next().value as string | undefined;
+    if (oldest) cache.delete(oldest);
+  }
+  cache.set(key, value);
+}
+
+async function enforceBudget(env: Env, userId: string, estimate: number): Promise<void> {
+  const budget = Number(env.AI_DAILY_TOKEN_BUDGET ?? 20000);
+  const day = new Date().toISOString().slice(0, 10);
+  const row = await env.DB.prepare('SELECT tokens FROM ai_usage WHERE user_id = ? AND day = ?')
+    .bind(userId, day)
+    .first<{ tokens: number }>();
+  const used = row?.tokens ?? 0;
+  if (used + estimate > budget) {
+    throw new HttpError(429, 'RATE_LIMITED', 'Daily AI budget exhausted. Try again tomorrow.');
+  }
+  await env.DB.prepare(
+    `INSERT INTO ai_usage (user_id, day, tokens) VALUES (?, ?, ?)
+     ON CONFLICT(user_id, day) DO UPDATE SET tokens = tokens + excluded.tokens`,
+  )
+    .bind(userId, day, estimate)
+    .run();
+}
+
+const SYSTEM_RULES = `You are the AI study assistant inside MedTech Review Hub, an ASCPi board exam reviewer.
+Rules you MUST follow:
+1. Use ONLY the SOURCE TEXT provided in the prompt. If the answer is not supported by the source text, reply exactly: "Not found in the provided document." Never invent facts, reference values, or citations.
+2. When you state anything from the source, cite it inline as [p.<page>: "<short quote>"] when page info is given, otherwise ["<short quote>"].
+3. Medical content: if the source seems ambiguous, outdated, or inconsistent, add a line starting with "WARNING:" describing the concern.
+4. Keep explanations exam-focused and accurate. Optional light Taglish only when the requested style is TAGLISH.
+5. Respond in plain text (markdown ok).`;
+
+async function callGemini(env: Env, prompt: string): Promise<{ text: string; tokensEstimate: number }> {
+  const key = env.GEMINI_API_KEY;
+  if (!key) throw new HttpError(503, 'AI_UNAVAILABLE', 'AI features are not configured on this server');
+  const model = env.GEMINI_MODEL ?? 'gemini-2.0-flash';
+
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: SYSTEM_RULES }] },
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
+          }),
+        },
+      );
+      if (!res.ok) {
+        const bodyText = await res.text();
+        if (res.status === 429 && attempt < 2) {
+          await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+          continue;
+        }
+        throw new HttpError(502, 'INTERNAL', `AI provider error ${res.status}: ${bodyText.slice(0, 200)}`);
+      }
+      const data = (await res.json()) as {
+        candidates?: { content?: { parts?: { text?: string }[] } }[];
+        usageMetadata?: { totalTokenCount?: number };
+      };
+      const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+      return {
+        text: text.trim() || 'No content generated.',
+        tokensEstimate: data.usageMetadata?.totalTokenCount ?? Math.ceil(prompt.length / 4) + 500,
+      };
+    } catch (e) {
+      lastErr = e;
+      if (e instanceof HttpError && e.status !== 502) throw e;
+      if (attempt < 2) await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
+    }
+  }
+  throw lastErr instanceof HttpError ? lastErr : new HttpError(502, 'INTERNAL', 'AI provider unreachable');
+}
+
+function parseEnvelope(text: string, pdfId?: string, page?: number, cached = false, tokens = 0): AiEnvelope {
+  const warnings = text
+    .split('\n')
+    .filter((l) => l.trim().startsWith('WARNING:'))
+    .map((l) => l.replace(/^WARNING:\s*/, '').trim());
+  const citationRegex = /\[(?:p\.(\d+):\s*)?"([^"]{4,120})"\]/g;
+  const citations: AiEnvelope['citations'] = [];
+  let m: RegExpExecArray | null;
+  while ((m = citationRegex.exec(text)) !== null) {
+    citations.push({ pdfId: pdfId ?? null, page: m[1] ? Number(m[1]) : (page ?? null), quote: m[2] });
+  }
+  return { result: text, citations, warnings, usage: { cached, tokensEstimate: tokens } };
+}
+
+export interface AiRequest {
+  text: string;
+  mode?: string;
+  style?: string;
+  pdfId?: string;
+  page?: number;
+}
+
+export async function runAiTool(
+  env: Env,
+  userId: string,
+  tool: 'summarize' | 'explain' | 'flashcards' | 'quiz' | 'keyterms' | 'outline' | 'diary-summary',
+  req: AiRequest,
+): Promise<Response> {
+  const source = (req.text ?? '').slice(0, 12000);
+  if (source.trim().length < 20) {
+    throw new HttpError(400, 'VALIDATION_ERROR', 'Provide at least some source text');
+  }
+
+  const cacheKey = `${tool}|${req.mode ?? ''}|${req.style ?? ''}|${source}`;
+  const cachedHit = cacheGet(cacheKey);
+  if (cachedHit) return json(cachedHit);
+
+  const pageNote = req.page ? ` (page ${req.page})` : '';
+  const styleNote = req.style === 'TAGLISH' ? ' Use Taglish for friendly asides only.' : req.style === 'SIMPLE_ENGLISH' ? ' Use simple English.' : '';
+
+  const prompts: Record<typeof tool, string> = {
+    summarize:
+      `Task: Summarize the following study material${pageNote} (${req.mode ?? 'PAGE'} level) for an exam candidate. ` +
+      `Include the key facts a student must memorize. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+    explain:
+      `Task: Explain the following passage in a way a struggling student understands.${styleNote} Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+    flashcards:
+      `Task: Generate 5-10 study flashcards from the source text. Format each as:\nQ: <question>\nA: <answer>\n` +
+      `Only use facts present in the source. Cite a quote per card.\n\nSOURCE TEXT:\n${source}`,
+    quiz:
+      `Task: Write 3 multiple-choice questions (4 options A-D, one best answer) from the source text. ` +
+      `For each: stem, options, correct letter, short rationale for each option, and a misconception note. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+    keyterms:
+      `Task: Extract the key terms and their definitions from the source text as a bullet list. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+    outline:
+      `Task: Create a study outline (headings + bullets) of the source text. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+    'diary-summary':
+      `Task: Summarize the student's diary entries below. Identify recurring difficulties and suggest 2-3 concrete next steps. ` +
+      `Be encouraging; never shame missed days. Cite quotes where you reference specific struggles.\n\nDIARY:\n${source}`,
+  };
+
+  await enforceBudget(env, userId, 800);
+  const { text, tokensEstimate } = await callGemini(env, prompts[tool]);
+  const envelope = parseEnvelope(text, req.pdfId, req.page, false, tokensEstimate);
+  cacheSet(cacheKey, envelope);
+  return json(envelope);
+}

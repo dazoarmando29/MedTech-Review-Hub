@@ -3,6 +3,21 @@
 All notable changes to MedTech Review Hub are documented here.
 Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
+## [Unreleased]
+
+### Added
+- **Cloudflare Worker backend + AI tools (live production deployment):**
+  `cloudflare-worker/` implements `shared/api/API.md` on Cloudflare Workers + D1
+  with Gemini-powered AI tools. Deployed at
+  `https://medtech-review-hub-api.dazoarmando.workers.dev` — accounts, cross-device
+  sync, and PDF AI tools now work out of the box (website default API URL wired).
+  - Auth (PBKDF2-SHA256, rotating refresh tokens, account deletion), profile,
+    study plans, sessions, analytics, flashcards with FSRS schedules, quiz
+    attempts, habits, diary, PDF metadata/annotations sync.
+  - AI endpoints (`/ai/*`) enforce document citations, "not found in document"
+    honesty, review warnings, per-user token budgets, caching, and `503
+    AI_UNAVAILABLE` fallback. Gemini key stored as a Worker secret only.
+
 ## [1.0.0] — 2026-11-11
 
 First stable release.

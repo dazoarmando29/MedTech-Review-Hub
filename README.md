@@ -12,15 +12,16 @@ Android app, and a shared sync backend.
 
 ```
 medtech-review-hub/
-├── android/        Kotlin + Jetpack Compose app (offline-first, FSRS flashcards,
-│                   quizzes, PDF reader, Android-only focus/app blocker, mascot)
-├── web/            Next.js 14 + TypeScript website (static export, PWA)
-├── backend/        Ktor 3 + PostgreSQL API (auth, sync, AI proxy, admin CMS)
-├── shared/         Contracts: API.md, CONTENT_SCHEMA.md, FSRS.md, DESIGN.md
-│   └── content/    Verified review library (lessons, questions, flashcards, formulas)
-├── database/       Reference schema (migrations live in backend resources)
-├── docs/           Setup, deployment, release, architecture, limitations
-└── .github/        CI, website deploy, Android build, release workflows
+├── android/             Kotlin + Jetpack Compose app (offline-first, FSRS flashcards,
+│                        quizzes, PDF reader, Android-only focus/app blocker, mascot)
+├── web/                 Next.js 14 + TypeScript website (static export, PWA)
+├── cloudflare-worker/   Live backend + AI tools on Cloudflare Workers + D1 + Gemini
+├── backend/             Ktor 3 + PostgreSQL reference backend (self-hostable)
+├── shared/              Contracts: API.md, CONTENT_SCHEMA.md, FSRS.md, DESIGN.md
+│   └── content/         Verified review library (lessons, questions, flashcards, formulas)
+├── database/            Reference schema (migrations live in backend resources)
+├── docs/                Setup, deployment, release, architecture, limitations
+└── .github/             CI, website deploy, Android build, release workflows
 ```
 
 ## Quick start
@@ -70,6 +71,9 @@ Full instructions: `docs/SETUP.md`.
 
 ## Deployment & releases
 
+- **Backend + AI tools (live):** https://medtech-review-hub-api.dazoarmando.workers.dev —
+  Cloudflare Worker + D1 + Gemini (`cloudflare-worker/`). The website is wired to
+  it by default (Settings → Sync), so accounts and AI tools work out of the box.
 - Website: every push to `main` deploys to GitHub Pages (see `docs/DEPLOYMENT.md`
   for Vercel/Cloudflare alternatives and rollback).
 - Android: `git tag v1.0.0 && git push origin v1.0.0` builds and attaches APK/AAB

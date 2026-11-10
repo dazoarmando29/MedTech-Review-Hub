@@ -62,3 +62,4 @@ venv/
 *.db
 !android/app/src/main/assets/*.db
 backups/
+cloudflare-worker/.seed.sql

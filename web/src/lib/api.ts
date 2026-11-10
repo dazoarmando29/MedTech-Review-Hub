@@ -21,7 +21,16 @@ let token: string | null = null;
 
 export function configureApi(url: string, accessToken?: string | null): void {
   baseUrl = url.replace(/\/$/, '');
-  token = accessToken ?? null;
+  if (accessToken !== undefined) {
+    token = accessToken;
+  } else if (typeof window !== 'undefined') {
+    try {
+      const saved = window.localStorage.getItem('mtrh-auth');
+      token = saved ? (JSON.parse(saved) as { token?: string }).token ?? null : null;
+    } catch {
+      token = null;
+    }
+  }
 }
 
 export function apiConfigured(): boolean {

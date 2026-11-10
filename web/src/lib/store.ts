@@ -63,7 +63,7 @@ export const DEFAULT_SETTINGS: Settings = {
   mascotCommentary: true,
   explanationStyle: 'FORMAL_ENGLISH',
   ttsEnabled: false,
-  apiBaseUrl: '',
+  apiBaseUrl: 'https://medtech-review-hub-api.dazoarmando.workers.dev',
   dailyNewCards: 20,
   dailyReviewLimit: 200,
   targetRetention: 0.9,
