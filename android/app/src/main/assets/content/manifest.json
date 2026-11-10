@@ -1,12 +1,174 @@
-{
-  "version": "1",
-  "subjects": [
-    { "id": "blood-banking", "name": "Blood Banking / Immunohematology" },
-    { "id": "clinical-chemistry", "name": "Clinical Chemistry" },
-    { "id": "hematology", "name": "Hematology" },
-    { "id": "microbiology", "name": "Microbiology" },
-    { "id": "immunology", "name": "Immunology" },
-    { "id": "urinalysis", "name": "Urinalysis / Body Fluids" },
-    { "id": "lab-operations", "name": "Laboratory Operations" }
-  ]
+﻿{
+    "version":  "1.1.0",
+    "generatedAt":  "2026-11-10T21:39:59Z",
+    "subjects":  [
+                     {
+                         "id":  "blood-banking",
+                         "name":  "Blood Banking / Immunohematology",
+                         "topics":  [
+                                        {
+                                            "id":  "abo-system",
+                                            "name":  "ABO System",
+                                            "lessonIds":  [
+                                                              "blood-banking/abo-basics"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "rh-hemolytic",
+                                            "name":  "Rh System and Hemolytic Disease",
+                                            "lessonIds":  [
+                                                              "blood-banking/rh-hdfn"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "transfusion-practice",
+                                            "name":  "Transfusion Practice",
+                                            "lessonIds":  [
+                                                              "blood-banking/transfusion-practice"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "clinical-chemistry",
+                         "name":  "Clinical Chemistry",
+                         "topics":  [
+                                        {
+                                            "id":  "enzymes-cardiac",
+                                            "name":  "Enzymes and Cardiac Markers",
+                                            "lessonIds":  [
+                                                              "clinical-chemistry/cardiac-enzymes"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "kidney-electrolytes",
+                                            "name":  "Kidney Function and Electrolytes",
+                                            "lessonIds":  [
+                                                              "clinical-chemistry/renal-electrolytes"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "endocrine-glucose",
+                                            "name":  "Endocrine: Glucose and Thyroid",
+                                            "lessonIds":  [
+                                                              "clinical-chemistry/endocrine-glucose"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "hematology",
+                         "name":  "Hematology",
+                         "topics":  [
+                                        {
+                                            "id":  "cbc-indices",
+                                            "name":  "CBC Indices and Instrument Flags",
+                                            "lessonIds":  [
+                                                              "hematology/cbc-indices"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "anemias",
+                                            "name":  "Anemias and Hemoglobinopathies",
+                                            "lessonIds":  [
+                                                              "hematology/anemias"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "hemostasis",
+                                            "name":  "Hemostasis Laboratory",
+                                            "lessonIds":  [
+                                                              "hematology/hemostasis"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "immunology",
+                         "name":  "Immunology and Serology",
+                         "topics":  [
+                                        {
+                                            "id":  "immunoglobulins-complement",
+                                            "name":  "Immunoglobulins, Complement, and Immunodeficiency",
+                                            "lessonIds":  [
+                                                              "immunology/immunoglobulins-complement"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "serology-autoimmune",
+                                            "name":  "Serologic Methods and Autoimmune Testing",
+                                            "lessonIds":  [
+                                                              "immunology/serology-autoimmune"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "lab-operations",
+                         "name":  "Laboratory Operations, Quality, and Safety",
+                         "topics":  [
+                                        {
+                                            "id":  "quality-safety",
+                                            "name":  "Quality Control, Regulatory Frameworks, and Biosafety",
+                                            "lessonIds":  [
+                                                              "lab-operations/quality-control-regulatory"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "preanalytic-operations",
+                                            "name":  "Preanalytic Errors, POCT, and Laboratory Mathematics",
+                                            "lessonIds":  [
+                                                              "lab-operations/preanalytic-poct-math"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "microbiology",
+                         "name":  "Diagnostic Microbiology",
+                         "topics":  [
+                                        {
+                                            "id":  "gram-positive",
+                                            "name":  "Gram-Positive Cocci",
+                                            "lessonIds":  [
+                                                              "microbiology/gram-positive-cocci"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "gram-negative",
+                                            "name":  "Gram-Negative Bacilli",
+                                            "lessonIds":  [
+                                                              "microbiology/enteric-gnr-sterile-sites"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "sterile-sites-mycology",
+                                            "name":  "Sterile Sites, Anaerobes, Mycology, AFB, and AST",
+                                            "lessonIds":  [
+                                                              "microbiology/enteric-gnr-sterile-sites"
+                                                          ]
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  "urinalysis",
+                         "name":  "Urinalysis and Body Fluids",
+                         "topics":  [
+                                        {
+                                            "id":  "physical-chemical",
+                                            "name":  "Physical and Chemical Examination",
+                                            "lessonIds":  [
+                                                              "urinalysis/physical-chemical-testing"
+                                                          ]
+                                        },
+                                        {
+                                            "id":  "body-fluids",
+                                            "name":  "Body Fluid Analysis",
+                                            "lessonIds":  [
+                                                              "urinalysis/body-fluid-analysis"
+                                                          ]
+                                        }
+                                    ]
+                     }
+                 ]
 }

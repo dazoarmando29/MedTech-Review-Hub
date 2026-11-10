@@ -1,56 +1,812 @@
 [
   {
-    "id": "ops-q-001",
+    "id": "lo-q-001",
     "subjectId": "lab-operations",
-    "topicId": "quality",
+    "topicId": "quality-safety",
     "type": "MCQ",
-    "vignette": "A chemistry control at +2.2 SD is observed on one control material; a second control is at +2.6 SD (both above the mean).",
-    "stem": "Which Westgard rule is violated and what action is required?",
+    "vignette": null,
+    "stem": "In the classic Westgard multirule set, a single control result exceeding 2 standard deviations from the mean (1-2s) should be interpreted as:",
     "choices": [
-      { "id": "A", "text": "1_2s warning only; accept the run" },
-      { "id": "B", "text": "2_2s; reject the run" },
-      { "id": "C", "text": "R_4s; reject the run" },
-      { "id": "D", "text": "1_3s; reject the run" }
-    ],
-    "correctChoiceId": "B",
-    "difficulty": "MEDIUM",
-    "explanation": "Two consecutive controls (or two different controls in the same run) exceeding 2 SD on the same side of the mean = 2_2s rule — a rejection rule indicating systematic error.",
-    "rationales": {
-      "A": "1_2s is a warning for a single control beyond 2 SD; here two controls exceed 2 SD.",
-      "B": "Correct: 2_2s violated — reject the run and investigate.",
-      "C": "R_4s requires a range exceeding 4 SD between controls (one high, one low).",
-      "D": "1_3s requires one control beyond 3 SD; neither control exceeds 3 SD here."
-    },
-    "misconception": "The '2' in 2_2s means TWO controls, not one control twice — the classic Westgard trap.",
-    "reference": "Henry's 24th ed., Ch. 3",
-    "lessonId": "lab-operations/quality-basics",
-    "examTraps": ["2_2s = two controls, same side, beyond 2 SD → reject."]
-  },
-  {
-    "id": "ops-q-002",
-    "subjectId": "lab-operations",
-    "topicId": "quality",
-    "type": "MCQ",
-    "vignette": "A patient's potassium result is 7.8 mmol/L but the sample is visibly hemolyzed; the patient is asymptomatic.",
-    "stem": "What is the most appropriate action?",
-    "choices": [
-      { "id": "A", "text": "Report the result as is with no comment" },
-      { "id": "B", "text": "Add a hemolysis comment and/or recollect a fresh sample before reporting" },
-      { "id": "C", "text": "Automatically correct the potassium mathematically" },
-      { "id": "D", "text": "Cancel the test permanently" }
+      { "id": "A", "text": "A rejection rule requiring immediate rejection of the run" },
+      { "id": "B", "text": "A warning rule requiring evaluation of the remaining rules before accepting the run" },
+      { "id": "C", "text": "A passing result requiring no action" },
+      { "id": "D", "text": "Evidence of calibration failure" }
     ],
     "correctChoiceId": "B",
     "difficulty": "EASY",
-    "explanation": "Hemolysis releases intracellular potassium causing pseudohyperkalemia. Best practice: recollect and/or report with an interpretive comment about hemolysis; never silently report or 'correct' the value.",
+    "explanation": "1-2s is a WARNING rule in the Westgard multirule scheme: it alerts the operator to inspect the other rules (1-3s, 2-2s, R-4s and supplementary rules) before deciding whether to accept the run. Rejection comes from the other rules.",
     "rationales": {
-      "A": "Reporting a spurious critical value without comment risks inappropriate treatment.",
-      "B": "Correct: comment and/or recollection is standard practice.",
-      "C": "There is no validated universal correction factor for hemolysis.",
-      "D": "Cancelling without follow-up leaves the clinical question unanswered."
+      "A": "1-2s alone does not reject a run; that is a classic wrong answer.",
+      "B": "Correct: 1-2s warns and triggers evaluation of the rest of the rule set.",
+      "C": "A warning always requires documented evaluation, not inaction.",
+      "D": "Calibration failure is one possible cause among many (random error, reagent drift, handling); the rule itself is a statistical signal."
     },
-    "misconception": "Pseudohyperkalemia is the most common spurious electrolyte result in the lab — always check sample quality.",
-    "reference": "Henry's 24th ed., Ch. 26",
-    "lessonId": "lab-operations/quality-basics",
-    "examTraps": ["Hemolyzed sample = spurious potassium; comment/recollect."]
+    "misconception": "Any out-of-limit control point rejects the run; the multirule concept exists precisely to separate warnings from rejections and control false rejection rates.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["1-2s = warning; 1-3s, 2-2s, R-4s = rejection. Memorize these verbatim."]
+  },
+  {
+    "id": "lo-q-002",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which Westgard rule rejects a run when two control results (either within the same run or across consecutive runs) exceed 2 standard deviations on the same side of the mean?",
+    "choices": [
+      { "id": "A", "text": "1-3s" },
+      { "id": "B", "text": "R-4s" },
+      { "id": "C", "text": "2-2s" },
+      { "id": "D", "text": "4-1s" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "The 2-2s rule rejects when two consecutive control measurements exceed 2 SD on the same side of the mean (within-run using two materials, or between-run using the same material), targeting systematic error.",
+    "rationales": {
+      "A": "1-3s rejects on a single control beyond 3 SD, targeting random error.",
+      "B": "R-4s rejects when the range between two controls in one run exceeds 4 SD, targeting random error.",
+      "C": "Correct: 2-2s targets systematic error with two beyond 2 SD on the same side.",
+      "D": "4-1s is a supplementary rule (four consecutive beyond 1 SD on the same side) also targeting systematic error."
+    },
+    "misconception": "2-2s is confused with R-4s; 2-2s is same-side systematic, R-4s is a wide range between controls (random).",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["2-2s = systematic (same side); R-4s = random (range 4 SD across two controls)."]
+  },
+  {
+    "id": "lo-q-003",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "SCENARIO",
+    "vignette": "On a chemistry analyzer, control level 1 is at mean plus 2.2 SD and control level 2 is at mean minus 2.3 SD within the same run. The operator is using the classic Westgard multirule set.",
+    "stem": "Which conclusion is correct?",
+    "choices": [
+      { "id": "A", "text": "The run must be rejected because the range between the two controls exceeds 4 SD (R-4s rule)" },
+      { "id": "B", "text": "The run is acceptable because no single control exceeded 3 SD" },
+      { "id": "C", "text": "The run must be rejected because of the 2-2s rule" },
+      { "id": "D", "text": "The run is acceptable because 1-2s only warns" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "The spread between plus 2.2 SD and minus 2.3 SD is about 4.5 SD, exceeding 4 SD; the R-4s rule rejects the run for possible random error even though no single control exceeded 3 SD.",
+    "rationales": {
+      "A": "Correct: range about 4.5 SD triggers R-4s rejection.",
+      "B": "Absence of a 1-3s violation does not make the run acceptable when another rejection rule fires.",
+      "C": "2-2s requires two results on the SAME side of the mean; these are on opposite sides.",
+      "D": "1-2s warns only, but R-4s here is an active rejection rule; the run cannot be accepted."
+    },
+    "misconception": "Only single-point violations matter; the range rule catches wide scatter between two controls in the same run even when neither crosses 3 SD.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["R-4s: one high, one low, spread beyond 4 SD = random error, reject."]
+  },
+  {
+    "id": "lo-q-004",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The standard deviation index (SDI) of a proficiency testing result is calculated as:",
+    "choices": [
+      { "id": "A", "text": "(Observed value minus peer mean) divided by the peer standard deviation" },
+      { "id": "B", "text": "(Observed value minus peer mean) divided by the observed value" },
+      { "id": "C", "text": "Peer standard deviation divided by peer mean" },
+      { "id": "D", "text": "Observed value divided by the peer mean, times 100" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "SDI expresses the laboratory's result in standard deviation units from the peer group mean: SDI = (observed minus peer mean) divided by peer SD. The coefficient of variation is SD divided by mean times 100.",
+    "rationales": {
+      "A": "Correct: SDI = (observed - peer mean) / peer SD.",
+      "B": "That ratio is a relative deviation, not SDI.",
+      "C": "That is the coefficient of variation formula (times 100 for percent).",
+      "D": "That describes a percent-of-mean calculation, not SDI."
+    },
+    "misconception": "SDI and CV are swapped; SDI compares you to peers in SD units, CV expresses your own precision.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["SDI = (your value - peer mean) / peer SD; CV = SD/mean x 100."]
+  },
+  {
+    "id": "lo-q-005",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Under CLIA, laboratory tests are categorized by complexity as:",
+    "choices": [
+      { "id": "A", "text": "Waived, moderate complexity, and high complexity" },
+      { "id": "B", "text": "Routine and stat" },
+      { "id": "C", "text": "Qualitative and quantitative" },
+      { "id": "D", "text": "Manual and automated" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "CLIA defines waived, moderate complexity, and high complexity categories based on risk of error and testing complexity; the category determines personnel, quality control, and proficiency testing obligations. Waived status still requires following manufacturer instructions.",
+    "rationales": {
+      "A": "Correct: waived / moderate / high complexity are the CLIA categories.",
+      "B": "Routine and stat describe turnaround priority, not complexity.",
+      "C": "Qualitative and quantitative describe result type.",
+      "D": "Manual and automated describe methodology, not regulatory complexity."
+    },
+    "misconception": "Waived means unregulated; waived tests still require exact adherence to manufacturer instructions and good laboratory practice.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["CLIA categories: waived, moderate, high complexity - obligations scale with complexity."]
+  },
+  {
+    "id": "lo-q-006",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "SCENARIO",
+    "vignette": "A clinical laboratory receives its chemistry proficiency testing panel. One analyte result is more than 3 SD from the peer mean (SDI above 3.0). Laboratory policy requires root-cause analysis and corrective action documentation for any unsatisfactory challenge.",
+    "stem": "Which action best satisfies regulatory and quality expectations?",
+    "choices": [
+      { "id": "A", "text": "Discard the result and resubmit without documentation" },
+      { "id": "B", "text": "Investigate root cause, document corrective action, and assess impact on patient results" },
+      { "id": "C", "text": "Ignore the result because proficiency testing is optional" },
+      { "id": "D", "text": "Change the peer group comparison basis to improve the SDI" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Unsatisfactory proficiency testing performance demands investigation, documented corrective action, and consideration of patient result impact; proficiency testing is mandatory for nonwaived testing under CLIA and serves as an external accuracy check.",
+    "rationales": {
+      "A": "Discarding results without investigation violates quality system expectations and PT requirements.",
+      "B": "Correct: root-cause analysis, corrective action, and patient-impact assessment are required.",
+      "C": "Proficiency testing is required for nonwaived analytes on the federal list; it is not optional.",
+      "D": "Manipulating comparators to hide failure is a serious quality and ethical violation."
+    },
+    "misconception": "Proficiency testing is treated as a formality; failures are survey-critical events requiring documented investigation and remediation.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["PT failure = investigate, document corrective action, check patient impact."]
+  },
+  {
+    "id": "lo-q-007",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The limit of quantitation (LOQ) differs from the limit of detection (LOD) in that LOQ is:",
+    "choices": [
+      { "id": "A", "text": "The lowest concentration detected with acceptable precision and accuracy for quantitative reporting" },
+      { "id": "B", "text": "The lowest concentration that produces any detectable signal" },
+      { "id": "C", "text": "The highest measurable concentration without dilution" },
+      { "id": "D", "text": "The midpoint of the analytical measuring range" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "LOD is the lowest amount detectable (signal distinguishable from blank), while LOQ is the lowest amount measurable with stated, acceptable precision and accuracy (often operationalized by a CV target set during validation). Detection does not equal quantitation.",
+    "rationales": {
+      "A": "Correct: LOQ = lowest quantitatively reliable concentration per validation criteria.",
+      "B": "That is the definition of LOD.",
+      "C": "That describes the upper limit of the reportable range.",
+      "D": "Midrange is not a sensitivity definition."
+    },
+    "misconception": "LOD and LOQ are used interchangeably; results between LOD and LOQ should be reported qualitatively (detected below quantitation) per local policy.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["LOD = can I see it? LOQ = can I trust the number enough to report it?"]
+  },
+  {
+    "id": "lo-q-008",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which quality control study best establishes the precision (repeatability) of a new method?",
+    "choices": [
+      { "id": "A", "text": "Replicate measurements of the same sample within a single run" },
+      { "id": "B", "text": "Comparison of patient results with a reference laboratory's report" },
+      { "id": "C", "text": "Recovery study with spiked analyte" },
+      { "id": "D", "text": "Reference interval verification with 20 healthy individuals" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Within-run precision (repeatability) is established by replicate measurements of the same material in a single run; between-run precision uses multiple runs/days. Accuracy studies use recovery or method comparison; reference interval verification is a separate exercise.",
+    "rationales": {
+      "A": "Correct: within-run replicates quantify repeatability.",
+      "B": "Method comparison with another laboratory assesses accuracy/trueness, not precision.",
+      "C": "Recovery studies assess accuracy (trueness).",
+      "D": "Reference interval verification addresses reference intervals, not precision."
+    },
+    "misconception": "Precision and accuracy are conflated; precision = reproducibility of repeats, accuracy = closeness to true value.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Precision = repeats agree (SD/CV); accuracy = true value (recovery, method comparison)."]
+  },
+  {
+    "id": "lo-q-009",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "SCENARIO",
+    "vignette": "A laboratory is validating a new glucose method. The validation protocol includes within-run and between-run precision studies, recovery experiments, linearity testing across the reportable range, interference testing for hemolysis, icterus, and lipemia, and comparison with the previous method using split patient samples.",
+    "stem": "Which validation component directly addresses analytical specificity?",
+    "choices": [
+      { "id": "A", "text": "Interference testing for hemolysis, icterus, and lipemia" },
+      { "id": "B", "text": "Within-run precision study" },
+      { "id": "C", "text": "Linearity testing" },
+      { "id": "D", "text": "Split-sample comparison with the previous method" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Analytical specificity (freedom from interference) is addressed by spiking experiments with hemolysate, bilirubin, lipids, and drugs; precision studies address reproducibility, linearity addresses reportable range, and split-sample comparison addresses accuracy/trueness.",
+    "rationales": {
+      "A": "Correct: interference testing defines analytical specificity.",
+      "B": "Precision studies address repeatability and reproducibility.",
+      "C": "Linearity defines the analytical measurement range.",
+      "D": "Split-sample comparison assesses accuracy versus a comparative method."
+    },
+    "misconception": "All validation studies are lumped as accuracy; each component answers a distinct performance question and must be separately documented.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Validation pillars: precision, accuracy, sensitivity (LOD/LOQ), specificity (interferences), linearity, reference intervals."]
+  },
+  {
+    "id": "lo-q-010",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A Levey-Jennings chart plots control results against:",
+    "choices": [
+      { "id": "A", "text": "Run order or date, centered on the established mean with lines at plus and minus 1, 2, and 3 standard deviations" },
+      { "id": "B", "text": "Patient results versus age" },
+      { "id": "C", "text": "Reagent lot versus cost" },
+      { "id": "D", "text": "Temperature versus absorbance" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Levey-Jennings charts display control values over time (run order or date) against the control mean and SD lines, making shifts, trends, and increased scatter visually apparent for multirule evaluation.",
+    "rationales": {
+      "A": "Correct: control results versus time with mean and SD lines.",
+      "B": "Patient results are not plotted on QC charts.",
+      "C": "Cost tracking is an inventory function, not a QC chart.",
+      "D": "Temperature versus absorbance describes instrument performance monitoring, not Levey-Jennings."
+    },
+    "misconception": "Levey-Jennings is thought of as a patient trend chart; it is specifically a control performance chart over time.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Levey-Jennings = control results over time with mean and SD lines."]
+  },
+  {
+    "id": "lo-q-011",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In a method validation study, which pair correctly matches terms to definitions?",
+    "choices": [
+      { "id": "A", "text": "Accuracy: closeness to the true value; Precision: reproducibility of repeated measurements" },
+      { "id": "B", "text": "Accuracy: reproducibility of repeated measurements; Precision: closeness to the true value" },
+      { "id": "C", "text": "Accuracy: lowest detectable amount; Precision: highest measurable amount" },
+      { "id": "D", "text": "Accuracy: linearity; Precision: reference interval" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Accuracy (trueness) means closeness to the true value, assessed by recovery or method comparison; precision means agreement among repeated measurements, expressed as SD and CV. The two are independent: a method can be precise but inaccurate.",
+    "rationales": {
+      "A": "Correct: accuracy = true value; precision = repeatability.",
+      "B": "The definitions are swapped.",
+      "C": "LOD and LOQ are sensitivity terms, not accuracy/precision.",
+      "D": "Linearity and reference intervals are separate validation characteristics."
+    },
+    "misconception": "Accurate and precise are used as synonyms; the four-quadrant picture (accurate/precise, accurate/imprecise, etc.) is an exam staple.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Accurate = right answer; precise = consistent answers. They are independent."]
+  },
+  {
+    "id": "lo-q-012",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "SCENARIO",
+    "vignette": "A microbiology laboratory is processing concentrated sputum specimens for acid-fast bacilli smear. Staff work with open specimens on the bench under a biological safety cabinet for aerosol-generating steps, and the laboratory follows standard BSL-2 practices.",
+    "stem": "Which additional precaution is most relevant when culturing Mycobacterium tuberculosis?",
+    "choices": [
+      { "id": "A", "text": "Culture manipulation of M. tuberculosis requires BSL-3 containment with respiratory protection and controlled access" },
+      { "id": "B", "text": "BSL-1 practices are sufficient because tuberculosis is treatable" },
+      { "id": "C", "text": "No special precautions beyond hand hygiene are needed" },
+      { "id": "D", "text": "Specimens should be processed on an open bench without a safety cabinet" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Propagation and manipulation of cultures containing M. tuberculosis are performed at BSL-3 with respiratory protection and controlled access; specimen processing may occur at BSL-2 in a biological safety cabinet per validated procedures and local policy.",
+    "rationales": {
+      "A": "Correct: M. tuberculosis culture work is BSL-3; specimen processing is typically BSL-2 with BSC per procedure.",
+      "B": "Treatability does not reduce containment needs; aerosol transmission risk drives the level.",
+      "C": "Standard precautions alone are insufficient for aerosol-generating mycobacteriology procedures.",
+      "D": "Open bench processing of TB specimens is unsafe and violates biosafety standards."
+    },
+    "misconception": "All clinical laboratory work is BSL-2; the organism and the procedure (especially culture of M. tuberculosis) raise the containment level.",
+    "reference": "CDC laboratory biosafety resources, https://www.cdc.gov/labquality/",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["TB culture = BSL-3; TB specimen processing = BSL-2 with biological safety cabinet per procedure."]
+  },
+  {
+    "id": "lo-q-013",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about reference interval verification is correct?",
+    "choices": [
+      { "id": "A", "text": "Intervals must be established or verified for the local population and method, reported with units and a note that intervals vary by laboratory, method, age, sex, and population" },
+      { "id": "B", "text": "Manufacturer intervals can be adopted without any local verification" },
+      { "id": "C", "text": "Reference intervals are universal constants for all methods" },
+      { "id": "D", "text": "Verification requires at least 500 local reference individuals in all cases" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Good laboratory practice (and CLSI EP28 guidance) requires establishing or verifying reference intervals for the local method and population; reports carry units and the standing caveat that intervals vary by laboratory, method, age, sex, and population.",
+    "rationales": {
+      "A": "Correct: local verification with units and variability caveat is the standard.",
+      "B": "Manufacturer intervals require at least verification before local adoption.",
+      "C": "Intervals differ across methods, analyzers, and populations.",
+      "D": "Verification can be performed with smaller sample sets per defined criteria; full establishment has different requirements."
+    },
+    "misconception": "Textbook intervals are universal; the reporting rule is units plus local verification plus the variability caveat.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Every reported interval: units + vary-by-laboratory caveat + local verification."]
+  },
+  {
+    "id": "lo-q-014",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The R-4s Westgard rule is primarily designed to detect:",
+    "choices": [
+      { "id": "A", "text": "Systematic drift over many runs" },
+      { "id": "B", "text": "Large random error within a run" },
+      { "id": "C", "text": "Prozone effects in immunoassays" },
+      { "id": "D", "text": "Preanalytic hemolysis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "R-4s rejects when two control results in the same run span more than 4 SD (typically one about 2 SD high and one about 2 SD low), detecting large random error; systematic shifts are better caught by 2-2s, 4-1s, and 8x rules.",
+    "rationales": {
+      "A": "Drift and shift are systematic errors caught by 2-2s, 4-1s, and 8x/10x rules.",
+      "B": "Correct: R-4s targets random error via the spread between controls.",
+      "C": "Prozone is an immunoassay interference phenomenon, not a QC rule target.",
+      "D": "Hemolysis is a preanalytic interference evaluated by HIL indices."
+    },
+    "misconception": "All Westgard rules detect the same thing; the classic mapping is 1-3s and R-4s for random error, 2-2s and 4-1s for systematic error.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Random error: 1-3s, R-4s. Systematic error: 2-2s, 4-1s, 8x."]
+  },
+  {
+    "id": "lo-q-015",
+    "subjectId": "lab-operations",
+    "topicId": "quality-safety",
+    "type": "SCENARIO",
+    "vignette": "During an inspection, the laboratory director is asked to show how the laboratory documents rejection of an out-of-control run on the chemistry analyzer. The record shows the control values, the Westgard rule triggered (1-3s), the suspected cause (reagent lot change), corrective action taken (recalibration and repeat controls), and the disposition of patient results (held until the run repeated in control).",
+    "stem": "Which quality principle does this documentation best demonstrate?",
+    "choices": [
+      { "id": "A", "text": "Traceability and continuous quality improvement through documented corrective action" },
+      { "id": "B", "text": "Waived testing requirements" },
+      { "id": "C", "text": "Proficiency testing grading criteria" },
+      { "id": "D", "text": "Point-of-care operator competency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Complete QC event documentation - signal, cause, action, and patient-result disposition - demonstrates a functioning quality system with traceability and corrective action, which is a core inspection expectation under CLIA and accreditation standards.",
+    "rationales": {
+      "A": "Correct: documented investigation and corrective action show traceability and quality improvement.",
+      "B": "This is nonwaived chemistry QC, not waived testing.",
+      "C": "Proficiency testing grading applies to external challenge samples, not internal QC events.",
+      "D": "POCT competency is unrelated to analyzer QC documentation."
+    },
+    "misconception": "QC rejection is an administrative nuisance; it is a documented patient-safety intervention and a survey-critical record.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/quality-control-regulatory",
+    "examTraps": ["Every out-of-control run: document rule, cause, action, and patient-result disposition."]
+  },
+  {
+    "id": "lo-q-016",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which of the following is the correct standard order of draw for routine venipuncture tubes?",
+    "choices": [
+      { "id": "A", "text": "Blood culture bottles, light blue (citrate), serum (red/tiger), green (heparin), lavender (EDTA), gray (fluoride/oxalate)" },
+      { "id": "B", "text": "Lavender (EDTA), light blue (citrate), serum (red/tiger), green (heparin), gray (fluoride/oxalate), blood culture bottles" },
+      { "id": "C", "text": "Serum (red/tiger), gray (fluoride/oxalate), green (heparin), lavender (EDTA), light blue (citrate), blood culture bottles" },
+      { "id": "D", "text": "Green (heparin), lavender (EDTA), light blue (citrate), serum (red/tiger), gray (fluoride/oxalate), blood culture bottles" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "The CLSI-aligned order of draw is blood culture bottles, citrate (light blue), serum (red/tiger), heparin (green), EDTA (lavender), and glycolytic inhibitor (gray). The rationale is prevention of additive carryover (for example, EDTA into citrate falsely prolonging coagulation tests).",
+    "rationales": {
+      "A": "Correct: cultures, citrate, serum, heparin, EDTA, gray.",
+      "B": "EDTA first would contaminate subsequent tubes with EDTA.",
+      "C": "Citrate must precede serum only in the sense that citrate is drawn before serum tubes; this order reverses multiple steps and violates the sequence.",
+      "D": "Heparin first would risk heparin carryover into coagulation testing."
+    },
+    "misconception": "Order of draw is folklore; it is additive carryover science, and deviations cause real analytic errors (false coagulation prolongation, false potassium changes).",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Mnemonic: Boys Can Really Have Easy Girls - Blood cultures, Citrate, Red, Heparin, EDTA, Gray."]
+  },
+  {
+    "id": "lo-q-017",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A light blue sodium citrate coagulation tube is filled to only about 50 percent of its nominal volume. The most likely effect on PT and aPTT results is:",
+    "choices": [
+      { "id": "A", "text": "Falsely prolonged clotting times due to excess citrate relative to blood" },
+      { "id": "B", "text": "Falsely shortened clotting times" },
+      { "id": "C", "text": "No effect as long as the tube is mixed" },
+      { "id": "D", "text": "Falsely elevated potassium" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Underfilled citrate tubes have an excess of citrate relative to blood; citrate binds calcium and prolongs PT and aPTT. Coagulation tubes must be filled within the manufacturer's stated range (commonly about 90 to 110 percent of nominal fill) and underfilled tubes outside range are rejected per protocol.",
+    "rationales": {
+      "A": "Correct: underfill = excess citrate = falsely prolonged PT/aPTT.",
+      "B": "Excess anticoagulant prolongs, not shortens, clotting times.",
+      "C": "Mixing does not correct the citrate-to-blood ratio error.",
+      "D": "Potassium is measured on serum or heparin plasma; EDTA carryover (not citrate underfill) raises potassium concerns in specific contexts."
+    },
+    "misconception": "Any anticoagulant excess is harmless; the citrate-to-blood ratio directly determines coagulation results and must be exact.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Citrate underfill = falsely prolonged PT/aPTT; check fill range before running."]
+  },
+  {
+    "id": "lo-q-018",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "SCENARIO",
+    "vignette": "A hemolyzed specimen (hemolysis index above the validated limit) is received for a metabolic panel. The laboratory's procedure lists potassium, LDH, AST, and phosphate as unreliable in hemolyzed specimens at this index level. The nurse is notified, and a recollection is requested.",
+    "stem": "Which laboratory action is most appropriate?",
+    "choices": [
+      { "id": "A", "text": "Report all results with a hemolysis comment but no recollection" },
+      { "id": "B", "text": "Reject affected analytes per validated limits, notify the requester, request recollection, and document the communication" },
+      { "id": "C", "text": "Dilute the specimen to remove the hemolysis interference" },
+      { "id": "D", "text": "Release potassium as a critical value immediately" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Hemolysis interferes with listed analytes beyond validated limits; the correct practice is to withhold or reject affected results per procedure, notify the requester, request recollection, and document the interaction - never release values known to be unreliable.",
+    "rationales": {
+      "A": "Reporting known-unreliable values with only a comment risks clinical decisions based on artifacts.",
+      "B": "Correct: reject per validated limits, notify, recollect, and document.",
+      "C": "Dilution does not remove intracellular interferents released by hemolysis and adds error.",
+      "D": "A hemolyzed potassium is a preanalytic artifact, not a patient critical value; releasing it causes harm."
+    },
+    "misconception": "Critical value policy means calling every high potassium; hemolyzed specimens must be flagged and recollected instead of phoned as patient results.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Hemolysis index above validated limit = reject affected analytes, notify, recollect, document."]
+  },
+  {
+    "id": "lo-q-019",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement correctly describes specimen rejection for patient identification?",
+    "choices": [
+      { "id": "A", "text": "Specimens without at least two patient identifiers or with mismatched identifiers must be rejected and recollected; relabeling is never permitted" },
+      { "id": "B", "text": "Specimens may be relabeled if the phlebotomist confirms identity verbally" },
+      { "id": "C", "text": "Only one identifier is required for inpatient specimens" },
+      { "id": "D", "text": "Unlabeled specimens can be tested if the requisition is attached" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Patient identity errors are catastrophic; a specimen lacking two identifiers or with conflicting identifiers is rejected and recollected. Relabeling destroys the evidence of the error and is prohibited - the core patient-safety rule in specimen acceptance.",
+    "rationales": {
+      "A": "Correct: two identifiers required; mislabeled specimens are rejected and redrawn, never relabeled.",
+      "B": "Verbal confirmation does not fix an unlabeled tube; the tube must be recollected.",
+      "C": "Two identifiers are required regardless of setting.",
+      "D": "An attached requisition cannot establish which patient the tube came from."
+    },
+    "misconception": "Relabeling seems efficient and harmless; it conceals identification errors and is a serious quality violation.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Never relabel a mislabeled specimen - reject and recollect."]
+  },
+  {
+    "id": "lo-q-020",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "SCENARIO",
+    "vignette": "A point-of-care glucose meter is used in an intensive care unit by nursing staff. The laboratory director's quality plan requires operator competency assessment, electronic QC lockout, and periodic correlation with the central laboratory glucose method. A new operator has completed training but no documented competency assessment.",
+    "stem": "What is the most appropriate action before the operator performs patient testing?",
+    "choices": [
+      { "id": "A", "text": "Allow testing because glucose meters are CLIA-waived and require no oversight" },
+      { "id": "B", "text": "Complete and document the initial competency assessment before patient testing" },
+      { "id": "C", "text": "Allow testing but review results retrospectively" },
+      { "id": "D", "text": "Switch all testing to the central laboratory permanently" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "POCT governance requires documented initial and periodic competency for every operator, even for CLIA-waived devices; waived status does not waive manufacturer instructions or laboratory director oversight. Results influence immediate therapy (insulin dosing), so competency precedes patient testing.",
+    "rationales": {
+      "A": "Waived status simplifies the regulatory floor but never removes the requirement to follow instructions and laboratory policy.",
+      "B": "Correct: documented competency before patient testing is mandatory under the quality plan.",
+      "C": "Retrospective review cannot prevent errors affecting live insulin dosing decisions.",
+      "D": "POCT exists for clinical reasons; the fix is governance, not eliminating the test."
+    },
+    "misconception": "CLIA-waived equals no rules; POCT oversight (training, competency, QC, result review) is a core laboratory director responsibility.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["POCT: every operator needs documented competency; waived is not unregulated."]
+  },
+  {
+    "id": "lo-q-021",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "To prepare 50 mL of a 2 mol/L working solution from a 10 mol/L stock using C1V1 = C2V2, how much stock is required?",
+    "choices": [
+      { "id": "A", "text": "5 mL" },
+      { "id": "B", "text": "10 mL" },
+      { "id": "C", "text": "25 mL" },
+      { "id": "D", "text": "40 mL" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "C1V1 = C2V2 gives 10 x V1 = 2 x 50, so V1 = 10 mL of stock plus 40 mL diluent to reach 50 mL total. The dilution factor is 5-fold.",
+    "rationales": {
+      "A": "5 mL would give 1 mol/L in 50 mL, not 2 mol/L.",
+      "B": "Correct: V1 = (2 x 50) / 10 = 10 mL.",
+      "C": "25 mL would exceed the required concentration for this volume.",
+      "D": "40 mL is the diluent volume, not the stock volume."
+    },
+    "misconception": "Stock and diluent volumes are swapped; V1 always refers to the concentrated stock in the C1V1 = C2V2 equation.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["C1V1 = C2V2: solve for the stock volume, then add diluent to the final volume."]
+  },
+  {
+    "id": "lo-q-022",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A 1:100 dilution is prepared by adding 0.1 mL of patient sample to 9.9 mL of diluent. Which statement is correct?",
+    "choices": [
+      { "id": "A", "text": "The dilution factor is 100 and total volume is 10 mL" },
+      { "id": "B", "text": "The dilution factor is 10 and total volume is 10 mL" },
+      { "id": "C", "text": "The dilution factor is 100 and total volume is 100 mL" },
+      { "id": "D", "text": "The dilution factor is 1000 and total volume is 9.9 mL" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "0.1 mL sample plus 9.9 mL diluent gives 10 mL total at a 1:100 dilution (0.1 in 10 total = 1/100). The dilution factor is the total volume divided by sample volume.",
+    "rationales": {
+      "A": "Correct: 0.1/10 = 1:100 dilution factor with 10 mL total.",
+      "B": "A 1:10 dilution would be 1 mL in 10 mL total, not 0.1 mL.",
+      "C": "The total volume here is 10 mL, not 100 mL.",
+      "D": "A 1:1000 dilution would require a further 10-fold step; total volume is not 9.9 mL."
+    },
+    "misconception": "Dilution factor counts parts of diluent; it is total volume divided by sample volume (part over whole).",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Dilution factor = total volume / sample volume; 1:10 means 1 part sample in 10 total."]
+  },
+  {
+    "id": "lo-q-023",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "SCENARIO",
+    "vignette": "A glucose result of 90 mg/dL must be converted to SI units (mmol/L) for an international report. The laboratory uses the conversion factor: glucose in mg/dL multiplied by 0.0555 equals mmol/L.",
+    "stem": "What is the correct converted result?",
+    "choices": [
+      { "id": "A", "text": "5.0 mmol/L" },
+      { "id": "B", "text": "5.55 mmol/L" },
+      { "id": "C", "text": "55.5 mmol/L" },
+      { "id": "D", "text": "0.555 mmol/L" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "90 mg/dL x 0.0555 = 4.995, which rounds to 5.0 mmol/L (equivalently 90 divided by 18 gives 5.0 mmol/L). Sanity check: 100 mg/dL glucose is about 5.6 mmol/L.",
+    "rationales": {
+      "A": "Correct: 90 x 0.0555 = 4.995, which rounds to 5.0 mmol/L (equivalently 90/18 = 5.0).",
+      "B": "5.55 mmol/L corresponds to 100 mg/dL, not 90 mg/dL.",
+      "C": "55.5 mmol/L is a decimal-point error of tenfold.",
+      "D": "0.555 mmol/L is a decimal-point error of one-tenth."
+    },
+    "misconception": "Conversion factors are memorized loosely and decimal slips are common; always sanity-check that 100 mg/dL glucose is about 5.6 mmol/L and 90 mg/dL is about 5.0 mmol/L.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Glucose: mmol/L = mg/dL / 18 (or x 0.0555); 100 mg/dL is about 5.6 mmol/L."]
+  },
+  {
+    "id": "lo-q-024",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which preanalytic condition falsely lowers serum potassium measured on a routine chemistry panel?",
+    "choices": [
+      { "id": "A", "text": "Prolonged tourniquet application with fist clenching" },
+      { "id": "B", "text": "Specimen drawn from an arm with an active intravenous infusion of dextrose solution, diluting the sample" },
+      { "id": "C", "text": "Immediate centrifugation and separation of serum" },
+      { "id": "D", "text": "Whole blood left at room temperature for 3 hours before separation" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Dilution by intravenous fluid (for example, drawing at or below an active infusion) spuriously lowers measured potassium; local procedure requires draws from the opposite arm or below the infusion with proper discard. Fist clenching and delayed separation raise potassium through hemolysis and cell leakage, and prompt separation is correct practice that does not bias the result.",
+    "rationales": {
+      "A": "Fist clenching and tourniquet stasis cause hemolysis and potassium release - a falsely HIGH result.",
+      "B": "Correct: infusion fluid contamination dilutes the specimen and produces a falsely LOW potassium.",
+      "C": "Prompt separation is the correct practice and does not lower potassium artificially.",
+      "D": "Delayed separation allows glycolysis and cell leakage; potassium typically rises, not falls."
+    },
+    "misconception": "All preanalytic potassium errors raise the value; dilutional effects from IV lines can lower it, which is why draws near infusions are prohibited or performed per strict protocol.",
+    "reference": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Fist clenching and hemolysis raise potassium; IV fluid contamination can dilute and lower it."]
+  },
+  {
+    "id": "lo-q-025",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about point-of-care glucose meters is correct?",
+    "choices": [
+      { "id": "A", "text": "Results can be affected by hematocrit extremes, perfusion, oxygen tension, and interfering substances; meters report plasma-equivalent values on most current systems" },
+      { "id": "B", "text": "Capillary and venous results are always identical" },
+      { "id": "C", "text": "Hematocrit has no effect on meter accuracy" },
+      { "id": "D", "text": "POCT glucose results do not require documentation in the medical record" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Glucose meters measure whole blood but report plasma-equivalent values on most current devices; accuracy is affected by hematocrit extremes, oxygen tension, perfusion, and interfering substances (for example, maltose, uric acid, acetaminophen on some chemistries). POCT results belong in the clinical record like central laboratory results.",
+    "rationales": {
+      "A": "Correct: hematocrit, perfusion, oxygen, and interferents affect meters; plasma-equivalent reporting is standard.",
+      "B": "Capillary and venous glucose can differ, especially in unstable perfusion states.",
+      "C": "Hematocrit is a major known interferent for many glucose meters.",
+      "D": "POCT results must be documented and routed to the medical record through defined pathways."
+    },
+    "misconception": "Meters are treated as infallible fingerstick truth; they are biased in defined conditions and require QC, competency, and result integration.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Glucose meters: hematocrit and interferents matter; results go in the medical record."]
+  },
+  {
+    "id": "lo-q-026",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "SCENARIO",
+    "vignette": "A urine culture is set up with serial dilutions. The technologist plates 0.01 mL of a 1:100 dilution and counts 45 colonies. A second plate from a 1:1000 dilution grows 4 colonies.",
+    "stem": "What is the original urine concentration in CFU/mL, and what does the 1:1000 plate demonstrate?",
+    "choices": [
+      { "id": "A", "text": "45,000 CFU/mL; the 1:1000 plate is invalid and must be discarded" },
+      { "id": "B", "text": "450,000 CFU/mL; the 1:1000 plate growing about 4 colonies confirms the dilution series is consistent" },
+      { "id": "C", "text": "4,500 CFU/mL; the 1:1000 plate must show the same 45 colonies" },
+      { "id": "D", "text": "4,500,000 CFU/mL; both plates must show identical colony counts" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "CFU/mL = colonies divided by plated volume, times dilution factor = 45 / 0.01 mL x 100 = 450,000 CFU/mL. The 1:1000 dilution plate should then grow about 4 to 5 colonies at the same plated volume, which is the consistency check that catches decimal errors before reporting.",
+    "rationales": {
+      "A": "45,000 CFU/mL drops the dilution factor, and the 1:1000 plate is a valid consistency check, not invalid.",
+      "B": "Correct: 45 / 0.01 x 100 = 450,000 CFU/mL, and the 1:1000 plate confirming about 4 colonies validates the series.",
+      "C": "4,500 CFU/mL forgets the dilution factor, and serial dilution plates should drop about 10-fold, not stay identical.",
+      "D": "4,500,000 CFU/mL is a tenfold overestimate, and identical counts across dilutions would signal a pipetting error."
+    },
+    "misconception": "Dilution factors are dropped in colony count math; the universal formula is CFU/mL = colonies / plated volume x dilution factor, and the second dilution plate is the consistency check.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["CFU/mL = colonies / plated volume x dilution factor; each 10-fold dilution should drop counts roughly 10-fold."]
+  },
+  {
+    "id": "lo-q-027",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which specimen storage condition is generally appropriate for routine chemistry specimens awaiting analysis (per typical validated procedures)?",
+    "choices": [
+      { "id": "A", "text": "Separated serum or plasma refrigerated at 2 to 8 degrees Celsius when analysis is delayed, per validated stability limits" },
+      { "id": "B", "text": "Whole blood left at room temperature for 48 hours" },
+      { "id": "C", "text": "Frozen whole blood at minus 20 degrees Celsius for routine panels" },
+      { "id": "D", "text": "Specimens stored on a warm surface to maintain enzymes" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "When analysis is delayed, separated serum or plasma is typically refrigerated at 2 to 8 degrees Celsius within validated stability limits; whole blood delay allows glycolysis and cell leakage (potassium rises, glucose falls), and freezing whole blood lyses cells. Local validated stability tables govern exact limits.",
+    "rationales": {
+      "A": "Correct: separated sample, refrigerated, within validated stability limits.",
+      "B": "Prolonged room-temperature whole-blood storage degrades glucose and leaks potassium.",
+      "C": "Freezing whole blood lyses cells and invalidates many chemistry results.",
+      "D": "Warming accelerates degradation and is never a storage strategy."
+    },
+    "misconception": "Specimens are all treated the same; stability depends on matrix (whole blood versus separated), temperature, and analyte, and must follow validated local limits.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Separate, then refrigerate within validated stability; whole blood delays change glucose and potassium."]
+  },
+  {
+    "id": "lo-q-028",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In laboratory mathematics, a 0.9 percent sodium chloride solution contains:",
+    "choices": [
+      { "id": "A", "text": "0.9 grams of NaCl per 100 mL of solution" },
+      { "id": "B", "text": "0.9 grams of NaCl per liter of solution" },
+      { "id": "C", "text": "0.9 milligrams of NaCl per 100 mL of solution" },
+      { "id": "D", "text": "0.9 moles of NaCl per liter of solution" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Percent (weight/volume) in laboratory practice means grams per 100 mL; 0.9 percent NaCl is 0.9 g per 100 mL (9 g/L), which is roughly 154 mmol/L sodium - approximately isotonic.",
+    "rationales": {
+      "A": "Correct: percent w/v = grams per 100 mL.",
+      "B": "0.9 g/L would be 0.09 percent, far below isotonic.",
+      "C": "0.9 mg per 100 mL is a thousandfold too dilute.",
+      "D": "0.9 mol/L NaCl would be about 5.3 percent, hypertonic and dangerous."
+    },
+    "misconception": "Percent solutions are read as grams per liter; in clinical laboratory usage percent means per 100 mL (g/dL).",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Percent w/v = g/100 mL; 0.9 percent NaCl = 0.9 g per 100 mL."]
+  },
+  {
+    "id": "lo-q-029",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "SCENARIO",
+    "vignette": "A technologist converts a creatinine result of 1.0 mg/dL to micromoles per liter for an international report using the factor: mg/dL x 88.4 = micromoles per liter.",
+    "stem": "What is the correct converted result?",
+    "choices": [
+      { "id": "A", "text": "8.84 micromoles per liter" },
+      { "id": "B", "text": "88.4 micromoles per liter" },
+      { "id": "C", "text": "884 micromoles per liter" },
+      { "id": "D", "text": "0.884 micromoles per liter" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "1.0 mg/dL x 88.4 = 88.4 micromoles per liter. The factor reflects creatinine's molar mass; dividing by 88.4 converts back to mg/dL. Decimal errors are the classic pitfall in unit conversion questions.",
+    "rationales": {
+      "A": "8.84 is a tenfold decimal error.",
+      "B": "Correct: 1.0 x 88.4 = 88.4 micromoles per liter.",
+      "C": "884 is a tenfold decimal error in the other direction.",
+      "D": "0.884 is a hundredfold decimal error."
+    },
+    "misconception": "Unit conversion factors are remembered approximately; exact factors (creatinine 88.4, glucose 18 for mg/dL to mmol/L direction) must be known and decimal placement checked.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Creatinine: micromol/L = mg/dL x 88.4; reverse by dividing by 88.4."]
+  },
+  {
+    "id": "lo-q-030",
+    "subjectId": "lab-operations",
+    "topicId": "preanalytic-operations",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement correctly describes the prozone effect in agglutination assays?",
+    "choices": [
+      { "id": "A", "text": "Very high antibody concentrations can cause false-negative agglutination; dilution of the specimen resolves it" },
+      { "id": "B", "text": "Very low antibody concentrations cause false-positive agglutination" },
+      { "id": "C", "text": "The effect is caused by EDTA carryover" },
+      { "id": "D", "text": "The effect only occurs in competitive immunoassays" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "The prozone (antibody excess) phenomenon occurs when so much antibody is present that lattice formation fails, giving a false-negative agglutination; testing neat and diluted specimens per procedure resolves it. It is an analytic interference class distinct from preanalytic hemolysis and from competitive assay formats.",
+    "rationales": {
+      "A": "Correct: antibody excess causes false negatives; dilution restores visible agglutination.",
+      "B": "Low antibody gives weak or negative results naturally; it does not create false positives.",
+      "C": "EDTA carryover affects coagulation and cell morphology, not agglutination lattice formation.",
+      "D": "Prozone is characteristic of agglutination and some sandwich immunoassays (hook effect), not competitive formats."
+    },
+    "misconception": "Negative means absent; in agglutination assays extreme analyte concentrations can mask positives, which is why protocols include dilution steps for strong clinical suspicion.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "lab-operations/preanalytic-poct-math",
+    "examTraps": ["Prozone/hook effect: extreme analyte causes false negative; dilution fixes it."]
   }
 ]

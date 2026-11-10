@@ -1,0 +1,112 @@
+{
+  "id": "clinical-chemistry/cardiac-enzymes",
+  "subjectId": "clinical-chemistry",
+  "topicId": "enzymes-cardiac",
+  "title": "Cardiac Markers and Serum Enzymes: Troponin, CK-MB, AST, ALT, ALP, and GGT",
+  "summary": "A tour of the two great enzyme worlds of clinical chemistry: cardiac injury markers (high-sensitivity troponin, CK-MB) with their release kinetics and delta interpretation, and liver-associated enzymes (AST, ALT, ALP, GGT) with pattern-based interpretation of hepatocellular versus cholestatic injury.",
+  "readingMinutes": 15,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["troponin", "CK-MB", "myocardial infarction", "AST", "ALT", "ALP", "GGT", "cholestasis", "delta change"],
+  "objectives": [
+    "Explain the release kinetics and clinical use of cardiac troponin, CK-MB, and myoglobin in acute myocardial infarction.",
+    "Describe the concept of the 99th percentile upper reference limit and serial delta (change) criteria for high-sensitivity troponin assays.",
+    "Distinguish hepatocellular from cholestatic enzyme patterns using AST, ALT, ALP, and GGT.",
+    "List noncardiac causes of troponin elevation and nonhepatic causes of ALP elevation."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Cardiac troponin (I or T) is the preferred marker for myocardial injury; diagnosis requires a rise and/or fall with at least one value above the assay-specific 99th percentile upper reference limit.",
+      "CK-MB rises within hours, peaks around one day, and normalizes within a few days, making it useful for detecting early reinfarction.",
+      "ALT is more liver-specific than AST; AST also rises in muscle, heart, and hemolysis-related injury.",
+      "ALP rises in cholestasis and bone disease; GGT helps confirm a hepatic source of an elevated ALP.",
+      "All reference intervals are method- and laboratory-specific; verify every number against your local laboratory's own reference interval."
+    ],
+    "mustKnowTable": {
+      "columns": ["Marker", "Rises after injury", "Peaks", "Returns to normal", "Main use"],
+      "rows": [
+        ["High-sensitivity cardiac troponin", "Within hours", "Roughly 1 day (varies by assay)", "Days", "Diagnosis and risk stratification of myocardial infarction"],
+        ["CK-MB", "3-6 hours", "12-24 hours", "48-72 hours", "Reinfarction detection; supportive diagnosis"],
+        ["Myoglobin", "1-2 hours", "Roughly 6-8 hours", "Within a day", "Very early rise but poor cardiac specificity"],
+        ["ALT", "Hours to days", "Days", "Weeks (depends on injury)", "Hepatocellular injury"],
+        ["ALP", "Days", "Varies", "Varies", "Cholestasis, bone turnover"]
+      ]
+    },
+    "mnemonic": "Troponin for the attack, CK-MB for the comeback — troponin diagnoses the infarct, CK-MB catches the reinfarct."
+  },
+  "deepStudy": {
+    "introduction": "Enzymes are catalysts, and when cells are injured their intracellular enzymes leak into the blood, where they can be measured. Two organ systems dominate enzyme testing in the routine laboratory: the heart and the hepatobiliary tree. For suspected acute coronary syndromes, the laboratory must support rapid rule-out and rule-in using serial high-sensitivity troponin measurements with assay-specific cutoffs. For suspected liver or biliary disease, the pattern of enzyme elevations (hepatocellular versus cholestatic) narrows the differential far more than any single number. In both domains, preanalytical variables, method differences, and reference intervals must be respected; no enzyme value should be interpreted without the local reference interval and the clinical context.",
+    "sections": [
+      {
+        "heading": "Cardiac troponin: the cornerstone of myocardial injury diagnosis",
+        "body": "Cardiac troponins I and T are components of the contractile apparatus of cardiomyocytes; cardiac troponin I is essentially specific to the heart, while troponin T can be mildly elevated in skeletal muscle disease. After myocardial injury, troponin appears in blood within a few hours and remains elevated for several days, a long diagnostic window that has made it the preferred marker for acute myocardial infarction. Modern high-sensitivity assays can measure troponin in most healthy individuals, enabling rapid rule-out and rule-in algorithms (commonly 0-hour, 1-hour, or 0-hour, 3-hour serial sampling schemes endorsed by cardiology guidelines). The key concepts are the 99th percentile upper reference limit (URL) of a healthy reference population, defined separately for each assay and sex where applicable, and the delta: a significant rise and/or fall between serial samples distinguishes acute injury from a chronically elevated baseline (for example in heart failure, renal impairment, or myocarditis). Elevated troponin indicates myocardial injury, not necessarily myocardial infarction; demand ischemia, pulmonary embolism, sepsis, myocarditis, contusion, and renal failure can all raise troponin. Assays are not interchangeable: each has its own cutoffs and change criteria, and results must be interpreted against the performing laboratory's validated protocol.",
+        "diagram": null
+      },
+      {
+        "heading": "CK-MB, myoglobin, and the legacy markers",
+        "body": "Creatine kinase is a dimer of M and B subunits; CK-MB is enriched in cardiac muscle and rises within 3 to 6 hours after infarction, peaks around 12 to 24 hours, and returns to baseline within 2 to 3 days. That shorter window is exactly why CK-MB remains useful for detecting reinfarction when troponin is still elevated from the original event: a secondary CK-MB rise suggests new necrosis. The relative index (CK-MB mass or activity divided by total CK, expressed as a percentage) helps decide whether an elevated CK-MB is cardiac or skeletal in origin, though cutoffs vary by method. Total CK itself is nonspecific: it rises in muscle trauma, intramuscular injections, exercise, rhabdomyolysis, and skeletal myopathies. Myoglobin rises earlier than CK-MB (within 1 to 2 hours) but is cleared quickly and is completely nonspecific, so it is now mainly historical. Lactate dehydrogenase and its isoenzymes, including the historic flipped LDH pattern (LD1 greater than LD2), also belong to the legacy era; they remain useful mainly for hemolysis and some tumor contexts. The lesson for exams: kinetics decide utility. Early markers rise early and fade early; troponin's long tail trades early detection for a wide window and greater specificity.",
+        "diagram": null
+      },
+      {
+        "heading": "Hepatocellular enzymes: AST and ALT",
+        "body": "Alanine aminotransferase is concentrated in the liver and is the more liver-specific of the two transaminases; aspartate aminotransferase is found in liver, heart, skeletal muscle, kidney, and red cells, and exists in cytosolic and mitochondrial forms. In acute hepatocellular injury (viral hepatitis, toxin or drug-induced liver injury, ischemic hepatitis), both rise, often with ALT exceeding AST and elevations many times the upper reference limit. In alcoholic liver disease, AST tends to exceed ALT, classically at a ratio of roughly 2 to 1, partly because of pyridoxal phosphate deficiency and mitochondrial injury; this ratio is a pattern, not a stand-alone diagnostic criterion. In cirrhosis, enzyme elevations may be modest or even normal while synthetic function (albumin, bilirubin, coagulation) deteriorates, so normal transaminases do not exclude advanced liver disease. AST can rise purely from muscle injury or hemolysis; the pattern and the clinical context distinguish sources. Interpretation always rests on comparison to the local reference interval, which varies by method, sex, body mass index, and population; many laboratories now use sex-specific cutoffs. Serial trends usually matter more than any single value.",
+        "diagram": null
+      },
+      {
+        "heading": "Cholestatic enzymes: ALP and GGT, and bilirubin patterns",
+        "body": "Alkaline phosphatase is a family of isoenzymes from liver (bile canaliculi), bone, placenta, intestine, and kidney. Elevated ALP with elevated GGT strongly suggests a hepatobiliary source; elevated ALP with normal GGT points to bone (or, in pregnancy, placental origin; in children, physiologic bone growth). GGT is very sensitive for hepatobiliary and enzyme-inducing conditions (alcohol, some anticonvulsants) but nonspecific; its main job is to confirm that an ALP elevation is hepatic. The pattern of injury is summarized by comparing transaminases with ALP: predominantly hepatocellular (ALT and AST markedly elevated), predominantly cholestatic (ALP and GGT markedly elevated), or mixed. Bilirubin refines the picture: unconjugated (indirect) hyperbilirubinemia suggests hemolysis or conjugation defects such as Gilbert syndrome; conjugated (direct) hyperbilirubinemia with cholestatic enzymes suggests obstruction or intrahepatic cholestasis. Imaging, not the laboratory, establishes anatomical obstruction. Other cholestatic clues include elevated 5-nucleotidase (also hepatic) and elevated urinary bilirubin. As always, reference intervals for ALP and GGT vary widely by method, age (bone growth), sex, and pregnancy, and must be verified locally.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Serial high-sensitivity troponin testing underpins emergency department rule-out of myocardial infarction; understanding delta criteria prevents both missed infarctions (single early sample) and unnecessary admissions (ignoring a chronically elevated baseline). In hepatology, enzyme patterns guide the next test: hepatocellular pattern prompts viral and toxic workup; cholestatic pattern prompts imaging for obstruction. Mistaking a bone ALP for a liver ALP, or a muscle CK for a cardiac event, leads directly to wrong diagnoses.",
+    "labInterpretation": "Always report and interpret enzyme results with the local reference interval and method noted; intervals vary by laboratory, method, age, sex, and population. For troponin, use the assay-specific 99th percentile and validated delta criteria. For liver enzymes, describe the pattern (hepatocellular, cholestatic, mixed) rather than diagnosing from one number, and correlate with bilirubin, albumin, and coagulation tests. Flag hemolyzed specimens (AST is particularly affected) and note muscle injury as a confounder for CK and AST.",
+    "comparisonTables": [
+      {
+        "title": "Hepatocellular vs cholestatic enzyme patterns",
+        "columns": ["Pattern", "Typical findings", "Examples of causes"],
+        "rows": [
+          ["Hepatocellular", "ALT and AST markedly elevated relative to ALP", "Viral hepatitis, drug-induced liver injury, ischemic hepatitis"],
+          ["Cholestatic", "ALP and GGT markedly elevated relative to ALT", "Biliary obstruction, primary biliary cholangitis, drug cholestasis"],
+          ["Mixed", "Both patterns present", "Some drug reactions, infiltrative diseases"],
+          ["Isolated ALP, normal GGT", "Bone or placental source", "Paget disease, bone growth, pregnancy"]
+        ]
+      },
+      {
+        "title": "Cardiac marker kinetics",
+        "columns": ["Marker", "Rise", "Peak", "Return to normal", "Best niche"],
+        "rows": [
+          ["hs-cTnI / hs-cTnT", "Within hours", "About 24 hours (assay dependent)", "Several days", "Diagnosis of myocardial infarction"],
+          ["CK-MB", "3-6 h", "12-24 h", "48-72 h", "Reinfarction detection"],
+          ["Myoglobin", "1-2 h", "6-8 h", "Within 24 h", "Earliest rise; nonspecific"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A single elevated troponin does not equal myocardial infarction: myocardial injury from any cause raises troponin, and acute infarction requires a rise and/or fall with at least one value over the 99th percentile URL.",
+      "An elevated ALP is not automatically liver: check GGT (hepatic) versus bone origin, and remember physiologic elevations in growth and pregnancy.",
+      "AST rises in hemolysis and muscle injury; a hemolyzed specimen can masquerade as hepatocellular injury."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "For liver pattern: ALP and GGT = Gatekeepers of the Gallbladder (cholestatic); ALT/AST = the Liver's cry for help (hepatocellular).",
+      "funny": "ALP + GGT = cholangitis vibes. ALT + AST = liver na nasaktan. Pag lahat taas, mixed — parang relasyon na gulong lahat."
+    },
+    {
+      "type": "STORY",
+      "text": "Troponin stays elevated for days (long guest), CK-MB leaves early (short visit) — so when you suspect a second attack, ask the guest who stays briefly.",
+      "funny": "Troponin = long-staying visitor (days siya tumatagal). CK-MB = bisita lang. Pag may reinfarction, si CK-MB ang una uling sisilip. Sana all bumabalik."
+    }
+  ],
+  "practiceQuestionIds": ["cc-q-001", "cc-q-002", "cc-q-003"],
+  "relatedFlashcardIds": ["cc-fc-001", "cc-fc-002", "cc-fc-003"],
+  "followUp": ["clinical-chemistry/renal-electrolytes"],
+  "references": [
+    { "title": "Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., Burtis & Bruns, Elsevier, chapters on cardiac markers and on liver function assessment", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on enzymes and cardiac biomarkers", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

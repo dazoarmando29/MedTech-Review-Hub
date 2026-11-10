@@ -1,0 +1,376 @@
+[
+  {
+    "id": "imm-deck-01",
+    "title": "Immunoglobulins, Complement, and Immunodeficiency",
+    "subjectId": "immunology",
+    "cards": [
+      {
+        "id": "imm-fc-001",
+        "type": "BASIC",
+        "front": "Which immunoglobulin is the first produced in a primary response, is a pentamer, and efficiently fixes complement?",
+        "back": "IgM.",
+        "tags": ["immunoglobulins", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-002",
+        "type": "BASIC",
+        "front": "Which immunoglobulin crosses the placenta and which is found in secretions as a dimer?",
+        "back": "IgG crosses the placenta; secretory IgA is the dimer (with J chain and secretory component) in secretions.",
+        "tags": ["immunoglobulins", "iga", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-003",
+        "type": "CLOZE",
+        "front": "IgM is a [[1]] that does [[2]] cross the placenta; IgG is the most [[3]] serum immunoglobulin and does cross it.",
+        "back": "1: pentamer  2: not  3: abundant",
+        "tags": ["immunoglobulins", "high-yield"],
+        "difficulty": 1,
+        "note": "Neonatal IgM = infant made it.",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-004",
+        "type": "BASIC",
+        "front": "Which immunoglobulin mediates type I hypersensitivity and binds mast cells?",
+        "back": "IgE (via high-affinity Fc receptors on mast cells and basophils).",
+        "tags": ["ige", "allergy"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-005",
+        "type": "BASIC",
+        "front": "What initiates the classical complement pathway?",
+        "back": "C1q binding to antigen-antibody complexes (IgM or aggregated IgG).",
+        "tags": ["complement", "classical"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-006",
+        "type": "CLOZE",
+        "front": "The classical pathway starts with [[1]]; the alternative pathway starts with spontaneous [[2]] hydrolysis; the lectin pathway starts with [[3]] binding microbial sugars.",
+        "back": "1: C1q (antibody complexes)  2: C3  3: mannose-binding lectin (MBL)",
+        "tags": ["complement", "pathways"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-007",
+        "type": "BASIC",
+        "front": "Which complement fragment is the major opsonin and which is the most potent anaphylatoxin?",
+        "back": "C3b is the major opsonin; C5a is the most potent anaphylatoxin and chemoattractant.",
+        "tags": ["complement", "fragments"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-008",
+        "type": "BASIC",
+        "front": "What is the membrane attack complex and what does its deficiency predispose to?",
+        "back": "MAC = C5b-C9 pore complex; deficiency predisposes specifically to Neisseria infections.",
+        "tags": ["complement", "deficiency"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-009",
+        "type": "CLOZE",
+        "front": "Early complement component deficiencies (C1, C2, C4) present with [[1]]-like illness; C3 deficiency causes severe [[2]] infections.",
+        "back": "1: lupus (SLE)  2: pyogenic (encapsulated bacteria)",
+        "tags": ["complement", "deficiency"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-010",
+        "type": "BASIC",
+        "front": "What distinguishes X-linked agammaglobulinemia (Bruton) from common variable immunodeficiency on workup?",
+        "back": "XLA: absent B cells with panhypogammaglobulinemia in infancy; CVID: B cells present, low immunoglobulins, usually later presentation.",
+        "tags": ["immunodeficiency", "b-cell"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-011",
+        "type": "BASIC",
+        "front": "What are the classic features of DiGeorge syndrome?",
+        "back": "22q11 deletion, thymic hypoplasia (T-cell deficiency), hypoparathyroidism with hypocalcemia, conotruncal cardiac defects.",
+        "tags": ["immunodeficiency", "t-cell"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-012",
+        "type": "CLOZE",
+        "front": "Severe combined immunodeficiency presents with absent [[1]] and [[2]] cells, failure to thrive, and [[3]] infections such as Pneumocystis.",
+        "back": "1: T  2: B  3: opportunistic",
+        "tags": ["immunodeficiency", "scid"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-013",
+        "type": "BASIC",
+        "front": "Which test demonstrates the phagocyte respiratory burst defect in chronic granulomatous disease?",
+        "back": "Dihydrorhodamine (DHR) flow cytometry or nitroblue tetrazolium (NBT) reduction test.",
+        "tags": ["cgd", "phagocyte"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-014",
+        "type": "BASIC",
+        "front": "What does a low CH50 with low C4 suggest in an active lupus patient?",
+        "back": "Classical pathway consumption by immune complexes (not inherited deficiency).",
+        "tags": ["complement", "ch50"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-015",
+        "type": "CLOZE",
+        "front": "CH50 measures [[1]] pathway function; AH50 measures [[2]] pathway function. Antigen levels alone do not measure [[3]].",
+        "back": "1: classical  2: alternative  3: function",
+        "tags": ["complement", "ch50"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-016",
+        "type": "BASIC",
+        "front": "How should quantitative immunoglobulin results be interpreted?",
+        "back": "Against age-matched, method-specific reference intervals from the performing laboratory (intervals vary by laboratory, method, age, and population), with vaccine response testing for function.",
+        "tags": ["immunoglobulins", "interpretation"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-017",
+        "type": "BASIC",
+        "front": "What is rheumatoid factor and why does it interfere with serologic assays?",
+        "back": "IgM antibody against the Fc region of IgG; it bridges reagent IgG antibodies and causes false-positive agglutination or immunoassay results.",
+        "tags": ["rf", "interference"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      },
+      {
+        "id": "imm-fc-018",
+        "type": "CLOZE",
+        "front": "Hyper-IgM syndrome (CD40 ligand defect) shows low [[1]] and [[2]] with normal or high [[3]], plus Pneumocystis risk.",
+        "back": "1: IgG  2: IgA  3: IgM",
+        "tags": ["immunodeficiency", "hyper-igm"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/immunoglobulins-complement" }
+      }
+    ]
+  },
+  {
+    "id": "imm-deck-02",
+    "title": "Serologic Methods and Autoimmune Testing",
+    "subjectId": "immunology",
+    "cards": [
+      {
+        "id": "imm-fc-019",
+        "type": "BASIC",
+        "front": "RPR and VDRL are what type of syphilis tests, and what do they monitor?",
+        "back": "Non-treponemal (cardiolipin reagin) tests; they screen for infection and monitor activity - titers fall with successful treatment.",
+        "tags": ["syphilis", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-020",
+        "type": "BASIC",
+        "front": "What do treponemal tests (FTA-ABS, TP-PA) indicate, and do they become negative after cure?",
+        "back": "They confirm treponemal infection/exposure and usually remain positive for life; they cannot judge treatment success.",
+        "tags": ["syphilis", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-021",
+        "type": "CLOZE",
+        "front": "Non-treponemal tests (RPR/VDRL) can be falsely positive in [[1]], [[2]], and infections. Treponemal tests such as FTA-ABS stay [[3]] after treatment.",
+        "back": "1: pregnancy  2: autoimmune disease  3: positive",
+        "tags": ["syphilis", "false-positive"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-022",
+        "type": "BASIC",
+        "front": "What does an RPR titer of 1:8 mean?",
+        "back": "Agglutination is still visible at a one-in-eight dilution of patient serum; compare titers only within the same method and laboratory.",
+        "tags": ["titer", "syphilis"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-023",
+        "type": "BASIC",
+        "front": "What is the correct component sequence in indirect ELISA?",
+        "back": "Antigen coated on solid phase, patient antibody, enzyme-labeled anti-human immunoglobulin, substrate.",
+        "tags": ["elisa", "methods"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-024",
+        "type": "CLOZE",
+        "front": "Sandwich ELISA detects [[1]]; indirect ELISA detects [[2]]; competitive ELISA signal is [[3]] proportional to analyte concentration.",
+        "back": "1: antigen  2: antibody  3: inversely",
+        "tags": ["elisa", "methods"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-025",
+        "type": "BASIC",
+        "front": "What does a speckled ANA pattern on HEp-2 cells suggest?",
+        "back": "Antibodies to extractable nuclear antigens (Sm, RNP, Ro, La) - order an ENA panel next.",
+        "tags": ["ana", "autoimmune"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-026",
+        "type": "CLOZE",
+        "front": "Homogeneous ANA pattern suggests [[1]] or anti-histone; nucleolar suggests [[2]] spectrum; centromere pattern suggests [[3]] systemic sclerosis.",
+        "back": "1: anti-dsDNA  2: scleroderma  3: limited cutaneous",
+        "tags": ["ana", "patterns"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-027",
+        "type": "BASIC",
+        "front": "Which antibody is more specific than rheumatoid factor for rheumatoid arthritis?",
+        "back": "Anti-CCP (anti-citrullinated protein antibody); RF is sensitive but nonspecific.",
+        "tags": ["ra", "autoimmune"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-028",
+        "type": "BASIC",
+        "front": "A rapid heterophile (monospot) test is negative in a patient with classic mononucleosis syndrome. What next?",
+        "back": "EBV-specific serology (VCA IgM and IgG, EBNA); heterophile tests can be negative in young children and early illness.",
+        "tags": ["ebv", "heterophile"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-029",
+        "type": "CLOZE",
+        "front": "HBsAg positive beyond [[1]] months = chronic hepatitis B. [[2]] indicates active replication. Anti-HBs alone after vaccination = [[3]].",
+        "back": "1: six  2: HBeAg  3: immunity",
+        "tags": ["hepatitis-b", "serology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-030",
+        "type": "BASIC",
+        "front": "What serologic pattern marks the hepatitis B window period?",
+        "back": "HBsAg negative, anti-HBs negative, anti-HBc IgM positive (the only marker of recent infection).",
+        "tags": ["hepatitis-b", "window-period"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-031",
+        "type": "BASIC",
+        "front": "What does a reactive anti-HCV antibody screen with undetectable HCV RNA indicate?",
+        "back": "No evidence of current infection; antibody may be false reactive or remote cleared infection - RNA confirms active replication.",
+        "tags": ["hepatitis-c", "serology"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-032",
+        "type": "CLOZE",
+        "front": "Fourth-generation HIV assays detect [[1]] antigen plus HIV-1/HIV-2 [[2]]. A reactive screen requires a supplemental [[3]] assay.",
+        "back": "1: p24  2: antibodies  3: differentiation",
+        "tags": ["hiv", "serology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-033",
+        "type": "BASIC",
+        "front": "How is a discordant treponemal-positive, RPR-negative syphilis result resolved?",
+        "back": "With a second treponemal test (for example, TP-PA) plus clinical history; it may represent treated past infection, early infection, or false-positive treponemal result.",
+        "tags": ["syphilis", "discordant"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-034",
+        "type": "BASIC",
+        "front": "What is the prozone effect in agglutination assays?",
+        "back": "Very high antibody concentrations prevent lattice formation, causing a false-negative agglutination; dilution of the specimen resolves it.",
+        "tags": ["agglutination", "interference"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-035",
+        "type": "CLOZE",
+        "front": "Agglutination titer 1:32 means visible reactivity persists at a [[1]] dilution. A change of [[2]] or more dilution steps is generally significant (per local protocol).",
+        "back": "1: one-in-thirty-two (1/32)  2: two",
+        "tags": ["titer", "methods"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      },
+      {
+        "id": "imm-fc-036",
+        "type": "BASIC",
+        "front": "How must ANA results be reported?",
+        "back": "With pattern, titer, and substrate (HEp-2), noting that low titers occur in healthy individuals and intervals vary by laboratory, method, and population.",
+        "tags": ["ana", "reporting"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "immunology/serology-autoimmune" }
+      }
+    ]
+  }
+]

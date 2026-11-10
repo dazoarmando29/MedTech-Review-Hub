@@ -2,37 +2,280 @@
   {
     "id": "imm-q-001",
     "subjectId": "immunology",
-    "topicId": "immunoglobulins",
+    "topicId": "immunoglobulins-complement",
     "type": "MCQ",
-    "vignette": "A newborn's serology shows a positive IgM antibody against a pathogen; IgG matches the mother's.",
-    "stem": "What does the positive IgM indicate?",
+    "vignette": null,
+    "stem": "Which immunoglobulin class is the first produced in a primary immune response and is a pentamer that efficiently activates complement?",
     "choices": [
-      { "id": "A", "text": "Passive transfer of maternal antibody" },
-      { "id": "B", "text": "The fetus/newborn has produced its own antibody (possible congenital infection)" },
-      { "id": "C", "text": "Vaccine response" },
-      { "id": "D", "text": "Laboratory error only" }
+      { "id": "A", "text": "IgG" },
+      { "id": "B", "text": "IgM" },
+      { "id": "C", "text": "IgA" },
+      { "id": "D", "text": "IgE" }
     ],
     "correctChoiceId": "B",
-    "difficulty": "MEDIUM",
-    "explanation": "IgM does not cross the placenta. A positive IgM in a newborn indicates fetal production and raises concern for congenital infection; IgG alone can be maternal.",
+    "difficulty": "EASY",
+    "explanation": "IgM is secreted as a pentamer and is the earliest antibody of the primary response; its ten binding sites make it an excellent agglutinin and a very efficient activator of the classical complement pathway.",
     "rationales": {
-      "A": "Only IgG crosses the placenta (FcRn-mediated transfer).",
-      "B": "Correct: IgM = neonatal synthesis.",
-      "C": "Newborns are not typically vaccinated at birth with these antigens.",
-      "D": "While errors happen, the immunologic principle here is the examinable point."
+      "A": "IgG dominates the secondary response and is the most abundant serum immunoglobulin, but it is not the first produced.",
+      "B": "Correct: IgM is the pentameric first responder.",
+      "C": "IgA is a monomer in serum and a dimer in secretions and does not classically fix complement.",
+      "D": "IgE is a trace monomer involved in allergy and parasite defense."
     },
-    "misconception": "The placental transfer rule applies to IgG only — IgM is too large (pentamer).",
-    "reference": "Henry's 24th ed., Ch. 52",
-    "lessonId": "immunology/immunoglobulins",
-    "examTraps": ["IgM never crosses the placenta."]
+    "misconception": "IgG is the most abundant antibody and is therefore guessed as the first responder; timing (primary versus secondary response) is the key discriminator.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Primary response = IgM; secondary response = IgG with high affinity."]
   },
   {
     "id": "imm-q-002",
     "subjectId": "immunology",
-    "topicId": "immunoglobulins",
+    "topicId": "immunoglobulins-complement",
     "type": "MCQ",
-    "vignette": "A patient with recurrent sinopulmonary infections has undetectable IgG, IgA and IgM on serum protein electrophoresis and quantitation.",
-    "stem": "Which immunoglobulin class is the main target of replacement therapy to prevent infections?",
+    "vignette": null,
+    "stem": "Which immunoglobulin class crosses the placenta and provides passive immunity to the newborn?",
+    "choices": [
+      { "id": "A", "text": "IgM" },
+      { "id": "B", "text": "IgA" },
+      { "id": "C", "text": "IgG" },
+      { "id": "D", "text": "IgD" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "IgG is the only class that crosses the placenta in significant amounts, providing passive protection for the first months of life. This also means maternal IgG can confound infant serology.",
+    "rationales": {
+      "A": "IgM is a large pentamer and does not cross the placenta; neonatal IgM indicates infant production.",
+      "B": "Secretory IgA protects mucosal surfaces and is provided in breast milk but does not cross the placenta.",
+      "C": "Correct: IgG crosses the placenta via Fc receptors.",
+      "D": "IgD is a trace surface receptor immunoglobulin with no placental transfer role."
+    },
+    "misconception": "The confusion runs both ways: a positive neonatal IgM is infant-produced because IgM cannot be maternal, and a positive IgG in a newborn may be maternal passively transferred.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["IgM in a newborn = the baby is making it; IgG in a newborn may be mom's."]
+  },
+  {
+    "id": "imm-q-003",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "SCENARIO",
+    "vignette": "A 19-year-old man has had recurrent Neisseria meningitidis infections. Terminal complement component testing shows absent C5 through C9 with normal early components.",
+    "stem": "Which immunologic explanation best fits this clinical pattern?",
+    "choices": [
+      { "id": "A", "text": "Deficiency of the membrane attack complex predisposes specifically to Neisseria infections" },
+      { "id": "B", "text": "IgA deficiency explains recurrent encapsulated bacterial infections" },
+      { "id": "C", "text": "C3 deficiency is the classic cause of recurrent meningococcal disease" },
+      { "id": "D", "text": "Chronic granulomatous disease causes Neisseria infections" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Terminal complement components C5 through C9 form the membrane attack complex; their deficiency impairs serum bactericidal activity against Neisseria species and classically presents with recurrent meningococcal or gonococcal infections.",
+    "rationales": {
+      "A": "Correct: MAC (C5-C9) deficiency has a Neisseria-specific pattern.",
+      "B": "IgA deficiency causes sinopulmonary and gastrointestinal infections, not a specific Neisseria pattern.",
+      "C": "C3 deficiency causes severe recurrent pyogenic infections with encapsulated organisms, not the classic Neisseria pattern.",
+      "D": "CGD affects phagocyte killing of catalase-positive organisms and fungi, not Neisseria specifically."
+    },
+    "misconception": "All complement deficiencies are lumped together; the position in the cascade predicts the organism pattern (C3 = pyogenic, C5-C9 = Neisseria).",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Terminal complement = Neisseria magnet; C3 = pyogenic infections."]
+  },
+  {
+    "id": "imm-q-004",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which immunoglobulin class is the primary mediator of type I hypersensitivity and binds mast cells via high-affinity Fc receptors?",
+    "choices": [
+      { "id": "A", "text": "IgG" },
+      { "id": "B", "text": "IgM" },
+      { "id": "C", "text": "IgE" },
+      { "id": "D", "text": "IgA" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "IgE binds high-affinity Fc receptors on mast cells and basophils; allergen cross-linking triggers degranulation and type I hypersensitivity reactions including anaphylaxis.",
+    "rationales": {
+      "A": "IgG mediates opsonization, complement activation, and neonatal immunity, and is involved in type II and III hypersensitivity.",
+      "B": "IgM is the early responder and is involved in some cytotoxic and immune complex reactions.",
+      "C": "Correct: IgE is the allergy and anti-helminth antibody.",
+      "D": "IgA mediates mucosal immunity and can be involved in some IgA nephropathy and selective deficiency issues."
+    },
+    "misconception": "IgG anaphylactic transfer (for example, in serum sickness or some transfusion reactions) is confused with IgE-mediated type I allergy; the mechanism and timing differ.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Type I allergy = IgE on mast cells; immediate minutes-to-hours reactions."]
+  },
+  {
+    "id": "imm-q-005",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Secretory IgA protecting mucosal surfaces is characterized by which structural feature?",
+    "choices": [
+      { "id": "A", "text": "A pentamer with J chain" },
+      { "id": "B", "text": "A dimer with J chain and secretory component" },
+      { "id": "C", "text": "A monomer with an extra heavy chain" },
+      { "id": "D", "text": "A monomer bound to C1q" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Secretory IgA is a dimer joined by a J chain and protected by a secretory component derived from the polymeric immunoglobulin receptor; it neutralizes pathogens at mucosal surfaces without classical complement activation.",
+    "rationales": {
+      "A": "Pentameric structure with J chain describes IgM.",
+      "B": "Correct: dimer plus J chain plus secretory component = secretory IgA.",
+      "C": "There is no monomer with an extra heavy chain class; heavy chain type defines the class.",
+      "D": "C1q binding is a classical complement pathway function associated with IgM and IgG, not IgA structure."
+    },
+    "misconception": "Serum IgA is monomeric and secretory IgA is dimeric; exams test the J chain and secretory component details.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Secretory IgA = dimer + J chain + secretory component."]
+  },
+  {
+    "id": "imm-q-006",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "SCENARIO",
+    "vignette": "A 6-month-old boy develops recurrent sinopulmonary infections with Streptococcus pneumoniae. Serum immunoglobulin quantitation shows profoundly low IgG, IgA, and IgM, and flow cytometry shows absent CD19-positive B cells.",
+    "stem": "Which diagnosis is most consistent with these findings?",
+    "choices": [
+      { "id": "A", "text": "X-linked agammaglobulinemia (Bruton disease)" },
+      { "id": "B", "text": "Selective IgA deficiency" },
+      { "id": "C", "text": "DiGeorge syndrome" },
+      { "id": "D", "text": "Common variable immunodeficiency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Absent B cells with panhypogammaglobulinemia presenting after six months of age (as maternal IgG wanes) is classic X-linked agammaglobulinemia due to BTK deficiency. CVID presents later with B cells present.",
+    "rationales": {
+      "A": "Correct: absent B cells plus low all classes = Bruton agammaglobulinemia.",
+      "B": "Selective IgA deficiency has low IgA with normal IgG and IgM and normal B cells.",
+      "C": "DiGeorge is a T-cell deficiency with thymic hypoplasia and hypocalcemia, not absent B cells.",
+      "D": "CVID has low immunoglobulins but measurable B cells and usually presents later in childhood or adulthood."
+    },
+    "misconception": "Hypogammaglobulinemia is treated as one disease; B-cell presence or absence separates XLA from CVID.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["No B cells = XLA; B cells present with low Ig = CVID until proven otherwise."]
+  },
+  {
+    "id": "imm-q-007",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The classical complement pathway is classically initiated by:",
+    "choices": [
+      { "id": "A", "text": "C1q binding to antigen-antibody complexes" },
+      { "id": "B", "text": "Spontaneous hydrolysis of C3 on microbial surfaces" },
+      { "id": "C", "text": "Mannose-binding lectin binding to microbial carbohydrates" },
+      { "id": "D", "text": "Properdin binding to lipopolysaccharide" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "The classical pathway begins when C1q binds the Fc region of antibodies in immune complexes (IgM or aggregated IgG). The alternative pathway begins with spontaneous C3 hydrolysis and the lectin pathway with mannose-binding lectin.",
+    "rationales": {
+      "A": "Correct: C1q binding to antibody complexes initiates the classical pathway.",
+      "B": "Spontaneous C3 hydrolysis is the tick-over of the alternative pathway.",
+      "C": "Mannose-binding lectin initiates the lectin pathway.",
+      "D": "Properdin stabilizes the alternative pathway C3 convertase; it is not the classical initiator."
+    },
+    "misconception": "All complement activation is assumed to require antibody; alternative and lectin pathways are antibody independent.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Classical = C1q + antibody; alternative = microbe surfaces; lectin = mannose."]
+  },
+  {
+    "id": "imm-q-008",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which complement cleavage product is the most potent anaphylatoxin and a strong neutrophil chemoattractant?",
+    "choices": [
+      { "id": "A", "text": "C3b" },
+      { "id": "B", "text": "C4b" },
+      { "id": "C", "text": "C5a" },
+      { "id": "D", "text": "C9" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "MEDIUM",
+    "explanation": "C5a is the strongest anaphylatoxin and chemoattractant, recruiting and activating leukocytes; C3b is the major opsonin, and C5b nucleates the membrane attack complex.",
+    "rationales": {
+      "A": "C3b is the principal opsonin and part of the C3/C5 convertases.",
+      "B": "C4b participates in the classical and lectin C3 convertase and opsonization.",
+      "C": "Correct: C5a is the premier anaphylatoxin and chemoattractant.",
+      "D": "C9 polymerizes into the membrane attack complex pore; it is not an anaphylatoxin."
+    },
+    "misconception": "C3a and C5a are both anaphylatoxins; C5a is the more potent one and the chemoattractant, which is what exams emphasize.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["C3b = opsonin; C3a/C4a/C5a = anaphylatoxins; C5a is strongest; C5b-9 = MAC."]
+  },
+  {
+    "id": "imm-q-009",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "SCENARIO",
+    "vignette": "A 25-year-old woman with systemic lupus erythematosus has active disease with rash and arthritis. Laboratory studies show low C4 and low C3 with a low CH50.",
+    "stem": "Which interpretation best fits these complement results?",
+    "choices": [
+      { "id": "A", "text": "Classical pathway activation and consumption by immune complexes" },
+      { "id": "B", "text": "Inherited terminal complement component deficiency" },
+      { "id": "C", "text": "Alternative pathway deficiency with normal classical function" },
+      { "id": "D", "text": "Mannose-binding lectin deficiency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Low C4 with low C3 and low CH50 during active lupus reflects classical pathway consumption by immune complexes; inherited early-component deficiencies (C1, C2, C4) cause lupus-like disease but would not typically show consumption with active serology in this way.",
+    "rationales": {
+      "A": "Correct: C4 and C3 consumption with low CH50 = classical pathway activation in immune complex disease.",
+      "B": "Terminal component deficiency gives low CH50 with normal C3 and C4 and Neisseria infections.",
+      "C": "Alternative pathway dysfunction would not lower C4 preferentially.",
+      "D": "MBL deficiency causes mild infection susceptibility in early childhood and does not consume C3 and C4."
+    },
+    "misconception": "Any low CH50 is read as inherited deficiency; consumption during active disease is far more common, and C4 helps localize the pathway.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Low C4 + low CH50 in active lupus = consumption, not inherited absence."]
+  },
+  {
+    "id": "imm-q-010",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which screening test evaluates total hemolytic function of the classical complement pathway?",
+    "choices": [
+      { "id": "A", "text": "CH50" },
+      { "id": "B", "text": "AH50" },
+      { "id": "C", "text": "C3 antigen level only" },
+      { "id": "D", "text": "Quantitative immunoglobulin panel" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "CH50 is a functional assay of the classical pathway's ability to lyse antibody-sensitized erythrocytes; AH50 evaluates the alternative pathway, and single antigen levels do not assess function.",
+    "rationales": {
+      "A": "Correct: CH50 = classical pathway hemolytic function.",
+      "B": "AH50 screens the alternative pathway.",
+      "C": "C3 antigen level measures quantity, not pathway function, and can be normal in functional defects.",
+      "D": "Immunoglobulin quantitation assesses antibody levels, not complement."
+    },
+    "misconception": "CH50 is treated as a complement protein count; it is a functional lysis assay, and a profoundly low CH50 with normal C4 suggests terminal component absence.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["CH50 = classical function; AH50 = alternative function; antigen levels ≠ function."]
+  },
+  {
+    "id": "imm-q-011",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which immunoglobulin class is most abundant in serum, accounting for roughly 75 to 80 percent of total immunoglobulin?",
     "choices": [
       { "id": "A", "text": "IgA" },
       { "id": "B", "text": "IgM" },
@@ -41,16 +284,529 @@
     ],
     "correctChoiceId": "C",
     "difficulty": "EASY",
-    "explanation": "IgG is the most abundant serum immunoglobulin and the main opsonizing/neutralizing antibody; replacement immunoglobulin therapy (IVIG/SCIG) restores IgG to prevent infections in antibody deficiencies.",
+    "explanation": "IgG is the most abundant serum immunoglobulin and the main antibody of the secondary response; its subclasses differ in complement fixation and placental transfer efficiency.",
     "rationales": {
-      "A": "IgA protects mucosal surfaces but is not the main serum replacement target (and can cause anaphylaxis in IgA-deficient patients if not matched).",
-      "B": "IgM is the first responder but is not replaced therapeutically.",
-      "C": "Correct: IgG replacement is standard for antibody deficiency.",
-      "D": "IgE mediates allergy/parasites; it is not the replacement target."
+      "A": "IgA is second in concentration and dominates secretions.",
+      "B": "IgM is a minority of serum immunoglobulin despite its large pentameric size.",
+      "C": "Correct: IgG is the most abundant serum class.",
+      "D": "IgE is present in trace amounts, measured in international units per milliliter rather than mass concentration in most reports."
     },
-    "misconception": "The therapy question tests the functional primacy of IgG, not just class names.",
-    "reference": "Henry's 24th ed., Ch. 52",
-    "lessonId": "immunology/immunoglobulins",
-    "examTraps": ["Replacement therapy = IgG."]
+    "misconception": "Size is confused with abundance: IgM is the largest molecule but not the most abundant; IgG is a monomer and dominates serum.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Most abundant = IgG; biggest = IgM pentamer; most in secretions = IgA."]
+  },
+  {
+    "id": "imm-q-012",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "SCENARIO",
+    "vignette": "A 2-year-old boy presents with failure to thrive, oral thrush, and Pneumocystis jirovecii pneumonia. Flow cytometry shows absent T cells and absent B cells with very low immunoglobulins.",
+    "stem": "Which category of immunodeficiency does this represent?",
+    "choices": [
+      { "id": "A", "text": "Isolated antibody deficiency" },
+      { "id": "B", "text": "Severe combined immunodeficiency" },
+      { "id": "C", "text": "Chronic granulomatous disease" },
+      { "id": "D", "text": "Complement terminal component deficiency" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Absent T and B cells with opportunistic infection including Pneumocystis and failure to thrive is severe combined immunodeficiency (SCID), a pediatric emergency often treated with hematopoietic stem cell transplant.",
+    "rationales": {
+      "A": "Isolated antibody deficiency has normal T cells and presents with encapsulated bacterial infections after maternal antibody wanes.",
+      "B": "Correct: SCID = absent T cells with absent or dysfunctional B cells and opportunistic infections.",
+      "C": "CGD involves defective phagocyte oxidative burst with catalase-positive organisms and granulomas; lymphocytes are intact.",
+      "D": "Terminal complement deficiency predisposes to Neisseria, not Pneumocystis."
+    },
+    "misconception": "Thrush in an infant is dismissed as common; in combination with failure to thrive and Pneumocystis it screams T-cell deficiency.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Pneumocystis + thrush + failure to thrive = think T-cell defect (SCID/DiGeorge)."]
+  },
+  {
+    "id": "imm-q-013",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "DiGeorge syndrome is caused by abnormal development of which structures and classically presents with which laboratory abnormality?",
+    "choices": [
+      { "id": "A", "text": "Thymus and parathyroids; hypocalcemia" },
+      { "id": "B", "text": "Bone marrow B-cell precursors; panhypogammaglobulinemia" },
+      { "id": "C", "text": "Phagocyte oxidase system; abnormal nitroblue tetrazolium test" },
+      { "id": "D", "text": "Terminal complement; low CH50 with normal C4" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "DiGeorge syndrome (22q11.2 deletion) involves failure of third and fourth pharyngeal pouch development, producing thymic hypoplasia (T-cell deficiency) and hypoparathyroidism with hypocalcemia, often with conotruncal cardiac defects.",
+    "rationales": {
+      "A": "Correct: thymus and parathyroid aplasia with hypocalcemia and T-cell deficiency.",
+      "B": "B-cell precursor failure describes X-linked agammaglobulinemia.",
+      "C": "Phagocyte oxidase failure describes chronic granulomatous disease.",
+      "D": "Terminal complement deficiency gives Neisseria susceptibility, not hypocalcemia."
+    },
+    "misconception": "DiGeorge is remembered as only a T-cell problem; the hypocalcemia from parathyroid aplasia is the classic biochemical clue.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["22q11 deletion = DiGeorge: T-cell defect + hypocalcemia + heart defects."]
+  },
+  {
+    "id": "imm-q-014",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In chronic granulomatous disease, which laboratory test best demonstrates the defective phagocyte function?",
+    "choices": [
+      { "id": "A", "text": "Dihydrorhodamine flow cytometry or nitroblue tetrazolium test" },
+      { "id": "B", "text": "CH50 assay" },
+      { "id": "C", "text": "Serum protein electrophoresis" },
+      { "id": "D", "text": "Heterophile antibody screen" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "CGD is a defect in the phagocyte NADPH oxidase respiratory burst; dihydrorhodamine (DHR) flow cytometry or the older nitroblue tetrazolium (NBT) reduction test demonstrates absent oxidative burst.",
+    "rationales": {
+      "A": "Correct: DHR flow or NBT tests the respiratory burst.",
+      "B": "CH50 tests complement classical pathway function, not phagocytes.",
+      "C": "Protein electrophoresis screens for immunoglobulin abnormalities or paraproteins.",
+      "D": "Heterophile screens test for infectious mononucleosis antibodies."
+    },
+    "misconception": "Immunodeficiency workups default to immunoglobulin quantitation; phagocyte defects need functional burst testing.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["CGD = no respiratory burst; test with DHR flow or NBT."]
+  },
+  {
+    "id": "imm-q-015",
+    "subjectId": "immunology",
+    "topicId": "immunoglobulins-complement",
+    "type": "SCENARIO",
+    "vignette": "A 4-year-old girl has had recurrent pneumococcal otitis media. Quantitative immunoglobulins show IgG 250 mg/dL (low for age), IgM normal, and IgA low. She responded poorly to pneumococcal vaccination with low serotype-specific titers. Reference intervals vary by laboratory, method, and age; values shown are illustrative of hypogammaglobulinemia.",
+    "stem": "Which additional finding would distinguish an antibody production defect from mere quantitative low values?",
+    "choices": [
+      { "id": "A", "text": "Absent specific antibody responses to vaccination despite immunoglobulin administration" },
+      { "id": "B", "text": "Low CH50 with normal C4" },
+      { "id": "C", "text": "Positive heterophile test" },
+      { "id": "D", "text": "Elevated IgE level" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Poor specific antibody responses to polysaccharide or conjugate vaccines demonstrate functional antibody failure beyond a single low concentration, guiding diagnosis of specific antibody deficiency or broader humoral defect and decisions about immunoglobulin replacement.",
+    "rationales": {
+      "A": "Correct: vaccine response testing evaluates antibody function, not just quantity.",
+      "B": "CH50 evaluates complement, not antibody production.",
+      "C": "A heterophile test screens for EBV-related antibodies and is irrelevant here.",
+      "D": "Elevated IgE suggests allergy or hyper-IgE syndromes, not the humoral defect described."
+    },
+    "misconception": "A single immunoglobulin concentration is treated as diagnostic; function (vaccine response) and clinical correlation are required, and intervals vary by age and laboratory.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/immunoglobulins-complement",
+    "examTraps": ["Low antibody numbers + poor vaccine response = true humoral deficiency."]
+  },
+  {
+    "id": "imm-q-016",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "RPR and VDRL are classified as which type of syphilis test, and what is their main clinical use?",
+    "choices": [
+      { "id": "A", "text": "Treponemal tests; they confirm infection and remain positive after cure" },
+      { "id": "B", "text": "Non-treponemal tests; they screen for disease activity and titers fall with treatment" },
+      { "id": "C", "text": "Molecular tests; they detect treponemal DNA" },
+      { "id": "D", "text": "Culture-based tests; they isolate Treponema pallidum" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "RPR and VDRL detect reagin antibodies against cardiolipin antigen (non-treponemal); they are used for screening and for monitoring treatment response because titers decline with successful therapy and may become non-reactive.",
+    "rationales": {
+      "A": "Treponemal tests (FTA-ABS, TP-PA, EIA) confirm exposure and usually stay positive for life.",
+      "B": "Correct: non-treponemal screening and activity monitoring with quantitative titers.",
+      "C": "These are nontreponemal antibody tests, not molecular assays.",
+      "D": "T. pallidum cannot be cultured on routine laboratory media; darkfield microscopy is the direct method."
+    },
+    "misconception": "RPR is assumed to confirm syphilis; it is a screening and activity test that can be falsely positive in pregnancy, autoimmune disease, and infections.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["RPR/VDRL = non-treponemal, tracks activity; FTA-ABS = treponemal, stays positive."]
+  },
+  {
+    "id": "imm-q-017",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "SCENARIO",
+    "vignette": "A 30-year-old woman at 12 weeks gestation has a reactive routine prenatal RPR at a titer of 1:2. She has no symptoms and no history of syphilis treatment. FTA-ABS is non-reactive. Repeat RPR at another laboratory is non-reactive.",
+    "stem": "What is the most likely explanation of the discordant results?",
+    "choices": [
+      { "id": "A", "text": "A biologic false-positive non-treponemal reaction, which can occur in pregnancy" },
+      { "id": "B", "text": "Neurosyphilis requiring lumbar puncture" },
+      { "id": "C", "text": "Early primary syphilis before treponemal antibodies develop" },
+      { "id": "D", "text": "Successful treatment of syphilis in the remote past" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "A low-titer reactive RPR with negative treponemal confirmatory testing and no clinical evidence of syphilis is most consistent with a biologic false-positive non-treponemal reaction; pregnancy is a well-known cause of such transient reactivity.",
+    "rationales": {
+      "A": "Correct: pregnancy can produce false-positive non-treponemal reactivity, and FTA-ABS negativity argues against treponemal infection.",
+      "B": "Neurosyphilis evaluation requires clinical and CSF findings; this presentation does not support it.",
+      "C": "In early primary syphilis treponemal tests may be negative, but the RPR would usually be reactive with compatible chancre; the repeat RPR negativity and pregnancy context favor a false positive.",
+      "D": "Remote treated syphilis typically leaves a reactive treponemal test with a low or non-reactive RPR; FTA-ABS is negative here."
+    },
+    "misconception": "Any reactive RPR is treated as syphilis; the treponemal confirmation step exists precisely to catch biologic false positives.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Reactive non-treponemal + negative treponemal = likely biologic false positive; correlate clinically."]
+  },
+  {
+    "id": "imm-q-018",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement correctly describes a quantitative RPR titer reported as 1:8?",
+    "choices": [
+      { "id": "A", "text": "Agglutination is still visible at an eight-fold dilution of patient serum" },
+      { "id": "B", "text": "The patient's antibody concentration is exactly 8 mg/dL" },
+      { "id": "C", "text": "Eight of ten screening wells were positive" },
+      { "id": "D", "text": "The test was repeated eight times with the same result" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "A titer of 1:8 means visible reactivity persists when serum is diluted one part in eight total; titers track activity and a change of two or more dilution steps is generally considered clinically significant (per local protocol).",
+    "rationales": {
+      "A": "Correct: titer = reciprocal of the highest dilution still reactive.",
+      "B": "Titers are dilution endpoints, not mass concentrations.",
+      "C": "Titer notation does not count positive wells.",
+      "D": "Titer is about dilution, not repeat count."
+    },
+    "misconception": "Titers are read as concentrations or scores; they are reciprocal dilution endpoints, and comparisons must use the same method and laboratory.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Titer 1:8 = reactive through an eight-fold dilution; compare like with like."]
+  },
+  {
+    "id": "imm-q-019",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In indirect ELISA for antibody detection, the correct sequence of components is:",
+    "choices": [
+      { "id": "A", "text": "Antigen coated on solid phase, patient antibody, enzyme-labeled anti-human immunoglobulin, substrate" },
+      { "id": "B", "text": "Patient antibody coated on solid phase, antigen, enzyme-labeled antigen, substrate" },
+      { "id": "C", "text": "Enzyme coated on solid phase, patient antigen, labeled antibody, substrate" },
+      { "id": "D", "text": "Substrate coated on solid phase, antigen, antibody, enzyme wash" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Indirect ELISA immobilizes antigen on the well; patient antibody binds the antigen and is detected by an enzyme-labeled anti-human immunoglobulin that converts substrate to a measurable color signal.",
+    "rationales": {
+      "A": "Correct: antigen, patient antibody, enzyme-conjugated anti-human Ig, substrate.",
+      "B": "That confuses the indirect format with sandwich layouts and mislabels the conjugate.",
+      "C": "Enzyme is the label on the conjugate, not the solid-phase coating.",
+      "D": "Substrate is the signal generator in solution after washing, not the coating."
+    },
+    "misconception": "ELISA formats are mixed up; indirect detects antibody, sandwich detects antigen, and competitive measures analyte by signal inhibition.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Indirect ELISA = antigen on well + patient antibody + labeled anti-human Ig."]
+  },
+  {
+    "id": "imm-q-020",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "SCENARIO",
+    "vignette": "A 22-year-old college student presents with fever, pharyngitis, and cervical lymphadenopathy. The peripheral smear shows atypical lymphocytes. A rapid heterophile slide test is negative.",
+    "stem": "What is the best next step in laboratory evaluation?",
+    "choices": [
+      { "id": "A", "text": "EBV-specific antibody profile (viral capsid antigen IgM and IgG, EBNA)" },
+      { "id": "B", "text": "Repeat RPR testing" },
+      { "id": "C", "text": "Antinuclear antibody testing" },
+      { "id": "D", "text": "No further testing; heterophile tests are definitive" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Heterophile tests can be negative in young children and early illness; EBV-specific serology (VCA IgM, VCA IgG, EBNA) resolves the diagnosis of infectious mononucleosis when the rapid test is negative but the clinical picture is compatible.",
+    "rationales": {
+      "A": "Correct: EBV-specific antibodies confirm infection when heterophile screening is negative.",
+      "B": "RPR screens for syphilis and is unrelated to this presentation.",
+      "C": "ANA screens for autoimmune disease, not acute pharyngitis with atypical lymphocytes.",
+      "D": "Negative heterophile tests do not exclude mononucleosis, especially early or in children."
+    },
+    "misconception": "A negative monospot rules out EBV infection; sensitivity is imperfect and specific serology is the follow-up.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Negative heterophile + classic syndrome = EBV-specific serology next."]
+  },
+  {
+    "id": "imm-q-021",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A speckled antinuclear antibody immunofluorescence pattern on HEp-2 cells most strongly suggests antibodies against:",
+    "choices": [
+      { "id": "A", "text": "Double-stranded DNA" },
+      { "id": "B", "text": "Extractable nuclear antigens such as Sm, RNP, Ro, and La" },
+      { "id": "C", "text": "Histones only" },
+      { "id": "D", "text": "Centromere proteins" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "A speckled pattern reflects antibodies to extractable nuclear antigens (ENA) - Sm, RNP, Ro (SSA), La (SSB) - and directs follow-up specific testing; homogeneous suggests anti-dsDNA or anti-histone, and a discrete speckled pattern with mitotic staining defines centromere.",
+    "rationales": {
+      "A": "Anti-dsDNA is associated with a homogeneous pattern and lupus disease activity.",
+      "B": "Correct: speckled = ENA antibodies; follow with ENA panel.",
+      "C": "Anti-histone antibodies are linked to drug-induced lupus with homogeneous pattern.",
+      "D": "Centromere pattern is a discrete speckled appearance with visible mitotic chromosomes, associated with limited scleroderma."
+    },
+    "misconception": "ANA pattern and ANA titer are treated as interchangeable; the pattern guides which specific antibodies to order next.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Speckled = ENA; homogeneous = dsDNA/histone; centromere = limited scleroderma; nucleolar = scleroderma spectrum."]
+  },
+  {
+    "id": "imm-q-022",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which antibody is more specific than rheumatoid factor for rheumatoid arthritis and is associated with erosive disease?",
+    "choices": [
+      { "id": "A", "text": "Anti-CCP (anti-citrullinated protein antibody)" },
+      { "id": "B", "text": "Anti-nuclear antibody" },
+      { "id": "C", "text": "Anti-streptolysin O" },
+      { "id": "D", "text": "Heterophile antibody" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Anti-CCP antibodies are highly specific for rheumatoid arthritis and predict erosive joint disease; rheumatoid factor (IgM anti-IgG) is sensitive but nonspecific, occurring in infections, other autoimmune diseases, and the elderly.",
+    "rationales": {
+      "A": "Correct: anti-CCP is the specific marker for RA.",
+      "B": "ANA screens systemic autoimmune disease, not RA specifically.",
+      "C": "ASO titers indicate recent Streptococcus pyogenes infection.",
+      "D": "Heterophile antibodies support infectious mononucleosis testing."
+    },
+    "misconception": "RF positivity is equated with RA; RF is nonspecific and anti-CCP provides the specificity.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["RF = sensitive but nonspecific; anti-CCP = specific for RA."]
+  },
+  {
+    "id": "imm-q-023",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "SCENARIO",
+    "vignette": "A 35-year-old man is found on routine screening to be HBsAg positive. Repeat testing at 6 months shows persistent HBsAg positivity with anti-HBc IgG positive, HBeAg positive, and anti-HBs negative.",
+    "stem": "How should these markers be interpreted?",
+    "choices": [
+      { "id": "A", "text": "Resolved infection with immunity" },
+      { "id": "B", "text": "Chronic hepatitis B infection with active viral replication" },
+      { "id": "C", "text": "Successful vaccination response" },
+      { "id": "D", "text": "Window period of acute infection" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Persistent HBsAg beyond six months defines chronic hepatitis B infection; HBeAg indicates active viral replication and high infectivity. Anti-HBs negativity means no resolved immunity, and the window period is characterized by isolated anti-HBc IgM without HBsAg.",
+    "rationales": {
+      "A": "Resolved infection shows HBsAg negative with anti-HBs and anti-HBc positive.",
+      "B": "Correct: HBsAg persistence with HBeAg = chronic infection with replication.",
+      "C": "Vaccination produces isolated anti-HBs without anti-HBc.",
+      "D": "The window period has HBsAg gone and anti-HBs not yet detectable, typically with anti-HBc IgM."
+    },
+    "misconception": "Anti-HBc positivity is read as immunity; it marks exposure, and its IgM class plus HBsAg status determine the phase of infection.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["HBsAg over 6 months = chronic; HBeAg = replication; anti-HBs alone = vaccine."]
+  },
+  {
+    "id": "imm-q-024",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A patient's serology shows HBsAg negative, anti-HBs negative, and anti-HBc IgM positive. This pattern most likely represents:",
+    "choices": [
+      { "id": "A", "text": "Vaccination response" },
+      { "id": "B", "text": "The window period of acute hepatitis B infection" },
+      { "id": "C", "text": "Chronic hepatitis B infection" },
+      { "id": "D", "text": "Remote resolved infection with waned anti-HBs" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "In the window period, HBsAg has fallen below detection and anti-HBs is not yet detectable; anti-HBc IgM remains the only marker of recent infection. Isolated anti-HBc IgG can also reflect remote infection with waned anti-HBs or a false positive.",
+    "rationales": {
+      "A": "Vaccination produces anti-HBs without any anti-HBc.",
+      "B": "Correct: isolated anti-HBc IgM = window period of acute infection.",
+      "C": "Chronic infection is defined by persistent HBsAg positivity.",
+      "D": "Remote infection with waned anti-HBs typically shows anti-HBc IgG, not IgM."
+    },
+    "misconception": "Isolated anti-HBc is read as immunity; the IgM class signals recent infection, while isolated IgG has multiple explanations including false positivity.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Window period: HBsAg gone, anti-HBs absent, anti-HBc IgM the lone flag."]
+  },
+  {
+    "id": "imm-q-025",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Fourth-generation HIV laboratory testing detects which combination of analytes?",
+    "choices": [
+      { "id": "A", "text": "HIV-1 RNA only" },
+      { "id": "B", "text": "p24 antigen together with HIV-1 and HIV-2 antibodies" },
+      { "id": "C", "text": "CD4 count and viral load" },
+      { "id": "D", "text": "HIV-2 antibody only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Fourth-generation assays detect p24 antigen plus IgM and IgG antibodies to HIV-1 and HIV-2 in a single test, shortening the window period; reactive results require a supplemental differentiation assay and, if needed, nucleic acid testing.",
+    "rationales": {
+      "A": "RNA-only testing is nucleic acid testing used for confirmation, early infection, and infant diagnosis.",
+      "B": "Correct: Ag/Ab combination (p24 + antibodies) is the fourth-generation format.",
+      "C": "CD4 and viral load monitor established infection; they do not screen for it.",
+      "D": "Third-generation assays detected antibodies only; fourth generation adds p24."
+    },
+    "misconception": "Antibody-only tests are still called fourth generation; the p24 antigen component is what defines the current screening generation.",
+    "reference": "CDC HIV testing guidance, https://www.cdc.gov/",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["4th gen = p24 antigen + antibodies; reactive screens need supplemental differentiation assay."]
+  },
+  {
+    "id": "imm-q-026",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "SCENARIO",
+    "vignette": "A 28-year-old woman is evaluated for fatigue and joint pain. ANA is positive at 1:160 with a homogeneous pattern. Anti-dsDNA is positive and C3 and C4 are low. Laboratory reference intervals vary by laboratory, method, and population; the titer is reported with the local method's cutoff for positivity.",
+    "stem": "Which condition is most strongly supported by this serologic profile?",
+    "choices": [
+      { "id": "A", "text": "Systemic lupus erythematosus" },
+      { "id": "B", "text": "Rheumatoid arthritis" },
+      { "id": "C", "text": "Systemic sclerosis" },
+      { "id": "D", "text": "Infectious mononucleosis" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Positive ANA with homogeneous pattern, positive anti-dsDNA, and complement consumption supports systemic lupus erythematosus; anti-dsDNA is relatively specific for lupus and correlates with disease activity and nephritis risk.",
+    "rationales": {
+      "A": "Correct: ANA + anti-dsDNA + low complement = SLE profile.",
+      "B": "Rheumatoid arthritis is supported by RF and anti-CCP, not anti-dsDNA.",
+      "C": "Systemic sclerosis shows centromere or nucleolar ANA patterns with anticentromere or anti-Scl-70 antibodies.",
+      "D": "Infectious mononucleosis presents with heterophile antibodies and atypical lymphocytes, not this autoantibody profile."
+    },
+    "misconception": "Any positive ANA equals lupus; specificity comes from pattern, specific antibodies such as anti-dsDNA, and clinical criteria, and low titers occur in healthy individuals.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Anti-dsDNA + low C3/C4 in ANA-positive patient = lupus with activity."]
+  },
+  {
+    "id": "imm-q-027",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In a reverse syphilis screening algorithm (treponemal test first), a sample is treponemal EIA reactive but RPR non-reactive. Which interpretation is correct?",
+    "choices": [
+      { "id": "A", "text": "The result is always a false-positive treponemal test and can be dismissed" },
+      { "id": "B", "text": "The pattern can represent successfully treated past infection, very early infection, or a false-positive treponemal result; clinical correlation and additional testing are needed" },
+      { "id": "C", "text": "The patient has neurosyphilis" },
+      { "id": "D", "text": "The RPR must be repeated until positive" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Treponemal-positive, non-treponemal-negative discordance has several explanations - remote treated infection with RPR seroreversion, very early infection, or false-positive treponemal result - and resolution uses a second treponemal test (for example, TP-PA) and clinical history.",
+    "rationales": {
+      "A": "Treponemal tests can be true positives from past infection; dismissal without workup is unsafe.",
+      "B": "Correct: the discordance is multicausal and needs a second treponemal test plus history.",
+      "C": "Neurosyphilis requires CSF evaluation in the appropriate clinical context, not serology alone.",
+      "D": "Repeating RPR does not resolve treponemal-positive discordance; the second treponemal assay does."
+    },
+    "misconception": "The reverse algorithm is assumed to make interpretation simpler; it creates a new discordant category that needs its own resolution path.",
+    "reference": "CDC sexually transmitted infections treatment guidance, https://www.cdc.gov/",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Treponemal positive / RPR negative = second treponemal test (TP-PA) plus clinical history."]
+  },
+  {
+    "id": "imm-q-028",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Rheumatoid factor is an antibody directed against which target?",
+    "choices": [
+      { "id": "A", "text": "The Fc region of IgG" },
+      { "id": "B", "text": "Double-stranded DNA" },
+      { "id": "C", "text": "Cardiolipin antigen" },
+      { "id": "D", "text": "Citrullinated proteins" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Rheumatoid factor is most commonly IgM antibody against the Fc portion of IgG; it can bridge IgG-coated latex particles in agglutination assays and can interfere as a false-positive factor in other immunoassays.",
+    "rationales": {
+      "A": "Correct: RF = anti-Fc of IgG (usually IgM class).",
+      "B": "Anti-dsDNA is the lupus-associated specificity.",
+      "C": "Anti-cardiolipin antibodies relate to antiphospholipid syndrome and false-positive RPR.",
+      "D": "Anti-citrullinated protein antibodies (anti-CCP) are the RA-specific marker, distinct from RF."
+    },
+    "misconception": "RF and anti-CCP are treated as synonyms; RF is a class of anti-IgG antibody with many causes, while anti-CCP targets citrullinated proteins.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["RF targets IgG Fc; it is an interferent in IgG-based immunoassays."]
+  },
+  {
+    "id": "imm-q-029",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "SCENARIO",
+    "vignette": "A 40-year-old man is tested for hepatitis C on routine screening. The anti-HCV EIA is repeatedly reactive. He denies risk factors and feels well. The laboratory performs supplemental antibody testing per algorithm, which is indeterminate, and reflexes to HCV RNA testing, which is not detected.",
+    "stem": "How should this sequence be interpreted?",
+    "choices": [
+      { "id": "A", "text": "Current hepatitis C infection requiring immediate treatment" },
+      { "id": "B", "text": "Likely false-reactive antibody screen with no evidence of current infection; clinical correlation and follow-up per guidelines are appropriate" },
+      { "id": "C", "text": "Vaccination-induced immunity to hepatitis C" },
+      { "id": "D", "text": "The RNA test is unreliable and should be ignored" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "A reactive antibody screen with indeterminate supplemental testing and undetectable HCV RNA does not support current infection; antibody reactivity can be false positive, and RNA confirms active replication. There is no hepatitis C vaccine, and follow-up per current guidance is appropriate.",
+    "rationales": {
+      "A": "Current infection requires detectable HCV RNA (or documented seroconversion), not antibody reactivity alone.",
+      "B": "Correct: antibody-reactive, RNA-not-detected pattern does not establish current infection.",
+      "C": "No vaccine exists for hepatitis C; anti-HCV reflects exposure or false reactivity, not vaccine response.",
+      "D": "HCV RNA is the confirmatory test for active infection and is highly reliable; it cannot be ignored."
+    },
+    "misconception": "A positive hepatitis C antibody equals active infection; antibody persists after clearance and can be falsely reactive, so RNA confirms.",
+    "reference": "CDC hepatitis testing guidance, https://www.cdc.gov/",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["Anti-HCV reactive + RNA not detected = no evidence of current infection; RNA confirms active HCV."]
+  },
+  {
+    "id": "imm-q-030",
+    "subjectId": "immunology",
+    "topicId": "serology-autoimmune",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which laboratory phenomenon can cause false-positive results in antibody assays that use IgG reagents and patient samples containing rheumatoid factor?",
+    "choices": [
+      { "id": "A", "text": "IgM anti-IgG bridging of reagent antibodies" },
+      { "id": "B", "text": "Hemoglobin absorbance interference only" },
+      { "id": "C", "text": "Prozone effect from very low antibody concentration" },
+      { "id": "D", "text": "EDTA chelation of divalent cations" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Rheumatoid factor (IgM anti-IgG) can bridge the Fc regions of reagent antibodies in immunoassays and agglutination tests, generating false-positive signals independent of the analyte of interest - a classic serology interference.",
+    "rationales": {
+      "A": "Correct: RF bridges reagent IgG and mimics a positive antibody result.",
+      "B": "Hemoglobin interference is a chemistry/spectrophotometric issue, not the IgG-bridging mechanism.",
+      "C": "Prozone refers to false negatives at very high antibody concentrations, not false positives from RF.",
+      "D": "EDTA chelation affects coagulation testing, not antibody assay bridging."
+    },
+    "misconception": "All assay interference is physical (lipemia, hemolysis); protein-protein bridging by RF is the immunologic interference class that belongs to serology.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed.",
+    "lessonId": "immunology/serology-autoimmune",
+    "examTraps": ["RF = IgM anti-IgG = classic false-positive bridge in IgG-based assays."]
   }
 ]

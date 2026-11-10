@@ -97,8 +97,8 @@ val copyContentAssets = tasks.register<Copy>("copyContentAssets") {
     includeEmptyDirs = false
     // Only overwrite the embedded sample when real shared content exists.
     onlyIf {
-        val manifest = File(sharedContentDir, "manifest.json")
-        manifest.exists() && manifest.length() > 0
+        val subjects = File(sharedContentDir, "subjects")
+        subjects.isDirectory && subjects.list()?.isNotEmpty() == true
     }
 }
 

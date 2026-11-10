@@ -1,0 +1,376 @@
+[
+  {
+    "id": "lo-deck-01",
+    "title": "Quality Control, Westgard Rules, and Regulatory Frameworks",
+    "subjectId": "lab-operations",
+    "cards": [
+      {
+        "id": "lo-fc-001",
+        "type": "BASIC",
+        "front": "What does the 1-2s Westgard rule mean and what action does it require?",
+        "back": "One control result beyond 2 SD: a WARNING rule - evaluate the remaining rules before accepting the run. It does not reject the run by itself.",
+        "tags": ["westgard", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-002",
+        "type": "BASIC",
+        "front": "State the classic Westgard rejection rules.",
+        "back": "1-3s (one control beyond 3 SD), 2-2s (two controls beyond 2 SD on the same side, within-run or between-run), R-4s (range between two controls exceeds 4 SD in one run).",
+        "tags": ["westgard", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-003",
+        "type": "CLOZE",
+        "front": "1-2s = [[1]] rule. 1-3s and R-4s target [[2]] error. 2-2s, 4-1s, and 8x target [[3]] error.",
+        "back": "1: warning  2: random  3: systematic",
+        "tags": ["westgard", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-004",
+        "type": "BASIC",
+        "front": "What is the R-4s rule and what error does it detect?",
+        "back": "Range between two control results in one run exceeds 4 SD (one high, one low) - detects large random error.",
+        "tags": ["westgard", "r-4s"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-005",
+        "type": "BASIC",
+        "front": "What is a Levey-Jennings chart?",
+        "back": "Control results plotted over run order or date, centered on the established mean with lines at plus/minus 1, 2, and 3 SD.",
+        "tags": ["levey-jennings", "qc"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-006",
+        "type": "CLOZE",
+        "front": "SDI = (observed value minus [[1]]) divided by [[2]]. CV = SD divided by [[3]], times 100.",
+        "back": "1: peer mean  2: peer standard deviation  3: mean",
+        "tags": ["statistics", "sdi"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-007",
+        "type": "BASIC",
+        "front": "What are the CLIA complexity categories?",
+        "back": "Waived, moderate complexity, and high complexity; obligations (QC, PT, personnel) scale with complexity. Waived still requires following manufacturer instructions.",
+        "tags": ["clia", "regulatory"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-008",
+        "type": "BASIC",
+        "front": "What must be done after an unsatisfactory proficiency testing result?",
+        "back": "Root-cause investigation, documented corrective action, and assessment of impact on patient results - not just a repeat challenge.",
+        "tags": ["proficiency-testing", "quality"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-009",
+        "type": "CLOZE",
+        "front": "LOD = limit of [[1]]; LOQ = limit of [[2]], defined by acceptable [[3]] and accuracy.",
+        "back": "1: detection  2: quantitation  3: precision",
+        "tags": ["validation", "lod-loq"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-010",
+        "type": "BASIC",
+        "front": "How are precision and accuracy distinguished?",
+        "back": "Precision = agreement of repeated measurements (SD, CV). Accuracy (trueness) = closeness to the true value (recovery, method comparison). They are independent.",
+        "tags": ["validation", "precision-accuracy"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-011",
+        "type": "BASIC",
+        "front": "Which validation study addresses analytical specificity?",
+        "back": "Interference testing (hemolysis, icterus, lipemia, drugs, cross-reactivity).",
+        "tags": ["validation", "specificity"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-012",
+        "type": "CLOZE",
+        "front": "Reference intervals must be established or [[1]] for the local population and method, reported with [[2]] and the caveat that intervals vary by laboratory, method, age, sex, and [[3]].",
+        "back": "1: verified  2: units  3: population",
+        "tags": ["reference-intervals", "reporting"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-013",
+        "type": "BASIC",
+        "front": "What biosafety level applies to most clinical laboratory work, and what does M. tuberculosis culture require?",
+        "back": "BSL-2 for most clinical work (BSC for aerosols, bloodborne pathogen standard); M. tuberculosis culture manipulation requires BSL-3 with respiratory protection and controlled access.",
+        "tags": ["biosafety", "bsl"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-014",
+        "type": "BASIC",
+        "front": "What is the hierarchy of controls in laboratory safety?",
+        "back": "Engineering controls (safety cabinets, sealed centrifuge cups) outrank work practice controls, which outrank personal protective equipment.",
+        "tags": ["safety", "controls"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-015",
+        "type": "CLOZE",
+        "front": "The 8x rule rejects when [[1]] consecutive control results fall on [[2]] of the mean, detecting a systematic [[3]].",
+        "back": "1: eight  2: one side  3: shift or trend",
+        "tags": ["westgard", "trend"],
+        "difficulty": 3,
+        "note": "Some laboratories use 10x instead.",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-016",
+        "type": "BASIC",
+        "front": "What must QC event documentation include?",
+        "back": "Control values, the Westgard rule triggered, suspected cause, corrective action, and disposition of patient results - traceable and never overwritten.",
+        "tags": ["documentation", "quality"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-017",
+        "type": "BASIC",
+        "front": "What is the difference between method verification and full validation?",
+        "back": "Verification confirms a manufacturer-established method performs as claimed locally; full validation characterizes a new/modified method (precision, accuracy, LOD/LOQ, linearity, interferences, reference intervals).",
+        "tags": ["validation", "methods"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      },
+      {
+        "id": "lo-fc-018",
+        "type": "CLOZE",
+        "front": "Quality control rules detect [[1]] within a stable process; proficiency testing detects [[2]] problems; both must be [[3]] when unsatisfactory.",
+        "back": "1: error  2: accuracy  3: investigated and documented",
+        "tags": ["quality", "concepts"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/quality-control-regulatory" }
+      }
+    ]
+  },
+  {
+    "id": "lo-deck-02",
+    "title": "Preanalytic Errors, Order of Draw, POCT, and Lab Math",
+    "subjectId": "lab-operations",
+    "cards": [
+      {
+        "id": "lo-fc-019",
+        "type": "BASIC",
+        "front": "State the standard order of draw for venipuncture tubes.",
+        "back": "Blood culture bottles, light blue (citrate), serum (red/tiger), green (heparin), lavender (EDTA), gray (fluoride/oxalate).",
+        "tags": ["order-of-draw", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-020",
+        "type": "BASIC",
+        "front": "Why does the order of draw matter?",
+        "back": "Additive carryover: EDTA into citrate falsely prolongs PT/aPTT; citrate into potassium samples falsely lowers potassium.",
+        "tags": ["order-of-draw", "carryover"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-021",
+        "type": "CLOZE",
+        "front": "Mnemonic for order of draw: Boys Can Really Have Easy Girls = [[1]] cultures, [[2]], Red, Heparin, EDTA, Gray.",
+        "back": "1: Blood  2: Citrate (light blue)",
+        "tags": ["order-of-draw", "mnemonic"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-022",
+        "type": "BASIC",
+        "front": "What happens if a light blue citrate coagulation tube is underfilled?",
+        "back": "Excess citrate relative to blood falsely prolongs PT and aPTT; fill within the manufacturer's range (commonly 90-110 percent) or reject per procedure.",
+        "tags": ["coagulation", "preanalytic", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-023",
+        "type": "BASIC",
+        "front": "Which chemistry results are typically affected by hemolysis?",
+        "back": "Potassium, LDH, AST, magnesium, phosphate rise (falsely elevated); some colorimetric methods are biased - comment or reject per validated HIL limits.",
+        "tags": ["hemolysis", "interference"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-024",
+        "type": "CLOZE",
+        "front": "A mislabeled specimen must be [[1]] and [[2]]; relabeling is [[3]].",
+        "back": "1: rejected  2: recollected  3: never permitted",
+        "tags": ["specimen-rejection", "patient-safety", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-025",
+        "type": "BASIC",
+        "front": "Name three objective specimen rejection criteria.",
+        "back": "Wrong/mismatched identifiers, clotted EDTA or citrate specimens, insufficient volume (especially citrate underfill), hemolysis beyond validated limits, transport outside validated temperature/time windows.",
+        "tags": ["specimen-rejection"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-026",
+        "type": "BASIC",
+        "front": "What quality elements are required for point-of-care testing?",
+        "back": "Operator training and documented competency, QC with lockout where available, consumable lot tracking, maintenance logs, and result documentation in the medical record.",
+        "tags": ["poct", "quality"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-027",
+        "type": "CLOZE",
+        "front": "CLIA-waived status does not waive [[1]] instructions or laboratory [[2]]; every operator still needs documented [[3]].",
+        "back": "1: manufacturer  2: oversight  3: competency",
+        "tags": ["poct", "clia"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-028",
+        "type": "BASIC",
+        "front": "Which factors bias point-of-care glucose meters?",
+        "back": "Hematocrit extremes, perfusion, oxygen tension, and interfering substances (for example, maltose, uric acid, acetaminophen on some chemistries); capillary and venous values can differ.",
+        "tags": ["poct", "glucose"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-029",
+        "type": "CLOZE",
+        "front": "C1V1 = [[1]]: to make 50 mL of 2 mol/L from 10 mol/L stock, use [[2]] mL of stock plus 40 mL of diluent.",
+        "back": "1: C2V2  2: 10",
+        "tags": ["lab-math", "dilutions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-030",
+        "type": "BASIC",
+        "front": "What is the difference between a 1:10 dilution and 1 part sample plus 10 parts diluent?",
+        "back": "A 1:10 dilution is 1 part sample in 10 total (9 parts diluent); 1 part plus 10 parts gives 1:11 total. Dilution factor = total volume / sample volume.",
+        "tags": ["lab-math", "dilutions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-031",
+        "type": "CLOZE",
+        "front": "Glucose: mmol/L = mg/dL x [[1]] (or divided by [[2]]). Creatinine: micromol/L = mg/dL x [[3]].",
+        "back": "1: 0.0555  2: 18  3: 88.4",
+        "tags": ["lab-math", "conversions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-032",
+        "type": "BASIC",
+        "front": "What does 0.9 percent NaCl mean in laboratory units?",
+        "back": "0.9 grams of NaCl per 100 mL of solution (9 g/L, about 154 mmol/L sodium, approximately isotonic).",
+        "tags": ["lab-math", "solutions"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-033",
+        "type": "BASIC",
+        "front": "How is a urine culture concentration calculated from a dilution plate?",
+        "back": "CFU/mL = colonies / plated volume x dilution factor. Example: 45 colonies on 0.01 mL of a 1:100 dilution = 45 / 0.01 x 100 = 450,000 CFU/mL.",
+        "tags": ["lab-math", "culture"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-034",
+        "type": "CLOZE",
+        "front": "Each 10-fold dilution step should drop colony counts roughly [[1]]-fold; this serves as a [[2]] check before reporting.",
+        "back": "1: ten  2: consistency",
+        "tags": ["lab-math", "dilutions"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-035",
+        "type": "BASIC",
+        "front": "Which preanalytic changes falsely raise serum potassium?",
+        "back": "Hemolysis (traumatic draw), fist clenching with prolonged tourniquet, delayed separation of serum from cells; infusion contamination/dilution can falsely lower it.",
+        "tags": ["preanalytic", "potassium"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      },
+      {
+        "id": "lo-fc-036",
+        "type": "BASIC",
+        "front": "What is the prozone (hook) effect and how is it resolved?",
+        "back": "Extremely high analyte/antibody concentrations give false-negative agglutination or sandwich immunoassay results; dilution of the specimen restores the true positive.",
+        "tags": ["interference", "immunoassay"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "lab-operations/preanalytic-poct-math" }
+      }
+    ]
+  }
+]
