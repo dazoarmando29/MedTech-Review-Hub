@@ -1,0 +1,45 @@
+{
+  "note": "Track catalog for the generative Study Music player (shared/MUSIC.md). All audio is synthesized on-device — original compositions, CC0. Extend by adding entries here.",
+  "categories": [
+    { "id": "piano-dreams", "name": "Piano Dreams", "art": "pink-piano", "description": "Relaxing solo piano, gentle classical touches, calm evening melodies.", "mood": "calm" },
+    { "id": "violin-serenade", "name": "Violin Serenade", "art": "cat-violin", "description": "Soft string melodies and peaceful instrumental duets.", "mood": "tender" },
+    { "id": "lofi-cafe", "name": "Lo-Fi Study Café", "art": "desk-headphones", "description": "Calm instrumental lo-fi beats and cozy study-café atmosphere.", "mood": "cozy" },
+    { "id": "classical-focus", "name": "Classical Focus", "art": "quartet", "description": "Gentle classical compositions, sonatas and quiet string arrangements.", "mood": "focused" },
+    { "id": "nature-ambient", "name": "Nature and Ambient", "art": "rainy-window", "description": "Rainfall, forest, ocean waves, wind, white and brown noise, night ambience.", "mood": "ambient" },
+    { "id": "cozy-sleepy", "name": "Cozy Sleepy Study", "art": "sleepy-moon", "description": "Low-energy instrumental soundscapes for gentle late studying.", "mood": "sleepy" },
+    { "id": "deep-focus", "name": "Deep Focus", "art": "focus-orb", "description": "Minimal, distraction-free ambient soundscapes for deep work.", "mood": "deep" }
+  ],
+  "tracks": [
+    { "id": "pd-001", "title": "Sakura Keys", "categoryId": "piano-dreams", "durationSec": 90, "synth": { "recipe": "piano-arpeggio", "seed": 12001, "tempoBpm": 66, "rootMidi": 60, "progression": [[60, 64, 67], [55, 59, 62], [57, 60, 64], [53, 57, 60]] } },
+    { "id": "pd-002", "title": "Moonlit Sonatina", "categoryId": "piano-dreams", "durationSec": 90, "synth": { "recipe": "piano-arpeggio", "seed": 12002, "tempoBpm": 60, "rootMidi": 57, "progression": [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62]] } },
+    { "id": "pd-003", "title": "Petal Practice", "categoryId": "piano-dreams", "durationSec": 90, "synth": { "recipe": "piano-arpeggio", "seed": 12003, "tempoBpm": 72, "rootMidi": 62, "progression": [[62, 65, 69], [57, 60, 64], [55, 59, 62], [57, 61, 64]] } },
+    { "id": "vs-001", "title": "Strings for a Future MLS", "categoryId": "violin-serenade", "durationSec": 90, "synth": { "recipe": "violin-pad", "seed": 22001, "chords": [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62]] } },
+    { "id": "vs-002", "title": "Quiet Duet", "categoryId": "violin-serenade", "durationSec": 90, "synth": { "recipe": "violin-pad", "seed": 22002, "chords": [[60, 64, 67], [55, 59, 62], [57, 60, 64], [52, 55, 59]] } },
+    { "id": "vs-003", "title": "Evening Serenade", "categoryId": "violin-serenade", "durationSec": 90, "synth": { "recipe": "violin-pad", "seed": 22003, "chords": [[55, 58, 62], [53, 57, 60], [58, 62, 65], [55, 59, 62]] } },
+    { "id": "lc-001", "title": "Pink Café Beats", "categoryId": "lofi-cafe", "durationSec": 90, "synth": { "recipe": "lofi-cafe", "seed": 32001, "progression": [[60, 64, 67, 71], [57, 60, 64, 67], [53, 57, 60, 64], [55, 59, 62, 65]] } },
+    { "id": "lc-002", "title": "Midnight Review Loop", "categoryId": "lofi-cafe", "durationSec": 90, "synth": { "recipe": "lofi-cafe", "seed": 32002, "progression": [[57, 60, 64, 67], [53, 57, 60, 64], [55, 59, 62, 65], [52, 55, 59, 62]] } },
+    { "id": "lc-003", "title": "Cocoa and Notes", "categoryId": "lofi-cafe", "durationSec": 90, "synth": { "recipe": "lofi-cafe", "seed": 32003, "progression": [[62, 65, 69, 72], [57, 61, 64, 68], [55, 59, 62, 66], [57, 60, 64, 67]] } },
+    { "id": "cf-001", "title": "Study Sonata", "categoryId": "classical-focus", "durationSec": 90, "synth": { "recipe": "classical-duet", "seed": 42001, "progression": [[60, 64, 67], [67, 71, 74], [57, 60, 64], [55, 59, 62], [53, 57, 60], [60, 64, 67], [53, 57, 60], [67, 71, 74]] } },
+    { "id": "cf-002", "title": "Gentle Quartet", "categoryId": "classical-focus", "durationSec": 90, "synth": { "recipe": "classical-duet", "seed": 42002, "progression": [[57, 60, 64], [53, 57, 60], [60, 64, 67], [52, 55, 59], [55, 59, 62], [57, 60, 64], [55, 59, 62], [60, 64, 67]] } },
+    { "id": "cf-003", "title": "Morning Prelude", "categoryId": "classical-focus", "durationSec": 90, "synth": { "recipe": "classical-duet", "seed": 42003, "progression": [[62, 65, 69], [57, 60, 64], [55, 59, 62], [62, 65, 69], [60, 64, 67], [55, 58, 62], [57, 60, 64], [62, 65, 69]] } },
+    { "id": "na-001", "title": "Rain on the Window", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "rain", "seed": 52001 } },
+    { "id": "na-002", "title": "Forest Breath", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "forest", "seed": 52002 } },
+    { "id": "na-003", "title": "Ocean Lullaby", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "ocean", "seed": 52003 } },
+    { "id": "na-004", "title": "Soft Wind", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "wind", "seed": 52004 } },
+    { "id": "na-005", "title": "White Noise Cloud", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "white-noise", "seed": 52005 } },
+    { "id": "na-006", "title": "Brown Noise Blanket", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "brown-noise", "seed": 52006 } },
+    { "id": "na-007", "title": "Fireflies at Night", "categoryId": "nature-ambient", "durationSec": 90, "synth": { "recipe": "night", "seed": 52007 } },
+    { "id": "cs-001", "title": "Sleepy Starlight", "categoryId": "cozy-sleepy", "durationSec": 120, "synth": { "recipe": "sleepy-pads", "seed": 62001, "chords": [[57, 60, 64], [53, 57, 60], [55, 59, 62]] } },
+    { "id": "cs-002", "title": "Blanket Pads", "categoryId": "cozy-sleepy", "durationSec": 120, "synth": { "recipe": "sleepy-pads", "seed": 62002, "chords": [[53, 57, 60], [55, 58, 62], [52, 55, 59]] } },
+    { "id": "df-001", "title": "Deep Focus Drift", "categoryId": "deep-focus", "durationSec": 120, "synth": { "recipe": "deep-drone", "seed": 72001 } },
+    { "id": "df-002", "title": "Silent Orbit", "categoryId": "deep-focus", "durationSec": 120, "synth": { "recipe": "pink-noise", "seed": 72002 } }
+  ],
+  "suggestedPlaylists": [
+    { "id": "pink-study", "name": "My Pink Study Playlist", "trackIds": ["pd-001", "vs-001", "lc-001", "cf-001", "cs-001"] },
+    { "id": "midnight-review", "name": "Midnight ASCPi Review", "trackIds": ["lc-002", "cs-001", "df-001", "na-007"] },
+    { "id": "blood-banking-focus", "name": "Blood Banking Focus", "trackIds": ["cf-001", "df-001", "pd-002"] },
+    { "id": "chemistry-calm", "name": "Chemistry Calm", "trackIds": ["pd-001", "vs-002", "na-003"] },
+    { "id": "micro-marathon", "name": "Microbiology Marathon", "trackIds": ["lc-001", "cf-002", "df-002", "pd-003"] },
+    { "id": "cozy-rainy", "name": "Cozy Rainy Review", "trackIds": ["na-001", "lc-003", "cs-002", "na-007"] }
+  ]
+}

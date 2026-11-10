@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: rainy window with coffee (Nature and Ambient). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- window frame -->
+    <path android:fillColor="#FFF7FA" android:strokeColor="#D89CB8" android:strokeWidth="3"
+        android:pathData="M12,12 L64,12 L64,68 L12,68 Z" />
+    <!-- rain drops -->
+    <path android:strokeColor="#A98CF0" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M22,20 L18,30 M34,24 L30,34 M46,18 L42,28 M56,26 L52,36 M28,38 L24,48 M42,40 L38,50 M54,42 L50,52 M22,54 L18,62 M50,58 L46,64" />
+    <!-- window sill -->
+    <path android:fillColor="#D89CB8" android:pathData="M8,68 L68,68 L68,74 L8,74 Z" />
+    <!-- coffee cup -->
+    <path android:fillColor="#F8BBD0" android:pathData="M70,52 L88,52 L86,68 Q85,70 83,70 L75,70 Q73,70 72,68 Z" />
+    <path android:strokeColor="#D89CB8" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M88,55 Q93,56 93,59 Q93,62 88,63" />
+    <path android:strokeColor="#F27BAC" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M76,46 Q77,43 76,40 M82,46 Q83,43 82,40" />
+    <!-- heart steam -->
+    <path android:fillColor="#F27BAC" android:pathData="M79,32 C77,29 73,30 73,33 C73,36 77,38 79,40 C81,38 85,36 85,33 C85,30 81,29 79,32 Z" />
+</vector>

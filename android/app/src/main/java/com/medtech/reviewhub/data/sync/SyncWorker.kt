@@ -12,9 +12,15 @@ import java.time.format.DateTimeFormatter
 /**
  * Best-effort background sync (API.md "Sync model"): pushes local study
  * sessions and flashcard schedules to the backend when the user is signed in
- * and a server URL is configured. Failures are swallowed — the app is
+ * and a server URL is configured. Failures are swallowed - the app is
  * offline-first and never blocks on the network. Conflict rule: last-write-wins
  * per entity using updatedAt; flashcard schedules merge by later lastReviewAt.
+ *
+ * Sync-safe subset only: study sessions + flashcard schedules. "Little Notes
+ * for You" (love_notes) are private and are NEVER synced (they appear in the
+ * local JSON export only); study-music playlists/favorites and generated WAV
+ * caches are device-specific and are not synced either (no device paths ever
+ * leave the device).
  */
 class SyncWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
 

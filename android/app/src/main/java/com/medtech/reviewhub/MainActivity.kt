@@ -20,9 +20,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -32,14 +34,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.medtech.reviewhub.data.content.MotivationStore
 import com.medtech.reviewhub.data.network.NetworkModule
 import com.medtech.reviewhub.data.network.dto.AiRequest
 import com.medtech.reviewhub.data.prefs.ThemeMode
 import com.medtech.reviewhub.di.AppContainer
 import com.medtech.reviewhub.domain.MascotKind
+import com.medtech.reviewhub.domain.Motivation
 import com.medtech.reviewhub.domain.model.QuizQuestion
 import com.medtech.reviewhub.ui.focus.FocusAppsViewModel
-import com.medtech.reviewhub.ui.focus.FocusScreen
 import com.medtech.reviewhub.ui.focus.FocusTimerViewModel
 import com.medtech.reviewhub.ui.flashcards.FlashcardsScreen
 import com.medtech.reviewhub.ui.flashcards.FlashcardsViewModel
@@ -50,6 +53,14 @@ import com.medtech.reviewhub.ui.home.HomeViewModel
 import com.medtech.reviewhub.ui.library.LessonScreen
 import com.medtech.reviewhub.ui.library.LibraryScreen
 import com.medtech.reviewhub.ui.library.LibraryViewModel
+import com.medtech.reviewhub.ui.motivation.EncouragementBanner
+import com.medtech.reviewhub.ui.motivation.EncouragementBus
+import com.medtech.reviewhub.ui.music.MiniPlayer
+import com.medtech.reviewhub.ui.music.MusicScreen
+import com.medtech.reviewhub.ui.music.MusicViewModel
+import com.medtech.reviewhub.ui.music.PlayerSheet
+import com.medtech.reviewhub.ui.notes.NotesScreen
+import com.medtech.reviewhub.ui.notes.NotesViewModel
 import com.medtech.reviewhub.ui.onboarding.OnboardingScreen
 import com.medtech.reviewhub.ui.onboarding.OnboardingViewModel
 import com.medtech.reviewhub.ui.pdf.PdfLibraryScreen
@@ -61,6 +72,8 @@ import com.medtech.reviewhub.ui.quiz.QuizRunScreen
 import com.medtech.reviewhub.ui.quiz.QuizSetupScreen
 import com.medtech.reviewhub.ui.quiz.QuizViewModel
 import com.medtech.reviewhub.ui.resources.ResourcesScreen
+import com.medtech.reviewhub.ui.room.StudyRoomScreen
+import com.medtech.reviewhub.ui.room.StudyRoomViewModel
 import com.medtech.reviewhub.ui.settings.AboutScreen
 import com.medtech.reviewhub.ui.settings.SettingsScreen
 import com.medtech.reviewhub.ui.settings.SettingsViewModel
@@ -110,7 +123,8 @@ class AppViewModelFactory(private val container: AppContainer) : ViewModelProvid
     override fun <T : ViewModel> create(modelClass: Class<T>): T = when {
         modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(
             container.content, container.studyRepository, container.flashcardRepository,
-            container.quizRepository, container.habitRepository, container.settings
+            container.quizRepository, container.habitRepository, container.settings,
+            container.loveNoteRepository
         )
         modelClass.isAssignableFrom(LibraryViewModel::class.java) ->
             LibraryViewModel(container.content, container.studyRepository)
@@ -124,8 +138,17 @@ class AppViewModelFactory(private val container: AppContainer) : ViewModelProvid
             FocusAppsViewModel(container.appContext, container.focusRepository, container.settings)
         modelClass.isAssignableFrom(SettingsViewModel::class.java) -> SettingsViewModel(
             container.settings, container.authRepository,
-            container.flashcardRepository, container.studyRepository
+            container.flashcardRepository, container.studyRepository,
+            container.loveNoteRepository, container.audioEngine, container.musicLibrary
         )
+        modelClass.isAssignableFrom(MusicViewModel::class.java) -> MusicViewModel(
+            container.appContext, container.musicLibrary, container.audioEngine,
+            container.musicRepository, container.settings
+        )
+        modelClass.isAssignableFrom(NotesViewModel::class.java) ->
+            NotesViewModel(container.loveNoteRepository)
+        modelClass.isAssignableFrom(StudyRoomViewModel::class.java) ->
+            StudyRoomViewModel(container.settings, container.chimePlayer)
         else -> throw IllegalArgumentException("Unknown ViewModel ${modelClass.name}")
     } as T
 }
@@ -143,6 +166,8 @@ object Routes {
     const val PDF_READER = "pdf/{pdfId}"
     const val HABITS = "habits"
     const val FOCUS = "focus"
+    const val MUSIC = "music"
+    const val NOTES = "notes"
     const val RESOURCES = "resources"
     const val SETTINGS = "settings"
     const val ABOUT = "about"
@@ -153,7 +178,7 @@ object Routes {
 
 private val bottomBarRoutes = setOf(
     Routes.HOME, Routes.LIBRARY, Routes.FLASHCARDS, Routes.QUIZ_SETUP,
-    Routes.HABITS, Routes.FOCUS, Routes.RESOURCES, Routes.SETTINGS
+    Routes.HABITS, Routes.FOCUS, Routes.MUSIC, Routes.RESOURCES, Routes.SETTINGS
 )
 
 @Composable
@@ -165,6 +190,37 @@ fun ReviewHubNavGraph(container: AppContainer) {
 
     val profile by container.settings.profile.collectAsState(initial = null)
     val settingsState by container.settings.settings.collectAsState(initial = null)
+    val favoriteQuotes by container.settings.favoriteQuotes.collectAsState(initial = emptySet())
+
+    // Shared Study Music player (single instance for mini-player + screens).
+    val musicVm: MusicViewModel = viewModel(factory = factory)
+
+    // Motivation bank (shared/content/motivation.json via assets).
+    var motivationBank by remember { mutableStateOf(Motivation.FALLBACK) }
+    LaunchedEffect(Unit) {
+        motivationBank = MotivationStore.load(container.appContext.assets)
+    }
+
+    var showPlayerSheet by remember { mutableStateOf(false) }
+
+    // "Music during quizzes / flashcards / reading" preferences: pause the
+    // single playback engine when entering a screen where music is not wanted.
+    LaunchedEffect(
+        currentRoute,
+        settingsState?.musicDuringQuizzes,
+        settingsState?.musicDuringFlashcards,
+        settingsState?.musicDuringReading
+    ) {
+        val s = settingsState ?: return@LaunchedEffect
+        if (!musicVm.player.value.isPlaying) return@LaunchedEffect
+        val pause = when (currentRoute) {
+            Routes.QUIZ_SETUP, Routes.QUIZ_RUN, Routes.QUIZ_RESULT -> !s.musicDuringQuizzes
+            Routes.FLASHCARDS -> !s.musicDuringFlashcards
+            Routes.LESSON, Routes.PDF_READER -> !s.musicDuringReading
+            else -> false
+        }
+        if (pause) musicVm.togglePlayPause()
+    }
 
     // Quiz session state shared across quiz destinations.
     var quizVm by remember { mutableStateOf<QuizViewModel?>(null) }
@@ -184,36 +240,66 @@ fun ReviewHubNavGraph(container: AppContainer) {
 
     Scaffold(
         bottomBar = {
-            if (currentRoute in bottomBarRoutes) {
-                NavigationBar {
-                    listOf(
-                        Triple(Routes.HOME, "Home", "Home"),
-                        Triple(Routes.LIBRARY, "Library", "Library"),
-                        Triple(Routes.FLASHCARDS, "Cards", "Cards"),
-                        Triple(Routes.QUIZ_SETUP, "Quiz", "Quiz"),
-                        Triple(Routes.HABITS, "Habits", "Habits"),
-                        Triple(Routes.FOCUS, "Focus", "Focus"),
-                        Triple(Routes.RESOURCES, "Resources", "Resources"),
-                        Triple(Routes.SETTINGS, "Settings", "Settings")
-                    ).forEach { (route, label, iconLabel) ->
-                        NavigationBarItem(
-                            selected = currentRoute == route,
-                            onClick = {
-                                navController.navigate(route) {
-                                    popUpTo(Routes.HOME) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
-                            label = { Text(label) },
-                            icon = { Text(iconLabel.take(1)) }
-                        )
+            androidx.compose.foundation.layout.Column {
+                // Docked mini-player while music plays (content padding keeps it
+                // from covering quiz controls).
+                MiniPlayer(vm = musicVm, onExpand = { showPlayerSheet = true })
+                if (currentRoute in bottomBarRoutes) {
+                    NavigationBar {
+                        listOf(
+                            Triple(Routes.HOME, "Home", "Home"),
+                            Triple(Routes.LIBRARY, "Library", "Library"),
+                            Triple(Routes.FLASHCARDS, "Cards", "Cards"),
+                            Triple(Routes.QUIZ_SETUP, "Quiz", "Quiz"),
+                            Triple(Routes.HABITS, "Habits", "Habits"),
+                            Triple(Routes.FOCUS, "Room", "Room"),
+                            Triple(Routes.MUSIC, "Music", "Music"),
+                            Triple(Routes.RESOURCES, "Resources", "Resources"),
+                            Triple(Routes.SETTINGS, "Settings", "Settings")
+                        ).forEach { (route, label, iconLabel) ->
+                            NavigationBarItem(
+                                selected = currentRoute == route,
+                                onClick = {
+                                    navController.navigate(route) {
+                                        popUpTo(Routes.HOME) { saveState = true }
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                },
+                                label = { Text(label) },
+                                icon = { Text(iconLabel.take(1)) }
+                            )
+                        }
                     }
                 }
             }
         }
     ) { padding ->
         Box(modifier = Modifier.fillMaxSize().padding(padding)) {
+
+            // Contextual encouragement banner (mascot + quote).
+            val encouragement by EncouragementBus.event.collectAsState()
+            val bannersOn = settingsState?.motivationalBanners != false &&
+                settingsState?.quoteFrequency != "off"
+            if (encouragement != null && bannersOn) {
+                val event = encouragement
+                if (event != null) {
+                    androidx.compose.foundation.layout.Column(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .padding(12.dp)
+                    ) {
+                        EncouragementBanner(
+                            kind = event.kind,
+                            seed = event.seed,
+                            detail = event.detail,
+                            bank = motivationBank,
+                            mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
+                            onDismiss = { EncouragementBus.dismiss() }
+                        )
+                    }
+                }
+            }
             NavHost(navController = navController, startDestination = Routes.HOME) {
 
                 composable(Routes.ONBOARDING) {
@@ -245,7 +331,13 @@ fun ReviewHubNavGraph(container: AppContainer) {
                         onOpenLesson = { navController.navigate(Routes.lesson(it)) },
                         onOpenFlashcards = { navController.navigate(Routes.FLASHCARDS) },
                         onOpenQuiz = { navController.navigate(Routes.QUIZ_SETUP) },
-                        onOpenLibrary = { navController.navigate(Routes.LIBRARY) }
+                        onOpenLibrary = { navController.navigate(Routes.LIBRARY) },
+                        onOpenNotes = { navController.navigate(Routes.NOTES) },
+                        motivationBank = motivationBank,
+                        favoriteQuotes = favoriteQuotes,
+                        onToggleFavoriteQuote = { text ->
+                            kotlinx.coroutines.runBlocking { container.settings.toggleFavoriteQuote(text) }
+                        }
                     )
                 }
 
@@ -347,6 +439,15 @@ fun ReviewHubNavGraph(container: AppContainer) {
                     val vm = quizVm
                     val state = vm?.state?.value
                     if (state?.result != null) {
+                        // Contextual encouragement after incorrect quiz answers.
+                        LaunchedEffect(state.result) {
+                            if (state.result.total - state.result.correct > 0) {
+                                EncouragementBus.trigger(
+                                    com.medtech.reviewhub.domain.ContextKind.AFTER_WRONG,
+                                    detail = "${state.result.total - state.result.correct} to review"
+                                )
+                            }
+                        }
                         QuizResultScreen(
                             result = state.result,
                             questions = state.questions,
@@ -415,12 +516,34 @@ fun ReviewHubNavGraph(container: AppContainer) {
                 composable(Routes.FOCUS) {
                     val timerVm = remember { FocusTimerViewModel() }
                     val appsVm: FocusAppsViewModel = viewModel(factory = factory)
-                    FocusScreen(
+                    val roomVm: StudyRoomViewModel = viewModel(factory = factory)
+                    StudyRoomScreen(
                         timerVm = timerVm,
                         appsVm = appsVm,
+                        musicVm = musicVm,
+                        roomVm = roomVm,
                         mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
-                        focusFeatureEnabled = settingsState?.focusFeatureEnabled ?: true
+                        focusFeatureEnabled = settingsState?.focusFeatureEnabled ?: true,
+                        reduceAnimation = settingsState?.reduceAnimation ?: false,
+                        motivationBank = motivationBank,
+                        dayOfYear = java.time.LocalDate.now().dayOfYear,
+                        favoriteQuotes = favoriteQuotes,
+                        onToggleFavoriteQuote = { text ->
+                            kotlinx.coroutines.runBlocking { container.settings.toggleFavoriteQuote(text) }
+                        }
                     )
+                }
+
+                composable(Routes.MUSIC) {
+                    MusicScreen(
+                        vm = musicVm,
+                        onOpenPlayer = { showPlayerSheet = true }
+                    )
+                }
+
+                composable(Routes.NOTES) {
+                    val vm: NotesViewModel = viewModel(factory = factory)
+                    NotesScreen(vm = vm)
                 }
 
                 composable(Routes.RESOURCES) {
@@ -429,12 +552,21 @@ fun ReviewHubNavGraph(container: AppContainer) {
 
                 composable(Routes.SETTINGS) {
                     val vm: SettingsViewModel = viewModel(factory = factory)
-                    SettingsScreen(vm = vm, onAbout = { navController.navigate(Routes.ABOUT) })
+                    SettingsScreen(
+                        vm = vm,
+                        onAbout = { navController.navigate(Routes.ABOUT) },
+                        onOpenMusic = { navController.navigate(Routes.MUSIC) }
+                    )
                 }
 
                 composable(Routes.ABOUT) {
                     AboutScreen(onBack = { navController.popBackStack() })
                 }
+            }
+
+            // Full player sheet (expand from the mini-player or Music screen).
+            if (showPlayerSheet) {
+                PlayerSheet(vm = musicVm, onDismiss = { showPlayerSheet = false })
             }
         }
     }

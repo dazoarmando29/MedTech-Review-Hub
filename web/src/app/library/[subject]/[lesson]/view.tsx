@@ -13,6 +13,7 @@ import {
 import { newAttemptId, selectQuestions } from '@/lib/quiz';
 import { startQuiz } from '@/lib/store';
 import { api as ai, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
+import { contextQuote } from '@/lib/motivation';
 import { speak, stopSpeaking, ttsSupported } from '@/lib/tts';
 import type { HighlightColor, QuizAttempt } from '@/lib/types';
 
@@ -28,6 +29,7 @@ export default function LessonView() {
   const [showHook, setShowHook] = useState(true);
   const [aiText, setAiText] = useState<string | null>(null);
   const [aiNote, setAiNote] = useState<string | null>(null);
+  const [kudos, setKudos] = useState<string | null>(null);
   const [rejected, setRejected] = useState<Record<string, boolean>>({});
   const seriousMode = useStore((s) => s.settings.seriousMode);
   const apiBase = useStore((s) => s.settings.apiBaseUrl);
@@ -103,8 +105,7 @@ export default function LessonView() {
 
   const markRead = () => {
     setLessonProgress(lesson.id, { percent: 100, completedAt: new Date().toISOString() });
-    speak(`Lesson completed: ${lesson.title}`);
-    stopSpeaking();
+    setKudos(contextQuote('afterLesson'));
   };
 
   return (
@@ -160,6 +161,13 @@ export default function LessonView() {
           </button>
         </div>
       </div>
+
+      {kudos && (
+        <div className="sticky-note confetti-pop flex items-center justify-between gap-3">
+          <p className="text-sm font-semibold">🌸 {kudos}</p>
+          <button className="chip" onClick={() => setKudos(null)}>dismiss</button>
+        </div>
+      )}
 
       {(aiText || aiNote) && (
         <div className="card-soft p-4">

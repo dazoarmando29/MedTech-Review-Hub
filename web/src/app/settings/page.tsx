@@ -5,9 +5,9 @@
 import React, { useState } from 'react';
 import { Badge, Card, ConfirmButton, SectionTitle, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
-import { resetAll, todayKey, updateSettings, useStore } from '@/lib/store';
+import { resetAll, removeLoveNote, todayKey, updateSettings, upsertLoveNote, useStore } from '@/lib/store';
 import { ttsSupported } from '@/lib/tts';
-import type { HighlightColor, Settings as SettingsType, ThemeId } from '@/lib/types';
+import type { HighlightColor, LoveNote, Settings as SettingsType, ThemeId } from '@/lib/types';
 
 const ALL_COLORS: HighlightColor[] = ['YELLOW', 'PINK', 'PURPLE', 'BLUE', 'GREEN', 'ROSE'];
 
@@ -79,6 +79,7 @@ export default function SettingsPage() {
             onChange={(e) => patch({ motivationNote: e.target.value.slice(0, 120) })}
             placeholder="e.g. RMT by 2027 — for us. 🌸" />
         </label>
+        <LittleNotesManager />
       </Card>
 
       <Card>
@@ -165,6 +166,20 @@ export default function SettingsPage() {
               onChange={(e) => patch({ ttsEnabled: e.target.checked })} />
             Text-to-speech {ttsSupported() ? '' : '(not supported by this browser)'}
           </label>
+          <label>
+            Motivational quote frequency
+            <select className="input mt-1" value={settings.music.quoteFrequency}
+              onChange={(e) => patch({ music: { ...settings.music, quoteFrequency: e.target.value as SettingsType['music']['quoteFrequency'] } })}>
+              <option value="daily">Daily</option>
+              <option value="session">Each study session</option>
+              <option value="off">Off</option>
+            </select>
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="checkbox" checked={settings.music.ambientAnimations}
+              onChange={(e) => patch({ music: { ...settings.music, ambientAnimations: e.target.checked } })} />
+            Ambient animations (study room, mascots)
+          </label>
         </div>
       </Card>
 
@@ -238,6 +253,70 @@ export default function SettingsPage() {
           <li>The website has no app-blocking features. Distraction/app blocking exists only in the Android app and cannot guarantee absolute blocking (platform limitation).</li>
         </ul>
       </Card>
+    </div>
+  );
+}
+
+function LittleNotesManager() {
+  const loveNotes = useStore((s) => s.loveNotes);
+  const [draft, setDraft] = useState('');
+  const [showDate, setShowDate] = useState('');
+  const [editingId, setEditingId] = useState<string | null>(null);
+
+  const save = () => {
+    if (!draft.trim()) return;
+    const note: LoveNote = {
+      id: editingId ?? `ln-${Date.now()}`,
+      text: draft.trim().slice(0, 400),
+      showDate: showDate || null,
+      favorite: editingId ? (loveNotes.find((n) => n.id === editingId)?.favorite ?? false) : false,
+      createdAt: editingId ? (loveNotes.find((n) => n.id === editingId)?.createdAt ?? new Date().toISOString()) : new Date().toISOString(),
+    };
+    upsertLoveNote(note);
+    setDraft('');
+    setShowDate('');
+    setEditingId(null);
+  };
+
+  return (
+    <div className="mt-5">
+      <SectionTitle icon="💌">Little Notes for You</SectionTitle>
+      <p className="text-xs" style={{ color: 'var(--muted)' }}>
+        Personal encouragement written by someone who believes in her — shown on the dashboard
+        and in the Study Room. Private: stored on this device only.
+      </p>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <input className="input flex-1 min-w-[220px]" placeholder="e.g. I'm so proud of how hard you're working."
+          value={draft} onChange={(e) => setDraft(e.target.value)} />
+        <input className="input !w-44" type="date" value={showDate}
+          onChange={(e) => setShowDate(e.target.value)} aria-label="Show on date (optional)" />
+        <button className="btn-primary" disabled={!draft.trim()} onClick={save}>
+          {editingId ? 'Update note' : 'Add note'}
+        </button>
+      </div>
+      <ul className="space-y-2 mt-3">
+        {loveNotes.length === 0 && (
+          <li className="text-xs" style={{ color: 'var(--muted)' }}>No notes yet — the first one will make her day.</li>
+        )}
+        {loveNotes.map((n) => (
+          <li key={n.id} className="rounded-[12px] p-3 flex items-start gap-2" style={{ background: 'var(--surface-2)' }}>
+            <div className="flex-1">
+              <p className="text-sm italic">“{n.text}”</p>
+              <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                {n.showDate ? `shows on ${n.showDate}` : 'any day'} {n.favorite && '· ♥ favorite'}
+              </p>
+            </div>
+            <button className="chip" onClick={() => upsertLoveNote({ ...n, favorite: !n.favorite })}>
+              {n.favorite ? '♥' : '♡'}
+            </button>
+            <button className="chip" onClick={() => { setDraft(n.text); setShowDate(n.showDate ?? ''); setEditingId(n.id); }}>
+              edit
+            </button>
+            <ConfirmButton label="✕" confirmLabel="Delete?" className="chip"
+              onConfirm={() => removeLoveNote(n.id)} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

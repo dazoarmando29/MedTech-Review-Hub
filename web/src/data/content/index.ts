@@ -27,6 +27,8 @@ import f_lessons_urinalysis_body_fluid_analysis_json from './lessons/urinalysis/
 import f_lessons_urinalysis_physical_chemical_testing_json from './lessons/urinalysis/physical-chemical-testing.json';
 import f_manifest_json from './manifest.json';
 import f_memes_json from './memes.json';
+import f_motivation_json from './motivation.json';
+import f_music_catalog_json from './music/catalog.json';
 import f_questions_blood_banking_json from './questions/blood-banking.json';
 import f_questions_clinical_chemistry_json from './questions/clinical-chemistry.json';
 import f_questions_hematology_json from './questions/hematology.json';
@@ -75,6 +77,8 @@ export const contentFiles: ContentFile[] = [
   { path: "./lessons/urinalysis/physical-chemical-testing.json", data: f_lessons_urinalysis_physical_chemical_testing_json },
   { path: "./manifest.json", data: f_manifest_json },
   { path: "./memes.json", data: f_memes_json },
+  { path: "./motivation.json", data: f_motivation_json },
+  { path: "./music/catalog.json", data: f_music_catalog_json },
   { path: "./questions/blood-banking.json", data: f_questions_blood_banking_json },
   { path: "./questions/clinical-chemistry.json", data: f_questions_clinical_chemistry_json },
   { path: "./questions/hematology.json", data: f_questions_hematology_json },

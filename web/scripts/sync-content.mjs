@@ -33,6 +33,13 @@ rmSync(dest, { recursive: true, force: true });
 mkdirSync(dest, { recursive: true });
 cpSync(src, dest, { recursive: true });
 
+// Study Music catalog lives in shared/music (same sync mechanism).
+const musicSrc = join(root, '..', 'shared', 'music');
+if (existsSync(musicSrc)) {
+  cpSync(musicSrc, join(dest, 'music'), { recursive: true });
+  console.log('[sync-content] synced shared/music -> ' + join(dest, 'music'));
+}
+
 const files = walk(dest).sort();
 const imports = [];
 const entries = [];

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: cat with violin (Violin Serenade). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- violin body -->
+    <path android:fillColor="#C98A5B" android:pathData="M58,44 C68,44 74,52 74,60 C74,70 66,78 58,78 C50,78 42,70 42,60 C42,52 48,44 58,44 Z" />
+    <path android:fillColor="#A96B3F" android:pathData="M54,50 C58,48 62,48 66,50 C64,54 64,66 66,72 C62,74 58,74 54,72 C56,66 56,54 54,50 Z" />
+    <!-- neck + scroll -->
+    <path android:fillColor="#A96B3F" android:pathData="M55,22 L61,22 L61,46 L55,46 Z" />
+    <path android:fillColor="#C98A5B" android:pathData="M52,14 a5,4 0 1,0 10,0 a5,4 0 1,0 -10,0" />
+    <!-- strings -->
+    <path android:strokeColor="#FFF7FA" android:strokeWidth="1" android:fillColor="#00000000"
+        android:pathData="M56,22 L52,72 M60,22 L64,72" />
+    <!-- bow -->
+    <path android:strokeColor="#3D2B3D" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M24,68 L74,50" />
+    <!-- cat head -->
+    <path android:fillColor="#F8BBD0" android:pathData="M16,30 L20,12 L32,22 Z" />
+    <path android:fillColor="#F8BBD0" android:pathData="M48,30 L44,12 L32,22 Z" />
+    <path android:fillColor="#FFFFFF" android:strokeColor="#E7BFD0" android:strokeWidth="1.5"
+        android:pathData="M32,18 C44,18 52,27 52,38 C52,49 44,57 32,57 C20,57 12,49 12,38 C12,27 20,18 32,18 Z" />
+    <path android:fillColor="#FBD3E0" android:pathData="M16,42 a4,3 0 1,0 8,0 a4,3 0 1,0 -8,0" />
+    <path android:fillColor="#FBD3E0" android:pathData="M40,42 a4,3 0 1,0 8,0 a4,3 0 1,0 -8,0" />
+    <path android:fillColor="#352735" android:pathData="M23,35 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#352735" android:pathData="M33,35 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#FFFFFF" android:pathData="M24.5,33 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
+    <path android:fillColor="#FFFFFF" android:pathData="M34.5,33 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
+    <path android:strokeColor="#352735" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M28,46 Q32,50 36,46" />
+    <!-- notes -->
+    <path android:fillColor="#F27BAC" android:pathData="M78,16 a2.5,2 0 1,0 5,0 a2.5,2 0 1,0 -5,0" />
+    <path android:strokeColor="#F27BAC" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M83,16 L83,28" />
+</vector>

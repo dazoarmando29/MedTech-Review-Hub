@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: sleeping moon (Cozy Sleepy Study). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- crescent moon -->
+    <path android:fillColor="#FFE9B8" android:pathData="M56,10 C36,12 22,30 22,50 C22,72 40,88 60,88 C50,80 46,66 46,52 C46,36 50,20 56,10 Z" />
+    <!-- sleeping face -->
+    <path android:strokeColor="#B78A3B" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M32,42 Q35,45 38,42" />
+    <path android:strokeColor="#B78A3B" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M32,54 Q35,57 38,54" />
+    <path android:strokeColor="#B78A3B" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M34,64 Q36,66 38,64" />
+    <!-- blush -->
+    <path android:fillColor="#F8BBD0" android:pathData="M28,50 a3,2 0 1,0 6,0 a3,2 0 1,0 -6,0" />
+    <!-- night cap -->
+    <path android:fillColor="#C9B2F5" android:pathData="M46,14 Q60,4 74,20 L62,26 Q52,16 46,14 Z" />
+    <path android:fillColor="#C9B2F5" android:pathData="M70,16 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <!-- stars -->
+    <path android:fillColor="#F27BAC" android:pathData="M80,36 C80,30 81,28 87,28 C81,28 80,26 80,20 C80,26 79,28 73,28 C79,28 80,30 80,36 Z" />
+    <path android:fillColor="#A98CF0" android:pathData="M86,58 C86,54 87,52 91,52 C87,52 86,50 86,46 C86,50 85,52 81,52 C85,52 86,54 86,58 Z" />
+    <path android:fillColor="#F27BAC" android:pathData="M66,76 C66,72 67,70 71,70 C67,70 66,68 66,64 C66,68 65,70 61,70 C65,70 66,72 66,76 Z" />
+    <!-- zzz -->
+    <path android:strokeColor="#C9B2F5" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M74,12 L80,12 L74,18 L80,18" />
+</vector>

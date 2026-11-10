@@ -5,6 +5,7 @@ import React, { useMemo, useState } from 'react';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, Tabs, cx } from '@/components/ui';
 import { decks as seedDecks, subjects } from '@/lib/content';
 import { formatInterval, isDue, newSchedule, previewIntervals } from '@/lib/fsrs';
+import { contextQuote } from '@/lib/motivation';
 import {
   addCardFromSeed, deleteCard, dueCardList, newCardList, reviewCard, toggleFavorite,
   updateSettings, upsertCard, useStore,
@@ -24,6 +25,7 @@ export default function FlashcardsPage() {
   const allCards = useStore((s) => s.cards);
   const due = useStore((s) => dueCardList(s));
   const fresh = useStore((s) => newCardList(s));
+  const [kudos, setKudos] = useState<string | null>(null);
 
   const filteredDue = useMemo(
     () => (deckFilter === 'all' ? due : due.filter((c) => c.subjectId === deckFilter)),
@@ -48,7 +50,11 @@ export default function FlashcardsPage() {
     if (!activeCard) return;
     reviewCard(activeCard.id, rating);
     setFlipped(false);
-    setSessionCount((n) => n + 1);
+    setSessionCount((n) => {
+      const next = n + 1;
+      if (next === 5 || next === 10 || next === 20) setKudos(contextQuote('afterFlashcards', next));
+      return next;
+    });
   };
 
   return (
@@ -88,6 +94,13 @@ export default function FlashcardsPage() {
         </select>
         {sessionCount > 0 && <Badge tone="success">{sessionCount} reviewed this session</Badge>}
       </div>
+
+      {kudos && (
+        <div className="sticky-note confetti-pop flex items-center justify-between gap-3">
+          <p className="text-sm font-semibold">🌸 {kudos}</p>
+          <button className="chip" onClick={() => setKudos(null)}>dismiss</button>
+        </div>
+      )}
 
       {(queue === 'due' || queue === 'new') && activeCard && (
         <div className="max-w-2xl mx-auto">

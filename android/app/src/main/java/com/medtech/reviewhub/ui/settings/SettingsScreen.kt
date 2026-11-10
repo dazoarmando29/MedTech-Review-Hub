@@ -53,7 +53,8 @@ import com.medtech.reviewhub.ui.theme.AppTheme
 @Composable
 fun SettingsScreen(
     vm: SettingsViewModel,
-    onAbout: () -> Unit
+    onAbout: () -> Unit,
+    onOpenMusic: () -> Unit = {}
 ) {
     val state by vm.state.collectAsState()
     val context = LocalContext.current
@@ -198,6 +199,108 @@ fun SettingsScreen(
                 onValueChange = { vm.setRetention(it) },
                 valueRange = 0.80f..0.95f
             )
+        }
+
+        // ---- Study Music & motivation (v1.2.0) ----
+        SectionHeader("Study Music & motivation")
+        AppCard {
+            Text("Default playlist", style = MaterialTheme.typography.titleSmall)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                vm.playlistChoices().forEach { (id, name) ->
+                    FilterChip(
+                        selected = state.settings.defaultPlaylistId == id,
+                        onClick = { vm.setDefaultPlaylist(id) },
+                        label = { Text(name) }
+                    )
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+            Text("Preferred volume: ${(state.settings.musicVolume * 100).toInt()}%",
+                style = MaterialTheme.typography.bodySmall)
+            Slider(
+                value = state.settings.musicVolume,
+                onValueChange = { vm.setMusicVolume(it) },
+                valueRange = 0f..1f
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FilterChip(
+                    selected = state.settings.autoPlayMusicOnSession,
+                    onClick = { vm.setAutoPlayMusicOnSession(!state.settings.autoPlayMusicOnSession) },
+                    label = { Text("Auto-play on session start") }
+                )
+                FilterChip(
+                    selected = state.settings.timerChime,
+                    onClick = { vm.setTimerChime(!state.settings.timerChime) },
+                    label = { Text("Timer chime") }
+                )
+                FilterChip(
+                    selected = state.settings.motivationalBanners,
+                    onClick = { vm.setMotivationalBanners(!state.settings.motivationalBanners) },
+                    label = { Text("Motivational banners") }
+                )
+            }
+            Text(
+                "Auto-play only starts after you have pressed play at least once - " +
+                    "the app never forces audio without your interaction.",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(8.dp))
+            Text("Music during", style = MaterialTheme.typography.titleSmall)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FilterChip(
+                    selected = state.settings.musicDuringQuizzes,
+                    onClick = { vm.setMusicDuringQuizzes(!state.settings.musicDuringQuizzes) },
+                    label = { Text("Quizzes") }
+                )
+                FilterChip(
+                    selected = state.settings.musicDuringFlashcards,
+                    onClick = { vm.setMusicDuringFlashcards(!state.settings.musicDuringFlashcards) },
+                    label = { Text("Flashcards") }
+                )
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FilterChip(
+                    selected = state.settings.musicDuringReading,
+                    onClick = { vm.setMusicDuringReading(!state.settings.musicDuringReading) },
+                    label = { Text("Reading") }
+                )
+                FilterChip(
+                    selected = state.settings.musicDuringBreaks,
+                    onClick = { vm.setMusicDuringBreaks(!state.settings.musicDuringBreaks) },
+                    label = { Text("Breaks") }
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Text("Quote frequency", style = MaterialTheme.typography.titleSmall)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                listOf("daily" to "Daily", "session" to "Each session", "off" to "Off").forEach { (id, label) ->
+                    FilterChip(
+                        selected = state.settings.quoteFrequency == id,
+                        onClick = { vm.setQuoteFrequency(id) },
+                        label = { Text(label) }
+                    )
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FilterChip(
+                    selected = !state.settings.reduceAnimation,
+                    onClick = { vm.setReduceAnimation(state.settings.reduceAnimation) },
+                    label = { Text("Mascot animations") }
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Text("Offline downloads (generated audio cache)", style = MaterialTheme.typography.titleSmall)
+            var storageText by remember { mutableStateOf("Calculating...") }
+            LaunchedEffect(state.settings) {
+                storageText = com.medtech.reviewhub.ui.music.formatBytes(vm.audioStorageBytes())
+            }
+            Text("Storage used: $storageText", style = MaterialTheme.typography.bodySmall)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedButton(onClick = onOpenMusic) { Text("Manage downloads") }
+                OutlinedButton(onClick = { vm.clearAudioDownloads() }) { Text("Remove all") }
+            }
         }
 
         // ---- Highlight meanings ----
@@ -366,6 +469,15 @@ fun SettingsScreen(
 fun AboutScreen(onBack: () -> Unit) {
     Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)) {
         Text("About & disclaimers", style = MaterialTheme.typography.headlineSmall)
+        Spacer(Modifier.height(12.dp))
+        // v1.2.0 book mascot (the launcher icon artwork).
+        androidx.compose.foundation.Image(
+            painter = androidx.compose.ui.res.painterResource(com.medtech.reviewhub.R.drawable.logo_book),
+            contentDescription = "MedTech Review Hub mascot",
+            modifier = Modifier
+                .size(120.dp)
+                .align(Alignment.CenterHorizontally)
+        )
         Spacer(Modifier.height(12.dp))
         AppCard {
             Text("MedTech Review Hub — Android", style = MaterialTheme.typography.titleMedium)

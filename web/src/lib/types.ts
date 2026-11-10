@@ -226,6 +226,81 @@ export interface VisualIdItem {
   explanation: string;
 }
 
+// ---------- study music (shared/MUSIC.md + shared/music/catalog.json) ----------
+
+export type MusicRecipe =
+  | 'piano-arpeggio' | 'violin-pad' | 'lofi-cafe' | 'classical-duet' | 'sleepy-pads'
+  | 'deep-drone' | 'rain' | 'forest' | 'ocean' | 'wind' | 'white-noise' | 'brown-noise'
+  | 'pink-noise' | 'night';
+
+export interface TrackSynthSpec {
+  recipe: MusicRecipe;
+  seed: number;
+  tempoBpm?: number;
+  rootMidi?: number;
+  progression?: number[][];
+  chords?: number[][];
+  secondsPerChord?: number;
+}
+
+export interface MusicTrack {
+  id: string;
+  title: string;
+  categoryId: string;
+  durationSec: number;
+  artist?: string;
+  license?: string;
+  synth: TrackSynthSpec;
+}
+
+export interface MusicCategory {
+  id: string;
+  name: string;
+  art: string;
+  description: string;
+  mood: string;
+}
+
+export interface MusicPlaylist {
+  id: string;
+  name: string;
+  trackIds: string[];
+}
+
+export interface MusicCatalog {
+  note: string;
+  categories: MusicCategory[];
+  tracks: MusicTrack[];
+  suggestedPlaylists: MusicPlaylist[];
+}
+
+export interface MusicPrefs {
+  defaultPlaylistId: string | null;
+  morningPlaylistId: string | null;
+  nightPlaylistId: string | null;
+  volume: number;
+  autoplay: boolean;
+  musicDuring: { quizzes: boolean; flashcards: boolean; reading: boolean; breaks: boolean };
+  chime: boolean;
+  soundEffects: boolean;
+  quoteFrequency: 'daily' | 'session' | 'off';
+  ambientAnimations: boolean;
+}
+
+export interface LoveNote {
+  id: string;
+  text: string;
+  showDate: string | null;
+  favorite: boolean;
+  createdAt: string;
+}
+
+export interface MotivationBank {
+  dailyQuotes: string[];
+  contextQuotes: Record<string, string[]>;
+  mascotLines: Record<string, string[]>;
+}
+
 // ---------- study state ----------
 
 export type SrsState = 'NEW' | 'LEARNING' | 'REVIEW' | 'RELEARNING';
@@ -410,6 +485,7 @@ export interface Settings {
   dailyNewCards: number;
   dailyReviewLimit: number;
   targetRetention: number;
+  music: MusicPrefs;
   highlightColors: Record<HighlightColor, string>;
 }
 

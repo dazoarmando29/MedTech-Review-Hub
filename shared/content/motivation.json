@@ -1,0 +1,93 @@
+{
+  "note": "Motivational quote bank (original, unattributed statements — no invented celebrity attributions). Shared by web and Android. User's personal encouragement lives in 'Little Notes for You' (private user data), never generated here.",
+  "dailyQuotes": [
+    "Every page you study brings you closer to your dream.",
+    "Your future self is proud of the effort you're making today.",
+    "One question at a time. One chapter at a time. One step closer.",
+    "You don't have to know everything today. Just learn something new.",
+    "Your hard work today is building the future you're dreaming of.",
+    "Future MLS, keep going. You're getting closer.",
+    "Your dreams are worth the effort.",
+    "Today's small wins are tomorrow's confidence.",
+    "You showed up today — that already counts.",
+    "The lab coat is getting closer with every study session.",
+    "Your dedication would make any lab director proud.",
+    "Rest, rise, review. You've got a beautiful rhythm going.",
+    "Somewhere in the future, an RMT badge has your name on it.",
+    "Study gently, but study steadily.",
+    "You're not behind — you're in progress.",
+    "Every flashcard is a tiny promise to your future self.",
+    "Difficult topics are just easy topics that haven't met you yet.",
+    "Your dreams called. They said 'keep going.'",
+    "The world needs more caring Medical Laboratory Scientists. Keep becoming one.",
+    "Little by little, a little becomes a lot.",
+    "You are building something wonderful, one lesson at a time.",
+    "Your effort today is someone's diagnosis quality tomorrow.",
+    "Believe in the student who keeps trying — that's you.",
+    "Kaya mo 'to, future MLS. One gentle step at a time. 🌸"
+  ],
+  "contextQuotes": {
+    "beforeStudy": [
+      "Ready for another little study adventure?",
+      "Your future MLS title is waiting. Let's study!",
+      "Tea ready? Notes open? Let's make today count.",
+      "A few focused minutes now, a little closer to the dream.",
+      "Settle in — today's topic doesn't stand a chance."
+    ],
+    "afterLesson": [
+      "One more topic explored. Great work!",
+      "Your future self says thank you!",
+      "That lesson is now part of your story. On to the next when you're ready.",
+      "Understanding grows quietly — and it just grew.",
+      "Logged and learned. Your progress is real."
+    ],
+    "afterFlashcards": [
+      "Look at that memory power!",
+      "You're getting stronger with every review.",
+      "Your brain just filed that away beautifully.",
+      "Those cards didn't stand a chance today.",
+      "Reviews complete — your future self is impressed."
+    ],
+    "afterWrong": [
+      "Wrong answers show us what to practice next.",
+      "Even the best scientists learn by correcting mistakes.",
+      "That question just became your best teacher.",
+      "A mistake noted is a lesson unlocked.",
+      "Missed it now so you can nail it on exam day."
+    ],
+    "longSession": [
+      "You've been focusing for a while. Want a short break?",
+      "Drink some water and rest your eyes.",
+      "Long focus session — your dedication is showing.",
+      "Stretch, breathe, and come back when ready. The books will wait.",
+      "Beautiful focus. A gentle break might make the next hour even better."
+    ],
+    "afterGoals": [
+      "You did it! Your study buddy is proud of your progress.",
+      "Another productive day toward your ASCPi goal!",
+      "Daily goals complete — go celebrate a little.",
+      "That was a full day of future-building. Well done!",
+      "Goals: done. Streak: safe. You: amazing."
+    ]
+  },
+  "mascotLines": {
+    "music": [
+      "Press play and let's focus together.",
+      "This melody is purr-fect for reviewing.",
+      "Soft music, sharp mind.",
+      "I'll guard the playlist while you study."
+    ],
+    "studyRoom": [
+      "I'll be right here while you focus.",
+      "Cozy room, cozy focus. Let's go!",
+      "Your study session looks lovely today.",
+      "Wake me when it's break time. Just kidding. Mostly."
+    ],
+    "encouraging": [
+      "Here's a little flower for all your hard work. 🌸",
+      "Meow! Just one more topic?",
+      "You're doing great. Hydration break?",
+      "Future MLS detected!"
+    ]
+  }
+}

@@ -8,6 +8,7 @@ import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import { useStore, updateSettings } from '@/lib/store';
 import type { ThemeId } from '@/lib/types';
 import { Mochi, type MochiMood } from './Mochi';
+import { MiniPlayer, usePlayer } from './MiniPlayer';
 import {
   IconBook, IconCards, IconGarden, IconHabits, IconHome, IconPdf, IconPlanner,
   IconQuiz, IconResources, IconSearch, IconSettings, IconSparkle,
@@ -21,6 +22,7 @@ const NAV: { href: string; label: string; icon: React.ComponentType<{ size?: num
   { href: '/library/', label: 'Library', icon: IconBook },
   { href: '/flashcards/', label: 'Flashcards', icon: IconCards },
   { href: '/quiz/', label: 'Quizzes', icon: IconQuiz },
+  { href: '/music/', label: 'Music', icon: IconSparkle },
   { href: '/pdf/', label: 'PDF', icon: IconPdf },
   { href: '/planner/', label: 'Planner', icon: IconPlanner },
   { href: '/habits/', label: 'Diary', icon: IconHabits },
@@ -33,6 +35,7 @@ const THEME_CYCLE: ThemeId[] = ['strawberry', 'sakura', 'lavender', 'night', 'mi
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const mounted = useMounted();
+  const playerState = usePlayer();
   const appTheme = useStore((s) => s.settings.appTheme);
   const textScale = useStore((s) => s.settings.textScale);
   const lowBandwidth = useStore((s) => s.settings.lowBandwidth);
@@ -78,9 +81,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b" style={{ background: 'color-mix(in srgb, var(--bg) 88%, transparent)', borderColor: 'var(--line)', backdropFilter: 'blur(10px)' }}>
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white" style={{ background: 'var(--primary)' }} aria-hidden>
-              <IconSparkle size={18} />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icon.svg`} alt="" width={44} height={44} className="rounded-xl" />
             <span>
               MedTech <span style={{ color: 'var(--primary)' }}>Study Companion</span>
             </span>
@@ -139,6 +141,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         {menuOpen && (
           <nav aria-label="Mobile" className="lg:hidden px-4 pb-3 grid grid-cols-2 gap-2">
             {[...NAV,
+              { href: '/study-room/', label: 'Cozy Study Room', icon: IconSparkle },
               { href: '/games/', label: 'Games', icon: IconSparkle },
               { href: '/mistakes/', label: 'Mistake Notebook', icon: IconBook },
               { href: '/quick-review/', label: 'Quick Review', icon: IconCards },
@@ -161,9 +164,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       )}
 
-      <main id="main" className="flex-1 max-w-6xl w-full mx-auto px-4 py-6">
+      <main
+        id="main"
+        className="flex-1 max-w-6xl w-full mx-auto px-4"
+        style={{ paddingTop: 24, paddingBottom: playerState.trackId ? 110 : 24 }}
+      >
         {mounted ? children : <LoadingMochi />}
       </main>
+
+      <MiniPlayer />
 
       {!seriousMode && <MochiDock name={mascotName} kind={mascotKind} commentary={commentary} />}
 

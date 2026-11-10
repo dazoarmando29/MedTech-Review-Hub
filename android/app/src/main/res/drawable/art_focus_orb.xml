@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: focus orb (Deep Focus). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- glow rings -->
+    <path android:fillColor="#F3E8FF" android:pathData="M48,48 m-36,0 a36,36 0 1,0 72,0 a36,36 0 1,0 -72,0" />
+    <path android:fillColor="#E4CCFF" android:pathData="M48,48 m-26,0 a26,26 0 1,0 52,0 a26,26 0 1,0 -52,0" />
+    <path android:fillColor="#C9B2F5" android:pathData="M48,48 m-17,0 a17,17 0 1,0 34,0 a17,17 0 1,0 -34,0" />
+    <!-- inner glow -->
+    <path android:fillColor="#FFFFFF" android:pathData="M42,38 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0" />
+    <!-- orbit dots -->
+    <path android:fillColor="#F27BAC" android:pathData="M48,8 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <path android:fillColor="#F27BAC" android:pathData="M48,84 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <path android:fillColor="#A98CF0" android:pathData="M8,48 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <path android:fillColor="#A98CF0" android:pathData="M81,48 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <!-- sparkles -->
+    <path android:fillColor="#F27BAC" android:pathData="M20,18 C20,13 21,11 26,11 C21,11 20,9 20,4 C20,9 19,11 14,11 C19,11 20,13 20,18 Z" />
+    <path android:fillColor="#A98CF0" android:pathData="M78,74 C78,70 79,68 83,68 C79,68 78,66 78,62 C78,66 77,68 73,68 C77,68 78,70 78,74 Z" />
+</vector>

@@ -94,6 +94,13 @@ class FlashcardsViewModel(
                     }
                 )
             }
+            // Contextual encouragement after a flashcard review session
+            // (>= 5 reviews in one sitting).
+            if (_state.value.sessionReviewed == 5) {
+                com.medtech.reviewhub.ui.motivation.EncouragementBus.trigger(
+                    com.medtech.reviewhub.domain.ContextKind.AFTER_FLASHCARDS
+                )
+            }
         }
     }
 

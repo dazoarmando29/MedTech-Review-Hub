@@ -23,6 +23,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,6 +42,7 @@ import com.medtech.reviewhub.ui.components.MascotFace
 import com.medtech.reviewhub.ui.components.SectionHeader
 import com.medtech.reviewhub.ui.components.StatTile
 import com.medtech.reviewhub.ui.components.StreakFlame
+import com.medtech.reviewhub.ui.motivation.DailyQuoteCard
 
 @Composable
 fun HomeScreen(
@@ -46,7 +50,11 @@ fun HomeScreen(
     onOpenLesson: (String) -> Unit,
     onOpenFlashcards: () -> Unit,
     onOpenQuiz: () -> Unit,
-    onOpenLibrary: () -> Unit
+    onOpenLibrary: () -> Unit,
+    onOpenNotes: () -> Unit = {},
+    motivationBank: com.medtech.reviewhub.domain.MotivationBank = com.medtech.reviewhub.domain.Motivation.FALLBACK,
+    favoriteQuotes: Set<String> = emptySet(),
+    onToggleFavoriteQuote: (String) -> Unit = {}
 ) {
     val state by vm.dashboard.collectAsState()
     LaunchedEffect(Unit) { vm.load() }
@@ -58,9 +66,48 @@ fun HomeScreen(
         GreetingBanner(state = state, decorations = decorations)
         Spacer(Modifier.height(12.dp))
 
-        // ---- Motivation card (rotates deterministically by day-of-year) ----
-        MotivationCard(dayOfYear = state.dayOfYear)
+        // ---- "A Little Motivation for You" (shared/content/motivation.json) ----
+        var quoteOffset by remember { mutableStateOf(0) }
+        DailyQuoteCard(
+            bank = motivationBank,
+            dayOfYear = state.dayOfYear,
+            offset = quoteOffset,
+            favoriteQuotes = favoriteQuotes,
+            onShowAnother = { quoteOffset++ },
+            onRandom = {
+                quoteOffset = (System.currentTimeMillis() % 365).toInt() - state.dayOfYear
+            },
+            onToggleFavorite = onToggleFavoriteQuote
+        )
         Spacer(Modifier.height(12.dp))
+
+        // ---- "Little Notes for You" (private personal notes, never auto-generated) ----
+        state.loveNote?.let { note ->
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(MaterialTheme.colorScheme.secondaryContainer)
+                    .padding(16.dp)
+            ) {
+                Column {
+                    Text(
+                        "A note for you",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        note.text,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                    )
+                    Spacer(Modifier.height(6.dp))
+                    TextButton(onClick = onOpenNotes) { Text("Little Notes for You") }
+                }
+            }
+            Spacer(Modifier.height(12.dp))
+        }
 
         // ---- Optional gift note card ----
         GiftNoteCard(
@@ -253,35 +300,6 @@ private fun GreetingBanner(state: HomeViewModel.Dashboard, decorations: Boolean)
         }
         Spacer(Modifier.width(8.dp))
         MascotFace(kind = state.mascotKind, mood = state.mascotMood, sizeDp = 64)
-    }
-}
-
-/** MotivationCard (shared/DESIGN.md v2 components) - rotates by day-of-year. */
-@Composable
-private fun MotivationCard(dayOfYear: Int) {
-    val lines = stringArrayResource(R.array.motivation_lines)
-    val line = lines[Math.floorMod(dayOfYear, lines.size)]
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(20.dp))
-            .background(MaterialTheme.colorScheme.tertiaryContainer)
-            .padding(16.dp)
-    ) {
-        Column {
-            Text(
-                stringResource(R.string.motivation_title),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onTertiaryContainer
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                line,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onTertiaryContainer,
-                fontWeight = FontWeight.SemiBold
-            )
-        }
     }
 }
 

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { useMemo, useRef, useState } from 'react';
 import { Badge, Card, EmptyState, ProgressRing, SectionTitle, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
+import { contextQuote } from '@/lib/motivation';
 import { getQuestion, subjects } from '@/lib/content';
 import {
   MOCK_QUESTION_COUNT, MOCK_TIME_LIMIT_SECONDS, computeResult, newAttemptId,
@@ -381,6 +382,11 @@ function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: 
             <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
               Practice estimates only — not ASCP scores and not guarantees of passing.
             </p>
+            {result.incorrectQuestionIds.length > 0 && (
+              <p className="text-sm mt-2 sticky-note inline-block">
+                💗 {contextQuote('afterWrong')}
+              </p>
+            )}
             <button className="btn-primary mt-3" onClick={onRestart}>New quiz</button>
           </div>
         </div>

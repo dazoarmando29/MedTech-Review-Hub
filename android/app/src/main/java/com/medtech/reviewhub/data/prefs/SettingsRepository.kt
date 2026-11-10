@@ -51,7 +51,30 @@ data class AppSettings(
     /** Personalized dashboard greeting name. */
     val displayName: String = DEFAULT_DISPLAY_NAME,
     /** Optional gift note card text. Blank = show the default gift note. */
-    val giftNote: String = ""
+    val giftNote: String = "",
+    // ---- Study Music (v1.2.0) ----
+    /** Default playlist id (suggested playlist id or user playlist id). */
+    val defaultPlaylistId: String = "",
+    /** Preferred music volume 0..1. */
+    val musicVolume: Float = 0.8f,
+    /** Auto-play music when a study session starts - only after the user has pressed play at least once. */
+    val autoPlayMusicOnSession: Boolean = false,
+    /** True once the user has ever pressed play (never force audio without interaction). */
+    val musicUserInteracted: Boolean = false,
+    val musicDuringQuizzes: Boolean = false,
+    val musicDuringFlashcards: Boolean = false,
+    val musicDuringReading: Boolean = true,
+    val musicDuringBreaks: Boolean = true,
+    /** Gentle synthesized chime at Pomodoro phase ends. */
+    val timerChime: Boolean = true,
+    /** Contextual encouragement banners (mascot + quote). */
+    val motivationalBanners: Boolean = true,
+    /** Quote frequency: "daily" | "session" | "off". */
+    val quoteFrequency: String = "daily",
+    /** Current study goal shown in the Study Room. */
+    val studyRoomGoal: String = "",
+    /** Study Room background scene id. */
+    val studyRoomScene: String = "sakura"
 ) {
     companion object {
         const val DEFAULT_APP_THEME = "strawberry"
@@ -112,6 +135,20 @@ class SettingsRepository(private val context: Context) {
         val CUSTOM_WORK = intPreferencesKey("custom_work")
         val CUSTOM_BREAK = intPreferencesKey("custom_break")
         val PROFILE = stringPreferencesKey("profile_json")
+        val DEFAULT_PLAYLIST = stringPreferencesKey("music_default_playlist")
+        val MUSIC_VOLUME = floatPreferencesKey("music_volume")
+        val AUTOPLAY_SESSION = booleanPreferencesKey("music_autoplay_session")
+        val MUSIC_INTERACTED = booleanPreferencesKey("music_user_interacted")
+        val MUSIC_QUIZZES = booleanPreferencesKey("music_during_quizzes")
+        val MUSIC_FLASHCARDS = booleanPreferencesKey("music_during_flashcards")
+        val MUSIC_READING = booleanPreferencesKey("music_during_reading")
+        val MUSIC_BREAKS = booleanPreferencesKey("music_during_breaks")
+        val TIMER_CHIME = booleanPreferencesKey("timer_chime")
+        val MOTIVATION_BANNERS = booleanPreferencesKey("motivational_banners")
+        val QUOTE_FREQUENCY = stringPreferencesKey("quote_frequency")
+        val STUDY_ROOM_GOAL = stringPreferencesKey("study_room_goal")
+        val STUDY_ROOM_SCENE = stringPreferencesKey("study_room_scene")
+        val FAVORITE_QUOTES = stringPreferencesKey("favorite_quotes")
     }
 
     val settings: Flow<AppSettings> = context.dataStore.data.map { p ->
@@ -148,8 +185,30 @@ class SettingsRepository(private val context: Context) {
             customWorkMinutes = p[Keys.CUSTOM_WORK] ?: 30,
             customBreakMinutes = p[Keys.CUSTOM_BREAK] ?: 5,
             displayName = p[Keys.DISPLAY_NAME]?.takeIf { it.isNotBlank() } ?: AppSettings.DEFAULT_DISPLAY_NAME,
-            giftNote = p[Keys.GIFT_NOTE] ?: ""
+            giftNote = p[Keys.GIFT_NOTE] ?: "",
+            defaultPlaylistId = p[Keys.DEFAULT_PLAYLIST] ?: "",
+            musicVolume = (p[Keys.MUSIC_VOLUME] ?: 0.8f).coerceIn(0f, 1f),
+            autoPlayMusicOnSession = p[Keys.AUTOPLAY_SESSION] ?: false,
+            musicUserInteracted = p[Keys.MUSIC_INTERACTED] ?: false,
+            musicDuringQuizzes = p[Keys.MUSIC_QUIZZES] ?: false,
+            musicDuringFlashcards = p[Keys.MUSIC_FLASHCARDS] ?: false,
+            musicDuringReading = p[Keys.MUSIC_READING] ?: true,
+            musicDuringBreaks = p[Keys.MUSIC_BREAKS] ?: true,
+            timerChime = p[Keys.TIMER_CHIME] ?: true,
+            motivationalBanners = p[Keys.MOTIVATION_BANNERS] ?: true,
+            quoteFrequency = when (p[Keys.QUOTE_FREQUENCY]) {
+                "session", "off" -> p[Keys.QUOTE_FREQUENCY]!!
+                else -> "daily"
+            },
+            studyRoomGoal = p[Keys.STUDY_ROOM_GOAL] ?: "",
+            studyRoomScene = p[Keys.STUDY_ROOM_SCENE]?.takeIf { it.isNotBlank() } ?: "sakura"
         )
+    }
+
+    /** Favorite quote texts (shared/content/motivation.json strings). */
+    val favoriteQuotes: Flow<Set<String>> = context.dataStore.data.map { p ->
+        val raw = p[Keys.FAVORITE_QUOTES] ?: ""
+        if (raw.isBlank()) emptySet() else raw.split("\u0001").filter { it.isNotBlank() }.toSet()
     }
 
     suspend fun current(): AppSettings = settings.first()
@@ -213,6 +272,33 @@ class SettingsRepository(private val context: Context) {
     suspend fun setCustomPomodoro(work: Int, breakMin: Int) = edit {
         it[Keys.CUSTOM_WORK] = work.coerceIn(5, 120)
         it[Keys.CUSTOM_BREAK] = breakMin.coerceIn(1, 60)
+    }
+
+    // ---- Study Music / Study Room / Motivation (v1.2.0) -------------------
+
+    suspend fun setDefaultPlaylist(id: String) = edit { it[Keys.DEFAULT_PLAYLIST] = id }
+    suspend fun setMusicVolume(value: Float) = edit { it[Keys.MUSIC_VOLUME] = value.coerceIn(0f, 1f) }
+    suspend fun setAutoPlayMusicOnSession(enabled: Boolean) = edit { it[Keys.AUTOPLAY_SESSION] = enabled }
+    suspend fun setMusicUserInteracted(enabled: Boolean) = edit { it[Keys.MUSIC_INTERACTED] = enabled }
+    suspend fun setMusicDuringQuizzes(enabled: Boolean) = edit { it[Keys.MUSIC_QUIZZES] = enabled }
+    suspend fun setMusicDuringFlashcards(enabled: Boolean) = edit { it[Keys.MUSIC_FLASHCARDS] = enabled }
+    suspend fun setMusicDuringReading(enabled: Boolean) = edit { it[Keys.MUSIC_READING] = enabled }
+    suspend fun setMusicDuringBreaks(enabled: Boolean) = edit { it[Keys.MUSIC_BREAKS] = enabled }
+    suspend fun setTimerChime(enabled: Boolean) = edit { it[Keys.TIMER_CHIME] = enabled }
+    suspend fun setMotivationalBanners(enabled: Boolean) = edit { it[Keys.MOTIVATION_BANNERS] = enabled }
+    suspend fun setQuoteFrequency(frequency: String) = edit {
+        it[Keys.QUOTE_FREQUENCY] = when (frequency) {
+            "session", "off" -> frequency
+            else -> "daily"
+        }
+    }
+    suspend fun setStudyRoomGoal(goal: String) = edit { it[Keys.STUDY_ROOM_GOAL] = goal.trim() }
+    suspend fun setStudyRoomScene(scene: String) = edit { it[Keys.STUDY_ROOM_SCENE] = scene }
+
+    suspend fun toggleFavoriteQuote(text: String) {
+        val current = favoriteQuotes.first()
+        val next = if (text in current) current - text else current + text
+        edit { it[Keys.FAVORITE_QUOTES] = next.sorted().joinToString("\u0001") }
     }
 
     suspend fun signOut() = edit {

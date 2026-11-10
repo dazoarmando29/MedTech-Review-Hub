@@ -81,8 +81,16 @@ class LibraryViewModel(
     fun saveProgress(lessonId: String, percent: Float, offset: Int) {
         viewModelScope.launch {
             studyRepository.saveLessonProgress(lessonId, percent, offset)
+            // Contextual encouragement after finishing a lesson (once per lesson).
+            if (percent >= 0.95f && completedLessons.add(lessonId)) {
+                com.medtech.reviewhub.ui.motivation.EncouragementBus.trigger(
+                    com.medtech.reviewhub.domain.ContextKind.AFTER_LESSON
+                )
+            }
         }
     }
+
+    private val completedLessons = mutableSetOf<String>()
 
     fun toggleBookmark(lessonId: String) {
         viewModelScope.launch {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Category art: pink piano (Piano Dreams). Simple original shapes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp"
+    android:viewportWidth="96" android:viewportHeight="96">
+    <!-- body -->
+    <path android:fillColor="#F8BBD0" android:pathData="M16,20 L80,20 Q84,20 84,24 L84,76 Q84,80 80,80 L16,80 Q12,80 12,76 L12,24 Q12,20 16,20 Z" />
+    <!-- lid line -->
+    <path android:strokeColor="#F27BAC" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M12,38 L84,38" />
+    <!-- fallboard -->
+    <path android:fillColor="#F472B6" android:pathData="M18,26 L78,26 L78,34 L18,34 Z" />
+    <!-- keyboard white keys -->
+    <path android:fillColor="#FFF7FA" android:pathData="M18,44 L78,44 L78,70 L18,70 Z" />
+    <path android:strokeColor="#E7BFD0" android:strokeWidth="1.5" android:fillColor="#00000000"
+        android:pathData="M27,44 L27,70 M36,44 L36,70 M45,44 L45,70 M54,44 L54,70 M63,44 L63,70 M72,44 L72,70" />
+    <!-- black keys -->
+    <path android:fillColor="#3D2B3D" android:pathData="M24,44 L28,44 L28,55 L24,55 Z" />
+    <path android:fillColor="#3D2B3D" android:pathData="M33,44 L37,44 L37,55 L33,55 Z" />
+    <path android:fillColor="#3D2B3D" android:pathData="M51,44 L55,44 L55,55 L51,55 Z" />
+    <path android:fillColor="#3D2B3D" android:pathData="M60,44 L64,44 L64,55 L60,55 Z" />
+    <path android:fillColor="#3D2B3D" android:pathData="M69,44 L73,44 L73,55 L69,55 Z" />
+    <!-- legs -->
+    <path android:fillColor="#F27BAC" android:pathData="M18,80 L24,80 L24,88 L18,88 Z" />
+    <path android:fillColor="#F27BAC" android:pathData="M72,80 L78,80 L78,88 L72,88 Z" />
+    <!-- music note -->
+    <path android:fillColor="#A98CF0" android:pathData="M82,10 a3.5,3 0 1,0 7,0 a3.5,3 0 1,0 -7,0" />
+    <path android:strokeColor="#A98CF0" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M89,10 L89,24" />
+</vector>

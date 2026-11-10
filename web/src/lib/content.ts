@@ -1,8 +1,8 @@
 // Access to the shared content library (synced from shared/content at build time).
 import { contentFiles } from '@/data/content';
 import type {
-  Deck, Formula, GlossaryTerm, Lesson, MemeEntry, QuizQuestion, ResourcesDoc,
-  Subject, VisualIdItem,
+  Deck, Formula, GlossaryTerm, Lesson, MemeEntry, MotivationBank, MusicCatalog,
+  QuizQuestion, ResourcesDoc, Subject, VisualIdItem,
 } from './types';
 
 function pick<T>(predicate: (path: string) => boolean): T[] {
@@ -28,6 +28,14 @@ export const visualIdBank: VisualIdItem[] = pick<VisualIdItem>((p) => p === './v
 export const resourcesDoc: ResourcesDoc =
   pick<ResourcesDoc>((p) => p === './resources.json')[0] ??
   { reviewCenters: [], officialLinks: [], readingList: [], examInfo: [], disclaimer: '' };
+
+export const motivation: MotivationBank =
+  pick<MotivationBank>((p) => p === './motivation.json')[0] ??
+  { dailyQuotes: [], contextQuotes: {}, mascotLines: {} };
+
+export const musicCatalog: MusicCatalog =
+  pick<MusicCatalog>((p) => p === './music/catalog.json')[0] ??
+  { note: '', categories: [], tracks: [], suggestedPlaylists: [] };
 
 export function getSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);
