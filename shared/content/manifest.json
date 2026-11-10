@@ -1,6 +1,7 @@
 {
     "version":  "1.1.0",
-    "generatedAt":  "2026-11-10T21:39:59Z",
+    "note":  "Content index for the shared review library (web, Android, and backend).",
+    "generatedAt":  "2026-11-10T21:51:14Z",
     "subjects":  [
                      {
                          "id":  "blood-banking",
@@ -170,5 +171,23 @@
                                         }
                                     ]
                      }
-                 ]
+                 ],
+    "questionBanks":  [
+                          "blood-banking",
+                          "clinical-chemistry",
+                          "hematology",
+                          "immunology",
+                          "lab-operations",
+                          "microbiology",
+                          "urinalysis"
+                      ],
+    "flashcardDecks":  [
+                           "blood-banking-decks",
+                           "clinical-chemistry-decks",
+                           "hematology-decks",
+                           "immunology-decks",
+                           "lab-operations-decks",
+                           "microbiology-decks",
+                           "urinalysis-decks"
+                       ]
 }

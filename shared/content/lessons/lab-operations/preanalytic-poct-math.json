@@ -6,7 +6,18 @@
   "summary": "The error phase nobody sees on the analyzer: patient preparation, tube order of draw and additive carryover, hemolysis, icterus, and lipemia, transport and storage, objective specimen rejection criteria, point-of-care testing governance, and the arithmetic every bench relies on - dilutions, C1V1=C2V2, unit conversions, and titer logic.",
   "readingMinutes": 16,
   "difficulty": "INTERMEDIATE",
-  "keywords": ["preanalytic error", "order of draw", "hemolysis", "specimen rejection", "point-of-care testing", "C1V1=C2V2", "serial dilution", "carryover", "two patient identifiers", "refrigerated storage"],
+  "keywords": [
+    "preanalytic error",
+    "order of draw",
+    "hemolysis",
+    "specimen rejection",
+    "point-of-care testing",
+    "C1V1=C2V2",
+    "serial dilution",
+    "carryover",
+    "two patient identifiers",
+    "refrigerated storage"
+  ],
   "objectives": [
     "List the major preanalytic error sources and their effects on common chemistry and hematology results.",
     "State the standard order of draw and explain the rationale (additive carryover) behind it.",
@@ -22,14 +33,49 @@
       "C1V1 = C2V2: what goes in equals what comes out - the backbone of every dilution calculation."
     ],
     "mustKnowTable": {
-      "columns": ["Tube/additive", "Additive", "Primary tests", "Preanalytic trap"],
+      "columns": [
+        "Tube/additive",
+        "Additive",
+        "Primary tests",
+        "Preanalytic trap"
+      ],
       "rows": [
-        ["Blood culture (SPS)", "Sodium polyanethol sulfonate", "Blood cultures", "Draw first to avoid additive carryover"],
-        ["Light blue", "Sodium citrate", "Coagulation", "Underfill prolongs PT/aPTT; fill to target range"],
-        ["Red / tiger (serum)", "Clot activator / gel", "Chemistry, serology", "Incomplete clotting causes fibrin strands and analyzer flags"],
-        ["Green", "Lithium heparin (or ammonium heparin)", "Chemistry (plasma)", "Ammonium heparin can raise ammonia results"],
-        ["Lavender", "EDTA", "CBC, HbA1c", "Underfill gives excess EDTA - shrinks cells, ruins diffs"],
-        ["Gray", "Fluoride/oxalate", "Glucose (glycolysis inhibition)", "Fluoride slows, not instantly stops, glycolysis - still transport promptly"]
+        [
+          "Blood culture (SPS)",
+          "Sodium polyanethol sulfonate",
+          "Blood cultures",
+          "Draw first to avoid additive carryover"
+        ],
+        [
+          "Light blue",
+          "Sodium citrate",
+          "Coagulation",
+          "Underfill prolongs PT/aPTT; fill to target range"
+        ],
+        [
+          "Red / tiger (serum)",
+          "Clot activator / gel",
+          "Chemistry, serology",
+          "Incomplete clotting causes fibrin strands and analyzer flags"
+        ],
+        [
+          "Green",
+          "Lithium heparin (or ammonium heparin)",
+          "Chemistry (plasma)",
+          "Ammonium heparin can raise ammonia results"
+        ],
+        [
+          "Lavender",
+          "EDTA",
+          "CBC, HbA1c",
+          "Underfill gives excess EDTA - shrinks cells, ruins diffs"
+        ],
+        [
+          "Gray",
+          "Fluoride/oxalate",
+          "Glucose (glycolysis inhibition)",
+          "Fluoride slows, not instantly stops, glycolysis - still transport promptly"
+        ]
       ]
     },
     "mnemonic": "Order of draw: 'Boys Can Really Have Easy Girls' - Blood cultures, Citrate, Red, Heparin, EDTA, Gray (glycolytic inhibitor)."
@@ -68,26 +114,96 @@
     "comparisonTables": [
       {
         "title": "Specimen integrity markers",
-        "columns": ["Marker", "Typical cause", "Commonly affected results", "Action"],
+        "columns": [
+          "Marker",
+          "Typical cause",
+          "Commonly affected results",
+          "Action"
+        ],
         "rows": [
-          ["Hemolysis", "Traumatic draw, small needle, delay", "K, LDH, AST, Mg, phosphate up; some colorimetrics biased", "Check HIL index; comment or reject per validated limits"],
-          ["Icterus", "Liver disease, neonatal jaundice", "Colorimetric and bilirubin methods", "Comment; use alternate wavelength method if available"],
-          ["Lipemia", "Nonfasting, hypertriglyceridemia", "Turbidity interferes with many assays; sodium by ISE less affected", "Comment; ultracentrifugation or dilution per procedure"],
-          ["Clot (EDTA tube)", "Underfill or delayed mixing", "CBC impossible, clogs analyzers", "Reject and recollect"],
-          ["Underfill (citrate)", "Difficult draw", "Falsely prolonged PT/aPTT", "Reject if outside manufacturer fill range"],
-          ["QNS volume", "Pediatric or difficult draw", "Cannot repeat or reflex testing", "Consult clinician; reject or perform limited panel with comment"]
+          [
+            "Hemolysis",
+            "Traumatic draw, small needle, delay",
+            "K, LDH, AST, Mg, phosphate up; some colorimetrics biased",
+            "Check HIL index; comment or reject per validated limits"
+          ],
+          [
+            "Icterus",
+            "Liver disease, neonatal jaundice",
+            "Colorimetric and bilirubin methods",
+            "Comment; use alternate wavelength method if available"
+          ],
+          [
+            "Lipemia",
+            "Nonfasting, hypertriglyceridemia",
+            "Turbidity interferes with many assays; sodium by ISE less affected",
+            "Comment; ultracentrifugation or dilution per procedure"
+          ],
+          [
+            "Clot (EDTA tube)",
+            "Underfill or delayed mixing",
+            "CBC impossible, clogs analyzers",
+            "Reject and recollect"
+          ],
+          [
+            "Underfill (citrate)",
+            "Difficult draw",
+            "Falsely prolonged PT/aPTT",
+            "Reject if outside manufacturer fill range"
+          ],
+          [
+            "QNS volume",
+            "Pediatric or difficult draw",
+            "Cannot repeat or reflex testing",
+            "Consult clinician; reject or perform limited panel with comment"
+          ]
         ]
       },
       {
         "title": "Dilution and conversion quick reference",
-        "columns": ["Task", "Formula", "Worked micro-example", "Check"],
+        "columns": [
+          "Task",
+          "Formula",
+          "Worked micro-example",
+          "Check"
+        ],
         "rows": [
-          ["Simple dilution", "C1V1 = C2V2", "10 mol/L to 2 mol/L in 50 mL: V1 = 10 mL", "Volume out = V1 + diluent"],
-          ["Serial dilution", "Multiply dilution factors", "Three 1:10 steps = 1:1000", "Add diluent volume each step"],
-          ["Glucose mg/dL to mmol/L", "mg/dL x 0.0555", "100 mg/dL = 5.55 mmol/L", "mmol/L x 18 back to mg/dL"],
-          ["Creatinine mg/dL to micromol/L", "mg/dL x 88.4", "1.0 mg/dL = 88.4 micromol/L", "Divide by 88.4 to reverse"],
-          ["Percent solution", "g per 100 mL", "0.9 percent NaCl = 0.9 g/100 mL", "Check molar mass for molarity"],
-          ["Titer", "Reciprocal of last positive dilution", "Positive at 1:8 = titer 8", "Report as 1:8 with method"]
+          [
+            "Simple dilution",
+            "C1V1 = C2V2",
+            "10 mol/L to 2 mol/L in 50 mL: V1 = 10 mL",
+            "Volume out = V1 + diluent"
+          ],
+          [
+            "Serial dilution",
+            "Multiply dilution factors",
+            "Three 1:10 steps = 1:1000",
+            "Add diluent volume each step"
+          ],
+          [
+            "Glucose mg/dL to mmol/L",
+            "mg/dL x 0.0555",
+            "100 mg/dL = 5.55 mmol/L",
+            "mmol/L x 18 back to mg/dL"
+          ],
+          [
+            "Creatinine mg/dL to micromol/L",
+            "mg/dL x 88.4",
+            "1.0 mg/dL = 88.4 micromol/L",
+            "Divide by 88.4 to reverse"
+          ],
+          [
+            "Percent solution",
+            "g per 100 mL",
+            "0.9 percent NaCl = 0.9 g/100 mL",
+            "Check molar mass for molarity"
+          ],
+          [
+            "Titer",
+            "Reciprocal of last positive dilution",
+            "Positive at 1:8 = titer 8",
+            "Report as 1:8 with method"
+          ]
         ]
       }
     ],
@@ -97,10 +213,7 @@
       "Fluoride slows glycolysis but does not stop it immediately; glucose specimens still need prompt separation or validated transport conditions.",
       "A 1:10 dilution means one part sample in ten parts total (nine parts diluent), not one part sample plus ten parts diluent."
     ],
-    "workedExample": {
-      "title": "Dilution worksheet",
-      "body": "A urine culture needs a 1:100 and a 1:1,000 dilution plated at 0.01 mL each. For 1:100: 0.1 mL urine into 9.9 mL saline (total 10 mL). For 1:1,000: take 1 mL of the 1:100 tube into 9 mL saline (a further 1:10 step, cumulative 1:1,000). If the 1:100 plate grows 45 colonies and the plated volume is 0.01 mL, the original concentration is 45 / 0.01 / 100 = 45,000 CFU/mL after applying the dilution factor - and the 1:1,000 plate should grow about 4 to 5 colonies, which is exactly the consistency check that catches decimal errors before reporting."
-    }
+    "workedExample": "**Dilution worksheet**\n\nA urine culture needs a 1:100 and a 1:1,000 dilution plated at 0.01 mL each. For 1:100: 0.1 mL urine into 9.9 mL saline (total 10 mL). For 1:1,000: take 1 mL of the 1:100 tube into 9 mL saline (a further 1:10 step, cumulative 1:1,000). If the 1:100 plate grows 45 colonies and the plated volume is 0.01 mL, the original concentration is 45 / 0.01 / 100 = 45,000 CFU/mL after applying the dilution factor - and the 1:1,000 plate should grow about 4 to 5 colonies, which is exactly the consistency check that catches decimal errors before reporting."
   },
   "memoryHooks": [
     {
@@ -114,13 +227,35 @@
       "funny": "Wag kang mag-overthink sa dilution - C1V1 = C2V2 lang yan. Kung mali ang decimal, doble-check mo agad bago mag-report!"
     }
   ],
-  "practiceQuestionIds": ["lo-q-016", "lo-q-017", "lo-q-018"],
-  "relatedFlashcardIds": ["lo-fc-019", "lo-fc-020", "lo-fc-021"],
-  "followUp": ["lab-operations/quality-control-regulatory"],
+  "practiceQuestionIds": [
+    "lo-q-016",
+    "lo-q-017",
+    "lo-q-018"
+  ],
+  "relatedFlashcardIds": [
+    "lo-fc-019",
+    "lo-fc-020",
+    "lo-fc-021"
+  ],
+  "followUp": [
+    "lab-operations/quality-control-regulatory"
+  ],
   "references": [
-    { "title": "Linne and Ringsrud's Clinical Laboratory Science", "detail": "8th ed., preanalytic variables and laboratory mathematics chapters", "url": null },
-    { "title": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations", "detail": "9th ed., specimen collection, point-of-care testing, and calculations", "url": null },
-    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., preexamination variables section", "url": null }
+    {
+      "title": "Linne and Ringsrud's Clinical Laboratory Science",
+      "detail": "8th ed., preanalytic variables and laboratory mathematics chapters",
+      "url": null
+    },
+    {
+      "title": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations",
+      "detail": "9th ed., specimen collection, point-of-care testing, and calculations",
+      "url": null
+    },
+    {
+      "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods",
+      "detail": "24th ed., preexamination variables section",
+      "url": null
+    }
   ],
   "editorialStatus": "PUBLISHED",
   "reviewedAt": "2026-01-15",

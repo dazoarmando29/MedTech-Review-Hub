@@ -132,7 +132,17 @@ class ContentStore(
             val decks = mutableListOf<ContentDeck>()
             for (deckId in manifest.flashcardDecks) {
                 val text = read("flashcards/$deckId.json") ?: continue
-                decks += AppJson.decodeFromString(ContentDeck.serializer(), text)
+                // shared/content stores flashcard files as arrays of decks; the
+                // bundled sample stores one deck per file. Accept both.
+                val parsed = runCatching {
+                    AppJson.decodeFromString(
+                        kotlinx.serialization.builtins.ListSerializer(ContentDeck.serializer()),
+                        text,
+                    )
+                }.getOrElse {
+                    listOf(AppJson.decodeFromString(ContentDeck.serializer(), text))
+                }
+                decks += parsed
             }
 
             val formulas = read("formulas.json")?.let {

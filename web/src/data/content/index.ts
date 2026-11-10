@@ -25,6 +25,7 @@ import f_lessons_microbiology_enteric_gnr_sterile_sites_json from './lessons/mic
 import f_lessons_microbiology_gram_positive_cocci_json from './lessons/microbiology/gram-positive-cocci.json';
 import f_lessons_urinalysis_body_fluid_analysis_json from './lessons/urinalysis/body-fluid-analysis.json';
 import f_lessons_urinalysis_physical_chemical_testing_json from './lessons/urinalysis/physical-chemical-testing.json';
+import f_manifest_json from './manifest.json';
 import f_memes_json from './memes.json';
 import f_questions_blood_banking_json from './questions/blood-banking.json';
 import f_questions_clinical_chemistry_json from './questions/clinical-chemistry.json';
@@ -72,6 +73,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./lessons/microbiology/gram-positive-cocci.json", data: f_lessons_microbiology_gram_positive_cocci_json },
   { path: "./lessons/urinalysis/body-fluid-analysis.json", data: f_lessons_urinalysis_body_fluid_analysis_json },
   { path: "./lessons/urinalysis/physical-chemical-testing.json", data: f_lessons_urinalysis_physical_chemical_testing_json },
+  { path: "./manifest.json", data: f_manifest_json },
   { path: "./memes.json", data: f_memes_json },
   { path: "./questions/blood-banking.json", data: f_questions_blood_banking_json },
   { path: "./questions/clinical-chemistry.json", data: f_questions_clinical_chemistry_json },
