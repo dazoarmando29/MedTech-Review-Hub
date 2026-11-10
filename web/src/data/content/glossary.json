@@ -1,0 +1,378 @@
+[
+  {
+    "id": "glo-001",
+    "term": "Catalase",
+    "definition": "Enzyme that breaks hydrogen peroxide into water and oxygen; its detection separates staphylococci (positive) from streptococci and enterococci (negative).",
+    "subjectId": "microbiology",
+    "example": "Bubbling when 3 percent hydrogen peroxide is applied to colonies indicates catalase positivity.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-002",
+    "term": "Coagulase",
+    "acronym": null,
+    "definition": "Enzyme produced by Staphylococcus aureus that converts fibrinogen to fibrin; slide coagulase detects bound clumping factor and tube coagulase detects free coagulase.",
+    "subjectId": "microbiology",
+    "example": "A fibrin clot in rabbit plasma at 4 hours confirms coagulase-positive S. aureus.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-003",
+    "term": "Beta-hemolysis",
+    "definition": "Complete clearing of red blood cells around colonies on sheep blood agar, produced by hemolysins such as streptolysin O and S.",
+    "subjectId": "microbiology",
+    "example": "Streptococcus pyogenes shows beta-hemolysis with a wide clear zone around small colonies.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-004",
+    "term": "CAMP test",
+    "acronym": "Christie-Atkins-Munch-Petersen",
+    "definition": "Test for synergistic hemolysis between group B streptococcus CAMP factor and staphylococcal beta-lysin; an arrowhead zone of enhanced clearing is positive.",
+    "subjectId": "microbiology",
+    "example": "A CAMP-positive, hippurate-positive beta-hemolytic isolate is reported as Streptococcus agalactiae.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-005",
+    "term": "PYR test",
+    "acronym": "L-pyrrolidonyl arylamidase",
+    "definition": "Enzymatic test positive for Streptococcus pyogenes and Enterococcus species; a red color develops after addition of the developer reagent.",
+    "subjectId": "microbiology",
+    "example": "PYR-positive beta-hemolytic, bacitracin-susceptible isolate = Streptococcus pyogenes.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-006",
+    "term": "Bile esculin hydrolysis",
+    "definition": "Test in which organisms that hydrolyze esculin in the presence of bile produce blackening of the medium; positive for enterococci and group D streptococci.",
+    "subjectId": "microbiology",
+    "example": "Bile esculin positive with growth in 6.5 percent NaCl confirms Enterococcus.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-007",
+    "term": "Oxidase test",
+    "definition": "Test for cytochrome c oxidase; enteric gram-negative rods are oxidase negative while Pseudomonas, Aeromonas, and Vibrio are oxidase positive.",
+    "subjectId": "microbiology",
+    "example": "An oxidase-positive non-lactose fermenter with grape odor suggests Pseudomonas aeruginosa.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-008",
+    "term": "Triple sugar iron agar",
+    "acronym": "TSI",
+    "definition": "Medium reading glucose fermentation in the butt, lactose and sucrose fermentation on the slant, and hydrogen sulfide production as blackening.",
+    "subjectId": "microbiology",
+    "example": "K/A with blackening (alkaline slant, acid butt with H2S) suggests Salmonella in a non-lactose fermenter.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-009",
+    "term": "Minimum inhibitory concentration",
+    "acronym": "MIC",
+    "definition": "Lowest concentration of an antimicrobial agent that prevents visible growth of the organism after incubation; distinguished from the minimum bactericidal concentration (MBC).",
+    "subjectId": "microbiology",
+    "example": "An MIC of 2 micrograms/mL is interpreted as susceptible or resistant using current CLSI or EUCAST breakpoints.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-010",
+    "term": "Disk diffusion (Kirby-Bauer)",
+    "definition": "Antimicrobial susceptibility method measuring inhibition zone diameters around antibiotic disks on Mueller-Hinton agar, interpreted against clinical breakpoints.",
+    "subjectId": "microbiology",
+    "example": "A 28 mm cefoxitin zone is interpreted per the current breakpoint table in use by the laboratory.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-011",
+    "term": "Extended-spectrum beta-lactamase",
+    "acronym": "ESBL",
+    "definition": "Plasmid-mediated enzymes that hydrolyze extended-spectrum cephalosporins and are inhibited by clavulanate; confirmed by synergy testing or molecular methods.",
+    "subjectId": "microbiology",
+    "example": "A Klebsiella isolate with restored cephalosporin zones around clavulanate disks confirms ESBL production.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-012",
+    "term": "Acid-fast bacilli",
+    "acronym": "AFB",
+    "definition": "Mycobacteria that retain carbol fuchsin (Ziehl-Neelsen) or auramine dyes despite acid-alcohol decolorization due to mycolic acids in the cell wall.",
+    "subjectId": "microbiology",
+    "example": "Auramine O fluorescence screening of concentrated sputum is more sensitive than Ziehl-Neelsen for smear detection.",
+    "source": "Bailey and Scott's Diagnostic Microbiology, 16th ed."
+  },
+  {
+    "id": "glo-013",
+    "term": "Immunoglobulin",
+    "acronym": "Ig",
+    "definition": "Antibody protein composed of heavy and light chains; classes IgG, IgM, IgA, IgD, and IgE differ in distribution and effector function.",
+    "subjectId": "immunology",
+    "example": "IgM pentamers give strong agglutination in primary responses; IgG dominates later responses and crosses the placenta.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-014",
+    "term": "Secretory IgA",
+    "definition": "Dimeric IgA with J chain and secretory component that protects mucosal surfaces; it does not activate the classical complement pathway.",
+    "subjectId": "immunology",
+    "example": "Secretory IgA in breast milk and intestinal secretions neutralizes pathogens at mucosal surfaces.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-015",
+    "term": "Complement",
+    "definition": "Cascade of serum proteins activated via classical, alternative, or lectin pathways, converging on C3 cleavage and the membrane attack complex (C5b-C9).",
+    "subjectId": "immunology",
+    "example": "CH50 measures functional classical pathway hemolytic activity.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-016",
+    "term": "Anaphylatoxin",
+    "definition": "Complement fragment (C3a, C4a, C5a) that triggers mast cell degranulation and inflammation; C5a is the most potent and is also a chemoattractant.",
+    "subjectId": "immunology",
+    "example": "C5a release recruits neutrophils to sites of complement activation.",
+    "source": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "glo-017",
+    "term": "Membrane attack complex",
+    "acronym": "MAC",
+    "definition": "Terminal complement assembly C5b-C9 forming pores in target membranes; deficiency predisposes to Neisseria infections.",
+    "subjectId": "immunology",
+    "example": "Recurrent meningococcal infections in a young adult prompt terminal complement testing.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-018",
+    "term": "Agglutination",
+    "definition": "Visible clumping when antibodies cross-link particulate antigens (cells or coated beads); used in typing, screening, and titer determination.",
+    "subjectId": "immunology",
+    "example": "Latex particles coated with IgG agglutinate in the presence of rheumatoid factor (IgM anti-IgG).",
+    "source": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "glo-019",
+    "term": "Enzyme-linked immunosorbent assay",
+    "acronym": "ELISA",
+    "definition": "Immunoassay format using enzyme-labeled antibodies or antigens with substrate conversion to a measurable signal; indirect detects antibody, sandwich detects antigen, competitive measures analyte by signal inhibition.",
+    "subjectId": "immunology",
+    "example": "Indirect ELISA for anti-HCV uses antigen-coated wells, patient antibody, and enzyme-labeled anti-human immunoglobulin.",
+    "source": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "glo-020",
+    "term": "Rapid plasma reagin",
+    "acronym": "RPR",
+    "definition": "Non-treponemal screening test for syphilis using cardiolipin antigen; titers track disease activity and can be falsely positive in pregnancy and autoimmune disease.",
+    "subjectId": "immunology",
+    "example": "An RPR titer of 1:8 falling to 1:2 after treatment indicates response; treponemal tests confirm exposure.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-021",
+    "term": "Fluorescent treponemal antibody absorption",
+    "acronym": "FTA-ABS",
+    "definition": "Treponemal confirmatory test for syphilis that detects antibody to Treponema pallidum and usually remains positive for life after infection.",
+    "subjectId": "immunology",
+    "example": "Reactive RPR with non-reactive FTA-ABS suggests a biologic false-positive non-treponemal result.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-022",
+    "term": "Rheumatoid factor",
+    "acronym": "RF",
+    "definition": "Antibody (usually IgM) directed against the Fc region of IgG; supports rheumatoid arthritis but is nonspecific and can interfere with IgG-based immunoassays.",
+    "subjectId": "immunology",
+    "example": "RF can bridge reagent IgG and cause false-positive serologic results.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-023",
+    "term": "Heterophile antibody",
+    "definition": "Antibody reacting with antigens from unrelated species; detected by rapid monospot-type assays in infectious mononucleosis, with false positives and negatives well described.",
+    "subjectId": "immunology",
+    "example": "A negative heterophile test with classic mononucleosis syndrome prompts EBV-specific serology.",
+    "source": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "glo-024",
+    "term": "Specific gravity",
+    "acronym": "SG",
+    "definition": "Measure of urine concentration compared with water; methods include refractometry (total solute) and reagent strip (ionic strength via polyelectrolyte).",
+    "subjectId": "urinalysis",
+    "example": "Refractometer SG is elevated by protein and glucose; dipstick SG reads low in alkaline urine.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-025",
+    "term": "Protein error of indicators",
+    "definition": "Phenomenon used by the urine dipstick protein pad: at fixed pH, protein binding shifts indicator color, detecting mainly albumin.",
+    "subjectId": "urinalysis",
+    "example": "Alkaline urine can produce false-positive protein readings on the dipstick pad.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-026",
+    "term": "Leukocyte esterase",
+    "acronym": "LE",
+    "definition": "Enzyme from granulocytes detected on urine dipstick as a screening marker for pyuria and urinary tract inflammation.",
+    "subjectId": "urinalysis",
+    "example": "LE positive with nitrite positive strongly supports urinary tract infection; culture confirms etiology.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-027",
+    "term": "Nitrite test (urine)",
+    "definition": "Griess reaction detecting nitrite produced by bacterial reduction of nitrate; requires nitrate-reducing organisms and bladder dwell time of about 4 hours or more.",
+    "subjectId": "urinalysis",
+    "example": "A negative nitrite does not exclude infection with Enterococcus, which reduces nitrate poorly.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-028",
+    "term": "Urinary cast",
+    "definition": "Protein mold formed in the distal nephron (Tamm-Horsfall protein) that may entrap cells; type identifies the site and nature of renal injury.",
+    "subjectId": "urinalysis",
+    "example": "Red blood cell casts localize glomerular bleeding; muddy brown granular casts indicate acute tubular injury.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-029",
+    "term": "Xanthochromia",
+    "definition": "Pink-to-yellow discoloration of cerebrospinal fluid supernatant after centrifugation, from bilirubin formation; supports subarachnoid hemorrhage over traumatic tap.",
+    "subjectId": "urinalysis",
+    "example": "Xanthochromia with declining red counts across sequential tubes supports subarachnoid hemorrhage.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-030",
+    "term": "Light's criteria",
+    "definition": "Rule set classifying pleural fluid as exudate if ANY of: fluid/serum protein ratio above 0.5, fluid/serum LDH ratio above 0.6, or fluid LDH above two-thirds the serum upper limit of normal.",
+    "subjectId": "urinalysis",
+    "example": "A fluid with protein ratio 0.3 but LDH ratio 0.7 is still an exudate under the any-one rule.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-031",
+    "term": "Transudate",
+    "definition": "Ultrafiltrate formed by hydrostatic or oncotic pressure imbalance across an intact membrane, with low protein and cell content; typical of heart failure and cirrhosis.",
+    "subjectId": "urinalysis",
+    "example": "A serum-ascites albumin gradient of 2.0 g/dL indicates portal-hypertension (transudative) ascites.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-032",
+    "term": "Exudate",
+    "definition": "Fluid formed when inflammation or malignancy increases membrane permeability or blocks lymphatic drainage; high protein and cellular content.",
+    "subjectId": "urinalysis",
+    "example": "Pleural fluid meeting any Light criterion is an exudate and prompts infection or malignancy evaluation.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-033",
+    "term": "Serum-ascites albumin gradient",
+    "acronym": "SAAG",
+    "definition": "Serum albumin minus ascites albumin; a gradient of 1.1 g/dL or more indicates portal hypertension as the mechanism of ascites.",
+    "subjectId": "urinalysis",
+    "example": "SAAG 0.6 g/dL with lymphocyte-predominant fluid suggests peritoneal tuberculosis or malignancy.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-034",
+    "term": "Teratozoospermia",
+    "definition": "High percentage of abnormally shaped spermatozoa on semen morphology assessment using strict criteria; evaluated alongside motility and concentration.",
+    "subjectId": "urinalysis",
+    "example": "Normal morphology of 3 percent (below the WHO reference of 4 percent) prompts repeat testing before interpretation.",
+    "source": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "glo-035",
+    "term": "Levey-Jennings chart",
+    "definition": "Plot of control results over run order or date against the control mean with lines at plus and minus 1, 2, and 3 standard deviations, used for Westgard multirule evaluation.",
+    "subjectId": "lab-operations",
+    "example": "A trend of five rising control values suggests systematic drift on the chart before any rule rejects the run.",
+    "source": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed."
+  },
+  {
+    "id": "glo-036",
+    "term": "Westgard rules",
+    "acronym": null,
+    "definition": "Multirule quality control interpretation scheme: 1-2s is a warning; 1-3s, 2-2s, and R-4s are rejection rules; supplementary rules include 4-1s and 8x for systematic error.",
+    "subjectId": "lab-operations",
+    "example": "Two controls at plus 2.2 and minus 2.3 SD in one run trigger R-4s rejection for random error.",
+    "source": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed."
+  },
+  {
+    "id": "glo-037",
+    "term": "Standard deviation index",
+    "acronym": "SDI",
+    "definition": "(Observed value minus peer mean) divided by peer standard deviation; expresses a result in standard deviation units from the peer group mean for proficiency testing.",
+    "subjectId": "lab-operations",
+    "example": "An SDI of +2.5 in proficiency testing indicates the laboratory result sits 2.5 peer SDs above the mean.",
+    "source": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "glo-038",
+    "term": "Coefficient of variation",
+    "acronym": "CV",
+    "definition": "Standard deviation divided by mean, multiplied by 100; expresses precision relative to the concentration measured.",
+    "subjectId": "lab-operations",
+    "example": "A glucose method with SD 2 mg/dL at a mean of 100 mg/dL has a CV of 2 percent.",
+    "source": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "glo-039",
+    "term": "Limit of detection",
+    "acronym": "LOD",
+    "definition": "Lowest amount of analyte that can be reliably distinguished from zero (detected), but not necessarily quantitated accurately.",
+    "subjectId": "lab-operations",
+    "example": "A result detected below the LOQ is reported as detected below the limit of quantitation per local policy.",
+    "source": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  },
+  {
+    "id": "glo-040",
+    "term": "Limit of quantitation",
+    "acronym": "LOQ",
+    "definition": "Lowest amount of analyte measurable with stated, acceptable precision and accuracy; defined during method validation and distinct from LOD.",
+    "subjectId": "lab-operations",
+    "example": "A method validated to a CV of 20 percent at 5 ng/mL sets the LOQ at 5 ng/mL.",
+    "source": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  },
+  {
+    "id": "glo-041",
+    "term": "Proficiency testing",
+    "acronym": "PT",
+    "definition": "External quality assessment in which unknown samples are analyzed and results compared with peer groups; required for nonwaived CLIA testing with documented corrective action for failures.",
+    "subjectId": "lab-operations",
+    "example": "An SDI beyond 3 on a PT challenge triggers root-cause analysis and documented corrective action.",
+    "source": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed."
+  },
+  {
+    "id": "glo-042",
+    "term": "Order of draw",
+    "definition": "Standard venipuncture tube sequence (blood cultures, citrate, serum, heparin, EDTA, gray) preventing additive carryover between tubes.",
+    "subjectId": "lab-operations",
+    "example": "EDTA carryover into a citrate tube falsely prolongs PT and aPTT; citrate carryover falsely lowers potassium.",
+    "source": "Linne and Ringsrud's Clinical Laboratory Science, 8th ed."
+  },
+  {
+    "id": "glo-043",
+    "term": "Hemolysis, icterus, lipemia",
+    "acronym": "HIL",
+    "definition": "Serum index system detecting hemoglobin, bilirubin, and lipids that interfere with spectrophotometric and colorimetric assays; drives comments or specimen rejection.",
+    "subjectId": "lab-operations",
+    "example": "A hemolysis index above the validated limit makes potassium, LDH, AST, and phosphate results unreportable.",
+    "source": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  },
+  {
+    "id": "glo-044",
+    "term": "Point-of-care testing",
+    "acronym": "POCT",
+    "definition": "Patient-side testing performed outside the central laboratory under laboratory director oversight, with operator competency, QC, and result documentation requirements.",
+    "subjectId": "lab-operations",
+    "example": "A bedside glucose meter result influences insulin dosing and must be documented in the medical record like a central laboratory result.",
+    "source": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  }
+]

@@ -49,16 +49,17 @@ interval_days(S, request=DEFAULT_RETENTION):
 
 ## Scheduling flow
 
-- **New card:** enter `LEARNING`. Preview steps: `1 min`, `10 min`.
-  - `Again` → restart steps. `Hard` → next step ×1.2. `Good` → next step.
-  - After last step, graduate to `REVIEW` with `S = init_stability(G)`, `D = init_difficulty(G)`,
-    `due = now + interval_days(S)`.
-- **Learning/Relearning card:** step list as above; graduate with current G.
+- **New card:** enter `LEARNING`. Steps: `1 min`, `10 min`.
+  - `Again` → restart at step 1 (1 min). `Hard` → repeat the **current** step × 1.2.
+  - `Good` → advance to the next step; after the last step, graduate to `REVIEW`.
+  - `Easy` → graduate immediately.
+  - Graduation sets `S = init_stability(G)`, `D = init_difficulty(G)`,
+    `due = now + interval_days(S)` (`G` = the graduating rating).
+- **Learning card:** step list as above.
 - **Review card:** compute `R` from elapsed days, update `S` and `D`, `due = now + interval_days(S_new)`.
-  - `Again`: `lapses += 1`, state `RELEARNING` with steps `10 min`, then graduate at `S` from the
-    lapse formula.
-- **Same-day reviews:** `t` is measured in days (fractional allowed); a review less than
-  `1 min` after the previous one is ignored (no schedule change).
+  - `Again`: `lapses += 1`, state `RELEARNING`, step `10 min`; `S` from the lapse formula is stored.
+    `Hard` repeats the relearning step × 1.2; `Good`/`Easy` graduate keeping the stored lapse `S`.
+- **Same-day reviews:** a review less than `1 min` after the previous one is ignored (no schedule change).
 - Cards due `<= now` appear in the review queue ordered by ascending `dueAt`.
 - Daily new-card limit (default 20) and review limit (default 200) are user-configurable.
 

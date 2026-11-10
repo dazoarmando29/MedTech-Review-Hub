@@ -1,0 +1,115 @@
+{
+  "id": "hematology/anemias",
+  "subjectId": "hematology",
+  "topicId": "anemias",
+  "title": "Anemia Workup: Microcytic, Normocytic, and Macrocytic Anemias, Iron Studies, and Hemoglobinopathy Screening",
+  "summary": "A systematic approach to anemia using red cell indices and reticulocyte response, with detailed iron study interpretation (iron deficiency vs anemia of chronic disease vs thalassemia), megaloblastic causes, the hemolysis laboratory panel, and hemoglobinopathy screening methods.",
+  "readingMinutes": 16,
+  "difficulty": "ADVANCED",
+  "keywords": ["anemia", "iron studies", "ferritin", "thalassemia", "hemoglobinopathy", "hemolysis", "haptoglobin", "megaloblastic", "reticulocyte"],
+  "objectives": [
+    "Classify anemia by MCV and reticulocyte response and generate a focused differential.",
+    "Interpret iron studies (serum iron, ferritin, TIBC, transferrin saturation) to distinguish iron deficiency, anemia of chronic disease, and thalassemia trait.",
+    "List the laboratory features of megaloblastic anemia and the discriminating tests for vitamin B12 versus folate deficiency.",
+    "Describe hemolysis laboratory findings and the role of hemoglobin electrophoresis and solubility testing in hemoglobinopathy screening."
+  ],
+  "quickReview": {
+    "highYield": [
+      "First split: low reticulocyte response (underproduction) versus high response (loss or destruction) — the reticulocyte count (with RPI) is the engine of the anemia workup.",
+      "Iron deficiency: low ferritin, low serum iron, high TIBC, low transferrin saturation; ferritin is an acute-phase reactant and can be falsely normal in inflammation.",
+      "Anemia of chronic disease: low serum iron, low TIBC, normal or high ferritin; soluble transferrin receptor is typically not elevated (unlike iron deficiency).",
+      "Thalassemia trait: microcytosis with relatively preserved or high RBC count, normal RDW, target cells, and elevated HbA2 on hemoglobin electrophoresis in beta-thalassemia trait.",
+      "Megaloblastic anemia shows macrocytosis, hypersegmented neutrophils, and (in B12/folate deficiency) elevated methylmalonic acid (B12) and homocysteine (both)."
+    ],
+    "mustKnowTable": {
+      "columns": ["Study", "Iron deficiency", "Anemia of chronic disease", "Thalassemia trait"],
+      "rows": [
+        ["Serum iron", "Low", "Low", "Normal or high"],
+        ["TIBC", "High", "Low", "Normal"],
+        ["Ferritin", "Low (may be falsely normal if inflamed)", "Normal or high", "Normal or high"],
+        ["Transferrin saturation", "Low", "Low or normal", "Variable"],
+        ["RDW", "High", "Normal or high", "Usually normal"]
+      ]
+    },
+    "mnemonic": "Iron studies: TIBC high = the body is hungry for iron (deficiency); TIBC low = the body is hiding iron (chronic disease)."
+  },
+  "deepStudy": {
+    "introduction": "Anemia is a sign, not a diagnosis. The efficient workup is a two-axis classification: by red cell size (microcytic, normocytic, macrocytic) and by the marrow's response (reticulocytopenic vs reticulocytic). From there, targeted testing confirms the mechanism: iron studies for microcytosis, vitamin and endocrine evaluation for macrocytosis, hemolysis markers for destruction, and hemoglobin analysis for inherited hemoglobin disorders. This lesson emphasizes the discriminating patterns that exams and real practice reward.",
+    "sections": [
+      {
+        "heading": "Classification and the reticulocyte response",
+        "body": "Anemia is defined by hemoglobin or hematocrit below the local reference interval (varies by sex, age, altitude, pregnancy, and method). Microcytic anemias (low MCV) include iron deficiency, thalassemia, sideroblastic anemia, and anemia of chronic disease (often normocytic but can be microcytic). Normocytic anemias include acute blood loss, hemolysis, anemia of chronic disease, renal disease (reduced erythropoietin), and marrow failure. Macrocytic anemias (high MCV) include megaloblastic causes (B12/folate deficiency), liver disease, hypothyroidism, myelodysplasia, reticulocytosis (reticulocytes are larger), alcohol, and drugs (hydroxyurea, methotrexate, anticonvulsants). The reticulocyte count, corrected for anemia and maturation time (reticulocyte production index), separates underproduction (low RPI) from loss/destruction (high RPI). A microcytic anemia with high RPI suggests ongoing blood loss or thalassemia; with low RPI, deficiency or chronic disease. Smear morphology (target cells, schistocytes, spherocytes, hypersegmented neutrophils, rouleaux) refines the pattern immediately. The combination of index pattern and reticulocyte response converts a single hemoglobin value into a focused differential and a short list of confirmatory tests.",
+        "diagram": null
+      },
+      {
+        "heading": "Iron studies: deficiency, chronic disease, and thalassemia",
+        "body": "Iron studies measure serum iron, ferritin (storage iron), transferrin or TIBC (transport capacity), and transferrin saturation (iron divided by TIBC). Iron deficiency progresses in stages: storage iron falls first (ferritin down), then transport iron (iron low, TIBC high, saturation low), then anemia with microcytosis and hypochromia. Ferritin is an acute-phase reactant: in inflammation, infection, liver disease, or malignancy, ferritin can be normal or high despite depleted stores, so a normal ferritin does not exclude iron deficiency in a sick patient; soluble transferrin receptor (less affected by inflammation) and a trial of iron, or bone marrow iron staining in difficult cases, can resolve the question. Anemia of chronic disease shows low iron with low TIBC and normal/high ferritin: the body sequesters iron (hepcidin-mediated), so saturation falls but stores are adequate. Thalassemia trait is the microcytic mimic: red cell count is often normal or high for the degree of anemia, RDW is typically normal, morphology shows target cells and uniform microcytosis, and iron studies are normal or show high ferritin. Beta-thalassemia trait is confirmed by hemoglobin electrophoresis showing elevated HbA2 (with the specific threshold method dependent, commonly around 3.5 percent); alpha-thalassemia trait is diagnosed by exclusion and molecular testing where available. Lead poisoning and sideroblastic anemia (ring sideroblasts, elevated iron) complete the microcytic differential.",
+        "diagram": null
+      },
+      {
+        "heading": "Macrocytic and megaloblastic anemias",
+        "body": "Macrocytosis is defined by an elevated MCV relative to the local interval (classically above about 100 fL in adults). Megaloblastic anemia results from impaired DNA synthesis, most often vitamin B12 or folate deficiency, and shows a characteristic triad: macrocytosis (often marked), hypersegmented neutrophils (five or more lobes), and megaloblastic marrow changes with ineffective erythropoiesis. Serum B12 and folate levels screen for deficiency but have pitfalls (borderline values, binding protein effects); methylmalonic acid is elevated specifically in B12 deficiency, while homocysteine rises in both B12 and folate deficiency, helping to separate them. Causes of B12 deficiency include pernicious anemia (intrinsic factor antibodies), gastrectomy, ileal disease, and strict vegan diets; folate deficiency follows poor intake, malabsorption, pregnancy, hemolysis, and drugs (methotrexate, trimethoprim, anticonvulsants). Nonmegaloblastic macrocytosis (liver disease, alcohol, hypothyroidism, reticulocytosis, myelodysplasia, hydroxyurea) lacks hypersegmented neutrophils and has normal B12/folate markers. Neurologic damage in B12 deficiency (subacute combined degeneration) makes prompt recognition urgent even before anemia is severe.",
+        "diagram": null
+      },
+      {
+        "heading": "Hemolysis and hemoglobinopathy screening",
+        "body": "Hemolytic anemia is recognized by an elevated reticulocyte count with laboratory evidence of red cell destruction: elevated lactate dehydrogenase and indirect (unconjugated) bilirubin, low or absent haptoglobin, and urinary hemoglobin or hemosiderin in intravascular hemolysis. Smear morphology points to mechanism: spherocytes (hereditary spherocytosis or warm autoimmune hemolytic anemia), schistocytes (microangiopathic hemolysis, mechanical valves), sickle cells, bite cells (oxidative injury), or agglutination (cold agglutinin disease). The direct antiglobulin test separates immune (DAT positive: warm AIHA, drug-induced, HDFN) from nonimmune causes (membrane defects, enzymes, mechanical). Hemoglobinopathy screening uses hemoglobin electrophoresis or HPLC/capillary methods to quantify HbA, HbA2, HbF, and variant bands (HbS, HbC, HbE, and others); beta-thalassemia trait shows elevated HbA2, sickle cell disease shows dominant HbS with variable HbF, and HbS trait (sickle trait) shows both HbA and HbS. Solubility tests screen for HbS only and miss other variants (and can be negative in neonates with high HbF); newborn screening programs use electrophoresis methods. Confirmatory molecular testing resolves ambiguous patterns; alpha-thalassemia often requires DNA analysis. All reference intervals and diagnostic cutoffs are method dependent and must be verified locally.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Iron deficiency demands finding the cause (occult blood loss, dietary, malabsorption), not just repleting iron; treating with iron before excluding thalassemia trait wastes time and misses counseling needs. B12 deficiency causes irreversible neurologic damage if delayed. Recognizing microangiopathic hemolysis (schistocytes) is a medical emergency (thrombotic thrombocytopenic purpura/hemolytic uremic syndrome), and DAT interpretation distinguishes treatable immune hemolysis from membrane defects requiring different therapy.",
+    "labInterpretation": "Always report anemia workup with units and local reference intervals; note inflammation when interpreting ferritin. Correlate indices, reticulocyte production index, smear, and iron studies as a pattern. Flag hemolyzed specimens (LDH and potassium are affected). Hemoglobin fractions are reported as percentages with method-specific intervals; interpret variant bands with clinical correlation and confirm ambiguous results by molecular testing where available.",
+    "comparisonTables": [
+      {
+        "title": "B12 vs folate deficiency",
+        "columns": ["Feature", "Vitamin B12 deficiency", "Folate deficiency"],
+        "rows": [
+          ["Macrocytic anemia", "Yes (megaloblastic)", "Yes (megaloblastic)"],
+          ["Methylmalonic acid", "Elevated", "Normal"],
+          ["Homocysteine", "Elevated", "Elevated"],
+          ["Neurologic damage", "Yes (subacute combined degeneration)", "No"],
+          ["Common causes", "Pernicious anemia, gastrectomy, ileal disease, vegan diet", "Poor intake, pregnancy, hemolysis, methotrexate"]
+        ]
+      },
+      {
+        "title": "Hemolysis screen",
+        "columns": ["Marker", "Change in hemolysis", "Notes"],
+        "rows": [
+          ["Reticulocyte count / RPI", "Increased", "Assesses marrow response"],
+          ["Haptoglobin", "Decreased or absent", "Acute-phase reactant; interpret with context"],
+          ["LDH", "Increased", "Nonspecific; hemolysis-sensitive"],
+          ["Indirect bilirubin", "Increased", "Conjugated fraction usually not dominant"],
+          ["DAT", "Positive in immune causes", "Negative in membrane/mechanical causes"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A normal ferritin does not exclude iron deficiency during inflammation; ferritin is an acute-phase reactant.",
+      "Thalassemia trait mimics iron deficiency microcytosis but has a normal/high RBC count, normal RDW, and normal iron stores — giving iron is not indicated.",
+      "Solubility screening tests detect HbS only; a negative test does not exclude other hemoglobinopathies, and neonates with high HbF may test falsely negative."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "Iron deficiency: Ferritin low, TIBC high — the body is starving for iron. Chronic disease: Ferritin normal/high, TIBC low — the body is hoarding iron.",
+      "funny": "ID: gutom sa bakal (ferritin down, TIBC up). ACD: tinatago ang bakal (ferritin ok, TIBC down). Parang allowance: pag kulang, humihingi; pag tinatago, ayaw mag-share."
+    },
+    {
+      "type": "STORY",
+      "text": "Methylmalonic acid rises only in B12 deficiency — the tiebreaker when both vitamins look low and the patient has tingling feet.",
+      "funny": "MMA = ang lie detector ng B12. Pag mataas ang MMA, B12 talaga. Pag 'di manhid pero macrocytic, baka folate lang. Wag mag-blame agad sa pagod."
+    }
+  ],
+  "practiceQuestionIds": ["hem-q-011", "hem-q-012", "hem-q-013"],
+  "relatedFlashcardIds": ["hem-fc-011", "hem-fc-012", "hem-fc-013"],
+  "followUp": ["hematology/cbc-indices", "hematology/hemostasis"],
+  "references": [
+    { "title": "Rodak's Hematology: Clinical Principles and Applications", "detail": "7th ed., chapters on erythrocyte disorders, iron metabolism, and hemoglobinopathies", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on anemia and hemoglobin analysis", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

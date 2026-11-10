@@ -1,0 +1,232 @@
+[
+  {
+    "id": "calc-anion-gap",
+    "title": "Anion gap",
+    "formula": "Anion gap = Na - (Cl + HCO3)",
+    "variables": [
+      { "name": "Na (sodium)", "unit": "mEq/L" },
+      { "name": "Cl (chloride)", "unit": "mEq/L" },
+      { "name": "HCO3 (bicarbonate)", "unit": "mEq/L" }
+    ],
+    "example": "Na 140, Cl 104, HCO3 24: anion gap = 140 - (104 + 24) = 12 mEq/L.",
+    "caveat": "Typical textbook intervals are roughly 8 to 16 mEq/L but vary by laboratory, analyzer, and whether potassium is included; the gap must be interpreted against the local interval, and low albumin lowers the gap (albumin-corrected gap = measured gap + 2.5 x (4.0 - albumin g/dL) is sometimes used - verify local policy).",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-corrected-calcium",
+    "title": "Albumin-corrected total calcium",
+    "formula": "Corrected calcium (mg/dL) = measured total calcium (mg/dL) + 0.8 x (4.0 - serum albumin (g/dL))",
+    "variables": [
+      { "name": "measured total calcium", "unit": "mg/dL" },
+      { "name": "serum albumin", "unit": "g/dL" }
+    ],
+    "example": "Total calcium 8.0 mg/dL with albumin 2.0 g/dL: corrected calcium = 8.0 + 0.8 x (4.0 - 2.0) = 9.6 mg/dL.",
+    "caveat": "Correction formulas apply only to hypoalbuminemia with calcium in mg/dL and albumin in g/dL; published formulas vary (0.8 vs 0.816 per g/dL), corrections are unreliable in critically ill patients and chronic kidney disease, and ionized calcium is the physiologically active form preferred when available. Reference intervals vary by laboratory, method, age, and population.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  },
+  {
+    "id": "calc-corrected-retic",
+    "title": "Corrected reticulocyte count (reticulocyte index)",
+    "formula": "Corrected reticulocyte percent = reticulocyte percent x (patient hematocrit / 45); Reticulocyte production index = corrected reticulocyte percent / maturation correction factor",
+    "variables": [
+      { "name": "reticulocyte percent", "unit": "percent" },
+      { "name": "patient hematocrit", "unit": "percent" },
+      { "name": "normal hematocrit (reference value)", "unit": "percent (commonly 45)" }
+    ],
+    "example": "Reticulocytes 8 percent with hematocrit 22.5 percent: corrected reticulocyte = 8 x (22.5 / 45) = 4 percent; with a maturation correction of 2 at this anemia depth, RPI = 4 / 2 = 2.",
+    "caveat": "The normal hematocrit divisor (45 percent) and the maturation correction factors are teaching conventions; verify them against local laboratory procedure. Reference intervals for reticulocyte parameters vary by laboratory, analyzer, age, and population.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-corrected-wbc",
+    "title": "Corrected WBC count (nucleated RBCs)",
+    "formula": "Corrected WBC = measured WBC x 100 / (100 + nRBC per 100 WBC)",
+    "variables": [
+      { "name": "measured WBC", "unit": "x10^9/L" },
+      { "name": "nRBC count", "unit": "nRBC per 100 WBC" }
+    ],
+    "example": "WBC 25 x 10^9/L with 50 nRBC per 100 WBC: corrected WBC = 25 x 100 / 150 = 16.7 x 10^9/L.",
+    "caveat": "Applies when nucleated red cells are reported per 100 WBC on the differential; analyzers that report nRBC as an absolute count handle the correction automatically. Reference intervals vary by laboratory, analyzer, age, and population.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-crcl-cockcroft-gault",
+    "title": "Creatinine clearance (Cockcroft-Gault)",
+    "formula": "CrCl (mL/min) = ((140 - age in years) x weight in kg) / (72 x serum creatinine in mg/dL); multiply by 0.85 if female",
+    "variables": [
+      { "name": "age", "unit": "years" },
+      { "name": "weight", "unit": "kg" },
+      { "name": "serum creatinine", "unit": "mg/dL" },
+      { "name": "sex factor", "unit": "0.85 if female, 1.0 if male" }
+    ],
+    "example": "Male, 60 years, 70 kg, serum creatinine 1.0 mg/dL: CrCl = (80 x 70) / (72 x 1.0) = 77.8 mL/min.",
+    "caveat": "Estimates creatinine clearance, not measured GFR; performance depends on weight choice (ideal vs actual body weight) and is unreliable in acute kidney injury, extremes of muscle mass, and unstable renal function. Use current local dosing and reporting policies.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "calc-osmolal-gap",
+    "title": "Osmolal gap",
+    "formula": "Osmolal gap = measured serum osmolality - calculated osmolality; calculated osmolality = 2 x Na (mEq/L) + glucose (mg/dL) / 18 + BUN (mg/dL) / 2.8",
+    "variables": [
+      { "name": "measured serum osmolality", "unit": "mOsm/kg" },
+      { "name": "Na", "unit": "mEq/L" },
+      { "name": "glucose", "unit": "mg/dL" },
+      { "name": "BUN", "unit": "mg/dL" }
+    ],
+    "example": "Measured osmolality 320 mOsm/kg, Na 140, glucose 90 mg/dL, BUN 14 mg/dL: calculated = 280 + 5 + 5 = 290 mOsm/kg; osmolal gap = 30 mOsm/kg (elevated - suggest unmeasured osmoles such as toxic alcohols).",
+    "caveat": "Calculated-osmolality formulas vary (some include ethanol or use BUN/2.8 vs BUN/2.8 constants); an elevated gap (commonly above about 10 to 15 mOsm/kg) suggests unmeasured osmoles but the cutoff and formula must follow local validated procedure. Intervals vary by laboratory and method.",
+    "reference": "Bishop's Clinical Chemistry: Principles, Techniques, and Correlations, 9th ed."
+  },
+  {
+    "id": "calc-fena",
+    "title": "Fractional excretion of sodium (FENa)",
+    "formula": "FENa (percent) = (urine Na x plasma creatinine) / (plasma Na x urine creatinine) x 100",
+    "variables": [
+      { "name": "urine Na", "unit": "mEq/L" },
+      { "name": "plasma Na", "unit": "mEq/L" },
+      { "name": "plasma creatinine", "unit": "mg/dL" },
+      { "name": "urine creatinine", "unit": "mg/dL" }
+    ],
+    "example": "Urine Na 20 mEq/L, plasma Na 140 mEq/L, plasma creatinine 1.0 mg/dL, urine creatinine 100 mg/dL: FENa = (20 x 1.0) / (140 x 100) x 100 = 0.14 percent (suggests prerenal physiology).",
+    "caveat": "Values below about 1 percent suggest prerenal azotemia and above about 2 percent intrinsic renal injury, but diuretics, contrast exposure, chronic kidney disease, and glomerular disease confound interpretation; cutoffs vary by population and clinical context and must be applied per local policy.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-a-a-gradient",
+    "title": "Alveolar-arterial (A-a) oxygen gradient",
+    "formula": "PAO2 = FiO2 x (barometric pressure - water vapor pressure) - PaCO2 / 0.8; A-a gradient = PAO2 - PaO2. On room air a rough age-based estimate is (age / 4) + 4 mmHg",
+    "variables": [
+      { "name": "FiO2", "unit": "fraction (0.21 on room air)" },
+      { "name": "barometric pressure", "unit": "mmHg (about 760 at sea level)" },
+      { "name": "water vapor pressure", "unit": "mmHg (about 47)" },
+      { "name": "PaCO2", "unit": "mmHg" },
+      { "name": "PaO2", "unit": "mmHg" }
+    ],
+    "example": "Room air, PaCO2 40 mmHg, PaO2 80 mmHg: PAO2 = 0.21 x (760 - 47) - 40 / 0.8 = 150 - 50 = 100 mmHg; A-a gradient = 20 mmHg.",
+    "caveat": "The respiratory quotient of 0.8 and the age formula are approximations; gradients vary with FiO2, altitude, age, and laboratory blood-gas methodology. Interpret against local blood-gas reference intervals and clinical context.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-cci",
+    "title": "Corrected count increment (CCI) for platelet transfusion",
+    "formula": "CCI = (post-transfusion platelet count - pre-transfusion platelet count per microliter) x body surface area (m^2) / number of platelets transfused (x 10^11)",
+    "variables": [
+      { "name": "post-transfusion platelet count", "unit": "per microliter" },
+      { "name": "pre-transfusion platelet count", "unit": "per microliter" },
+      { "name": "body surface area", "unit": "m^2" },
+      { "name": "platelets transfused", "unit": "x10^11" }
+    ],
+    "example": "Pre 10,000, post 45,000 per microliter, BSA 1.8 m^2, 3.0 x 10^11 platelets transfused: CCI = (35,000 x 1.8) / 3.0 = 21,000 (adequate increment).",
+    "caveat": "An adequate 10- to 60-minute CCI is commonly described as 7,500 or greater and values below about 5,000 on repeated occasions suggest refractoriness, but thresholds and timing vary by institution and transfusion service policy; immune and nonimmune causes (fever, sepsis, splenomegaly, bleeding) must be distinguished. Verify local standards.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed."
+  },
+  {
+    "id": "calc-mcv",
+    "title": "Mean corpuscular volume (MCV)",
+    "formula": "MCV (fL) = hematocrit (percent) x 10 / RBC count (x10^12/L)",
+    "variables": [
+      { "name": "hematocrit", "unit": "percent" },
+      { "name": "RBC count", "unit": "x10^12/L" }
+    ],
+    "example": "Hematocrit 45 percent, RBC 5.0 x 10^12/L: MCV = 45 x 10 / 5.0 = 90 fL.",
+    "caveat": "Most analyzers measure MCV directly and calculate it only for verification; classic teaching reference intervals run roughly 80 to 100 fL in adults but vary by laboratory, analyzer, age, sex, and population - verify against local values.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-mch",
+    "title": "Mean corpuscular hemoglobin (MCH)",
+    "formula": "MCH (pg) = hemoglobin (g/dL) x 10 / RBC count (x10^12/L)",
+    "variables": [
+      { "name": "hemoglobin", "unit": "g/dL" },
+      { "name": "RBC count", "unit": "x10^12/L" }
+    ],
+    "example": "Hemoglobin 15 g/dL, RBC 5.0 x 10^12/L: MCH = 15 x 10 / 5.0 = 30 pg.",
+    "caveat": "Classic teaching intervals run roughly 27 to 33 pg in adults but vary by laboratory, analyzer, age, and population; MCHC is a better measure of hypochromia than MCH alone. Verify local reference intervals.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-mchc",
+    "title": "Mean corpuscular hemoglobin concentration (MCHC)",
+    "formula": "MCHC (g/dL) = hemoglobin (g/dL) x 100 / hematocrit (percent)",
+    "variables": [
+      { "name": "hemoglobin", "unit": "g/dL" },
+      { "name": "hematocrit", "unit": "percent" }
+    ],
+    "example": "Hemoglobin 15 g/dL, hematocrit 45 percent: MCHC = 15 x 100 / 45 = 33.3 g/dL.",
+    "caveat": "Classic teaching intervals run roughly 32 to 36 g/dL in adults but vary by laboratory, analyzer, age, and population; values above about 36 g/dL are uncommon and should prompt review for cold agglutinins or other interference. Verify local reference intervals.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed."
+  },
+  {
+    "id": "calc-calculated-osmolality",
+    "title": "Calculated serum osmolality",
+    "formula": "Calculated osmolality (mOsm/kg) = 2 x Na (mEq/L) + glucose (mg/dL) / 18 + BUN (mg/dL) / 2.8",
+    "variables": [
+      { "name": "Na", "unit": "mEq/L" },
+      { "name": "glucose", "unit": "mg/dL" },
+      { "name": "BUN", "unit": "mg/dL" }
+    ],
+    "example": "Na 140 mEq/L, glucose 90 mg/dL, BUN 14 mg/dL: calculated osmolality = 280 + 5 + 5 = 290 mOsm/kg.",
+    "caveat": "Formula variants exist (some include ethanol, some use alternate BUN divisors); the calculated value is compared with measured osmolality to derive the osmolal gap. Intervals and formulas vary by laboratory and method - use the locally validated equation.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "calc-upcr",
+    "title": "Urine protein-to-creatinine ratio (UPCR)",
+    "formula": "UPCR (mg/mg) = urine protein concentration (mg/dL) / urine creatinine concentration (mg/dL)",
+    "variables": [
+      { "name": "urine protein", "unit": "mg/dL" },
+      { "name": "urine creatinine", "unit": "mg/dL" }
+    ],
+    "example": "Urine protein 30 mg/dL, urine creatinine 150 mg/dL: UPCR = 0.2 mg/mg.",
+    "caveat": "The spot ratio approximates 24-hour protein excretion and avoids collection error; interpretations (for example, thresholds for overt proteinuria and nephrotic-range proteinuria) vary by population, guideline, and laboratory and must follow local validated cutoffs. Reference intervals vary by laboratory, method, age, and sex.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed."
+  },
+  {
+    "id": "calc-sensitivity",
+    "title": "Diagnostic sensitivity",
+    "formula": "Sensitivity (percent) = true positives / (true positives + false negatives) x 100",
+    "variables": [
+      { "name": "true positives", "unit": "count" },
+      { "name": "false negatives", "unit": "count" }
+    ],
+    "example": "Of 100 patients with disease, the test is positive in 90: sensitivity = 90 / (90 + 10) x 100 = 90 percent.",
+    "caveat": "Sensitivity is a property of the test in a defined diseased population and varies with disease spectrum and case definition; it is independent of disease prevalence but not of population characteristics. Report with the study population and method.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "calc-specificity",
+    "title": "Diagnostic specificity",
+    "formula": "Specificity (percent) = true negatives / (true negatives + false positives) x 100",
+    "variables": [
+      { "name": "true negatives", "unit": "count" },
+      { "name": "false positives", "unit": "count" }
+    ],
+    "example": "Of 200 patients without disease, the test is negative in 190: specificity = 190 / (190 + 10) x 100 = 95 percent.",
+    "caveat": "Specificity depends on the non-diseased comparison population (spectrum of confusable conditions); it is independent of prevalence but sensitive to reference standard quality and cross-reactivity. Interpret with local population data.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "calc-ppv",
+    "title": "Positive predictive value (PPV)",
+    "formula": "PPV (percent) = true positives / (true positives + false positives) x 100",
+    "variables": [
+      { "name": "true positives", "unit": "count" },
+      { "name": "false positives", "unit": "count" }
+    ],
+    "example": "Test positive in 100 people, of whom 90 truly have disease: PPV = 90 / (90 + 10) x 100 = 90 percent (at that prevalence).",
+    "caveat": "PPV depends strongly on disease prevalence: the same test has lower PPV in low-prevalence screening settings than in high-prevalence referral populations. Always state prevalence when quoting predictive values; intervals vary by population and setting.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  },
+  {
+    "id": "calc-npv",
+    "title": "Negative predictive value (NPV)",
+    "formula": "NPV (percent) = true negatives / (true negatives + false negatives) x 100",
+    "variables": [
+      { "name": "true negatives", "unit": "count" },
+      { "name": "false negatives", "unit": "count" }
+    ],
+    "example": "Test negative in 150 people, of whom 147 are truly disease-free: NPV = 147 / (147 + 3) x 100 = 98 percent (at that prevalence).",
+    "caveat": "Like PPV, NPV is prevalence dependent and must be interpreted in the population tested; it also depends on the reference standard used to classify disease. Report with prevalence and method context.",
+    "reference": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 7th ed."
+  }
+]

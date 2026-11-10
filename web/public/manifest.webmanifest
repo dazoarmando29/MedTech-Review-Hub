@@ -1,0 +1,26 @@
+{
+  "name": "MedTech Review Hub — ASCPi Board Exam Reviewer",
+  "short_name": "MedTech Review Hub",
+  "description": "Independent ASCPi MLS board exam review platform: lessons, FSRS flashcards, quizzes, PDF reviewer tools, study analytics.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
+  "lang": "en",
+  "categories": ["education", "medical"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

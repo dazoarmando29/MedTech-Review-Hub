@@ -1,0 +1,416 @@
+[
+  {
+    "id": "cc-deck-01",
+    "title": "Cardiac Markers and Serum Enzymes",
+    "subjectId": "clinical-chemistry",
+    "cards": [
+      {
+        "id": "cc-fc-001",
+        "type": "BASIC",
+        "front": "Which cardiac marker is preferred for diagnosing acute myocardial infarction, and what defines acute injury?",
+        "back": "Cardiac troponin (I or T). Acute injury requires a rise and/or fall with at least one value above the assay-specific 99th percentile upper reference limit.",
+        "tags": ["troponin", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-002",
+        "type": "CLOZE",
+        "front": "The 99th percentile upper reference limit is defined per [[1]]; delta criteria require a significant [[2]] between serial samples.",
+        "back": "1: assay (and lab/sex where applicable)  2: rise and/or fall (change)",
+        "tags": ["troponin"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-003",
+        "type": "BASIC",
+        "front": "Why is CK-MB still useful despite being less specific than troponin?",
+        "back": "It normalizes in 48-72 hours, so a secondary rise detects early reinfarction while troponin is still elevated from the first event.",
+        "tags": ["ck-mb", "kinetics"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-004",
+        "type": "CLOZE",
+        "front": "CK-MB rises in [[1]] hours, peaks at [[2]] hours, and returns to normal in 48-72 hours.",
+        "back": "1: 3-6  2: 12-24",
+        "tags": ["ck-mb", "kinetics"],
+        "difficulty": 2,
+        "note": "Approximate textbook kinetics; individual variation occurs.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-005",
+        "type": "BASIC",
+        "front": "Why is myoglobin not used as a stand-alone cardiac marker?",
+        "back": "It rises early (1-2 hours) but is released from any muscle and clears quickly — it says 'muscle', not 'heart'.",
+        "tags": ["myoglobin"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-006",
+        "type": "BASIC",
+        "front": "Which is more liver-specific: AST or ALT?",
+        "back": "ALT (more liver-specific). AST is also found in heart, skeletal muscle, kidney, and red cells and rises with hemolysis.",
+        "tags": ["liver", "enzymes"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-007",
+        "type": "CLOZE",
+        "front": "An elevated ALP with elevated [[1]] suggests a hepatic source; elevated ALP with normal GGT suggests [[2]] origin.",
+        "back": "1: GGT  2: bone (or placenta in pregnancy)",
+        "tags": ["alp", "ggt"],
+        "difficulty": 2,
+        "note": "GGT is the tiebreaker.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-008",
+        "type": "BASIC",
+        "front": "What enzyme pattern classically suggests alcoholic liver injury?",
+        "back": "AST greater than ALT (classically ratio around 2:1) with elevated GGT; confirm with clinical correlation.",
+        "tags": ["liver", "pattern"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-009",
+        "type": "BASIC",
+        "front": "Define a cholestatic vs hepatocellular enzyme pattern.",
+        "back": "Hepatocellular: ALT/AST markedly elevated relative to ALP. Cholestatic: ALP and GGT markedly elevated relative to transaminases. Mixed: both.",
+        "tags": ["liver", "pattern"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-010",
+        "type": "BASIC",
+        "front": "Name noncardiac causes of elevated troponin.",
+        "back": "Heart failure, renal impairment, pulmonary embolism, sepsis, myocarditis, myocardial contusion, stroke — troponin means myocardial injury, not necessarily infarction.",
+        "tags": ["troponin", "pitfalls"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-011",
+        "type": "CLOZE",
+        "front": "Unconjugated (indirect) hyperbilirubinemia suggests [[1]] or conjugation defects; conjugated (direct) hyperbilirubinemia with cholestatic enzymes suggests [[2]].",
+        "back": "1: hemolysis (or Gilbert/Crigler-Najjar)  2: obstruction or intrahepatic cholestasis",
+        "tags": ["bilirubin"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-012",
+        "type": "BASIC",
+        "front": "What preanalytical artifact falsely elevates AST, LDH, and potassium together?",
+        "back": "In vitro hemolysis (broken red cells release their contents); check the hemolysis index and recollect.",
+        "tags": ["preanalytical", "pitfalls"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-013",
+        "type": "BASIC",
+        "front": "What does an elevated relative index (CK-MB mass / total CK) suggest?",
+        "back": "A cardiac source of elevated CK-MB; cutoffs vary by method and laboratory.",
+        "tags": ["ck-mb"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-014",
+        "type": "CLOZE",
+        "front": "GGT is sensitive for hepatobiliary and [[1]] conditions but is [[2]] (cannot diagnose alone).",
+        "back": "1: enzyme-inducing (e.g., alcohol, anticonvulsants)  2: nonspecific",
+        "tags": ["ggt"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-015",
+        "type": "BASIC",
+        "front": "Why can normal transaminases fail to reassure in liver disease?",
+        "back": "In cirrhosis, enzyme elevations can be modest or normal while synthetic function (albumin, bilirubin, coagulation) deteriorates.",
+        "tags": ["liver", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-016",
+        "type": "BASIC",
+        "front": "Which ALP isoenzyme sources exist, and which two dominate clinical interpretation?",
+        "back": "Liver, bone, placenta, intestine (plus kidney); liver and bone dominate clinically, separated by GGT and context (age, pregnancy).",
+        "tags": ["alp"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-017",
+        "type": "CLOZE",
+        "front": "Troponin indicates myocardial [[1]]; myocardial [[2]] additionally requires ischemic evidence and dynamic kinetics.",
+        "back": "1: injury  2: infarction",
+        "tags": ["troponin", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-018",
+        "type": "BASIC",
+        "front": "What is the 'flipped LDH' pattern and where is it seen?",
+        "back": "LD1 greater than LD2, historically associated with myocardial injury and hemolysis; largely a legacy marker now, more useful for hemolysis.",
+        "tags": ["ldh"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-019",
+        "type": "BASIC",
+        "front": "List two liver function indicators that assess synthetic capacity rather than injury.",
+        "back": "Albumin and prothrombin time/INR (clotting factor synthesis).",
+        "tags": ["liver"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      },
+      {
+        "id": "cc-fc-020",
+        "type": "CLOZE",
+        "front": "Serial high-sensitivity troponin sampling uses [[1]]-hour or [[2]]-hour algorithms to rule out or rule in myocardial infarction.",
+        "back": "1: 0/1 (or 1)  2: 0/3 (or 3)",
+        "tags": ["troponin", "algorithms"],
+        "difficulty": 3,
+        "note": "Protocol varies by guideline and assay; use local validated algorithms.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/cardiac-enzymes" }
+      }
+    ]
+  },
+  {
+    "id": "cc-deck-02",
+    "title": "Renal Function, Electrolytes, and Endocrine",
+    "subjectId": "clinical-chemistry",
+    "cards": [
+      {
+        "id": "cc-fc-021",
+        "type": "BASIC",
+        "front": "What does serum creatinine reflect, and what are its key limitations?",
+        "back": "Glomerular filtration (steady-state production); limitations: muscle mass, diet (cooked meat), assay method (Jaffe vs enzymatic), and lag behind true GFR changes.",
+        "tags": ["renal", "creatinine"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-022",
+        "type": "CLOZE",
+        "front": "BUN-to-creatinine ratio (mass units) is often elevated in [[1]] azotemia (classically above about [[2]]:1).",
+        "back": "1: prerenal  2: 20",
+        "tags": ["renal"],
+        "difficulty": 2,
+        "note": "Teaching cutoffs; verify with local reference intervals.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-023",
+        "type": "BASIC",
+        "front": "How does the CKD-EPI equation estimate GFR?",
+        "back": "From serum creatinine with age and sex coefficients (current versions are race-free); cystatin C-based equations are confirmatory options.",
+        "tags": ["renal", "egfr"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-024",
+        "type": "BASIC",
+        "front": "What causes pseudohyponatremia, and which method is affected?",
+        "back": "Severe hyperlipidemia or hyperproteinemia displacing plasma water, seen with indirect (diluted) ISE methods; direct ISE and osmolality are unaffected.",
+        "tags": ["sodium", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-025",
+        "type": "CLOZE",
+        "front": "Pseudohyperkalemia is most often caused by [[1]] or delayed plasma separation; always check the [[2]] index before treating.",
+        "back": "1: hemolysis (traumatic draw)  2: hemolysis",
+        "tags": ["potassium", "pitfalls"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-026",
+        "type": "BASIC",
+        "front": "State the anion gap formula and what a high gap indicates.",
+        "back": "Anion gap = Na - (Cl + HCO3). A high gap indicates accumulation of unmeasured anions (ketoacids, lactate, uremic toxins, toxic alcohols, salicylates).",
+        "tags": ["anion-gap", "high-yield"],
+        "difficulty": 1,
+        "note": "Some labs include K; use the local reference interval.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-027",
+        "type": "CLOZE",
+        "front": "MUDPILES covers high-gap acidosis causes: Methanol, Uremia, [[1]], Propylene glycol, Isoniazid/Iron, [[2]], Ethylene glycol, Salicylates.",
+        "back": "1: Diabetic ketoacidosis  2: Lactic acidosis",
+        "tags": ["anion-gap", "mnemonic"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-028",
+        "type": "BASIC",
+        "front": "What causes translocational hyponatremia in hyperglycemia?",
+        "back": "Glucose draws water from cells, diluting measured sodium; apply a correction factor (approximate, method/guideline dependent) to estimate true sodium.",
+        "tags": ["sodium"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-029",
+        "type": "BASIC",
+        "front": "What does total CO2 on the chemistry panel represent?",
+        "back": "Primarily bicarbonate — the metabolic component of acid-base balance; respiratory status needs blood gas PaCO2.",
+        "tags": ["acid-base"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-030",
+        "type": "BASIC",
+        "front": "Name classic causes of normal (hyperchloremic) anion gap acidosis.",
+        "back": "Diarrhea (bicarbonate loss), renal tubular acidosis, and saline resuscitation.",
+        "tags": ["acid-base"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/renal-electrolytes" }
+      },
+      {
+        "id": "cc-fc-031",
+        "type": "CLOZE",
+        "front": "Diabetes criteria: fasting plasma glucose [[1]] mg/dL (7.0 mmol/L) or higher; 2-hour OGTT [[2]] mg/dL (11.1 mmol/L) or higher; HbA1c 6.5% (48 mmol/mol) or higher.",
+        "back": "1: 126  2: 200",
+        "tags": ["diabetes", "high-yield"],
+        "difficulty": 1,
+        "note": "Confirm abnormal results when asymptomatic (per accepted criteria).",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-032",
+        "type": "BASIC",
+        "front": "How long a period does HbA1c reflect?",
+        "back": "Average glycemia over roughly the preceding 2-3 months (red cell lifespan), weighted toward recent weeks.",
+        "tags": ["hba1c"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-033",
+        "type": "BASIC",
+        "front": "Name conditions that falsely lower or raise HbA1c.",
+        "back": "Lower: hemolysis, blood loss, recent transfusion, splenomegaly (shortened red cell survival). Raise: iron deficiency. Hemoglobin variants can interfere with some assay methods.",
+        "tags": ["hba1c", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-034",
+        "type": "CLOZE",
+        "front": "High-dose biotin falsely [[1]] TSH and falsely [[2]] free T4 on common competitive immunoassays, mimicking thyrotoxicosis.",
+        "back": "1: lowers  2: raises",
+        "tags": ["thyroid", "pitfalls", "high-yield"],
+        "difficulty": 2,
+        "note": "Always ask about supplements.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-035",
+        "type": "BASIC",
+        "front": "Interpret: high TSH with low free T4.",
+        "back": "Primary hypothyroidism (thyroid gland failure with intact pituitary response).",
+        "tags": ["thyroid"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-036",
+        "type": "BASIC",
+        "front": "Interpret: low TSH with low free T4.",
+        "back": "Central (secondary/tertiary) hypothyroidism — pituitary or hypothalamic disease; TSH is uninformative and free T4 is the key test.",
+        "tags": ["thyroid"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-037",
+        "type": "BASIC",
+        "front": "Why can total T4 be high in pregnancy while the patient is euthyroid?",
+        "back": "Estrogen raises thyroxine-binding globulin, increasing total T4; free T4 and TSH remain normal.",
+        "tags": ["thyroid", "binding-proteins"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-038",
+        "type": "CLOZE",
+        "front": "The two-step gestational diabetes pathway: abnormal [[1]]-gram glucose challenge test is followed by a diagnostic [[2]]-gram 3-hour OGTT.",
+        "back": "1: 50  2: 100",
+        "tags": ["gdm", "ogtt"],
+        "difficulty": 2,
+        "note": "One-step 75-gram protocols exist where local policy adopts them.",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-039",
+        "type": "BASIC",
+        "front": "What do prediabetes ranges look like on fasting glucose and 2-hour OGTT?",
+        "back": "Fasting 100-125 mg/dL (5.6-6.9 mmol/L); 2-hour OGTT 140-199 mg/dL (7.8-11.0 mmol/L) per major guideline criteria (verify locally).",
+        "tags": ["diabetes"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      },
+      {
+        "id": "cc-fc-040",
+        "type": "BASIC",
+        "front": "What specimen handling issue falsely lowers glucose results?",
+        "back": "Glycolysis in unseparated blood; fluoride or rapid centrifugation is used to stabilize the sample.",
+        "tags": ["glucose", "preanalytical"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "clinical-chemistry/endocrine-glucose" }
+      }
+    ]
+  }
+]

@@ -1,0 +1,812 @@
+[
+  {
+    "id": "mic-q-001",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which single test is used first to separate staphylococci from streptococci in a gram-positive coccus workup?",
+    "choices": [
+      { "id": "A", "text": "Coagulase test" },
+      { "id": "B", "text": "Catalase test" },
+      { "id": "C", "text": "Oxidase test" },
+      { "id": "D", "text": "PYR test" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The catalase test is the first fork in the gram-positive coccus algorithm: staphylococci and micrococci are catalase positive (bubbling with hydrogen peroxide), while streptococci and enterococci are catalase negative. Coagulase and PYR come later within the branches.",
+    "rationales": {
+      "A": "Coagulase is used after catalase has identified an isolate as staphylococcal, to identify S. aureus specifically.",
+      "B": "Correct: catalase separates staphylococci/micrococci (positive) from streptococci/enterococci (negative).",
+      "C": "Oxidase is used for gram-negative rods and Neisseria, not for separating staphylococci from streptococci.",
+      "D": "PYR differentiates within catalase-negative organisms (S. pyogenes and Enterococcus) and is not the first test."
+    },
+    "misconception": "Students often jump straight to coagulase because it names S. aureus, forgetting that coagulase is only interpretable once catalase has placed the isolate in the staphylococcal branch.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Know the order of the workup: catalase first, then coagulase or hemolysis-based tests."]
+  },
+  {
+    "id": "mic-q-002",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A slide coagulase test is negative on a catalase-positive, golden-pigmented isolate from a blood culture. Which statement is correct?",
+    "choices": [
+      { "id": "A", "text": "The isolate cannot be Staphylococcus aureus and should be reported as coagulase-negative staphylococcus" },
+      { "id": "B", "text": "The isolate should be retested by tube coagulase or a validated latex method before excluding S. aureus" },
+      { "id": "C", "text": "The slide test result is definitive because slide coagulase is more sensitive than tube coagulase" },
+      { "id": "D", "text": "Bacitracin susceptibility should be performed to confirm the identification" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Slide coagulase detects bound clumping factor and can miss clumping-factor-negative S. aureus strains, so a negative slide test must be confirmed by tube coagulase (free coagulase) or a validated latex agglutination method before reporting a coagulase-negative staphylococcus.",
+    "rationales": {
+      "A": "Incorrect: clumping-factor-negative S. aureus strains exist, so a negative slide test does not exclude the species.",
+      "B": "Correct: tube coagulase or validated latex confirmation is required after a negative slide coagulase.",
+      "C": "Incorrect: slide coagulase is rapid but less sensitive than tube coagulase; it is a screening test only.",
+      "D": "Incorrect: bacitracin testing is used for beta-hemolytic streptococci (group A versus others), not for staphylococci."
+    },
+    "misconception": "Many learners treat the rapid slide test as final; the exam favorite is the clumping-factor-negative strain that requires tube confirmation.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Negative slide coagulase never excludes S. aureus without tube or latex confirmation."]
+  },
+  {
+    "id": "mic-q-003",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "SCENARIO",
+    "vignette": "A 45-year-old diabetic patient presents with a foot wound. The Gram stain shows gram-positive cocci in clusters. Culture on sheep blood agar grows golden-yellow, beta-hemolytic colonies. The isolate is catalase positive and clumps immediately on a slide with rabbit plasma; tube coagulase shows a firm clot at 4 hours.",
+    "stem": "Which organism is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Staphylococcus epidermidis" },
+      { "id": "B", "text": "Staphylococcus aureus" },
+      { "id": "C", "text": "Staphylococcus saprophyticus" },
+      { "id": "D", "text": "Micrococcus luteus" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Golden pigment, beta-hemolysis, catalase positivity, slide clumping (clumping factor), and a positive tube coagulase (free coagulase) all point to Staphylococcus aureus. The other coagulase-negative staphylococci do not produce free coagulase.",
+    "rationales": {
+      "A": "S. epidermidis is coagulase negative and typically non-hemolytic white colonies.",
+      "B": "Correct: coagulase positivity with golden pigment and beta-hemolysis identifies S. aureus.",
+      "C": "S. saprophyticus is coagulase negative and associated with urinary tract infections in young women.",
+      "D": "Micrococcus is catalase positive but coagulase negative, usually yellow, non-hemolytic, and tetrads in arrangement."
+    },
+    "misconception": "Learners sometimes confuse golden pigment with the species name and forget that only coagulase (both slide and tube) seals the identification of S. aureus.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Pigment plus beta-hemolysis suggests S. aureus, but coagulase confirmation is the reported standard."]
+  },
+  {
+    "id": "mic-q-004",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A beta-hemolytic, catalase-negative coccus from a throat culture is bacitracin susceptible and PYR positive. The identification is:",
+    "choices": [
+      { "id": "A", "text": "Streptococcus agalactiae" },
+      { "id": "B", "text": "Streptococcus pyogenes" },
+      { "id": "C", "text": "Enterococcus faecalis" },
+      { "id": "D", "text": "Streptococcus pneumoniae" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Beta-hemolysis with bacitracin susceptibility and PYR positivity identifies Streptococcus pyogenes (Lancefield group A). Enterococci are also PYR positive but are not beta-hemolytic in this pattern and are bile esculin positive with 6.5 percent NaCl growth.",
+    "rationales": {
+      "A": "S. agalactiae (group B) is bacitracin resistant, CAMP positive, and hippurate positive.",
+      "B": "Correct: group A streptococcus is beta-hemolytic, bacitracin susceptible, and PYR positive.",
+      "C": "Enterococcus is PYR positive but bile esculin positive and grows in 6.5 percent NaCl; it is not identified by bacitracin susceptibility.",
+      "D": "S. pneumoniae is alpha-hemolytic, optochin susceptible, and bile soluble, and is typically PYR negative."
+    },
+    "misconception": "Because enterococci are PYR positive, students often select them when only PYR is mentioned; PYR must be combined with hemolysis and bile esculin results.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["PYR positive = S. pyogenes OR Enterococcus; the other tests separate them."]
+  },
+  {
+    "id": "mic-q-005",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "SCENARIO",
+    "vignette": "A pregnant woman at 36 weeks gestation has a vaginal-rectal screen plated on blood agar. Small, gray, beta-hemolytic colonies grow. The isolate is catalase negative, bacitracin resistant, CAMP positive, and hydrolyzes hippurate.",
+    "stem": "Which organism is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Streptococcus pyogenes" },
+      { "id": "B", "text": "Streptococcus agalactiae" },
+      { "id": "C", "text": "Streptococcus anginosus group" },
+      { "id": "D", "text": "Enterococcus faecium" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Group B streptococcus (Streptococcus agalactiae) is beta-hemolytic, bacitracin resistant, CAMP positive, and hippurate positive; prenatal screening is routine because of neonatal sepsis risk.",
+    "rationales": {
+      "A": "S. pyogenes is bacitracin susceptible and PYR positive; it is CAMP negative.",
+      "B": "Correct: CAMP positivity plus hippurate hydrolysis identifies S. agalactiae.",
+      "C": "The anginosus group can show variable hemolysis and is associated with abscesses; it is CAMP negative.",
+      "D": "Enterococci are not classically beta-hemolytic with CAMP positivity and grow in 6.5 percent NaCl."
+    },
+    "misconception": "Bacitracin resistance alone does not identify group B streptococcus; the CAMP and hippurate results complete the picture.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["CAMP arrowhead hemolysis plus hippurate hydrolysis = S. agalactiae."]
+  },
+  {
+    "id": "mic-q-006",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "An alpha-hemolytic, lancet-shaped diplococcus from cerebrospinal fluid is optochin susceptible and bile soluble. The organism is:",
+    "choices": [
+      { "id": "A", "text": "Viridans streptococci" },
+      { "id": "B", "text": "Streptococcus pneumoniae" },
+      { "id": "C", "text": "Enterococcus faecalis" },
+      { "id": "D", "text": "Staphylococcus epidermidis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Optochin susceptibility and bile solubility confirm Streptococcus pneumoniae, the classic alpha-hemolytic lancet-shaped diplococcus of community-acquired pneumonia and meningitis.",
+    "rationales": {
+      "A": "Viridans streptococci are alpha-hemolytic but optochin resistant and bile esculin negative.",
+      "B": "Correct: pneumococci are optochin susceptible and bile soluble.",
+      "C": "Enterococci are bile esculin positive and grow in 6.5 percent NaCl; they are not optochin susceptible pneumococci.",
+      "D": "S. epidermidis is a catalase-positive staphylococcus, not an alpha-hemolytic streptococcus."
+    },
+    "misconception": "Alpha-hemolysis alone does not equal pneumococcus; viridans streptococci look similar until optochin and bile testing are done.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Optochin plus bile solubility confirm pneumococcus; bile esculin distinguishes enterococci."]
+  },
+  {
+    "id": "mic-q-007",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which combination confirms an Enterococcus species?",
+    "choices": [
+      { "id": "A", "text": "Bile esculin positive and growth in 6.5 percent NaCl" },
+      { "id": "B", "text": "CAMP positive and hippurate positive" },
+      { "id": "C", "text": "Optochin susceptible and bile soluble" },
+      { "id": "D", "text": "Coagulase positive and catalase positive" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Enterococci hydrolyze esculin in the presence of bile (blackening medium) and tolerate 6.5 percent sodium chloride, separating them from streptococci that are bile esculin negative or salt intolerant.",
+    "rationales": {
+      "A": "Correct: bile esculin hydrolysis plus 6.5 percent NaCl growth defines enterococci.",
+      "B": "CAMP and hippurate positivity identify Streptococcus agalactiae.",
+      "C": "Optochin susceptibility and bile solubility identify Streptococcus pneumoniae.",
+      "D": "Coagulase and catalase positivity identify Staphylococcus aureus."
+    },
+    "misconception": "Enterococci were historically classed with streptococci; students forget the bile and salt tolerance tests that define the genus today.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Bile esculin + 6.5 percent NaCl = Enterococcus; PYR is positive too."]
+  },
+  {
+    "id": "mic-q-008",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "SCENARIO",
+    "vignette": "A 22-year-old woman presents with dysuria and frequency. A clean-catch urine culture grows more than 100,000 CFU/mL of a catalase-positive, coagulase-negative coccus that is novobiocin resistant on a validated test.",
+    "stem": "Which organism is the most likely identification?",
+    "choices": [
+      { "id": "A", "text": "Staphylococcus epidermidis" },
+      { "id": "B", "text": "Staphylococcus saprophyticus" },
+      { "id": "C", "text": "Staphylococcus aureus" },
+      { "id": "D", "text": "Enterococcus faecalis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Novobiocin-resistant coagulase-negative staphylococci in a young woman with urinary symptoms are classic for Staphylococcus saprophyticus, a common cause of uncomplicated urinary tract infection in this population. Note that routine novobiocin testing has been supplanted in many laboratories by rapid identification systems, so follow local validated procedures.",
+    "rationales": {
+      "A": "S. epidermidis is novobiocin susceptible and is more often a catheter or prosthetic-device pathogen or contaminant.",
+      "B": "Correct: novobiocin resistance plus the clinical picture identify S. saprophyticus.",
+      "C": "S. aureus is coagulase positive, not a coagulase-negative species.",
+      "D": "E. faecalis is catalase negative (or weakly positive without bubbling) and is bile esculin positive with salt tolerance."
+    },
+    "misconception": "Coagulase-negative staphylococci are dismissed as contaminants; specimen source and patient demographics decide significance.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Novobiocin resistance in a urinary isolate of a young woman = S. saprophyticus."]
+  },
+  {
+    "id": "mic-q-009",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A technologist performs a catalase test by picking colonies directly from a sheep blood agar plate. Brisk bubbling occurs. The most important technical caveat is:",
+    "choices": [
+      { "id": "A", "text": "Erythrocytes contain catalase and can produce false-positive bubbling" },
+      { "id": "B", "text": "Blood agar inactivates hydrogen peroxide on contact" },
+      { "id": "C", "text": "Streptococci always become catalase positive on blood agar" },
+      { "id": "D", "text": "The test must be read after 24 hours of incubation" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Red blood cells contain catalase, so an inoculum carrying erythrocytes can produce false-positive bubbling; colonies should be taken from blood-free media when possible and the reagent must be fresh.",
+    "rationales": {
+      "A": "Correct: erythrocyte catalase is the classic cause of catalase false positivity on blood agar.",
+      "B": "Blood agar does not inactivate hydrogen peroxide; that is not the issue.",
+      "C": "Streptococci do not become catalase positive; the false signal comes from red cells in the inoculum.",
+      "D": "The catalase test is read immediately, not after incubation."
+    },
+    "misconception": "The reaction is read instantly; incubation is irrelevant, and the real trap is the source of the inoculum.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Fresh peroxide, minimal inoculum, and blood-free source colonies keep catalase honest."]
+  },
+  {
+    "id": "mic-q-010",
+    "subjectId": "microbiology",
+    "topicId": "gram-positive",
+    "type": "SCENARIO",
+    "vignette": "A 48-year-old man with a history of mitral valve prolapse develops low-grade fever. Two of two blood culture sets grow alpha-hemolytic, catalase-negative cocci in chains. The isolate is optochin resistant, bile esculin negative, and does not grow in 6.5 percent NaCl.",
+    "stem": "Which identification is most appropriate to report?",
+    "choices": [
+      { "id": "A", "text": "Streptococcus pneumoniae" },
+      { "id": "B", "text": "Viridans group streptococci" },
+      { "id": "C", "text": "Enterococcus faecalis" },
+      { "id": "D", "text": "Staphylococcus epidermidis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Optochin resistance and bile esculin negativity with alpha-hemolysis identify viridans group streptococci, a recognized cause of subacute bacterial endocarditis in patients with structural heart disease.",
+    "rationales": {
+      "A": "Pneumococci are optochin susceptible and bile soluble.",
+      "B": "Correct: alpha-hemolytic, optochin resistant, bile esculin negative streptococci are viridans group.",
+      "C": "Enterococci are bile esculin positive and grow in 6.5 percent NaCl.",
+      "D": "S. epidermidis is catalase positive and forms clusters, not chains."
+    },
+    "misconception": "Alpha-hemolysis is reflexively labeled pneumococcus; the optochin and bile esculin results direct the correct identification.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/gram-positive-cocci",
+    "examTraps": ["Two positive blood culture sets with viridans streptococci raise endocarditis concern."]
+  },
+  {
+    "id": "mic-q-011",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement correctly describes the first biochemical split for gram-negative rods?",
+    "choices": [
+      { "id": "A", "text": "Oxidase-negative, glucose-fermenting rods are typically Enterobacterales; oxidase-positive rods suggest non-fermenters such as Pseudomonas" },
+      { "id": "B", "text": "Oxidase-positive rods are always members of the Enterobacterales" },
+      { "id": "C", "text": "Lactose fermentation is the first test performed on all gram-negative rods" },
+      { "id": "D", "text": "Urease testing is the first step in identifying gram-negative rods" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "The oxidase test identifies cytochrome c oxidase: Enterobacterales are oxidase negative and ferment glucose, while Pseudomonas, Aeromonas, and Vibrio are oxidase positive and are typically non-fermenters or oxidizers.",
+    "rationales": {
+      "A": "Correct: oxidase plus glucose fermentation is the classic first split.",
+      "B": "Enterobacterales are oxidase negative; oxidase positivity points away from them.",
+      "C": "Lactose fermentation helps later in the enteric workup but is not the first split.",
+      "D": "Urease is a secondary test within the enteric panel."
+    },
+    "misconception": "Lactose fermentation gets memorized first because of MacConkey plates, but the oxidase test is the true primary split.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Oxidase negative = enteric branch; oxidase positive = Pseudomonas and friends."]
+  },
+  {
+    "id": "mic-q-012",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "SCENARIO",
+    "vignette": "A 24-year-old woman with urinary frequency has a urine culture growing more than 100,000 CFU/mL of a lactose-fermenting, oxidase-negative rod. The isolate is indole positive, citrate negative, urease negative, and lysine decarboxylase positive.",
+    "stem": "Which organism is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Klebsiella pneumoniae" },
+      { "id": "B", "text": "Escherichia coli" },
+      { "id": "C", "text": "Enterobacter cloacae complex" },
+      { "id": "D", "text": "Proteus mirabilis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Indole positivity with citrate negativity and urease negativity in a lactose-fermenting oxidase-negative rod is the classic biochemical profile of Escherichia coli, the most common urinary pathogen.",
+    "rationales": {
+      "A": "Klebsiella pneumoniae is indole negative, citrate positive, urease positive (slowly), and VP positive.",
+      "B": "Correct: indole positive, citrate negative, urease negative = E. coli.",
+      "C": "Enterobacter cloacae complex is indole negative, citrate positive, and VP positive.",
+      "D": "Proteus mirabilis is a non-lactose fermenter with strong urease and swarming."
+    },
+    "misconception": "All lactose fermenters are not E. coli; the indole-citrate-urease triad is what separates E. coli from Klebsiella and Enterobacter.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Indole positive + citrate negative in a lactose fermenter = E. coli."]
+  },
+  {
+    "id": "mic-q-013",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "SCENARIO",
+    "vignette": "An 80-year-old man with alcohol use disorder is admitted with pneumonia producing thick, blood-tinged sputum. The Gram stain shows plump gram-negative rods. Culture grows a very mucoid, lactose-fermenting, oxidase-negative organism that is indole negative, citrate positive, VP positive, and urease positive.",
+    "stem": "Which organism is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Escherichia coli" },
+      { "id": "B", "text": "Klebsiella pneumoniae" },
+      { "id": "C", "text": "Pseudomonas aeruginosa" },
+      { "id": "D", "text": "Salmonella enterica" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Mucoid lactose-fermenting colonies with indole negative, citrate positive, VP positive, and urease positive reactions identify Klebsiella pneumoniae, classically associated with alcohol-associated pneumonia producing currant-jelly sputum.",
+    "rationales": {
+      "A": "E. coli is indole positive and citrate negative.",
+      "B": "Correct: the biochemical pattern and mucoid colonies fit K. pneumoniae.",
+      "C": "Pseudomonas aeruginosa is oxidase positive and a non-lactose fermenter.",
+      "D": "Salmonella is a non-lactose fermenter, H2S positive, lysine positive."
+    },
+    "misconception": "Mucoid colonies are often assumed to be environmental contaminants; in sputum they raise Klebsiella, which needs prompt reporting.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Mucoid + citrate + VP + urease + indole negative = Klebsiella pneumoniae."]
+  },
+  {
+    "id": "mic-q-014",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A non-lactose-fermenting gram-negative rod produces rapid, strong urease activity and swarming growth on blood agar. Phenylalanine deaminase is positive. Which genus is most likely?",
+    "choices": [
+      { "id": "A", "text": "Salmonella" },
+      { "id": "B", "text": "Proteus" },
+      { "id": "C", "text": "Shigella" },
+      { "id": "D", "text": "Pseudomonas" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Strong rapid urease, swarming motility, and phenylalanine deaminase positivity are the hallmark Proteus profile; Proteus mirabilis is indole negative while Proteus vulgaris is indole positive.",
+    "rationales": {
+      "A": "Salmonella is urease negative or very weak, H2S positive, lysine positive, and non-swarming.",
+      "B": "Correct: strong urease plus swarming plus PAD positivity = Proteus.",
+      "C": "Shigella is non-motile, H2S negative, and urease negative.",
+      "D": "Pseudomonas is oxidase positive and does not produce strong urease or swarming."
+    },
+    "misconception": "Urease positivity is shared by Klebsiella and Helicobacter; strength and timing matter - Proteus is the rapid, strong producer with swarming.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Strong urease + swarming + PAD = Proteus; split species with indole."]
+  },
+  {
+    "id": "mic-q-015",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "SCENARIO",
+    "vignette": "A 6-year-old child develops fever, abdominal pain, and bloody diarrhea after a family picnic. Stool culture on selective media grows non-lactose-fermenting colonies. Triple sugar iron agar shows alkaline slant, acid butt with blackening; the isolate is lysine decarboxylase positive, urease negative, and indole negative.",
+    "stem": "Which group of organisms best fits these reactions?",
+    "choices": [
+      { "id": "A", "text": "Shigella species" },
+      { "id": "B", "text": "Salmonella species" },
+      { "id": "C", "text": "Escherichia coli" },
+      { "id": "D", "text": "Proteus vulgaris" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "TSI alkaline slant/acid butt with hydrogen sulfide blackening, lysine decarboxylase positivity, and urease negativity fit Salmonella. Shigella is H2S negative and lysine negative; Proteus vulgaris is indole positive and strongly urease positive.",
+    "rationales": {
+      "A": "Shigella does not produce H2S (no blackening) and is lysine negative.",
+      "B": "Correct: H2S-positive non-lactose fermenter with lysine positivity = Salmonella.",
+      "C": "E. coli ferments lactose and is indole positive with gas on TSI.",
+      "D": "Proteus vulgaris is indole positive and strong urease positive with swarming."
+    },
+    "misconception": "Any black butt on TSI is read as Salmonella; Citrobacter and Proteus also produce H2S, so the lysine and urease results must be combined.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["H2S + lysine positive + urease negative in a non-lactose fermenter = Salmonella."]
+  },
+  {
+    "id": "mic-q-016",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which combination of findings is most characteristic of Pseudomonas aeruginosa?",
+    "choices": [
+      { "id": "A", "text": "Oxidase positive, grape-like odor, green pigment, growth at 42 degrees Celsius" },
+      { "id": "B", "text": "Oxidase negative, non-motile coccobacilli, oxidizer of glucose" },
+      { "id": "C", "text": "Oxidase positive, maltose positive, DNase positive" },
+      { "id": "D", "text": "Oxidase negative, urease strong positive, swarming" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Pseudomonas aeruginosa is oxidase positive, produces pyocyanin (green pigment) with a grape-like odor, and grows at 42 degrees Celsius, distinguishing it from many other non-fermenters.",
+    "rationales": {
+      "A": "Correct: oxidase positive with pigment, odor, and thermotolerance = P. aeruginosa.",
+      "B": "That profile fits Acinetobacter baumannii complex (oxidase negative, non-motile).",
+      "C": "Maltose and DNase positivity with oxidase negative fits Stenotrophomonas maltophilia.",
+      "D": "Strong urease with swarming fits Proteus species."
+    },
+    "misconception": "All non-fermenters are not Pseudomonas; oxidase, pigment, and growth temperature separate the mimics.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Grapes, green, and 42 degrees: the P. aeruginosa calling card."]
+  },
+  {
+    "id": "mic-q-017",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "SCENARIO",
+    "vignette": "A ventilated intensive care patient grows a gram-negative rod from tracheal aspirate that appears as plump coccobacilli in pairs. The isolate is oxidase negative, non-motile, and shows oxidizer (not fermenter) reactions on Hugh-Leifson medium. Identification panels suggest Acinetobacter baumannii complex.",
+    "stem": "Which laboratory observation best supports that identification over an Enterobacterales member?",
+    "choices": [
+      { "id": "A", "text": "Lactose fermentation on MacConkey agar" },
+      { "id": "B", "text": "Oxidase negativity combined with non-motility and inert or oxidative sugar reactions" },
+      { "id": "C", "text": "Strong urease production with swarming" },
+      { "id": "D", "text": "Indole positivity with citrate negativity" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Acinetobacter appears as gram-negative coccobacilli in pairs, is oxidase negative and non-motile, and shows oxidative or inert sugar reactions rather than fermentation - clues that separate it from Enterobacterales even before automated confirmation.",
+    "rationales": {
+      "A": "Lactose fermentation would suggest an enteric such as E. coli or Klebsiella, not Acinetobacter.",
+      "B": "Correct: oxidase negative, non-motile, non-fermenting coccobacilli = Acinetobacter profile.",
+      "C": "Strong urease and swarming indicate Proteus.",
+      "D": "Indole positive with citrate negative indicates E. coli."
+    },
+    "misconception": "Oxidase-negative rods are reflexively called coliforms; checking fermentation versus oxidation prevents that error.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Gram-negative coccobacilli in pairs, oxidase negative and non-motile = think Acinetobacter."]
+  },
+  {
+    "id": "mic-q-018",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "On triple sugar iron agar, the butt reflects fermentation of which sugar, while the slant reflects fermentation of which sugars?",
+    "choices": [
+      { "id": "A", "text": "Butt: lactose; slant: glucose and sucrose" },
+      { "id": "B", "text": "Butt: glucose; slant: lactose and sucrose" },
+      { "id": "C", "text": "Butt: sucrose; slant: glucose only" },
+      { "id": "D", "text": "Butt and slant both reflect glucose only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "TSI contains glucose in low concentration plus lactose and sucrose in higher concentration with a pH indicator and iron for H2S detection. The butt (anaerobic) reflects glucose fermentation; the slant (aerobic) reflects lactose and sucrose fermentation.",
+    "rationales": {
+      "A": "Reversed: the butt is glucose, not lactose.",
+      "B": "Correct: butt = glucose, slant = lactose and sucrose.",
+      "C": "Sucrose is fermented on the slant along with lactose; the butt is glucose.",
+      "D": "The slant contains lactose and sucrose in addition to glucose."
+    },
+    "misconception": "The K/A pattern (red slant, yellow butt) is memorized without understanding that the butt is glucose-only fermentation after the small glucose load is exhausted on the slant.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Read butt and slant separately, and note H2S blackening."]
+  },
+  {
+    "id": "mic-q-019",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "An oxidase-negative, non-fermenting gram-negative rod from a respiratory specimen is maltose positive and DNase positive. Which organism is most likely?",
+    "choices": [
+      { "id": "A", "text": "Pseudomonas aeruginosa" },
+      { "id": "B", "text": "Stenotrophomonas maltophilia" },
+      { "id": "C", "text": "Escherichia coli" },
+      { "id": "D", "text": "Klebsiella pneumoniae" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Stenotrophomonas maltophilia is an oxidase-negative non-fermenter distinguished by maltose oxidation and DNase activity; it is often multidrug resistant and appears in respiratory specimens of hospitalized patients.",
+    "rationales": {
+      "A": "P. aeruginosa is oxidase positive and pigment producing.",
+      "B": "Correct: oxidase negative, maltose positive, DNase positive = S. maltophilia.",
+      "C": "E. coli is a glucose fermenter and lactose positive.",
+      "D": "Klebsiella is a lactose-fermenting enteric, not a non-fermenter."
+    },
+    "misconception": "Oxidase-negative non-fermenters are often left unidentified; maltose and DNase are the key differentiators for Stenotrophomonas.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Oxidase-negative non-fermenter + maltose + DNase = Stenotrophomonas maltophilia."]
+  },
+  {
+    "id": "mic-q-020",
+    "subjectId": "microbiology",
+    "topicId": "gram-negative",
+    "type": "SCENARIO",
+    "vignette": "An outbreak of bloody diarrhea occurs in a childcare center. Stool culture grows non-lactose-fermenting colonies that are non-motile, do not produce H2S on TSI (alkaline slant, acid butt, no blackening), and are lysine decarboxylase negative.",
+    "stem": "Which organism group is most likely?",
+    "choices": [
+      { "id": "A", "text": "Salmonella species" },
+      { "id": "B", "text": "Shigella species" },
+      { "id": "C", "text": "Yersinia enterocolitica" },
+      { "id": "D", "text": "Campylobacter jejuni" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Non-lactose-fermenting, non-motile, H2S-negative, lysine-negative isolates from stool in a daycare outbreak fit Shigella, which spreads by fecal-oral transmission.",
+    "rationales": {
+      "A": "Salmonella is usually motile, H2S positive, and lysine positive.",
+      "B": "Correct: non-motile, H2S negative, lysine negative = Shigella.",
+      "C": "Yersinia grows slowly, is urease positive, and can be missed on routine media at 35 to 37 degrees Celsius.",
+      "D": "Campylobacter is a curved, oxidase-positive microaerophile requiring special growth conditions."
+    },
+    "misconception": "Salmonella and Shigella are grouped together in memory; motility, H2S, and lysine are the reliable separators.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Shigella: non-motile, H2S negative - Shigella cannot swim and cannot make black."]
+  },
+  {
+    "id": "mic-q-021",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "SCENARIO",
+    "vignette": "A 70-year-old man presents with fever, neck stiffness, and confusion. Lumbar puncture shows cloudy cerebrospinal fluid with thousands of neutrophils per microliter, low glucose relative to a paired serum sample, and elevated protein. The Gram stain shows gram-positive lancet-shaped diplococci.",
+    "stem": "Which organism is most likely, and what is the most appropriate immediate laboratory action?",
+    "choices": [
+      { "id": "A", "text": "Streptococcus pneumoniae; report the Gram stain immediately to the clinician and proceed with culture and susceptibility testing" },
+      { "id": "B", "text": "Neisseria meningitidis; wait for culture confirmation before any communication" },
+      { "id": "C", "text": "Listeria monocytogenes; perform acid-fast stain" },
+      { "id": "D", "text": "Staphylococcus epidermidis; report as a contaminant" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Gram-positive lancet-shaped diplococci in a neutrophilic, low-glucose, high-protein CSF is classic pneumococcal meningitis. Critical Gram stain results are called immediately because antibiotics must not wait for culture.",
+    "rationales": {
+      "A": "Correct: pneumococcus fits the morphology and CSF pattern; immediate Gram stain communication is standard of care.",
+      "B": "N. meningitidis is gram-negative diplococci, and Gram stain findings are communicated immediately rather than withheld.",
+      "C": "Listeria is a gram-positive rod (coccobacillus), and acid-fast staining targets mycobacteria.",
+      "D": "Coagulase-negative staphylococci in CSF from a ventricular device can be significant, but the morphology and picture here are not consistent."
+    },
+    "misconception": "Some learners believe Gram stain results wait for culture confirmation; in meningitis the Gram stain is a critical result that is phoned immediately.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Lancet diplococci in CSF = pneumococcus; communicate critical results immediately."]
+  },
+  {
+    "id": "mic-q-022",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about blood culture collection is correct?",
+    "choices": [
+      { "id": "A", "text": "Two sets from separate venipunctures are recommended and collection should occur before antibiotics when possible" },
+      { "id": "B", "text": "A single bottle drawn from an existing intravenous line is sufficient for all patients" },
+      { "id": "C", "text": "Anaerobic bottles should be omitted because most bacteremia is aerobic" },
+      { "id": "D", "text": "Blood culture bottles should be filled last in the order of draw" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Blood cultures are drawn as at least two sets from separate venipunctures, ideally before antibiotic administration, and are first in the order of draw to avoid additive carryover into the broth.",
+    "rationales": {
+      "A": "Correct: two sets, separate sticks, pre-antibiotic timing, drawn first.",
+      "B": "Line draws are associated with contamination and are used only when necessary per protocol.",
+      "C": "Anaerobic bottles recover anaerobes and improve overall yield; both bottle types are standard.",
+      "D": "Blood culture bottles are drawn first, not last."
+    },
+    "misconception": "Filling blood culture bottles last seems logical to keep them clean; in fact first draw prevents additive carryover into the broth.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Blood cultures first in order of draw; two sets from separate sticks."]
+  },
+  {
+    "id": "mic-q-023",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which stain is most sensitive for rapid detection of acid-fast bacilli in concentrated sputum specimens?",
+    "choices": [
+      { "id": "A", "text": "Gram stain" },
+      { "id": "B", "text": "Auramine O fluorescent stain" },
+      { "id": "C", "text": "India ink preparation" },
+      { "id": "D", "text": "Trichrome stain" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Auramine O fluorescence microscopy is more sensitive than the Ziehl-Neelsen carbol fuchsin method for screening concentrated sputum for mycobacteria; positives are confirmed with a Ziehl-Neelsen or equivalent stain and culture.",
+    "rationales": {
+      "A": "Gram stain does not stain mycobacteria reliably because of their waxy cell wall.",
+      "B": "Correct: auramine O fluorescent screening is the most sensitive rapid AFB smear method.",
+      "C": "India ink is used for Cryptococcus neoformans capsule visualization in CSF.",
+      "D": "Trichrome stains intestinal protozoa in stool concentrates."
+    },
+    "misconception": "Ziehl-Neelsen is the classic stain name and is often chosen reflexively; fluorescence screening is the more sensitive rapid method.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["AFB smear: auramine O for screening sensitivity, Ziehl-Neelsen for confirmation."]
+  },
+  {
+    "id": "mic-q-024",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "SCENARIO",
+    "vignette": "A skin scraping from a patient with an annular, scaly lesion is examined in potassium hydroxide with calcofluor white. Septate hyphae with arthroconidia are seen. Culture on Sabouraud dextrose agar grows a white, cottony mold.",
+    "stem": "Which laboratory finding is most consistent with this presentation?",
+    "choices": [
+      { "id": "A", "text": "Budding yeast with narrow-based buds and a thick capsule" },
+      { "id": "B", "text": "Septate hyphae and arthroconidia consistent with a dermatophyte" },
+      { "id": "C", "text": "Broad, ribbon-like non-septate hyphae" },
+      { "id": "D", "text": "Acid-fast bacilli in branching filaments" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Septate hyphae with arthroconidia from skin, hair, or nails is the classic direct-mount picture of dermatophytosis (ringworm); culture on Sabouraud agar confirms the genus.",
+    "rationales": {
+      "A": "Budding yeast with capsule describes Cryptococcus, typically seen with India ink in CSF.",
+      "B": "Correct: septate hyphae with arthroconidia = dermatophyte.",
+      "C": "Broad non-septate hyphae suggest Mucorales (mucormycosis), a different clinical setting.",
+      "D": "Branching acid-fast filaments describe Nocardia, which is partially acid fast."
+    },
+    "misconception": "All molds are grouped together; septation pattern (septate versus broad non-septate) is the key branch in fungal direct mounts.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Septate hyphae + arthroconidia = dermatophyte; broad non-septate = Mucorales."]
+  },
+  {
+    "id": "mic-q-025",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The minimum inhibitory concentration (MIC) of an antimicrobial agent is defined as:",
+    "choices": [
+      { "id": "A", "text": "The lowest concentration that kills the organism outright" },
+      { "id": "B", "text": "The lowest concentration that prevents visible growth after incubation" },
+      { "id": "C", "text": "The zone diameter measured around a disk on Mueller-Hinton agar" },
+      { "id": "D", "text": "The concentration achievable in serum after a standard dose" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "MIC is the lowest antimicrobial concentration that inhibits visible growth; the minimum bactericidal concentration (MBC) is the lowest concentration that kills. Disk diffusion measures zones, not concentrations.",
+    "rationales": {
+      "A": "Killing is the MBC, not the MIC.",
+      "B": "Correct: MIC = lowest concentration preventing visible growth.",
+      "C": "Zone diameter is the readout of disk diffusion (Kirby-Bauer), not MIC.",
+      "D": "Pharmacokinetic exposure relates to dosing, not the in vitro MIC definition."
+    },
+    "misconception": "MIC and MBC are confused; inhibitory versus bactericidal is the distinction to memorize.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["MIC inhibits growth; MBC kills. Different words, different tests."]
+  },
+  {
+    "id": "mic-q-026",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In disk diffusion susceptibility testing, zone diameters are interpreted using:",
+    "choices": [
+      { "id": "A", "text": "The laboratory's own historical averages" },
+      { "id": "B", "text": "Current clinical breakpoints published by standards organizations such as CLSI or EUCAST" },
+      { "id": "C", "text": "The manufacturer's package insert from any year" },
+      { "id": "D", "text": "The MIC value measured on a separate instrument" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Zone diameters are interpreted against current clinical breakpoints from recognized standards bodies; breakpoints and disk contents can change over time, so laboratories must track the standard and year in use and verify with quality control strains.",
+    "rationales": {
+      "A": "Historical in-house averages are not validated breakpoints.",
+      "B": "Correct: CLSI or EUCAST current breakpoints govern interpretation.",
+      "C": "Package inserts may lag current standards; the laboratory follows its adopted standard.",
+      "D": "MIC is a different method; disk diffusion zones have their own breakpoints."
+    },
+    "misconception": "Breakpoints are treated as permanent constants; they are revised, which is why the standard and year must appear in records.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Zone diameters mean nothing without the breakpoint table and its version."]
+  },
+  {
+    "id": "mic-q-027",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "SCENARIO",
+    "vignette": "A Staphylococcus aureus isolate from a wound is reported as oxacillin resistant by automated testing. The laboratory confirms with a cefoxitin disk test and a latex agglutination test for penicillin-binding protein 2a.",
+    "stem": "Which statement best explains this confirmatory approach?",
+    "choices": [
+      { "id": "A", "text": "Cefoxitin is a better inducer of the mecA-mediated resistance phenotype and PBP2a detection confirms the mechanism" },
+      { "id": "B", "text": "Cefoxitin resistance proves the isolate is actually a coagulase-negative staphylococcus" },
+      { "id": "C", "text": "PBP2a testing detects extended-spectrum beta-lactamase production" },
+      { "id": "D", "text": "Oxacillin results are never reliable in S. aureus" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Cefoxitin disk testing is a reliable phenotypic surrogate for mecA-mediated methicillin resistance in staphylococci, and detection of PBP2a (the altered penicillin-binding protein encoded by mecA) confirms the mechanism. This is the standard MRSA confirmation logic.",
+    "rationales": {
+      "A": "Correct: cefoxitin is a strong inducer of the mecA phenotype, and PBP2a confirms the mechanism.",
+      "B": "Cefoxitin susceptibility does not change species identification.",
+      "C": "PBP2a is the altered target protein for beta-lactams in MRSA; ESBL detection uses different synergy tests.",
+      "D": "Oxacillin results are interpretable, but cefoxitin and PBP2a improve reliability."
+    },
+    "misconception": "MRSA mechanisms are conflated with ESBL mechanisms; PBP2a is about the altered target, not enzyme-mediated hydrolysis.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["MRSA confirmation: cefoxitin disk and PBP2a (or mecA); ESBL uses clavulanate synergy."]
+  },
+  {
+    "id": "mic-q-028",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which specimen handling practice is essential for successful anaerobic culture?",
+    "choices": [
+      { "id": "A", "text": "Transport on cotton swabs exposed to air for later plating" },
+      { "id": "B", "text": "Use pre-reduced media and oxygen-free transport systems, plating promptly under anaerobic conditions" },
+      { "id": "C", "text": "Refrigerate the specimen for 24 hours before plating" },
+      { "id": "D", "text": "Inoculate only aerobic media first to save consumables" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Anaerobes die on exposure to oxygen; specimens must be transported in oxygen-free systems (for example, anaerobic transport vials) and inoculated onto pre-reduced media promptly under anaerobic conditions.",
+    "rationales": {
+      "A": "Air-exposed swabs kill anaerobes and are unacceptable for anaerobic culture.",
+      "B": "Correct: oxygen-free transport and prompt inoculation of pre-reduced media.",
+      "C": "Refrigeration and delay further reduce anaerobe viability; some specimens are held at room temperature per procedure.",
+      "D": "Anaerobic media are required from the start; aerobic-first plating defeats the purpose."
+    },
+    "misconception": "Anaerobes are treated like routine aerobes; oxygen exposure is the single most common reason for false-negative anaerobic cultures.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["No air, no delay, pre-reduced media: the anaerobe triad."]
+  },
+  {
+    "id": "mic-q-029",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Under the current EUCAST interpretive framework, the susceptible category labeled I means:",
+    "choices": [
+      { "id": "A", "text": "Intermediate: efficacy is uncertain and the result is clinically uninterpretable" },
+      { "id": "B", "text": "Susceptible, increased exposure: the organism is susceptible when the drug is dosed to achieve higher exposure" },
+      { "id": "C", "text": "Resistant with borderline MIC values" },
+      { "id": "D", "text": "A quality-control failure requiring repeat testing" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "EUCAST redefined the I category as Susceptible, increased exposure, meaning the organism is susceptible when dosing regimens that achieve higher exposure are used; laboratories must state which breakpoint system (EUCAST or CLSI) they follow because categories are not interchangeable.",
+    "rationales": {
+      "A": "That is the older generic interpretation of intermediate, not the current EUCAST definition.",
+      "B": "Correct: EUCAST I = susceptible with increased exposure.",
+      "C": "Resistant is the R category, separate from I.",
+      "D": "I is a clinical interpretation category, not a QC outcome."
+    },
+    "misconception": "Intermediate is read as half-susceptible; under EUCAST it is a dosing-dependent susceptible category, and the reporting system must be named.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Always state CLSI or EUCAST when reporting S, I, and R categories."]
+  },
+  {
+    "id": "mic-q-030",
+    "subjectId": "microbiology",
+    "topicId": "sterile-sites-mycology",
+    "type": "SCENARIO",
+    "vignette": "A Klebsiella pneumoniae isolate from blood is resistant to ceftriaxone and ceftazidime but shows a marked increase in zone diameter when clavulanate is combined with either cephalosporin in a double-disk synergy test.",
+    "stem": "Which mechanism is confirmed by this observation?",
+    "choices": [
+      { "id": "A", "text": "Production of an extended-spectrum beta-lactamase inhibited by clavulanate" },
+      { "id": "B", "text": "Methicillin resistance mediated by mecA" },
+      { "id": "C", "text": "Altered penicillin-binding protein 2a production" },
+      { "id": "D", "text": "Carbapenemase activity" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Enhanced cephalosporin activity in the presence of clavulanate (synergy) confirms an extended-spectrum beta-lactamase (ESBL) that is clavulanate inhibited. Carbapenemases are not reliably inhibited by clavulanate and require dedicated testing.",
+    "rationales": {
+      "A": "Correct: clavulanate synergy confirms a clavulanate-inhibited ESBL.",
+      "B": "mecA mediates methicillin resistance in staphylococci, not enteric ESBL.",
+      "C": "PBP2a is the MRSA mechanism, not an enteric beta-lactamase.",
+      "D": "Carbapenemases require specific phenotypic or molecular assays and are not confirmed by clavulanate synergy alone."
+    },
+    "misconception": "All beta-lactam resistance in enterics is labeled ESBL; clavulanate synergy specifically demonstrates an inhibited extended-spectrum beta-lactamase.",
+    "reference": "Bailey and Scott's Diagnostic Microbiology, 16th ed.",
+    "lessonId": "microbiology/enteric-gnr-sterile-sites",
+    "examTraps": ["Clavulanate synergy = ESBL; carbapenemases need their own tests."]
+  }
+]

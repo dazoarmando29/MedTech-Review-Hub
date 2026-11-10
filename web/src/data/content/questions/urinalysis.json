@@ -1,0 +1,812 @@
+[
+  {
+    "id": "ua-q-001",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The urine dipstick protein pad is based on which chemical principle?",
+    "choices": [
+      { "id": "A", "text": "Glucose oxidase specificity for beta-D-glucose" },
+      { "id": "B", "text": "The protein error of indicators at controlled pH" },
+      { "id": "C", "text": "Pseudoperoxidase activity of hemoglobin" },
+      { "id": "D", "text": "Diazo coupling of bilirubin" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The protein pad exploits the protein error of indicators: a pH-sensitive dye shifts color when protein (mainly albumin) binds it at fixed buffered pH. The pad is much more sensitive to albumin than to globulins or Bence Jones protein.",
+    "rationales": {
+      "A": "Glucose oxidase is the glucose pad principle.",
+      "B": "Correct: protein error of indicators detects albumin preferentially.",
+      "C": "Pseudoperoxidase activity is the blood pad principle.",
+      "D": "Diazo reaction is the bilirubin pad principle."
+    },
+    "misconception": "The protein pad is assumed to detect all proteins equally; its albumin bias is why negative dipstick protein does not exclude light chains.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Dipstick protein = albumin screen; confirm suspected paraprotein with sulfosalicylic acid or electrophoresis."]
+  },
+  {
+    "id": "ua-q-002",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A negative nitrite result on urine dipstick does NOT exclude urinary tract infection because:",
+    "choices": [
+      { "id": "A", "text": "The nitrite pad only detects Gram-positive organisms" },
+      { "id": "B", "text": "Adequate bladder dwell time (commonly about 4 hours) and nitrate-reducing organisms are required for a positive result" },
+      { "id": "C", "text": "Nitrite testing requires a 24-hour collection" },
+      { "id": "D", "text": "The nitrite pad is inactivated by leukocyte esterase" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Nitrite positivity requires dietary nitrate, nitrate-reducing Gram-negative bacteria (plus some Gram-positives), and sufficient dwell time in the bladder; organisms such as Enterococcus and staphylococci reduce nitrate poorly, so a negative nitrite never rules out infection.",
+    "rationales": {
+      "A": "The pad detects nitrite from nitrate reduction, classically by Gram-negative enterics.",
+      "B": "Correct: dwell time and organism nitrate reduction both determine sensitivity.",
+      "C": "A random specimen is standard; the timing issue is bladder dwell, not a 24-hour pool.",
+      "D": "Leukocyte esterase is a separate pad; it does not inactivate nitrite chemistry."
+    },
+    "misconception": "A negative nitrite is read as no infection; nitrite is a specific but insensitive screen that improves when leukocyte esterase is also positive.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Nitrite negative + LE positive can still be infection (Enterococcus, staph, short dwell)."]
+  },
+  {
+    "id": "ua-q-003",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "SCENARIO",
+    "vignette": "A patient taking high-dose vitamin C supplements has a urine dipstick with negative blood, negative glucose, and negative nitrite, but the microscopic sediment shows numerous red blood cells and the clinician suspects hematuria.",
+    "stem": "What is the most likely explanation for the discordance?",
+    "choices": [
+      { "id": "A", "text": "Ascorbic acid interference causing false-negative peroxidase-based pad reactions" },
+      { "id": "B", "text": "The red blood cells are actually yeast cells" },
+      { "id": "C", "text": "Leukocyte esterase degradation of the blood pad" },
+      { "id": "D", "text": "Alkaline pH causing false-negative blood results" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Ascorbic acid (vitamin C) at high concentrations reduces the peroxidase reaction on blood, glucose, nitrite, and bilirubin pads, producing false negatives; microscopy confirms intact red cells when the dipstick under-reports.",
+    "rationales": {
+      "A": "Correct: vitamin C is the classic false-negative interferent for peroxidase-based pads.",
+      "B": "Yeast budding and lack of hemoglobin would explain some differences, but the history of vitamin C intake is the direct answer.",
+      "C": "Leukocyte esterase is on a separate pad and does not degrade the blood pad.",
+      "D": "Alkaline pH tends to cause false-positive protein, not false-negative blood."
+    },
+    "misconception": "Chemistry and microscopy must always agree; when they disagree, interferents like vitamin C come first, and the microscopic result is the tiebreaker for intact cells.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Vitamin C erases blood, glucose, nitrite, and bilirubin reactions on dipstick."]
+  },
+  {
+    "id": "ua-q-004",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which urine sediment element is most specific for glomerular bleeding?",
+    "choices": [
+      { "id": "A", "text": "Hyaline casts" },
+      { "id": "B", "text": "Red blood cell casts" },
+      { "id": "C", "text": "Amorphous urate crystals" },
+      { "id": "D", "text": "Squamous epithelial cells" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Red blood cell casts form in the nephron and localize bleeding to the glomerulus; finding them warrants urgent clinical correlation and nephrology attention.",
+    "rationales": {
+      "A": "Hyaline casts reflect protein precipitation in concentrated urine or after exercise and are not specific for glomerular bleeding.",
+      "B": "Correct: RBC casts = glomerulonephritis spectrum until proven otherwise.",
+      "C": "Amorphous urates are solute precipitates, often refrigeration artifacts in acidic urine.",
+      "D": "Squamous epithelial cells indicate contamination from skin or vaginal epithelium."
+    },
+    "misconception": "All casts are treated as equally ominous; hyaline casts are common and benign, while RBC and WBC casts localize real pathology.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["RBC cast = glomerulus; WBC cast = pyelonephritis or interstitial nephritis."]
+  },
+  {
+    "id": "ua-q-005",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The dipstick ketone pad (sodium nitroprusside) reacts primarily with which ketone body and misses which one?",
+    "choices": [
+      { "id": "A", "text": "Reacts with beta-hydroxybutyrate; misses acetoacetate" },
+      { "id": "B", "text": "Reacts with acetoacetate; misses beta-hydroxybutyrate" },
+      { "id": "C", "text": "Reacts equally with all three ketone bodies" },
+      { "id": "D", "text": "Reacts with acetone only" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The nitroprusside reaction detects acetoacetate (and weakly acetone) but not beta-hydroxybutyrate, which is often the dominant ketone in early diabetic ketoacidosis; early DKA can therefore show few or no urine ketones on dipstick.",
+    "rationales": {
+      "A": "Reversed: beta-hydroxybutyrate is the ketone the pad misses.",
+      "B": "Correct: acetoacetate positive, beta-hydroxybutyrate not detected.",
+      "C": "The pad does not detect beta-hydroxybutyrate at all.",
+      "D": "Acetoacetate is the primary reactant; acetone reacts weakly or not at all on most strips."
+    },
+    "misconception": "Urine ketone negativity excludes ketoacidosis; the nitroprusside gap (no beta-hydroxybutyrate detection) is the classic vignette point.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Ketone pad = acetoacetate; early DKA = mostly beta-hydroxybutyrate (pad blind to it)."]
+  },
+  {
+    "id": "ua-q-006",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "SCENARIO",
+    "vignette": "A urine specimen is cloudy with a pH of 8.0 after refrigeration. Microscopy shows abundant coffin-lid-shaped crystals. The patient has a history of recurrent urinary tract infections with urea-splitting organisms.",
+    "stem": "Which crystal identification and clinical association is correct?",
+    "choices": [
+      { "id": "A", "text": "Calcium oxalate dihydrate; associated with ethylene glycol poisoning" },
+      { "id": "B", "text": "Triple phosphate (magnesium ammonium phosphate); associated with struvite stones and urea-splitting infection" },
+      { "id": "C", "text": "Uric acid crystals; associated with tumor lysis syndrome" },
+      { "id": "D", "text": "Cystine crystals; associated with cystinuria" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Coffin-lid crystals in alkaline urine are triple phosphate (struvite), which forms with urea-splitting organisms such as Proteus and predisposes to struvite calculi. Refrigeration can increase precipitation of amorphous phosphates and crystals in alkaline urine.",
+    "rationales": {
+      "A": "Calcium oxalate dihydrate forms envelope-shaped crystals in acidic to neutral urine.",
+      "B": "Correct: coffin lid = triple phosphate in alkaline urine with struvite stone risk.",
+      "C": "Uric acid crystals are diamond or rosette shaped in acidic urine.",
+      "D": "Cystine forms hexagonal plates in acidic urine in cystinuria."
+    },
+    "misconception": "All crystals in cloudy urine are dismissed as artifacts; shape plus pH plus clinical history is required for meaningful identification.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Coffin lid + alkaline pH = struvite; think urea-splitting infection."]
+  },
+  {
+    "id": "ua-q-007",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Urine specific gravity measured by refractometer is falsely elevated by which substance?",
+    "choices": [
+      { "id": "A", "text": "Protein" },
+      { "id": "B", "text": "Water" },
+      { "id": "C", "text": "Urea" },
+      { "id": "D", "text": "Sodium" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Refractometry measures total solute refractive index; macromolecules like protein and glucose elevate the reading disproportionately compared with ionic solutes. Osmolality by freezing point is the true colligative measure.",
+    "rationales": {
+      "A": "Correct: protein elevates refractometer specific gravity.",
+      "B": "Water dilutes and lowers specific gravity.",
+      "C": "Urea is a normal urinary solute and is expected in the measurement.",
+      "D": "Sodium is an ionic solute tracked reasonably well by refractometry."
+    },
+    "misconception": "Refractometer and dipstick specific gravity are interchangeable; the dipstick tracks ionic strength (polyelectrolyte method) and reads low in alkaline urine, while refractometry tracks total solute including protein.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Refractometer: protein and glucose push SG up; dipstick SG: alkaline pH pushes it down."]
+  },
+  {
+    "id": "ua-q-008",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "SCENARIO",
+    "vignette": "A 25-year-old marathon runner presents with dark cola-colored urine after a race. Dipstick shows large blood reaction, but microscopy shows only occasional red blood cells and no casts.",
+    "stem": "What is the most likely explanation?",
+    "choices": [
+      { "id": "A", "text": "Myoglobinuria from rhabdomyolysis causing dipstick blood positivity without intact red cells" },
+      { "id": "B", "text": "Glomerulonephritis proven by red blood cell casts" },
+      { "id": "C", "text": "Menstrual contamination" },
+      { "id": "D", "text": "False-positive dipstick from alkaline pH" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "The blood pad detects pseudoperoxidase activity of both hemoglobin and myoglobin; positive blood with few intact red cells suggests free hemoglobin or myoglobin. Intense exercise can cause rhabdomyolysis with myoglobinuria.",
+    "rationales": {
+      "A": "Correct: dipstick blood positive with bland sediment = myoglobin/hemoglobin until proven otherwise.",
+      "B": "No RBC casts were seen; glomerulonephritis requires supporting sediment findings.",
+      "C": "Menstrual contamination brings intact red cells and squamous epithelial cells.",
+      "D": "Alkaline pH causes false-positive protein, not false-positive blood."
+    },
+    "misconception": "A positive blood pad equals hematuria; the pad cannot distinguish intact erythrocytes from hemoglobin or myoglobin, so microscopy is the arbiter.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Blood pad positive + no cells = think myoglobin or hemoglobin, not hematuria."]
+  },
+  {
+    "id": "ua-q-009",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Muddy brown granular casts in urine sediment most strongly suggest:",
+    "choices": [
+      { "id": "A", "text": "Acute tubular injury" },
+      { "id": "B", "text": "Orthostatic proteinuria" },
+      { "id": "C", "text": "Urinary tract infection with urea-splitting organisms" },
+      { "id": "D", "text": "Dehydration with concentrated urine only" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Muddy brown granular casts are the classic sediment finding in acute tubular injury or necrosis; they represent degenerated tubular cell debris and warrant urgent clinical correlation.",
+    "rationales": {
+      "A": "Correct: muddy brown granular casts = acute tubular injury.",
+      "B": "Orthostatic proteinuria shows protein without muddy brown casts.",
+      "C": "Urea-splitting infection is associated with triple phosphate crystals and alkaline urine.",
+      "D": "Concentrated urine gives hyaline casts, not muddy brown granular casts."
+    },
+    "misconception": "Granular casts are all grouped as nonspecific; the muddy brown variant specifically flags tubular necrosis.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Muddy brown granular = acute tubular necrosis; waxy = chronic kidney disease."]
+  },
+  {
+    "id": "ua-q-010",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about leukocyte esterase on urine dipstick is correct?",
+    "choices": [
+      { "id": "A", "text": "It detects esterase from intact or lysed granulocytes and screens for pyuria" },
+      { "id": "B", "text": "It specifically identifies bacterial species causing infection" },
+      { "id": "C", "text": "It is unaffected by urine concentration or protein" },
+      { "id": "D", "text": "It replaces urine culture in all settings" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Leukocyte esterase reflects granulocyte presence (pyuria) and is a screening marker; it does not identify organisms or replace culture, and heavy protein or glucose and concentrated urine can affect its sensitivity.",
+    "rationales": {
+      "A": "Correct: LE detects granulocyte esterase and screens for pyuria.",
+      "B": "Organism identification requires culture or molecular methods.",
+      "C": "Concentration, protein, and glucose affect pad sensitivity.",
+      "D": "Culture remains the gold standard for diagnosing urinary tract infection and identifying pathogens."
+    },
+    "misconception": "Positive LE equals infection; pyuria has many causes including inflammation and contamination, and culture decides etiology.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["LE = pyuria screen; nitrite + LE together strengthen UTI probability."]
+  },
+  {
+    "id": "ua-q-011",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "SCENARIO",
+    "vignette": "A routine urinalysis shows pH 5.0, specific gravity 1.005 (method: reagent strip), and numerous diamond-shaped and rosette-shaped crystals in the sediment. The patient is on a high-protein diet.",
+    "stem": "Which crystal is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Uric acid crystals" },
+      { "id": "B", "text": "Triple phosphate crystals" },
+      { "id": "C", "text": "Cystine crystals" },
+      { "id": "D", "text": "Calcium carbonate crystals" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Diamond and rosette shapes in acidic urine identify uric acid crystals, which are common in concentrated acidic urine and with high-purine diets or tumor lysis; local reference intervals and crystal significance vary by laboratory and clinical context.",
+    "rationales": {
+      "A": "Correct: diamond/rosette in acidic urine = uric acid.",
+      "B": "Triple phosphate forms coffin lids in alkaline urine.",
+      "C": "Cystine forms hexagonal plates in acidic urine but in the context of cystinuria.",
+      "D": "Calcium carbonate forms dumbbells or spheres in alkaline urine."
+    },
+    "misconception": "Crystals are identified from shape alone; urine pH is a required companion clue (uric acid acidic, struvite alkaline, cystine acidic).",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Diamond/rosette + acid pH = uric acid; look at pH before naming crystals."]
+  },
+  {
+    "id": "ua-q-012",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which finding on a clean-catch urine specimen most strongly suggests bacterial contamination rather than true infection?",
+    "choices": [
+      { "id": "A", "text": "Numerous squamous epithelial cells" },
+      { "id": "B", "text": "White blood cell casts" },
+      { "id": "C", "text": "Positive nitrite and positive leukocyte esterase" },
+      { "id": "D", "text": "Bacteria visible on Gram stain of uncentrifuged urine" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Squamous epithelial cells indicate contamination from skin or vaginal flora; their presence should prompt a comment and caution against quantifying pyuria or culture significance from that specimen.",
+    "rationales": {
+      "A": "Correct: many squamous cells = contamination.",
+      "B": "WBC casts localize infection or inflammation to the kidney (pyelonephritis), not contamination.",
+      "C": "Nitrite plus LE supports true urinary tract infection.",
+      "D": "Visible bacteria in a properly collected specimen supports infection, though culture confirms."
+    },
+    "misconception": "Any white cells in urine equal infection; squamous cells flag contamination and invalidates simple pyuria interpretation.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Squamous epithelial cells = contaminated specimen; report it as such."]
+  },
+  {
+    "id": "ua-q-013",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which urine finding is classically associated with obstructive biliary disease?",
+    "choices": [
+      { "id": "A", "text": "Bilirubinuria with dark yellow foam" },
+      { "id": "B", "text": "Ketonuria with acid pH" },
+      { "id": "C", "text": "Positive nitrite only" },
+      { "id": "D", "text": "Cystine hexagonal plates" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Conjugated (direct) bilirubin is water soluble and appears in urine early in obstructive or hepatocellular jaundice, giving dark urine with yellow foam; bilirubin pad uses the diazo reaction and is light sensitive.",
+    "rationales": {
+      "A": "Correct: bilirubinuria = conjugated hyperbilirubinemia from obstruction or liver disease.",
+      "B": "Ketonuria suggests catabolic states such as diabetic ketoacidosis or starvation.",
+      "C": "Nitrite reflects nitrate reduction by bacteria.",
+      "D": "Cystine crystals indicate cystinuria, not liver disease."
+    },
+    "misconception": "Jaundice is judged from serum alone; urine bilirubin is an early signal that conjugated bilirubin is spilling into urine.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Dark urine with yellow foam + diazo-positive pad = bilirubinuria (obstruction)."]
+  },
+  {
+    "id": "ua-q-014",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "SCENARIO",
+    "vignette": "A urine dipstick shows 3+ protein on a freshly voided alkaline specimen (pH 8.5) from a patient with no edema. Microscopy is bland. The laboratory repeats the dipstick on a fresh acidic specimen and protein reads negative.",
+    "stem": "What is the best interpretation?",
+    "choices": [
+      { "id": "A", "text": "False-positive protein on the alkaline specimen due to pH effect on the indicator pad" },
+      { "id": "B", "text": "Nephrotic-range proteinuria resolved within hours" },
+      { "id": "C", "text": "Bence Jones proteinuria confirmed by dipstick" },
+      { "id": "D", "text": "Dehydration causing transient proteinuria" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Alkaline urine can cause false-positive protein reactions on the indicator pad; repeating on a properly buffered or acidic specimen resolves the discrepancy. True proteinuria should be quantified (for example, urine protein-to-creatinine ratio) if it persists.",
+    "rationales": {
+      "A": "Correct: alkaline pH inflates protein pad readings; the repeat resolves it.",
+      "B": "Nephrotic proteinuria does not disappear with pH change alone.",
+      "C": "Dipstick protein is albumin-biased and does not detect Bence Jones protein reliably; confirm with sulfosalicylic acid or electrophoresis.",
+      "D": "Dehydration raises specific gravity and can concentrate protein but does not create a pH-dependent false positive that reverses."
+    },
+    "misconception": "Dipstick protein is quantitative truth; it is a pH-sensitive screen and needs confirmation and quantitation when abnormal.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Alkaline urine = protein false positive; always correlate pH with protein pad."]
+  },
+  {
+    "id": "ua-q-015",
+    "subjectId": "urinalysis",
+    "topicId": "physical-chemical",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Yeast cells in urine sediment can be differentiated from red blood cells by which observation?",
+    "choices": [
+      { "id": "A", "text": "Budding and lack of lysis with dilute acetic acid" },
+      { "id": "B", "text": "Perfect round shape with central pallor" },
+      { "id": "C", "text": "Formation of stacks like coins" },
+      { "id": "D", "text": "Hexagonal plate morphology" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Yeast (commonly Candida) show budding, may form pseudohyphae, and do not lyse with acetic acid, unlike red blood cells; they often accompany glycosuria or immunosuppression and can be contaminants from vaginal flora.",
+    "rationales": {
+      "A": "Correct: budding plus acetic acid resistance distinguishes yeast from RBCs.",
+      "B": "Central pallor describes intact red blood cells, not yeast.",
+      "C": "Rouleaux stacking is a red cell phenomenon in concentrated proteinaceous fluids.",
+      "D": "Hexagonal plates describe cystine crystals."
+    },
+    "misconception": "Small round refractile bodies are all counted as red cells; budding is the giveaway for yeast.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/physical-chemical-testing",
+    "examTraps": ["Yeast bud and resist acetic acid; red cells lyse and show rouleaux in protein-rich urine."]
+  },
+  {
+    "id": "ua-q-016",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Light's criteria classify a pleural fluid as an exudate if which condition is met?",
+    "choices": [
+      { "id": "A", "text": "All three of fluid-to-serum protein ratio above 0.5, fluid-to-serum LDH ratio above 0.6, and fluid LDH above two-thirds the serum upper limit of normal" },
+      { "id": "B", "text": "Any one of fluid-to-serum protein ratio above 0.5, fluid-to-serum LDH ratio above 0.6, or fluid LDH above two-thirds the serum upper limit of normal" },
+      { "id": "C", "text": "Fluid cholesterol above 200 mg/dL alone" },
+      { "id": "D", "text": "Fluid triglycerides above 110 mg/dL alone" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Meeting any single Light criterion classifies the fluid as an exudate; requiring all three would miss true exudates. Triglycerides identify chylous effusions, and cholesterol helps distinguish pseudochylous fluid - separate tools from Light's criteria.",
+    "rationales": {
+      "A": "Requiring all three criteria is the classic wrong answer; sensitivity depends on the any-one rule.",
+      "B": "Correct: any one criterion = exudate.",
+      "C": "Cholesterol is a supplementary marker, not part of Light's criteria.",
+      "D": "Triglycerides above roughly 110 mg/dL support chylothorax, a different classification question."
+    },
+    "misconception": "Light's criteria are remembered as a checklist requiring everything; it is a disjunctive (OR) rule, not conjunctive.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Light's = OR rule: one of three criteria is enough for exudate."]
+  },
+  {
+    "id": "ua-q-017",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A 55-year-old man with cirrhosis and ascites undergoes paracentesis. Ascitic fluid albumin is 1.2 g/dL and serum albumin is 3.2 g/dL (serum-ascites albumin gradient calculated as 2.0 g/dL). Fluid total protein is low. Local reference intervals vary by laboratory and method.",
+    "stem": "What does a serum-ascites albumin gradient of 2.0 g/dL indicate?",
+    "choices": [
+      { "id": "A", "text": "Portal hypertension, consistent with a transudative mechanism" },
+      { "id": "B", "text": "Peritoneal tuberculosis" },
+      { "id": "C", "text": "Pancreatitis with enzyme-rich exudate" },
+      { "id": "D", "text": "Chylous ascites" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "A serum-ascites albumin gradient of 1.1 g/dL or more indicates portal hypertension as the mechanism (transudative physiology), regardless of fluid protein; gradients below 1.1 g/dL point to peritoneal causes such as malignancy or tuberculosis.",
+    "rationales": {
+      "A": "Correct: gradient of 2.0 g/dL (above 1.1) = portal hypertension.",
+      "B": "Peritoneal tuberculosis typically gives a low gradient (below 1.1 g/dL) with high protein exudate.",
+      "C": "Pancreatitis gives elevated fluid amylase and typically a low gradient exudate pattern.",
+      "D": "Chylous ascites is identified by milky fluid with high triglycerides (often above 200 mg/dL for ascites chyle), not by albumin gradient."
+    },
+    "misconception": "Fluid total protein alone classifies ascites; the albumin gradient outperforms protein for the portal-hypertension question in cirrhosis.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["SAAG of 1.1 g/dL or more = portal hypertension; below 1.1 = peritoneal cause."]
+  },
+  {
+    "id": "ua-q-018",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A 20-year-old man is evaluated for infertility. Semen analysis after 2 days of abstinence shows volume 1.4 mL, concentration 12 million/mL, total motility 35 percent, and normal morphology 3 percent. WHO reference values (fifth percentile of fertile men) are volume 1.5 mL or more, concentration 15 million/mL or more, total motility 40 percent or more, and morphology 4 percent or more; intervals vary by laboratory and method.",
+    "stem": "What is the most appropriate next step?",
+    "choices": [
+      { "id": "A", "text": "Repeat semen analysis after 2 to 4 weeks with attention to abstinence and transport conditions" },
+      { "id": "B", "text": "Diagnose permanent sterility from this single sample" },
+      { "id": "C", "text": "Begin antibiotic therapy for presumed infection" },
+      { "id": "D", "text": "No action; all values are normal" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Semen parameters fluctuate significantly between ejaculates and are highly preanalytic sensitive; a single abnormal analysis is not diagnostic and must be repeated after 2 to 4 weeks with standardized abstinence and prompt warm transport before any conclusion.",
+    "rationales": {
+      "A": "Correct: repeat testing is mandatory before interpretation.",
+      "B": "One sample cannot diagnose permanent sterility; WHO values are reference percentiles, not verdicts.",
+      "C": "No leukocytospermia or symptoms justify antibiotics; overtreatment is a recognized problem.",
+      "D": "Several parameters are below the WHO fifth-percentile reference values, so the sample is not normal."
+    },
+    "misconception": "WHO reference values are treated as pass/fail diagnostic cutoffs; they are fifth-percentile values from fertile cohorts and require repeat confirmation.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Semen analysis: always repeat before diagnosing; control abstinence and transport."]
+  },
+  {
+    "id": "ua-q-019",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In an adult, cerebrospinal fluid findings most consistent with bacterial meningitis include:",
+    "choices": [
+      { "id": "A", "text": "Lymphocytic pleocytosis with normal glucose and mildly elevated protein" },
+      { "id": "B", "text": "Neutrophilic pleocytosis with low glucose (below about 40 mg/dL or below about 60 percent of paired serum) and elevated protein" },
+      { "id": "C", "text": "Normal cell count with markedly elevated protein" },
+      { "id": "D", "text": "Eosinophilic pleocytosis with normal glucose" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Bacterial meningitis classically shows neutrophilic pleocytosis, low CSF glucose relative to paired serum, and elevated protein; viral meningitis typically shows lymphocytes with normal glucose. CSF intervals vary by laboratory, method, age, and population.",
+    "rationales": {
+      "A": "Lymphocytes with normal glucose fit viral (aseptic) meningitis.",
+      "B": "Correct: neutrophils, low glucose, high protein = bacterial meningitis pattern.",
+      "C": "Protein elevation with normal cells suggests Guillain-Barre or block, not acute bacterial meningitis.",
+      "D": "Eosinophils suggest parasitic or fungal processes or foreign-body reaction, not typical bacterial meningitis."
+    },
+    "misconception": "Any CSF pleocytosis is called bacterial; the differential (neutrophils versus lymphocytes) and glucose paired with serum drive the distinction.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["CSF glucose must be compared with paired serum glucose, never judged alone."]
+  },
+  {
+    "id": "ua-q-020",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A traumatic tap is suspected when:",
+    "choices": [
+      { "id": "A", "text": "Red cell counts decline uniformly across sequential tubes and xanthochromia is present" },
+      { "id": "B", "text": "Red cell counts are similar across sequential tubes with clear supernatant" },
+      { "id": "C", "text": "White cells exceed 1,000 per microliter with low glucose" },
+      { "id": "D", "text": "Protein is above 100 mg/dL with no red cells" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "A traumatic tap gives uniformly bloody fluid with similar red counts across tubes and no xanthochromia; subarachnoid hemorrhage shows xanthochromia and often declining red counts across tubes. Correction formulas for white cells in bloody taps are approximations only.",
+    "rationales": {
+      "A": "Declining red counts with xanthochromia suggest subarachnoid hemorrhage rather than traumatic tap.",
+      "B": "Correct: uniform red counts across tubes with clear supernatant = traumatic tap.",
+      "C": "Marked pleocytosis with low glucose points to infection, not simple traumatic tap.",
+      "D": "High protein without red cells is not the traumatic tap signature."
+    },
+    "misconception": "One bloody tube proves hemorrhage; the pattern across tubes and the presence or absence of xanthochromia are what count.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Traumatic tap: same RBC count in every tube, clear supernatant, no xanthochromia."]
+  },
+  {
+    "id": "ua-q-021",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Flat hexagonal plates seen in acidic urine sediment are pathognomonic for which condition?",
+    "choices": [
+      { "id": "A", "text": "Cystinuria" },
+      { "id": "B", "text": "Ethylene glycol poisoning" },
+      { "id": "C", "text": "Hepatic failure" },
+      { "id": "D", "text": "Recurrent Proteus infection" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Cystine hexagonal plates in acidic urine are diagnostic of cystinuria, an inherited disorder of dibasic amino acid transport that causes cystine stones; identification is high-yield and should never be missed.",
+    "rationales": {
+      "A": "Correct: hexagonal plates = cystine = cystinuria.",
+      "B": "Ethylene glycol poisoning shows calcium oxalate monohydrate (needle/dumbbell) and dihydrate (envelope) crystals.",
+      "C": "Hepatic failure shows leucine (oily rings) and tyrosine (needle sheaves) crystals.",
+      "D": "Proteus infection with urea splitting gives triple phosphate (coffin lid) crystals in alkaline urine."
+    },
+    "misconception": "Hexagonal shapes are assumed to be artifacts; in acidic urine, cystine plates are pathognomonic and clinically urgent for stone prevention.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Hexagonal plates = cystine (cystinuria); acidic urine, stone former."]
+  },
+  {
+    "id": "ua-q-022",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A 40-year-old woman with breast cancer develops a large pleural effusion. Thoracentesis yields milky-appearing fluid with triglycerides 320 mg/dL and low cholesterol. Serum triglycerides are normal. Local reference intervals vary by laboratory and method.",
+    "stem": "How should this fluid be classified?",
+    "choices": [
+      { "id": "A", "text": "Pseudochylous (cholesterol) effusion" },
+      { "id": "B", "text": "Chylous effusion, likely due to lymphatic obstruction" },
+      { "id": "C", "text": "Simple transudate from heart failure" },
+      { "id": "D", "text": "Empyema" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Milky fluid with markedly elevated triglycerides (commonly above 110 mg/dL in pleural fluid) and low cholesterol identifies a chylous effusion, often from thoracic duct disruption or lymphatic obstruction by malignancy; pseudochylous fluid is rich in cholesterol with low triglycerides.",
+    "rationales": {
+      "A": "Pseudochylous fluid has high cholesterol and low triglycerides, the opposite pattern.",
+      "B": "Correct: high triglycerides with milky appearance = chylous effusion from lymphatic obstruction.",
+      "C": "Transudates are clear/straw colored with low triglycerides and meet none of the chylothorax criteria.",
+      "D": "Empyema is frankly purulent with very high LDH, low glucose, and positive Gram stain/culture."
+    },
+    "misconception": "Milky fluid is called chylous without triglycerides and cholesterol; the lipid profile distinguishes chylous from pseudochylous.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Chylothorax: high triglycerides (above about 110 mg/dL), low cholesterol, milky fluid."]
+  },
+  {
+    "id": "ua-q-023",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which specimen handling requirement is essential before semen analysis?",
+    "choices": [
+      { "id": "A", "text": "A 2- to 7-day abstinence period with prompt transport at body temperature within about 1 hour" },
+      { "id": "B", "text": "A 30-day abstinence period with refrigerated transport" },
+      { "id": "C", "text": "Collection after prolonged fasting" },
+      { "id": "D", "text": "Collection into a standard vacutainer tube" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "WHO guidance specifies 2 to 7 days of abstinence, complete collection into a wide-mouth sterile container, and transport to the laboratory within about 1 hour at body temperature; these preanalytic rules dominate result variability.",
+    "rationales": {
+      "A": "Correct: 2 to 7 days abstinence, prompt warm transport, wide-mouth container.",
+      "B": "Prolonged abstinence reduces motility and quality; refrigeration damages sperm.",
+      "C": "Fasting is irrelevant to semen analysis.",
+      "D": "Narrow vacutainer tubes cause loss of specimen and adhesion; wide-mouth containers are required."
+    },
+    "misconception": "Semen analysis is treated like a random urine test; preanalytic standardization matters more than any single analytic step.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Semen: 2-7 days abstinence, wide-mouth container, warm, within 1 hour."]
+  },
+  {
+    "id": "ua-q-024",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A lumbar puncture in a 60-year-old man with confusion yields cloudy CSF. Cell count shows 2,500 neutrophils per microliter, glucose 18 mg/dL with paired serum glucose 110 mg/dL, and protein 220 mg/dL. Gram stain shows gram-negative diplococci. Reference intervals vary by laboratory, method, age, and population.",
+    "stem": "Which organism is most likely on Gram stain morphology?",
+    "choices": [
+      { "id": "A", "text": "Streptococcus pneumoniae" },
+      { "id": "B", "text": "Neisseria meningitidis" },
+      { "id": "C", "text": "Listeria monocytogenes" },
+      { "id": "D", "text": "Haemophilus influenzae" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Gram-negative diplococci in CSF with neutrophilic pleocytosis, low glucose, and high protein indicate meningococcal meningitis; pneumococci are gram-positive lancet diplococci, Listeria is a gram-positive rod, and Haemophilus is a small gram-negative coccobacillus.",
+    "rationales": {
+      "A": "S. pneumoniae is a gram-positive lancet-shaped diplococcus.",
+      "B": "Correct: gram-negative diplococci = Neisseria meningitidis.",
+      "C": "Listeria monocytogenes appears as gram-positive rods or coccobacilli.",
+      "D": "H. influenzae is a small pleomorphic gram-negative coccobacillus, not a diplococcus."
+    },
+    "misconception": "Meningitis Gram stains are reduced to gram-positive versus gram-negative; the shape (diplococci versus rods) is what names the organism on the spot.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Gram-negative diplococci in CSF = meningococcus; report immediately."]
+  },
+  {
+    "id": "ua-q-025",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which CSF finding is most typical of viral (aseptic) meningitis?",
+    "choices": [
+      { "id": "A", "text": "Neutrophilic pleocytosis with very low glucose" },
+      { "id": "B", "text": "Lymphocytic pleocytosis with normal glucose and mildly elevated protein" },
+      { "id": "C", "text": "Eosinophilic pleocytosis with low glucose" },
+      { "id": "D", "text": "Markedly elevated protein with no pleocytosis" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Viral meningitis typically shows lymphocytic pleocytosis, normal or near-normal glucose, and mildly elevated protein; bacterial meningitis brings neutrophils and low glucose, while fungal or tuberculous meningitis often shows lymphocytes with low glucose.",
+    "rationales": {
+      "A": "Neutrophils with very low glucose fit bacterial meningitis.",
+      "B": "Correct: lymphocytes + normal glucose + mild protein rise = viral pattern.",
+      "C": "Eosinophils suggest parasitic, fungal, or foreign-body processes.",
+      "D": "Proteinocytologic dissociation (high protein, no cells) suggests Guillain-Barre syndrome."
+    },
+    "misconception": "All meningitis patterns with pleocytosis are treated as bacterial; cell type and glucose tell the story.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Viral meningitis: lymphocytes, normal glucose, mild protein rise."]
+  },
+  {
+    "id": "ua-q-026",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which statement about CSF glucose interpretation is correct?",
+    "choices": [
+      { "id": "A", "text": "CSF glucose should be interpreted against a paired serum glucose drawn near the same time" },
+      { "id": "B", "text": "A fixed CSF glucose of 40 mg/dL is diagnostic of bacterial meningitis in all adults" },
+      { "id": "C", "text": "CSF glucose rises in bacterial meningitis" },
+      { "id": "D", "text": "Serum glucose does not affect CSF glucose" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "CSF glucose is normally a substantial fraction of serum glucose (commonly cited as about 60 percent or 40 to 70 mg/dL in adults); interpretation requires a paired serum value because hyperglycemia or hypoglycemia shifts CSF glucose. Intervals vary by laboratory, method, age, and population.",
+    "rationales": {
+      "A": "Correct: paired serum glucose is mandatory for interpretation.",
+      "B": "A single fixed cutoff without serum context can misclassify patients.",
+      "C": "CSF glucose falls (not rises) in bacterial, tuberculous, and fungal meningitis.",
+      "D": "Serum glucose directly influences CSF glucose through transport kinetics."
+    },
+    "misconception": "CSF glucose is judged against a universal number; the ratio to serum and the local interval are what matter.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Never report CSF glucose meaning without the paired serum value."]
+  },
+  {
+    "id": "ua-q-027",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A peritoneal fluid from a patient with suspected peritoneal tuberculosis shows lymphocyte-predominant cells, elevated protein, glucose 30 mg/dL, and a serum-ascites albumin gradient of 0.6 g/dL. Local reference intervals vary by laboratory and method.",
+    "stem": "Which interpretation best fits these findings?",
+    "choices": [
+      { "id": "A", "text": "Portal hypertension with transudative ascites" },
+      { "id": "B", "text": "Exudative peritoneal process consistent with peritoneal tuberculosis or malignancy" },
+      { "id": "C", "text": "Chylous ascites from thoracic duct rupture" },
+      { "id": "D", "text": "Uncomplicated cirrhotic ascites" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "A serum-ascites albumin gradient below 1.1 g/dL indicates a peritoneal cause (exudative mechanism) such as tuberculosis or malignancy; lymphocytes, high protein, and low glucose support tuberculous peritonitis. Portal-hypertension ascites gives gradients of 1.1 g/dL or more.",
+    "rationales": {
+      "A": "Portal hypertension gives a high gradient (1.1 g/dL or more), not 0.6 g/dL.",
+      "B": "Correct: low gradient with lymphocytes, high protein, low glucose = peritoneal exudate (TB/malignancy).",
+      "C": "Chylous ascites is defined by milky fluid with high triglycerides.",
+      "D": "Uncomplicated cirrhotic ascites is a high-gradient transudative process."
+    },
+    "misconception": "Ascites is assumed to be cirrhotic in any patient with liver disease; the gradient below 1.1 g/dL forces consideration of peritoneal disease.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Low SAAG (below 1.1) = peritoneal pathology; high SAAG = portal hypertension."]
+  },
+  {
+    "id": "ua-q-028",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Leucine and tyrosine crystals in urine sediment are associated with:",
+    "choices": [
+      { "id": "A", "text": "Severe hepatic failure" },
+      { "id": "B", "text": "Cystinuria" },
+      { "id": "C", "text": "Ethylene glycol poisoning" },
+      { "id": "D", "text": "Recurrent urinary tract infection" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Leucine (oily, concentric-ring spheres) and tyrosine (fine needles in sheaves) crystals appear in severe hepatic failure with impaired amino acid metabolism; they are rare but classic examination findings.",
+    "rationales": {
+      "A": "Correct: leucine and tyrosine crystals = severe liver failure.",
+      "B": "Cystinuria produces cystine hexagonal plates.",
+      "C": "Ethylene glycol poisoning produces calcium oxalate crystals.",
+      "D": "Recurrent infection with urea splitters produces triple phosphate crystals."
+    },
+    "misconception": "All unusual crystals are grouped as artifacts; leucine and tyrosine together point squarely at advanced hepatic dysfunction.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Leucine + tyrosine = liver failure; cystine = hexagons; oxalate = antifreeze."]
+  },
+  {
+    "id": "ua-q-029",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In body fluid analysis, which statement about reference intervals is correct?",
+    "choices": [
+      { "id": "A", "text": "Reference intervals for CSF, serous fluids, and semen vary by laboratory, method, age, sex, and population and must be verified locally" },
+      { "id": "B", "text": "Universal fixed intervals can be applied to all laboratories" },
+      { "id": "C", "text": "Pediatric and adult CSF intervals are identical" },
+      { "id": "D", "text": "WHO semen reference values are mandatory diagnostic cutoffs" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Body fluid intervals depend on method, age, population, and laboratory; pediatric CSF differs from adult, semen values are reference percentiles from fertile cohorts, and local verification is required before clinical application.",
+    "rationales": {
+      "A": "Correct: intervals vary and must be locally verified with method notes.",
+      "B": "Transplanting fixed intervals between laboratories is unsafe and violates good laboratory practice.",
+      "C": "Pediatric CSF cell counts and chemistry intervals differ from adult values.",
+      "D": "WHO semen values are fifth-percentile reference values, not pass/fail diagnostic cutoffs."
+    },
+    "misconception": "Textbook numbers are copied into reports as absolutes; the standing rule is units plus the interval variability caveat plus local verification.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Every interval reported must carry units and the vary-by-laboratory caveat."]
+  },
+  {
+    "id": "ua-q-030",
+    "subjectId": "urinalysis",
+    "topicId": "body-fluids",
+    "type": "SCENARIO",
+    "vignette": "A pericardial fluid specimen is received. The laboratory measures fluid LDH 480 U/L (serum LDH upper limit of normal 250 U/L) and fluid-to-serum LDH ratio 0.7. Fluid-to-serum protein ratio is 0.3. Local reference intervals vary by laboratory and method.",
+    "stem": "Using Light's criteria logic, how should this fluid be classified?",
+    "choices": [
+      { "id": "A", "text": "Transudate, because the protein ratio is below 0.5" },
+      { "id": "B", "text": "Exudate, because the LDH ratio exceeds 0.6 and fluid LDH exceeds two-thirds the serum upper limit of normal" },
+      { "id": "C", "text": "Chylous effusion" },
+      { "id": "D", "text": "Uninterpretable without cholesterol measurement" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Light's criteria are an OR rule: with an LDH ratio above 0.6 and fluid LDH above two-thirds of the serum upper limit of normal (here about 167 U/L, fluid is 480 U/L), the fluid is an exudate even though the protein ratio is low. Diuresis and some malignancies can complicate classification, so clinical correlation applies.",
+    "rationales": {
+      "A": "One criterion below threshold does not make a transudate when another criterion is met.",
+      "B": "Correct: two LDH criteria are satisfied; any one is sufficient for exudate classification.",
+      "C": "Chylous classification depends on triglycerides and appearance, not LDH ratios.",
+      "D": "Cholesterol is supplementary; Light's criteria are interpretable without it."
+    },
+    "misconception": "The lowest criterion is used to classify; in fact the highest-met criterion drives the exudate label under the OR rule.",
+    "reference": "Strasinger's Urinalysis and Body Fluids, 6th ed.",
+    "lessonId": "urinalysis/body-fluid-analysis",
+    "examTraps": ["Any one Light criterion met = exudate; mixed ratios still resolve as exudate."]
+  }
+]

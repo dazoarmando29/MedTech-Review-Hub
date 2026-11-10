@@ -1,0 +1,25 @@
+{
+  "id": "hematology",
+  "name": "Hematology",
+  "shortName": "Hematology",
+  "description": "CBC indices and instrument flags, anemia workup with iron studies and hemoglobinopathy screening, and hemostasis laboratory testing including PT/aPTT/INR, mixing studies, DIC, and anticoagulant monitoring.",
+  "blueprintNote": "ASCP BOC MLS content guide: hematology topics (CBC with differential and indices, anemias, hemoglobinopathies, hemostasis and coagulation) map to roughly 15-20% of the exam blueprint; PH MTLE weight ~20%. Weights are approximations of published outlines. Topic-level mapping only; this product is not affiliated with or endorsed by ASCP or any examining body.",
+  "colorToken": "violet",
+  "topics": [
+    {
+      "id": "cbc-indices",
+      "name": "CBC Indices and Instrument Flags",
+      "lessonIds": ["hematology/cbc-indices"]
+    },
+    {
+      "id": "anemias",
+      "name": "Anemias and Hemoglobinopathies",
+      "lessonIds": ["hematology/anemias"]
+    },
+    {
+      "id": "hemostasis",
+      "name": "Hemostasis Laboratory",
+      "lessonIds": ["hematology/hemostasis"]
+    }
+  ]
+}

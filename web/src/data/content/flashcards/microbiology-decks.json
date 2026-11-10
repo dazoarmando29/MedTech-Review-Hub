@@ -1,0 +1,376 @@
+[
+  {
+    "id": "mic-deck-01",
+    "title": "Gram-Positive Cocci: Staph and Strep Essentials",
+    "subjectId": "microbiology",
+    "cards": [
+      {
+        "id": "mic-fc-001",
+        "type": "BASIC",
+        "front": "Which test separates staphylococci from streptococci, and what are the expected results?",
+        "back": "Catalase test. Staphylococci/micrococci = positive (bubbles); streptococci/enterococci = negative.",
+        "tags": ["gram-positive", "catalase", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-002",
+        "type": "BASIC",
+        "front": "What does a positive tube coagulase test indicate, and when is it read?",
+        "back": "Free coagulase production by Staphylococcus aureus; a fibrin clot at 4 hours or 18-24 hours is positive.",
+        "tags": ["staphylococcus", "coagulase"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-003",
+        "type": "CLOZE",
+        "front": "Slide coagulase detects [[1]]; tube coagulase detects [[2]]. A negative slide test must be confirmed by [[3]].",
+        "back": "1: bound clumping factor  2: free coagulase  3: tube coagulase or validated latex method",
+        "tags": ["staphylococcus", "coagulase"],
+        "difficulty": 2,
+        "note": "Clumping-factor-negative S. aureus exists.",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-004",
+        "type": "BASIC",
+        "front": "How is Streptococcus pyogenes (group A) identified on the bench?",
+        "back": "Beta-hemolytic, catalase negative, bacitracin susceptible, PYR positive.",
+        "tags": ["streptococcus", "group-a"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-005",
+        "type": "BASIC",
+        "front": "Which three tests identify Streptococcus agalactiae (group B)?",
+        "back": "Beta-hemolysis, CAMP positive (arrowhead hemolysis), hippurate hydrolysis positive (bacitracin resistant).",
+        "tags": ["streptococcus", "group-b", "camp"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-006",
+        "type": "CLOZE",
+        "front": "Streptococcus pneumoniae is alpha-hemolytic, [[1]] susceptible, and [[2]] soluble.",
+        "back": "1: optochin  2: bile",
+        "tags": ["pneumococcus", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-007",
+        "type": "BASIC",
+        "front": "Which two reactions confirm Enterococcus species?",
+        "back": "Bile esculin hydrolysis positive (blackening) and growth in 6.5 percent NaCl.",
+        "tags": ["enterococcus"],
+        "difficulty": 2,
+        "note": "Enterococci are also PYR positive.",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-008",
+        "type": "BASIC",
+        "front": "How do viridans streptococci differ from pneumococci on bench tests?",
+        "back": "Viridans: optochin resistant, bile esculin negative. Pneumococcus: optochin susceptible, bile soluble.",
+        "tags": ["viridans", "pneumococcus"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-009",
+        "type": "CLOZE",
+        "front": "PYR positive organisms are [[1]] and [[2]].",
+        "back": "1: Streptococcus pyogenes  2: Enterococcus species",
+        "tags": ["pyr", "mnemonic"],
+        "difficulty": 2,
+        "note": "PYR: PYogenes and enteRococcus.",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-010",
+        "type": "BASIC",
+        "front": "Which coagulase-negative staphylococcus is novobiocin resistant and a urinary pathogen of young women?",
+        "back": "Staphylococcus saprophyticus (note: routine novobiocin testing is largely replaced by rapid ID systems; follow local procedure).",
+        "tags": ["staphylococcus", "urinary"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-011",
+        "type": "BASIC",
+        "front": "Why can picking colonies from sheep blood agar give a false-positive catalase?",
+        "back": "Erythrocytes contain catalase; a red-cell-rich inoculum can bubble with hydrogen peroxide.",
+        "tags": ["catalase", "pitfall"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-012",
+        "type": "CLOZE",
+        "front": "S. aureus colonies are often [[1]] pigmented and [[2]]-hemolytic; coagulase-negative staphylococci are usually coagulase [[3]].",
+        "back": "1: golden  2: beta  3: negative",
+        "tags": ["staphylococcus", "morphology"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-013",
+        "type": "BASIC",
+        "front": "What does the CAMP test detect and what does a positive look like?",
+        "back": "Synergy between group B streptococcus CAMP factor and staphylococcal beta-lysin; an arrowhead zone of enhanced hemolysis.",
+        "tags": ["camp", "group-b"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-014",
+        "type": "BASIC",
+        "front": "What is the classic Gram stain morphology of Streptococcus pneumoniae?",
+        "back": "Gram-positive lancet-shaped diplococci (often in pairs, sometimes short chains).",
+        "tags": ["pneumococcus", "gram-stain"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-015",
+        "type": "CLOZE",
+        "front": "Beta-hemolytic + bacitracin [[1]] + PYR [[2]] = Streptococcus pyogenes.",
+        "back": "1: susceptible  2: positive",
+        "tags": ["group-a", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-016",
+        "type": "BASIC",
+        "front": "Why is identifying group B streptococcus in a pregnant patient clinically important?",
+        "back": "It guides intrapartum antibiotic prophylaxis to prevent neonatal sepsis and meningitis.",
+        "tags": ["group-b", "clinical"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-017",
+        "type": "BASIC",
+        "front": "A mixed wound culture grows staphylococci and streptococci. How should it be reported?",
+        "back": "Report both identifications with a comment about mixed flora and correlate with Gram stain and clinical findings (per local procedure).",
+        "tags": ["reporting", "mixed-culture"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      },
+      {
+        "id": "mic-fc-018",
+        "type": "CLOZE",
+        "front": "Bile esculin positive + 6.5 percent NaCl growth = [[1]]. Optochin susceptible + bile soluble = [[2]].",
+        "back": "1: Enterococcus  2: Streptococcus pneumoniae",
+        "tags": ["enterococcus", "pneumococcus"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/gram-positive-cocci" }
+      }
+    ]
+  },
+  {
+    "id": "mic-deck-02",
+    "title": "Gram-Negative Rods, Sterile Sites, and AST Essentials",
+    "subjectId": "microbiology",
+    "cards": [
+      {
+        "id": "mic-fc-019",
+        "type": "BASIC",
+        "front": "What is the first biochemical split for gram-negative rods and what does each result mean?",
+        "back": "Oxidase test. Oxidase negative + glucose fermenter = Enterobacterales; oxidase positive = Pseudomonas/Aeromonas/Vibrio-type organisms.",
+        "tags": ["gram-negative", "oxidase", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-020",
+        "type": "BASIC",
+        "front": "What biochemical profile identifies Escherichia coli in a lactose-fermenting oxidase-negative rod?",
+        "back": "Indole positive, citrate negative, urease negative (lysine usually positive).",
+        "tags": ["enteric", "e-coli"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-021",
+        "type": "CLOZE",
+        "front": "Triple sugar iron: the butt reflects [[1]] fermentation; the slant reflects [[2]] and [[3]] fermentation. Blackening indicates [[4]].",
+        "back": "1: glucose  2: lactose  3: sucrose  4: hydrogen sulfide (H2S)",
+        "tags": ["tsi", "enteric", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-022",
+        "type": "BASIC",
+        "front": "Which reactions identify Klebsiella pneumoniae?",
+        "back": "Mucoid lactose fermenter, indole negative, citrate positive, VP positive, urease positive (slow).",
+        "tags": ["klebsiella", "enteric"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-023",
+        "type": "BASIC",
+        "front": "What are the classic bench clues for Proteus species?",
+        "back": "Strong rapid urease, swarming motility, phenylalanine deaminase positive; P. mirabilis indole negative, P. vulgaris indole positive.",
+        "tags": ["proteus", "enteric"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-024",
+        "type": "CLOZE",
+        "front": "Salmonella on TSI shows [[1]] slant and [[2]] butt with [[3]] blackening; it is lysine [[4]].",
+        "back": "1: alkaline (red)  2: acid (yellow)  3: H2S  4: positive",
+        "tags": ["salmonella", "tsi"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-025",
+        "type": "BASIC",
+        "front": "How does Shigella differ from Salmonella on key tests?",
+        "back": "Shigella is non-motile, H2S negative (no TSI blackening), and lysine negative; Salmonella is usually motile, H2S positive, lysine positive.",
+        "tags": ["shigella", "salmonella"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-026",
+        "type": "BASIC",
+        "front": "What are the calling-card features of Pseudomonas aeruginosa?",
+        "back": "Oxidase positive, grape-like odor, green pyocyanin pigment, growth at 42 degrees Celsius, non-lactose fermenter.",
+        "tags": ["pseudomonas", "non-fermenter"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-027",
+        "type": "CLOZE",
+        "front": "Acinetobacter baumannii complex appears as gram-negative [[1]] in pairs, is oxidase [[2]], and is [[3]] (non-motile).",
+        "back": "1: coccobacilli  2: negative  3: non-motile",
+        "tags": ["acinetobacter", "non-fermenter"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-028",
+        "type": "BASIC",
+        "front": "What CSF pattern suggests bacterial meningitis?",
+        "back": "Neutrophilic pleocytosis, low CSF glucose (below about 40 mg/dL or below about 60 percent of paired serum), high protein; intervals vary by laboratory and age.",
+        "tags": ["csf", "meningitis", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-029",
+        "type": "BASIC",
+        "front": "What is the recommended blood culture collection practice?",
+        "back": "At least two sets from separate venipunctures, ideally before antibiotics; blood culture bottles are drawn first in the order of draw.",
+        "tags": ["blood-culture", "preanalytic"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-030",
+        "type": "CLOZE",
+        "front": "MIC is the lowest antimicrobial concentration that prevents [[1]]; the lowest concentration that kills is the [[2]].",
+        "back": "1: visible growth  2: minimum bactericidal concentration (MBC)",
+        "tags": ["ast", "mic"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-031",
+        "type": "BASIC",
+        "front": "How are disk diffusion zone diameters interpreted?",
+        "back": "Against current clinical breakpoints from CLSI or EUCAST (state which standard and version); verify with QC strains such as E. coli ATCC 25922.",
+        "tags": ["ast", "disk-diffusion"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-032",
+        "type": "BASIC",
+        "front": "How is MRSA confirmed in the laboratory?",
+        "back": "Cefoxitin disk susceptibility (surrogate for mecA) plus PBP2a latex agglutination or mecA molecular detection.",
+        "tags": ["mrsa", "ast"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-033",
+        "type": "CLOZE",
+        "front": "Under current EUCAST wording, category I means [[1]], and laboratories must state whether [[2]] or [[3]] breakpoints are used.",
+        "back": "1: susceptible, increased exposure  2: EUCAST  3: CLSI",
+        "tags": ["ast", "breakpoints"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-034",
+        "type": "BASIC",
+        "front": "What specimen handling is essential for anaerobic culture?",
+        "back": "Oxygen-free transport systems, prompt inoculation onto pre-reduced media, incubation under anaerobic conditions.",
+        "tags": ["anaerobes", "preanalytic"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-035",
+        "type": "BASIC",
+        "front": "Which stain screens concentrated sputum for mycobacteria with the best sensitivity?",
+        "back": "Auramine O fluorescent stain (confirmed with Ziehl-Neelsen); culture remains the gold standard.",
+        "tags": ["afb", "mycobacteria"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      },
+      {
+        "id": "mic-fc-036",
+        "type": "CLOZE",
+        "front": "Clavulanate synergy with cephalosporins confirms [[1]]. Cefoxitin disk plus PBP2a confirms [[2]].",
+        "back": "1: extended-spectrum beta-lactamase (ESBL)  2: methicillin resistance (MRSA)",
+        "tags": ["ast", "resistance"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "microbiology/enteric-gnr-sterile-sites" }
+      }
+    ]
+  }
+]

@@ -1,0 +1,416 @@
+[
+  {
+    "id": "hem-deck-01",
+    "title": "CBC Indices and Anemia Workup",
+    "subjectId": "hematology",
+    "cards": [
+      {
+        "id": "hem-fc-001",
+        "type": "CLOZE",
+        "front": "MCV (fL) is calculated from [[1]] divided by [[2]]; MCHC is calculated from hemoglobin divided by hematocrit.",
+        "back": "1: hematocrit  2: red cell count",
+        "tags": ["cbc", "indices"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-002",
+        "type": "BASIC",
+        "front": "What does an elevated RDW indicate?",
+        "back": "Anisocytosis — a mixed or evolving red cell population (e.g., developing iron deficiency); thalassemia trait typically has a normal RDW.",
+        "tags": ["cbc", "rdw"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-003",
+        "type": "BASIC",
+        "front": "What is EDTA pseudothrombocytopenia and how is it resolved?",
+        "back": "EDTA-dependent platelet clumping causing a falsely low count; the smear shows clumps and recollection in citrate (or another anticoagulant) resolves it.",
+        "tags": ["platelets", "pitfalls"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-004",
+        "type": "CLOZE",
+        "front": "Classic adult teaching cutoffs: microcytic MCV below about [[1]] fL; macrocytic MCV above about [[2]] fL (verify local intervals).",
+        "back": "1: 80  2: 100",
+        "tags": ["cbc", "indices"],
+        "difficulty": 1,
+        "note": "Pediatric and neonatal intervals differ by age.",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-005",
+        "type": "BASIC",
+        "front": "How do you correct the white cell count for nucleated red cells?",
+        "back": "Corrected WBC = measured WBC x 100 / (100 + nRBC per 100 WBC).",
+        "tags": ["cbc", "formula"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-006",
+        "type": "BASIC",
+        "front": "What is the purpose of analyzer flags and histograms?",
+        "back": "Quality assurance: they mark events the analyzer cannot classify reliably and route the specimen to manual smear review; they are not diagnoses.",
+        "tags": ["instrumentation"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-007",
+        "type": "BASIC",
+        "front": "How can giant platelets cause a falsely low automated platelet count?",
+        "back": "Impedance counting classifies by volume; giant platelets may be counted as small red cells. Optical/fluorescent counts and smear estimation resolve the discrepancy.",
+        "tags": ["platelets", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-008",
+        "type": "CLOZE",
+        "front": "The reticulocyte production index corrects for the degree of [[1]] and reticulocyte [[2]] time.",
+        "back": "1: anemia  2: maturation",
+        "tags": ["reticulocyte"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-009",
+        "type": "BASIC",
+        "front": "What does a dimorphic red cell histogram suggest?",
+        "back": "Two red cell populations — recent transfusion, dual deficiency, or sideroblastic process; always take a transfusion history.",
+        "tags": ["histograms"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-010",
+        "type": "BASIC",
+        "front": "Name the toxic neutrophil changes seen in severe infection.",
+        "back": "Toxic granulation, Dohle bodies, and cytoplasmic vacuolization (plus a left shift with band forms).",
+        "tags": ["wbc", "morphology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/cbc-indices" }
+      },
+      {
+        "id": "hem-fc-011",
+        "type": "CLOZE",
+        "front": "Iron deficiency pattern: ferritin [[1]], serum iron low, TIBC [[2]], transferrin saturation low.",
+        "back": "1: low  2: high",
+        "tags": ["iron-studies", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-012",
+        "type": "BASIC",
+        "front": "Why can ferritin be normal in iron deficiency?",
+        "back": "Ferritin is an acute-phase reactant; inflammation, infection, or liver disease can raise it despite depleted stores. Soluble transferrin receptor helps in such cases.",
+        "tags": ["iron-studies", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-013",
+        "type": "BASIC",
+        "front": "How does anemia of chronic disease differ from iron deficiency on iron studies?",
+        "back": "ACD: low iron, low TIBC, normal/high ferritin (iron sequestration). Iron deficiency: low iron, high TIBC, low ferritin.",
+        "tags": ["iron-studies", "comparison"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-014",
+        "type": "CLOZE",
+        "front": "Beta-thalassemia trait shows [[1]] HbA2 on hemoglobin analysis; alpha-thalassemia trait usually has a [[2]] HbA2.",
+        "back": "1: elevated  2: normal",
+        "tags": ["hemoglobinopathies"],
+        "difficulty": 2,
+        "note": "HbA2 thresholds are method dependent.",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-015",
+        "type": "BASIC",
+        "front": "Which marker is elevated specifically in vitamin B12 deficiency but not folate deficiency?",
+        "back": "Methylmalonic acid (homocysteine is elevated in both).",
+        "tags": ["megaloblastic", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-016",
+        "type": "BASIC",
+        "front": "List the hemolysis laboratory panel.",
+        "back": "Reticulocyte count/RPI up, haptoglobin down, LDH up, indirect bilirubin up, plus smear and DAT; hemoglobinuria/hemosiderinuria in intravascular hemolysis.",
+        "tags": ["hemolysis"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-017",
+        "type": "CLOZE",
+        "front": "Schistocytes with thrombocytopenia and a [[1]] DAT suggest microangiopathic hemolysis; spherocytes with a [[2]] DAT suggest warm AIHA.",
+        "back": "1: negative  2: positive",
+        "tags": ["hemolysis", "smear"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-018",
+        "type": "BASIC",
+        "front": "What does a solubility screening test detect, and what are its limitations?",
+        "back": "It detects HbS presence (positive in trait and disease) but cannot distinguish them and does not detect other variants; confirm with electrophoresis/HPLC.",
+        "tags": ["hemoglobinopathies"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-019",
+        "type": "BASIC",
+        "front": "Which findings favor thalassemia trait over iron deficiency in microcytosis?",
+        "back": "Normal RDW, normal/high ferritin, normal TIBC, and a red cell count relatively high for the degree of anemia; often target cells on smear.",
+        "tags": ["thalassemia", "comparison"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      },
+      {
+        "id": "hem-fc-020",
+        "type": "BASIC",
+        "front": "What megaloblastic changes appear on the peripheral smear?",
+        "back": "Macro-ovalocytes, hypersegmented neutrophils (5 or more lobes), and megaloblastic marrow changes.",
+        "tags": ["megaloblastic"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/anemias" }
+      }
+    ]
+  },
+  {
+    "id": "hem-deck-02",
+    "title": "Hemostasis Laboratory",
+    "subjectId": "hematology",
+    "cards": [
+      {
+        "id": "hem-fc-021",
+        "type": "CLOZE",
+        "front": "PT/INR evaluates the [[1]] and common pathways; aPTT evaluates the [[2]] and common pathways.",
+        "back": "1: extrinsic  2: intrinsic",
+        "tags": ["coagulation", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-022",
+        "type": "BASIC",
+        "front": "What does an isolated prolonged PT suggest?",
+        "back": "Factor VII deficiency (or warfarin effect / early liver disease) — the extrinsic pathway with short-half-life factor VII.",
+        "tags": ["coagulation"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-023",
+        "type": "BASIC",
+        "front": "How does a mixing study distinguish factor deficiency from an inhibitor?",
+        "back": "1:1 mix with normal pooled plasma: immediate correction = factor deficiency; failure to correct = inhibitor (heparin, lupus anticoagulant, specific factor inhibitor).",
+        "tags": ["mixing-study", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-024",
+        "type": "CLOZE",
+        "front": "A time-dependent inhibitor that worsens with incubation is classically an anti-[[1]] antibody; lupus anticoagulant paradoxically increases [[2]] risk.",
+        "back": "1: FVIII (factor VIII)  2: thrombosis (clotting)",
+        "tags": ["inhibitors"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-025",
+        "type": "BASIC",
+        "front": "Which test is most sensitive to heparin contamination?",
+        "back": "Thrombin time (TT) — markedly prolonged by even small heparin amounts.",
+        "tags": ["heparin"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-026",
+        "type": "BASIC",
+        "front": "What is the typical INR therapeutic target for warfarin in most indications?",
+        "back": "2.0 to 3.0 (higher ranges for some mechanical valves); targets are guideline and indication dependent — verify locally.",
+        "tags": ["warfarin", "monitoring"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-027",
+        "type": "CLOZE",
+        "front": "DIC labs: PT/aPTT [[1]], platelets low, fibrinogen low (may be [[2]] early as an acute-phase reactant), D-dimer high, schistocytes present.",
+        "back": "1: prolonged  2: normal",
+        "tags": ["dic", "high-yield"],
+        "difficulty": 2,
+        "note": "Serial trends matter most.",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-028",
+        "type": "BASIC",
+        "front": "Why does an underfilled citrate tube falsely prolong PT and aPTT?",
+        "back": "Excess citrate relative to the 1:9 blood ratio is not fully neutralized by calcium in the test, delaying clot formation; recollect in a properly filled tube.",
+        "tags": ["preanalytical", "pitfalls"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-029",
+        "type": "BASIC",
+        "front": "What is the citrate adjustment rule for very high hematocrit?",
+        "back": "When hematocrit exceeds roughly 55 percent, the citrate volume must be reduced per protocol to maintain the 1:9 anticoagulant-to-blood ratio.",
+        "tags": ["preanalytical"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-030",
+        "type": "BASIC",
+        "front": "Which deficiency causes bleeding with completely normal PT and aPTT?",
+        "back": "Factor XIII deficiency (fibrin stabilization defect); also mild von Willebrand disease may screen normal.",
+        "tags": ["factor-xiii"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-031",
+        "type": "CLOZE",
+        "front": "Warfarin is monitored by [[1]]; unfractionated heparin is monitored by [[2]] or anti-Xa.",
+        "back": "1: INR  2: aPTT",
+        "tags": ["anticoagulants", "monitoring"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-032",
+        "type": "BASIC",
+        "front": "How are direct factor Xa inhibitors (apixaban, rivaroxaban) quantified when needed?",
+        "back": "With drug-calibrated anti-factor Xa assays; routine monitoring is not required, but assays help in bleeding, renal failure, and reversal decisions.",
+        "tags": ["doac"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-033",
+        "type": "BASIC",
+        "front": "Which assay monitors dabigatran effect?",
+        "back": "Dilute thrombin time (or ecarin clotting time); dabigatran is a direct thrombin inhibitor.",
+        "tags": ["doac"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-034",
+        "type": "BASIC",
+        "front": "What are the classic clinical features distinguishing primary from secondary hemostasis defects?",
+        "back": "Primary (platelet/vessel): mucocutaneous bleeding — petechiae, purpura, epistaxis. Secondary (coagulation): deep tissue bleeding — hemarthroses, intramuscular hematomas.",
+        "tags": ["physiology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-035",
+        "type": "CLOZE",
+        "front": "vWF mediates platelet adhesion by binding [[1]] to collagen; fibrinogen bridges platelets via [[2]] during aggregation.",
+        "back": "1: GPIb (glycoprotein Ib)  2: GPIIb/IIIa (glycoprotein IIb/IIIa)",
+        "tags": ["physiology", "platelets"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-036",
+        "type": "BASIC",
+        "front": "Why is lupus anticoagulant testing difficult on warfarin?",
+        "back": "Warfarin lowers vitamin K-dependent factors and interferes with phospholipid-dependent assays used for lupus anticoagulant detection.",
+        "tags": ["inhibitors", "pitfalls"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-037",
+        "type": "BASIC",
+        "front": "What is the role of anti-Xa monitoring for low molecular weight heparin?",
+        "back": "Reserved for special populations (renal failure, obesity, pregnancy, pediatrics), typically measured at peak after dosing; routine monitoring is not standard.",
+        "tags": ["heparin", "monitoring"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-038",
+        "type": "CLOZE",
+        "front": "D-dimer is elevated in DIC and thrombosis but is [[1]]; it also rises in [[2]], inflammation, and pregnancy.",
+        "back": "1: nonspecific (sensitive but nonspecific)  2: malignancy (or surgery/trauma)",
+        "tags": ["dic", "pitfalls"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-039",
+        "type": "BASIC",
+        "front": "What is the laboratory picture of early DIC?",
+        "back": "Mildly prolonged PT/aPTT, falling platelets, D-dimer rising; fibrinogen may still be normal as an acute-phase reactant — trend the panel.",
+        "tags": ["dic"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      },
+      {
+        "id": "hem-fc-040",
+        "type": "BASIC",
+        "front": "What are the reversal agents for common anticoagulants?",
+        "back": "Warfarin: vitamin K plus prothrombin complex concentrate. Heparin: protamine. Dabigatran: idarucizumab. Factor Xa inhibitors: andexanet alfa or PCC per guidelines.",
+        "tags": ["anticoagulants", "reversal"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "hematology/hemostasis" }
+      }
+    ]
+  }
+]

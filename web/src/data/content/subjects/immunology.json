@@ -1,0 +1,20 @@
+{
+  "id": "immunology",
+  "name": "Immunology and Serology",
+  "shortName": "Immunology",
+  "description": "Immunoglobulin classes and function, complement pathways and deficiencies, immunodeficiency patterns, and the principles of serologic and autoimmune test methods: ELISA, agglutination, syphilis algorithms, ANA patterns, heterophile testing, and viral serologic marker interpretation at the principle level.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS examination immunology/serology content domain and to the PH MTLE immunology/serology subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "colorToken": "violet",
+  "topics": [
+    {
+      "id": "immunoglobulins-complement",
+      "name": "Immunoglobulins, Complement, and Immunodeficiency",
+      "lessonIds": ["immunology/immunoglobulins-complement"]
+    },
+    {
+      "id": "serology-autoimmune",
+      "name": "Serologic Methods and Autoimmune Testing",
+      "lessonIds": ["immunology/serology-autoimmune"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "urinalysis",
+  "name": "Urinalysis and Body Fluids",
+  "shortName": "Urinalysis",
+  "description": "Physical, chemical, and microscopic examination of urine; dipstick principles and interferences; sediment recognition; and analysis of cerebrospinal fluid, serous fluids, semen, and crystals.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS examination urinalysis/body fluids content domain and to the PH MTLE urinalysis subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "colorToken": "amber",
+  "topics": [
+    {
+      "id": "physical-chemical",
+      "name": "Physical and Chemical Examination",
+      "lessonIds": ["urinalysis/physical-chemical-testing"]
+    },
+    {
+      "id": "body-fluids",
+      "name": "Body Fluid Analysis",
+      "lessonIds": ["urinalysis/body-fluid-analysis"]
+    }
+  ]
+}

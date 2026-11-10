@@ -1,0 +1,812 @@
+[
+  {
+    "id": "bb-q-001",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which pair of naturally occurring antibodies is expected in the plasma of a group O individual?",
+    "choices": [
+      { "id": "A", "text": "Anti-A only" },
+      { "id": "B", "text": "Anti-B only" },
+      { "id": "C", "text": "Anti-A and anti-B" },
+      { "id": "D", "text": "No anti-A or anti-B antibodies" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Group O red cells carry neither A nor B antigen, so by Landsteiner's rule the plasma contains both anti-A and anti-B. This is why group O red cells are the universal red cell donor but group O plasma is not universal plasma.",
+    "rationales": {
+      "A": "Anti-A alone is the expected antibody pattern of group B individuals, who carry B antigen and lack A.",
+      "B": "Anti-B alone is the expected antibody pattern of group A individuals, who carry A antigen and lack B.",
+      "C": "Correct: group O individuals lack both A and B antigens and therefore form both isohemagglutinins.",
+      "D": "Absence of both antibodies is the pattern of group AB, which carries both antigens."
+    },
+    "misconception": "Students often pick D thinking group O means 'no antibodies', when in fact O refers to the absence of A and B antigens on the red cells, not absence of antibodies in plasma.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Group O plasma contains anti-A and anti-B; it can hemolyze non-O recipients when given as plasma or platelets."]
+  },
+  {
+    "id": "bb-q-002",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The A and B antigens of the ABO system are biochemically best described as:",
+    "choices": [
+      { "id": "A", "text": "Proteins encoded directly by the ABO gene and inserted into the red cell membrane" },
+      { "id": "B", "text": "Carbohydrate structures created by glycosyltransferases acting on an H substance precursor" },
+      { "id": "C", "text": "Lipids synthesized de novo in the red cell and unrelated to the H antigen" },
+      { "id": "D", "text": "Naturally occurring IgM antibodies adsorbed onto the red cell surface" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "ABO antigens are carbohydrate epitopes on glycoproteins and glycolipids. The A transferase adds N-acetylgalactosamine and the B transferase adds galactose to H substance; the common O allele encodes a nonfunctional transferase, leaving H unmodified.",
+    "rationales": {
+      "A": "The ABO gene encodes glycosyltransferases, not the antigen proteins themselves; the antigens are sugars added to precursor structures.",
+      "B": "Correct: transferase enzymes build A and B antigens by adding specific sugars to H substance.",
+      "C": "The antigens are glycolipids/glycoproteins based on carbohydrate chains, and they depend entirely on the H precursor.",
+      "D": "Anti-A and anti-B are plasma antibodies; antigens are structures on the cell, not adsorbed antibodies."
+    },
+    "misconception": "Because the ABO gene is discussed genetically, students assume the antigens are the gene's protein product; they are actually sugar epitopes made by the protein product.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Group O results from a transferase that cannot modify H substance; O cells still carry H antigen."]
+  },
+  {
+    "id": "bb-q-003",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "SCENARIO",
+    "vignette": "A healthy 2-day-old newborn requires a possible transfusion. Forward typing shows agglutination with anti-A only. Reverse typing using reagent A1 and B cells shows no agglutination with either cell.",
+    "stem": "What is the most appropriate interpretation of these ABO typing results?",
+    "choices": [
+      { "id": "A", "text": "The baby is group A; the absent reverse reactions are expected at this age" },
+      { "id": "B", "text": "The baby is group AB; reverse typing must be repeated immediately" },
+      { "id": "C", "text": "The result is an ABO discrepancy requiring adsorption studies before any interpretation" },
+      { "id": "D", "text": "The baby is group O with a missing reverse antibody" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Forward typing (cell grouping) is reliable at birth because A and B antigens are present. Reverse typing is unreliable in newborns because naturally occurring isohemagglutinins develop over the first months of life. A forward-typed group A newborn with no reverse reactions is expected and concordant.",
+    "rationales": {
+      "A": "Correct: antigens are well developed at birth, and isohemagglutinins are absent or weak in neonates, so group A is confirmed by forward typing.",
+      "B": "Forward typing with anti-A only excludes B antigen; the missing reverse reactions do not make the baby AB.",
+      "C": "An absent reverse reaction in a newborn is age-expected, not a discrepancy requiring advanced studies.",
+      "D": "Forward typing with anti-A agglutination demonstrates A antigen, so the baby cannot be group O."
+    },
+    "misconception": "Students expect forward and reverse typing to always match and call an infant result a discrepancy; the reverse phase simply is not interpretable in the first months of life.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["In infants under roughly four months, assign ABO group by forward typing; reverse typing is informative only later."]
+  },
+  {
+    "id": "bb-q-004",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Reverse (serum) typing is unreliable in newborns mainly because:",
+    "choices": [
+      { "id": "A", "text": "Newborn red cells lack A and B antigens" },
+      { "id": "B", "text": "Naturally occurring anti-A and anti-B are not yet reliably produced" },
+      { "id": "C", "text": "Newborn plasma contains blocking IgG anti-A,B that masks all reactions" },
+      { "id": "D", "text": "Fetal hemoglobin interferes with agglutination of reagent red cells" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Isohemagglutinins develop over the first months of life as the infant's immune system is exposed to environmental antigens, so reverse typing is weak or absent in newborns while forward typing (antigens) is fully expressed.",
+    "rationales": {
+      "A": "A and B antigens are well developed at birth; that is why forward typing works in newborns.",
+      "B": "Correct: anti-A and anti-B production matures during infancy, making reverse typing unreliable early in life.",
+      "C": "Maternal IgG can cross the placenta but does not reliably produce interpretable reverse typing, and there is no general 'blocking' phenomenon.",
+      "D": "Fetal hemoglobin does not interfere with the agglutination reactions used in typing."
+    },
+    "misconception": "Students may blame fetal hemoglobin or antigens; the issue is the immaturity of antibody production, not the red cells.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Newborn ABO assignment relies on forward typing; do not request reverse typing to 'confirm' in the first months of life."]
+  },
+  {
+    "id": "bb-q-005",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "SCENARIO",
+    "vignette": "A 68-year-old man with gram-negative sepsis has typing performed before transfusion. Forward typing shows agglutination with anti-A (4+) and with anti-B (2+). His plasma agglutinates reagent B cells but does not agglutinate reagent A1 cells. His red cells react with anti-A,B.",
+    "stem": "Which of the following best explains this pattern?",
+    "choices": [
+      { "id": "A", "text": "The patient is group AB and has a weak anti-A antibody" },
+      { "id": "B", "text": "Acquired B phenomenon: bacterial enzymes modified the A antigen so the cells react with anti-B reagent" },
+      { "id": "C", "text": "The patient is group B with a missing anti-A antibody" },
+      { "id": "D", "text": "A cold autoantibody is causing panagglutination of all reagent cells" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "In acquired B, bacterial deacetylases (classically in gram-negative sepsis or colorectal disease) alter the A antigen so that group A cells react with anti-B typing reagent. The patient's true group is A: his plasma contains anti-B that reacts with normal B cells but not with his own modified cells under proper test conditions.",
+    "rationales": {
+      "A": "A true group AB patient would have no anti-B in plasma, yet this patient's plasma agglutinates B cells.",
+      "B": "Correct: the clinical context (sepsis), the weaker anti-B forward reaction, and the presence of anti-B in plasma are classic for acquired B.",
+      "C": "A group B patient would react strongly with anti-B and would not react with anti-A.",
+      "D": "Panagglutination from a cold autoantibody would show reactivity across the board, including in the autocontrol, not this specific weak anti-B pattern."
+    },
+    "misconception": "Students read the forward typing as group AB without checking the reverse: the presence of anti-B in the plasma proves the patient cannot be true AB.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO discrepancy chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Always interpret forward and reverse results together; acquired B is a forward-only abnormality with anti-B present in plasma."]
+  },
+  {
+    "id": "bb-q-006",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "During reverse typing, a patient's plasma produces diffuse agglutination with both A1 and B reagent cells at room temperature. The patient has multiple myeloma. Which technique most directly resolves the apparent discrepancy?",
+    "choices": [
+      { "id": "A", "text": "Saline replacement technique to disperse rouleaux" },
+      { "id": "B", "text": "Enzyme treatment of the patient's red cells" },
+      { "id": "C", "text": "Warm the reagent red cells to 56 degrees Celsius before testing" },
+      { "id": "D", "text": "Repeat the forward typing with anti-A,B only" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Hypergammaglobulinemia in plasma cell dyscrasias causes rouleaux formation that mimics agglutination in reverse typing. The saline replacement technique washes away excess protein so true agglutination remains while rouleaux disperse.",
+    "rationales": {
+      "A": "Correct: saline replacement dissolves rouleaux and distinguishes true antibody-mediated agglutination from protein-induced pseudoagglutination.",
+      "B": "Enzyme treatment is used in antibody panels to modify red cell antigens, not to fix reverse-typing rouleaux.",
+      "C": "Heating reagent cells destroys their integrity and is not a valid resolution step.",
+      "D": "Repeat forward typing does not address the reverse-phase problem caused by rouleaux."
+    },
+    "misconception": "Diffuse agglutination in both reverse tubes is often taken as a panantibody; in a myeloma patient, rouleaux is the first explanation to exclude.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO discrepancy chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Rouleaux gives a diffuse, grainy pattern that disperses with saline; true agglutination persists."]
+  },
+  {
+    "id": "bb-q-007",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "SCENARIO",
+    "vignette": "Forward typing on a 45-year-old patient gives weak reactions with anti-A and anti-A,B but no reaction with anti-B. Reverse typing shows strong anti-B and a weak unexpected reaction with A1 reagent cells. The blood bank needs to confirm whether the patient is an A subgroup.",
+    "stem": "Which reagent is most useful for distinguishing A1 cells from weaker A subgroups such as A2?",
+    "choices": [
+      { "id": "A", "text": "Lectin from Dolichos biflorus" },
+      { "id": "B", "text": "Lectin from Ulex europaeus (anti-H)" },
+      { "id": "C", "text": "Monospecific anti-IgG AHG reagent" },
+      { "id": "D", "text": "Lectin from Vicia graminea (anti-N)" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Dolichos biflorus lectin agglutinates A1 cells strongly and weaker A subgroups poorly or not at all, making it the classic reagent for A1 vs non-A1 subgrouping. The weak reaction with A1 reagent cells in reverse typing suggests anti-A1 in an A2 patient.",
+    "rationales": {
+      "A": "Correct: Dolichos biflorus is specific for the A1 antigen and separates A1 from A2 and weaker subgroups.",
+      "B": "Ulex europaeus lectin detects H antigen, useful for secretor studies and O/A2 cells, not for A1 subgrouping.",
+      "C": "Anti-IgG AHG detects red cell coating in the antiglobulin test; it does not type A subgroups.",
+      "D": "Vicia graminea recognizes the N antigen of the MNS system, unrelated to ABO subgroups."
+    },
+    "misconception": "Students reach for anti-A,B or AHG reagents when the question is subgrouping; the answer is the lectin that separates A1 from non-A1.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Anti-A1 can occur naturally in some A2 individuals and explains weak reverse reactions with A1 reagent cells."]
+  },
+  {
+    "id": "bb-q-008",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which red cell unit is considered the universal red cell donor in emergency ABO-incompatible situations?",
+    "choices": [
+      { "id": "A", "text": "Group AB" },
+      { "id": "B", "text": "Group A" },
+      { "id": "C", "text": "Group O" },
+      { "id": "D", "text": "Group B" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Group O red cells carry neither A nor B antigen, so they are not attacked by recipient anti-A or anti-B; group O is therefore the universal red cell donor. Group AB is the universal plasma donor because it contains neither antibody.",
+    "rationales": {
+      "A": "Group AB red cells carry both A and B antigens and would be hemolyzed by anti-A or anti-B in non-AB recipients.",
+      "B": "Group A red cells carry A antigen and are incompatible with recipients who have anti-A (groups B and O).",
+      "C": "Correct: group O red cells lack A and B antigens and are compatible with any ABO group in emergencies.",
+      "D": "Group B red cells carry B antigen and are incompatible with recipients who have anti-B (groups A and O)."
+    },
+    "misconception": "Students confuse universal red cell donor (group O) with universal plasma donor (group AB).",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Group O plasma contains anti-A and anti-B; universal donor language always depends on which component is being transfused."]
+  },
+  {
+    "id": "bb-q-009",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "SCENARIO",
+    "vignette": "A 30-year-old woman is typed before surgery. Forward typing: anti-A 4+, anti-B 0, anti-D 4+. Reverse typing: A1 cells 0, B cells 4+. An unexpected 1+ reaction is observed when her plasma is tested against A2 reagent cells at room temperature.",
+    "stem": "What is the most likely explanation for the unexpected reaction with A2 cells?",
+    "choices": [
+      { "id": "A", "text": "Anti-A1 antibody in an A2 individual being mistyped as A1" },
+      { "id": "B", "text": "Anti-D contaminating the reverse typing reagents" },
+      { "id": "C", "text": "Rouleaux from hyperproteinemia" },
+      { "id": "D", "text": "An ABO typing error: the patient is actually group O" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "The forward typing confirms A antigen and the reverse shows anti-B as expected for group A. A weak unexpected reaction pattern involving A2 reagent cells raises anti-A1, which occurs naturally in some A2 (or weaker subgroup) individuals whose cells typed as A but who form anti-A1 reacting with A1 cells. Confirming subgroup identity resolves the picture.",
+    "rationales": {
+      "A": "Correct: anti-A1 is a naturally occurring antibody in some A2 individuals and fits an isolated unexpected reaction in group A reverse typing workups.",
+      "B": "Anti-D is an IgG antibody detected at AHG phase against D-positive cells; it does not react with A2 reagent cells in reverse typing.",
+      "C": "Rouleaux would affect all reagent cells diffusely, not a single cell type specifically.",
+      "D": "A group O patient would show anti-A and anti-B in reverse typing and no reaction with anti-A in forward typing."
+    },
+    "misconception": "Any unexpected reverse reaction is often labeled a 'discrepancy of unknown cause'; in group A patients, anti-A1 is the classic targeted explanation.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO discrepancy chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Anti-A1 reacts with A1 cells but not A2 cells; its clinical significance depends on reactivity at 37 degrees Celsius and local policy."]
+  },
+  {
+    "id": "bb-q-010",
+    "subjectId": "blood-banking",
+    "topicId": "abo-system",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Landsteiner's rule states that:",
+    "choices": [
+      { "id": "A", "text": "Individuals form antibodies against the A or B antigens they lack" },
+      { "id": "B", "text": "All newborns have fully developed isohemagglutinins" },
+      { "id": "C", "text": "Group O individuals never form unexpected antibodies" },
+      { "id": "D", "text": "The D antigen is present in all populations at equal frequency" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "EASY",
+    "explanation": "Landsteiner's rule is the observation that people make anti-A and/or anti-B corresponding to the A and B antigens absent from their own red cells, which is the foundation of reverse typing.",
+    "rationales": {
+      "A": "Correct: the rule links antigen absence to predictable isohemagglutinin production.",
+      "B": "Isohemagglutinins develop over the first months of life and are absent or weak in newborns.",
+      "C": "Group O individuals form anti-A and anti-B and can also form unexpected alloantibodies after exposure.",
+      "D": "D antigen frequency varies by population; the statement is unrelated to Landsteiner's rule."
+    },
+    "misconception": "Students remember the name but misattribute it to Rh or to newborn typing; the rule is specifically about ABO isohemagglutinins.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., ABO blood group system chapter",
+    "lessonId": "blood-banking/abo-basics",
+    "examTraps": ["Landsteiner's rule explains reverse typing's expected patterns; it applies to anti-A and anti-B, not to immune antibodies like anti-D."]
+  },
+  {
+    "id": "bb-q-011",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "After the ABO system, which red cell antigen is the most immunogenic and most clinically significant in transfusion and pregnancy?",
+    "choices": [
+      { "id": "A", "text": "Kell (K)" },
+      { "id": "B", "text": "D (Rh)" },
+      { "id": "C", "text": "M" },
+      { "id": "D", "text": "Lewis a (Lea)" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The D antigen of the Rh system is the most immunogenic red cell antigen after ABO. Anti-D is usually IgG, reacts at AHG phase, crosses the placenta, and causes delayed hemolytic transfusion reactions and hemolytic disease of the newborn.",
+    "rationales": {
+      "A": "Kell is clinically important and moderately immunogenic but less so than D, and anti-K is a recognized HDFN cause.",
+      "B": "Correct: D is the most immunogenic non-ABO antigen and the focus of RhIg prophylaxis.",
+      "C": "M is part of the MNS system and is generally of low clinical significance; anti-M is often IgM and cold-reacting.",
+      "D": "Lewis antibodies are usually naturally occurring IgM and rarely clinically significant."
+    },
+    "misconception": "Students often remember Kell as 'the other important one' and rank it above D; D remains the most immunogenic after ABO.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Rh blood group system chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["Anti-D is the classic IgG antibody: AHG-reactive, placenta-crossing, and preventable with RhIg."]
+  },
+  {
+    "id": "bb-q-012",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A donor unit tests weak D positive and a patient (recipient) tests weak D positive. How should each be handled?",
+    "choices": [
+      { "id": "A", "text": "Donor as Rh-negative; recipient as Rh-positive" },
+      { "id": "B", "text": "Donor as Rh-positive; recipient as Rh-negative" },
+      { "id": "C", "text": "Both as Rh-negative" },
+      { "id": "D", "text": "Both as Rh-positive" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The rule is asymmetric: weak D donor units are issued as Rh-positive (their D antigen can immunize recipients), while weak D patients are treated as Rh-negative and receive Rh-negative red cells (to prevent immunization of a potential anti-D former).",
+    "rationales": {
+      "A": "This reverses the rule and would expose D-negative recipients to D antigen while denying patient protection.",
+      "B": "Correct: donors positive, patients negative — the classic asymmetric handling of weak D.",
+      "C": "Discarding donor weak D units as negative wastes immunogenic units and mislabels their true antigen content.",
+      "D": "Giving D-positive blood to a weak D patient risks immunization; patients are managed as Rh-negative."
+    },
+    "misconception": "Students learn 'weak D = Rh-positive' as a blanket rule; the correct handling depends on whether the specimen is a donor unit or a patient.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Rh blood group system chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["Molecular weak D typing increasingly refines this rule in obstetrics; the conservative serologic rule remains a favorite exam answer."]
+  },
+  {
+    "id": "bb-q-013",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "SCENARIO",
+    "vignette": "A 26-year-old D-negative (Rh-negative) woman delivers a healthy D-positive baby. She has no detectable anti-D. The obstetric team asks about preventing sensitization in future pregnancies.",
+    "stem": "Which intervention prevents her from forming anti-D?",
+    "choices": [
+      { "id": "A", "text": "Exchange transfusion of the newborn with D-negative blood" },
+      { "id": "B", "text": "Administration of RhIg (anti-D immunoglobulin) to the mother" },
+      { "id": "C", "text": "Transfusion of D-positive platelets to the mother" },
+      { "id": "D", "text": "No intervention is needed because first pregnancies never sensitize" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "RhIg given to an unsensitized D-negative mother after delivery (and antenatally per protocol) passively provides anti-D that clears fetal D-positive red cells before her immune system responds, preventing active immunization.",
+    "rationales": {
+      "A": "Exchange transfusion treats an affected newborn; it does not prevent maternal sensitization.",
+      "B": "Correct: RhIg prophylaxis is the standard prevention for D-negative mothers carrying or delivering D-positive infants.",
+      "C": "D-positive products would actively sensitize her and is exactly what must be avoided.",
+      "D": "Sensitization can occur during any pregnancy, especially at delivery; first pregnancies do sensitize some women."
+    },
+    "misconception": "Students confuse treatment of HDFN (for the baby) with prevention of sensitization (for the mother).",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., HDFN chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["RhIg works only before sensitization; once anti-D is detectable, prophylaxis is ineffective."]
+  },
+  {
+    "id": "bb-q-014",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Anti-D is best described as which immunoglobulin class and reaction phase?",
+    "choices": [
+      { "id": "A", "text": "IgM reacting best at room temperature" },
+      { "id": "B", "text": "IgA reacting best in the immediate spin phase" },
+      { "id": "C", "text": "IgG reacting best at the antihuman globulin (AHG) phase" },
+      { "id": "D", "text": "IgE mediating anaphylactic transfusion reactions" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Immune anti-D is predominantly IgG (commonly IgG1/IgG3), which is detected at the AHG phase after 37 degree Celsius incubation. It crosses the placenta and causes extravascular hemolysis.",
+    "rationales": {
+      "A": "IgM reacting at room temperature describes naturally occurring isohemagglutinins like anti-A and anti-B.",
+      "B": "IgA is not the class of anti-D; anti-IgA mediates anaphylactic reactions in IgA-deficient patients.",
+      "C": "Correct: anti-D is an IgG alloantibody detected at AHG phase.",
+      "D": "IgE mediates allergic and anaphylactic reactions but is not the class of anti-D."
+    },
+    "misconception": "Because typing uses anti-D reagent at immediate spin, students think anti-D itself is a room-temperature IgM antibody.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Rh blood group system chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["Clinically significant Rh antibodies are IgG and require AHG-phase detection in the antibody screen."]
+  },
+  {
+    "id": "bb-q-015",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "SCENARIO",
+    "vignette": "A newborn is jaundiced within hours of birth. Cord blood typing: baby is group A, D-positive. Direct antiglobulin test on the baby's red cells is strongly positive with anti-IgG. The mother is group O, D-negative, and her antibody screen detects anti-D.",
+    "stem": "Which laboratory result best confirms that the baby's red cells are sensitized in vivo by maternal antibody?",
+    "choices": [
+      { "id": "A", "text": "Indirect antiglobulin test on the mother's serum" },
+      { "id": "B", "text": "Positive direct antiglobulin test (DAT) on the baby's red cells" },
+      { "id": "C", "text": "Weak reverse typing in the baby" },
+      { "id": "D", "text": "Elevated MCHC in the baby's CBC" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "The DAT detects antibody (and/or complement) already bound to the baby's red cells in vivo. In Rh HDFN, maternal IgG anti-D coats fetal D-positive red cells, producing a positive DAT with monospecific anti-IgG.",
+    "rationales": {
+      "A": "The mother's indirect antiglobulin test (antibody screen) detects free antibody in her serum but does not prove the baby's cells are coated.",
+      "B": "Correct: the DAT demonstrates in vivo sensitization of the baby's red cells and is the direct evidence of HDFN.",
+      "C": "Reverse typing is unreliable in newborns and is unrelated to antibody coating of cells.",
+      "D": "MCHC is a red cell index and is not a marker of antibody sensitization."
+    },
+    "misconception": "Students conflate the mother's antibody screen (indirect test) with the baby's DAT (direct test); HDFN is confirmed on the baby's cells.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., HDFN and antiglobulin testing chapters",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["DAT positive = cells coated in vivo; it supports HDFN but must be correlated with bilirubin and clinical severity."]
+  },
+  {
+    "id": "bb-q-016",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The direct antiglobulin test (DAT) is used to detect:",
+    "choices": [
+      { "id": "A", "text": "Unbound antibody in patient serum" },
+      { "id": "B", "text": "Antibody or complement bound to patient red cells in vivo" },
+      { "id": "C", "text": "ABO antigens on patient red cells" },
+      { "id": "D", "text": "Free hemoglobin in patient plasma" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The DAT tests patient red cells directly with AHG reagent to show in vivo coating by IgG and/or complement. It is positive in HDFN, hemolytic transfusion reactions, autoimmune hemolytic anemia, and drug-induced hemolysis.",
+    "rationales": {
+      "A": "Unbound serum antibody is detected by the indirect antiglobulin test (IAT), used in screens and crossmatch.",
+      "B": "Correct: the DAT demonstrates in vivo sensitization of the patient's own red cells.",
+      "C": "ABO antigens are typed with anti-A and anti-B antisera, not AHG reagent.",
+      "D": "Free plasma hemoglobin is measured spectrophotometrically and by inspection, not by DAT."
+    },
+    "misconception": "Direct and indirect antiglobulin tests are frequently swapped; the direct test needs no incubation with serum because the antibody is already on the cells.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., antiglobulin testing chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["DAT positive does not automatically mean active hemolysis; always correlate with clinical and chemistry findings."]
+  },
+  {
+    "id": "bb-q-017",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "SCENARIO",
+    "vignette": "A group O mother delivers her first baby, who is group A. The baby develops mild jaundice on day 2. Cord blood DAT is weakly positive. The mother's antibody screen shows anti-A,B activity but no anti-D.",
+    "stem": "Which statement best fits this case?",
+    "choices": [
+      { "id": "A", "text": "This is classic severe Rh HDFN requiring intrauterine transfusion history" },
+      { "id": "B", "text": "This is mild ABO HDFN, often affecting firstborns, with a frequently weak DAT" },
+      { "id": "C", "text": "The DAT proves the baby has autoimmune hemolytic anemia" },
+      { "id": "D", "text": "The mother's anti-A,B is IgM and therefore can never cause HDFN" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "ABO HDFN typically occurs in group O mothers with IgG anti-A,B, often in the firstborn, and is usually mild with a weakly positive or negative DAT on the baby's A cells. Rh HDFN is classically severe and affects later pregnancies.",
+    "rationales": {
+      "A": "Rh HDFN would require maternal anti-D and a D-positive baby; this mother has no anti-D.",
+      "B": "Correct: firstborn involvement, mild course, and weak DAT point to ABO HDFN.",
+      "C": "A positive DAT here reflects maternal alloantibody coating, not an autoimmune process in the baby.",
+      "D": "Group O mothers make an IgG component of anti-A,B that crosses the placenta and can cause mild HDFN."
+    },
+    "misconception": "All HDFN is assumed to be Rh disease; ABO HDFN is commoner but milder and often DAT-weak.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., HDFN chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["ABO HDFN can affect a firstborn and rarely needs exchange transfusion; severity and DAT strength differ from Rh disease."]
+  },
+  {
+    "id": "bb-q-018",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The mechanism of RhIg (anti-D immunoglobulin) in preventing Rh sensitization is best described as:",
+    "choices": [
+      { "id": "A", "text": "Active immunization of the mother with D antigen" },
+      { "id": "B", "text": "Passive anti-D that clears fetal D-positive red cells before maternal immune priming" },
+      { "id": "C", "text": "Blocking maternal IgM production while leaving IgG responses intact" },
+      { "id": "D", "text": "Destruction of the fetal spleen to prevent antibody production" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "RhIg is passive antibody: injected anti-D opsonizes and clears fetal D-positive red cells from the maternal circulation before her immune system can respond, preventing active anti-D formation.",
+    "rationales": {
+      "A": "D antigen would sensitize rather than protect; RhIg contains antibody, not antigen.",
+      "B": "Correct: passive anti-D removes the immunogen and prevents maternal immunization.",
+      "C": "RhIg does not selectively block IgM; it removes the antigenic stimulus altogether.",
+      "D": "No fetal organ manipulation is involved; the target is maternal sensitization."
+    },
+    "misconception": "RhIg is sometimes described as a 'vaccine'; it is passive immunoprophylaxis and provides temporary protection only.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., HDFN chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["RhIg can itself cause a weakly positive maternal antibody screen and positive baby DAT; interpret with the prophylaxis history."]
+  },
+  {
+    "id": "bb-q-019",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "SCENARIO",
+    "vignette": "A D-negative mother received RhIg at 28 weeks and again after delivery of a D-positive infant. Two days postpartum, her antibody screen is positive at AHG phase. The baby's DAT is weakly positive and the baby is only mildly jaundiced.",
+    "stem": "What is the most likely explanation?",
+    "choices": [
+      { "id": "A", "text": "The mother developed active anti-D despite prophylaxis, and the baby has severe HDFN" },
+      { "id": "B", "text": "Passively acquired anti-D from RhIg is detectable, and a weak DAT/mild course is expected" },
+      { "id": "C", "text": "The baby developed autoimmune hemolytic anemia" },
+      { "id": "D", "text": "The antibody screen is a false positive from rouleaux and should be ignored" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "RhIg is anti-D immunoglobulin; after injection, passive anti-D can be detected in maternal serum for weeks and can weakly coat the baby's D-positive cells. Mild jaundice with a weak DAT is consistent with passive antibody rather than active sensitization with severe disease.",
+    "rationales": {
+      "A": "Active sensitization typically shows a rising titer over time and more significant clinical disease; two days postpartum, passive antibody is the leading explanation.",
+      "B": "Correct: passively transferred anti-D from RhIg explains the positive screen and weak DAT with a mild clinical course.",
+      "C": "Autoimmune hemolytic anemia in a newborn is rare and not suggested by this history.",
+      "D": "A positive AHG-phase screen after RhIg is expected and clinically meaningful to interpret, not ignore."
+    },
+    "misconception": "Any positive anti-D after delivery is attributed to active immunization; the RhIg history must be considered before diagnosing new sensitization.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., HDFN chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["Distinguish passive (RhIg) anti-D from active anti-D by timing, titer trends, and clinical context."]
+  },
+  {
+    "id": "bb-q-020",
+    "subjectId": "blood-banking",
+    "topicId": "rh-hemolytic",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A patient with a partial D phenotype may form anti-D because:",
+    "choices": [
+      { "id": "A", "text": "They lack some D epitopes and can be immunized by complete D antigen" },
+      { "id": "B", "text": "Their red cells produce anti-D constitutively" },
+      { "id": "C", "text": "Partial D means they have no D antigen at all" },
+      { "id": "D", "text": "Partial D individuals always type as D-negative by all methods" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "HARD",
+    "explanation": "Partial D red cells express some but not all D epitopes; patients can form antibody against the missing epitopes when exposed to complete D antigen (transfusion or pregnancy). This is why partial D is not automatically equated with ordinary D-positive in every clinical context.",
+    "rationales": {
+      "A": "Correct: missing D epitopes allow immunization against those epitopes despite expressing other D determinants.",
+      "B": "No phenotype constitutively produces anti-D; antibody formation requires exposure.",
+      "C": "Partial D expresses altered or reduced D epitopes, not an absence of the antigen system.",
+      "D": "Partial D cells often type as D-positive serologically; molecular methods resolve the variant."
+    },
+    "misconception": "Students treat partial D and weak D as the same thing: weak D is reduced antigen quantity, partial D is altered antigen quality (missing epitopes).",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., Rh blood group system chapter",
+    "lessonId": "blood-banking/rh-hdfn",
+    "examTraps": ["Weak D = fewer D sites; partial D = missing D epitopes. Only the latter is at clear risk of forming anti-D."]
+  },
+  {
+    "id": "bb-q-021",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Reagent red cells used for the antibody screen are typically selected to be homozygous for common clinically significant antigens because:",
+    "choices": [
+      { "id": "A", "text": "Homozygous cells give stronger reactions and allow more reliable rule-outs" },
+      { "id": "B", "text": "Homozygous cells are cheaper to produce" },
+      { "id": "C", "text": "Heterozygous cells cannot be stored in reagent kits" },
+      { "id": "D", "text": "Homozygous cells react only with IgM antibodies" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Dosage matters: antibodies react more strongly with cells carrying a double dose of antigen (homozygous), making true negatives clearer and rule-outs more dependable during antibody identification.",
+    "rationales": {
+      "A": "Correct: homozygous expression maximizes reaction strength (dosage) and improves rule-out reliability.",
+      "B": "Cost is not the reason; performance characteristics drive reagent cell selection.",
+      "C": "Heterozygous cells can be used but give weaker reactions and less reliable rule-outs.",
+      "D": "Reaction strength is not restricted to IgM; dosage affects IgG reactions at AHG as well."
+    },
+    "misconception": "Students think of reagent panels as arbitrary; homozygosity is a deliberate design for dosage sensitivity.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., antibody detection and identification chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Dosage: anti-Fya, anti-Jka, anti-Kell-related antibodies show weaker reactions with heterozygous cells."]
+  },
+  {
+    "id": "bb-q-022",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "SCENARIO",
+    "vignette": "A patient's antibody screen is positive at AHG phase. A 11-cell identification panel shows reactions with 5 cells and no reactions with 6 cells. All nonreacting cells are negative for the Duffy a antigen, and every reacting cell is Duffy a positive.",
+    "stem": "Using the rule-out (exclusion) principle, what is the next best interpretation?",
+    "choices": [
+      { "id": "A", "text": "Anti-Fya is a likely specificity; confirm with homozygous cells and antigen typing" },
+      { "id": "B", "text": "The panel is invalid because not all cells reacted" },
+      { "id": "C", "text": "Anti-K is the most likely antibody" },
+      { "id": "D", "text": "The patient must have a cold autoantibody" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "In the rule-out method, any antibody whose antigen is present on a nonreacting cell is excluded. If all nonreacting cells lack Fya and all reacting cells carry it, anti-Fya is implicated and is confirmed with dosage patterns and patient antigen typing.",
+    "rationales": {
+      "A": "Correct: the reaction pattern is fully explained by anti-Fya under the exclusion principle.",
+      "B": "A valid panel deliberately includes cells that lack various antigens; not every cell is expected to react.",
+      "C": "Anti-K would require the pattern to follow K antigen distribution, which is not described here.",
+      "D": "A cold autoantibody would typically react broadly, including the autocontrol, rather than follow a single antigen."
+    },
+    "misconception": "Students expect every panel cell to react with the patient's antibody; identification relies on which cells do not react.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., antibody identification chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Rule-outs use negative cells; the reacting pattern confirms the specificity, not the other way around."]
+  },
+  {
+    "id": "bb-q-023",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "The immediate-spin phase of the crossmatch primarily detects:",
+    "choices": [
+      { "id": "A", "text": "IgG antibodies causing delayed hemolytic reactions" },
+      { "id": "B", "text": "ABO incompatibility between donor red cells and recipient plasma" },
+      { "id": "C", "text": "Passively acquired anti-D from RhIg" },
+      { "id": "D", "text": "Factor deficiencies of the coagulation cascade" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Immediate spin detects the IgM isohemagglutinins responsible for acute ABO-incompatible hemolysis; the AHG phase is added to detect clinically significant IgG antibodies.",
+    "rationales": {
+      "A": "IgG antibodies are detected at the AHG phase after 37 degree incubation.",
+      "B": "Correct: immediate spin catches ABO incompatibility, the main preventable cause of acute hemolysis.",
+      "C": "Passive anti-D is detected by antibody screen and DAT workup, not by the crossmatch phase design.",
+      "D": "Coagulation factors are assessed by PT/aPTT, unrelated to crossmatch."
+    },
+    "misconception": "Students treat the crossmatch as one test; it is a set of phases, each targeting different antibodies.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., pretransfusion testing chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["A negative antibody screen with no history may permit an electronic or immediate-spin-only crossmatch per policy; the screen never replaces ABO confirmation."]
+  },
+  {
+    "id": "bb-q-024",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "SCENARIO",
+    "vignette": "Fifteen minutes into a packed red cell transfusion, a 62-year-old patient develops fever, rigors, flank pain, and dark urine. The transfusion is stopped. The pretransfusion sample showed group A, and the unit labeled group A.",
+    "stem": "Which laboratory investigation is most appropriate immediately after the clinical response?",
+    "choices": [
+      { "id": "A", "text": "Clerical check, DAT on the post-reaction specimen, visual inspection of plasma, and repeat ABO typing of patient and unit" },
+      { "id": "B", "text": "Repeat the antibody screen in one week" },
+      { "id": "C", "text": "Order only a CBC with differential" },
+      { "id": "D", "text": "Continue the transfusion at a slower rate to confirm the cause" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "This presentation suggests an acute hemolytic transfusion reaction, most often from ABO incompatibility due to clerical error. The workup combines clerical verification, DAT, hemolysis assessment (plasma/urine inspection, bilirubin, LDH, haptoglobin), and repeat typing of both patient and unit.",
+    "rationales": {
+      "A": "Correct: this is the standard immediate workup for suspected acute hemolytic transfusion reaction.",
+      "B": "Delayed repeat testing misses the acute emergency and its root cause.",
+      "C": "A CBC alone neither confirms hemolysis nor identifies incompatibility.",
+      "D": "Continuing the transfusion endangers the patient; the correct first step is to stop transfusion and investigate."
+    },
+    "misconception": "Students jump to antibody identification first; clerical checks and DAT/ABO confirmation come before panel work in a reaction.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., transfusion reactions chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Most fatal ABO-incompatible transfusions are clerical; bedside identity verification is part of prevention."]
+  },
+  {
+    "id": "bb-q-025",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Transfusion-related acute lung injury (TRALI) is classically characterized by:",
+    "choices": [
+      { "id": "A", "text": "Acute hypoxemia and bilateral pulmonary infiltrates within 6 hours of transfusion, without circulatory overload" },
+      { "id": "B", "text": "Isolated urticaria without respiratory symptoms" },
+      { "id": "C", "text": "Delayed anemia appearing two weeks after transfusion" },
+      { "id": "D", "text": "Hypertension and jugular venous distension from volume overload" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "TRALI presents within 6 hours with acute lung injury, bilateral infiltrates, and hypoxemia not explained by circulatory overload; it is associated with donor anti-HLA or anti-HNA antibodies and managed supportively.",
+    "rationales": {
+      "A": "Correct: this is the standard clinical definition of TRALI.",
+      "B": "Urticaria describes allergic reactions, which are usually mild and not pulmonary.",
+      "C": "Delayed anemia suggests delayed hemolytic reaction or underproduction, not TRALI.",
+      "D": "Hypertension with volume overload describes transfusion-associated circulatory overload (TACO), a different entity."
+    },
+    "misconception": "TRALI and TACO are confused; TACO is pressure/volume driven with hypertension, while TRALI is immune-mediated noncardiogenic edema.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., transfusion reactions chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["TRALI = noncardiogenic; TACO = cardiogenic/volume. Do not diurese TRALI as first instinct."]
+  },
+  {
+    "id": "bb-q-026",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "SCENARIO",
+    "vignette": "A patient develops fever and chills during a platelet transfusion but has no pain, no hemoglobinuria, a negative DAT, and normal post-reaction bilirubin and LDH. The unit was leukoreduced.",
+    "stem": "What is the most likely diagnosis and management implication?",
+    "choices": [
+      { "id": "A", "text": "Acute hemolytic transfusion reaction; switch to group O red cells" },
+      { "id": "B", "text": "Febrile nonhemolytic transfusion reaction; a diagnosis of exclusion with supportive care" },
+      { "id": "C", "text": "TRALI; begin diuretics" },
+      { "id": "D", "text": "Anaphylaxis; administer epinephrine and wash all future platelets" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Fever with rigors and no evidence of hemolysis (negative DAT, normal hemolysis markers) fits a febrile nonhemolytic transfusion reaction, thought to be cytokine mediated. It is a diagnosis of exclusion after hemolysis and bacterial contamination are ruled out.",
+    "rationales": {
+      "A": "No laboratory evidence of hemolysis argues strongly against an acute hemolytic reaction.",
+      "B": "Correct: febrile nonhemolytic reaction is diagnosed after excluding hemolysis and contamination, with symptomatic management.",
+      "C": "TRALI presents with respiratory failure and infiltrates, which are absent here.",
+      "D": "Anaphylaxis features bronchospasm, hypotension, and angioedema, not isolated fever."
+    },
+    "misconception": "Any fever during transfusion is labeled hemolytic; the absence of hemolysis markers redirects to a nonhemolytic cause.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., transfusion reactions chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Always exclude bacterial contamination in febrile reactions to platelet components; platelets are stored at room temperature."]
+  },
+  {
+    "id": "bb-q-027",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A patient with disseminated intravascular coagulation has active bleeding and a critically low fibrinogen level. Which component is most appropriate to replace fibrinogen?",
+    "choices": [
+      { "id": "A", "text": "Packed red cells" },
+      { "id": "B", "text": "Fresh frozen plasma only" },
+      { "id": "C", "text": "Cryoprecipitate" },
+      { "id": "D", "text": "Irradiated platelets" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Cryoprecipitate is the concentrated source of fibrinogen (with factor VIII, von Willebrand factor, and factor XIII) and is the component of choice for hypofibrinogenemia with bleeding.",
+    "rationales": {
+      "A": "Red cells restore oxygen-carrying capacity but contain no coagulation factors.",
+      "B": "Fresh frozen plasma contains fibrinogen but in lower concentration; cryoprecipitate is preferred for targeted fibrinogen replacement.",
+      "C": "Correct: cryoprecipitate is rich in fibrinogen and is standard for hypofibrinogenemia.",
+      "D": "Platelets address thrombocytopenia; they do not replace fibrinogen adequately."
+    },
+    "misconception": "Fresh frozen plasma is treated as an all-purpose factor replacer; when fibrinogen alone is the deficit, cryoprecipitate is the answer.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., blood components chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Component selection is indication-specific: anemia to red cells, factors to plasma, fibrinogen to cryoprecipitate, platelets to platelet concentrate."]
+  },
+  {
+    "id": "bb-q-028",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "SCENARIO",
+    "vignette": "A patient with known IgA deficiency and anti-IgA experiences severe hypotension and bronchospasm within minutes of starting a plasma-containing transfusion.",
+    "stem": "Which blood component modification best prevents recurrence?",
+    "choices": [
+      { "id": "A", "text": "Washed, volume-reduced red cells from an IgA-deficient donor if available" },
+      { "id": "B", "text": "Unwashed fresh frozen plasma" },
+      { "id": "C", "text": "Irradiated platelets without washing" },
+      { "id": "D", "text": "Whole blood at room temperature" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Severe anaphylactic reactions in IgA-deficient patients with anti-IgA are triggered by donor IgA in plasma. Washing removes residual plasma (and IgA); components from IgA-deficient donors are ideal where available.",
+    "rationales": {
+      "A": "Correct: washing removes plasma IgA and prevents the antigen-antibody trigger; IgA-deficient donor products are the safest.",
+      "B": "Fresh frozen plasma is rich in IgA and would trigger another reaction.",
+      "C": "Irradiation prevents TA-GVHD; it does not remove IgA.",
+      "D": "Whole blood contains abundant plasma IgA and is contraindicated."
+    },
+    "misconception": "Students confuse irradiation (for TA-GVHD) with washing (for plasma/IgA removal); each modification solves a different problem.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., blood components and transfusion reactions chapters",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Know the modification map: leukoreduction for febrile/HLA/CMV concerns, irradiation for TA-GVHD risk, washing for IgA deficiency or plasma sensitivity."]
+  },
+  {
+    "id": "bb-q-029",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "An electronic (computer) crossmatch is acceptable when the patient has:",
+    "choices": [
+      { "id": "A", "text": "A positive antibody screen and a history of anti-Jka" },
+      { "id": "B", "text": "A negative antibody screen and no history of unexpected antibodies" },
+      { "id": "C", "text": "A previous positive DAT" },
+      { "id": "D", "text": "An unresolved ABO discrepancy" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Electronic crossmatching relies on validated ABO compatibility logic and requires a negative antibody screen and no record of clinically significant antibodies; any antibody history or positive screen mandates serologic crossmatching with antigen-negative units.",
+    "rationales": {
+      "A": "A positive screen and antibody history require full identification and serologic AHG crossmatch.",
+      "B": "Correct: negative screen and clean history are the eligibility criteria for electronic issue.",
+      "C": "A previous positive DAT warrants investigation and usually precludes electronic issue.",
+      "D": "Unresolved ABO discrepancies must be resolved before any blood is issued, electronically or otherwise."
+    },
+    "misconception": "Electronic crossmatch is seen as a shortcut for all patients; it is a tightly controlled exception with explicit eligibility rules.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., pretransfusion testing chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Electronic crossmatch validates ABO compatibility only; it never screens for unexpected antibodies."]
+  },
+  {
+    "id": "bb-q-030",
+    "subjectId": "blood-banking",
+    "topicId": "transfusion-practice",
+    "type": "SCENARIO",
+    "vignette": "A 55-year-old patient received red cells 10 days ago and now presents with falling hemoglobin and mild jaundice. The DAT is positive with anti-IgG, and the antibody screen now identifies anti-Jka that was not detected pretransfusion.",
+    "stem": "What is the most likely diagnosis?",
+    "choices": [
+      { "id": "A", "text": "Acute hemolytic transfusion reaction from ABO incompatibility" },
+      { "id": "B", "text": "Delayed hemolytic transfusion reaction from an anamnestic anti-Jka response" },
+      { "id": "C", "text": "Febrile nonhemolytic transfusion reaction" },
+      { "id": "D", "text": "Iron deficiency from the previous transfusion" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Delayed hemolytic transfusion reactions occur days to weeks post-transfusion when a previously immunized patient mounts an anamnestic response (Kidd, Rh, and Kell antibodies are classic). The DAT is typically positive and the antibody becomes detectable as titers rise.",
+    "rationales": {
+      "A": "Acute reactions occur during or within hours and involve ABO incompatibility; the 10-day timeline and anti-Jka do not fit.",
+      "B": "Correct: timing, falling hemoglobin, positive DAT, and newly detected anti-Jka are classic for a delayed hemolytic reaction.",
+      "C": "Febrile nonhemolytic reactions occur during transfusion and do not cause hemolysis or a positive DAT.",
+      "D": "Transfusion raises rather than lowers iron stores; iron deficiency does not explain a positive DAT."
+    },
+    "misconception": "Students assume all hemolytic reactions are immediate; delayed reactions are extravascular, subtler, and often missed without serology.",
+    "reference": "Harmening's Blood Banking and Transfusion Fundamentals, 6th ed., transfusion reactions chapter",
+    "lessonId": "blood-banking/transfusion-practice",
+    "examTraps": ["Once an antibody like anti-Jka is identified, the patient must receive antigen-negative blood for life; record it permanently."]
+  }
+]

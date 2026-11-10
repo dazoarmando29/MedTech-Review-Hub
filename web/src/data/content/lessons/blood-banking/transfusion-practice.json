@@ -1,0 +1,114 @@
+{
+  "id": "blood-banking/transfusion-practice",
+  "subjectId": "blood-banking",
+  "topicId": "transfusion-practice",
+  "title": "Pretransfusion Testing, Blood Components, and Transfusion Reactions",
+  "summary": "This lesson covers the pretransfusion workup: antibody screen, antibody identification panels, and compatibility testing (crossmatch), followed by the major blood components and their indications, and the recognition and laboratory investigation of acute and delayed transfusion reactions.",
+  "readingMinutes": 16,
+  "difficulty": "ADVANCED",
+  "keywords": ["antibody screen", "antibody identification", "crossmatch", "AHG", "transfusion reaction", "blood components", "TRALI", "antibody panel"],
+  "objectives": [
+    "Describe how an antibody screen and identification panel detect and identify unexpected red cell alloantibodies.",
+    "Explain the phases of the crossmatch and when an immediate-spin-only or electronic crossmatch is acceptable.",
+    "Match blood components (packed red cells, platelets, plasma, cryoprecipitate) to clinical indications.",
+    "Classify transfusion reactions and outline the laboratory workup of a suspected acute hemolytic reaction."
+  ],
+  "quickReview": {
+    "highYield": [
+      "The antibody screen uses reagent red cells homozygous for common antigens; a positive screen mandates full antibody identification before compatible blood is issued.",
+      "Antibody identification uses the exclusion (rule-out) principle: antibodies are ruled out when the corresponding antigen is present on all cells that did not react.",
+      "The major crossmatch detects ABO incompatibility between donor red cells and recipient plasma; AHG-phase testing detects clinically significant IgG antibodies.",
+      "Acute hemolytic transfusion reactions are most often caused by ABO-incompatible red cells, usually from clerical error; workup includes clerical check, DAT, visual plasma inspection, and repeat ABO typing.",
+      "Packed red cells raise oxygen-carrying capacity; platelets treat thrombocytopenia or dysfunction; plasma replaces coagulation factors; cryoprecipitate concentrates fibrinogen, factor VIII, vWF, and factor XIII."
+    ],
+    "mustKnowTable": {
+      "columns": ["Component", "Main content", "Typical indication", "Key caveat"],
+      "rows": [
+        ["Packed red cells", "Erythrocytes", "Symptomatic anemia or active bleeding", "Must be ABO (and Rh) compatible; crossmatch required"],
+        ["Platelets", "Platelets", "Thrombocytopenia or platelet dysfunction", "ABO-compatible preferred; watch for refractoriness and bacterial contamination"],
+        ["Fresh frozen plasma", "Coagulation factors", "Multiple factor deficiency with bleeding or procedure", "ABO compatible; thawed product has limited stability"],
+        ["Cryoprecipitate", "Fibrinogen, FVIII, vWF, FXIII", "Hypofibrinogenemia (e.g., DIC, obstetric bleeding)", "Dose and pooling per local protocol"]
+      ]
+    },
+    "mnemonic": "Screen FIRST, identify SECOND, crossmatch THIRD — you cannot crossmatch your way out of an unidentified antibody."
+  },
+  "deepStudy": {
+    "introduction": "Pretransfusion testing answers one question: which unit will be safe for this patient right now? The workflow is hierarchical. A patient specimen is ABO/Rh typed and tested with an antibody screen. If the screen is negative and there is no history of unexpected antibodies, a serologic or electronic crossmatch confirms ABO compatibility and the unit is issued. If the screen is positive, the antibody must be identified, the patient's antigen profile determined, and antigen-negative units selected and crossmatched. Alongside compatibility, the laboratory must choose the right component for the clinical problem and remain ready to investigate any suspected transfusion reaction, because the most serious reactions are time-critical emergencies.",
+    "sections": [
+      {
+        "heading": "Antibody screen and antibody identification",
+        "body": "The antibody screen tests patient plasma against two or three reagent red cells selected to be homozygous for the clinically significant antigens most commonly encountered (for example D, C, c, E, e, K, k, Fya, Fyb, Jka, Jkb, S, s, and others). Homozygous cells give stronger dosage reactions and make rule-outs more reliable. Testing is performed at the antihuman globulin phase after incubation at 37 degrees Celsius with an enhancement medium such as low ionic strength saline or polyethylene glycol; room-temperature reactions are also read to detect cold-reacting antibodies of uncertain significance. A positive screen triggers full antibody identification using a panel of 10 to 16 reagent cells with known antigen typings. The laboratory applies the rule-out method: any antibody whose antigen is present on a nonreacting cell is excluded. The remaining antibodies are evaluated with dosage patterns, enzyme-treated cells (enzymes enhance Rh, Kell is destroyed by enzymes), and chemically modified cells. When two or more antibodies are present, adsorption and elution studies may be needed. Clinically significant antibodies (mostly IgG reactive at AHG) require antigen-negative blood for the patient's entire transfusion history, and the antibody is recorded permanently in the patient record. Cold-reacting IgM antibodies that react only at room temperature are often considered clinically insignificant, but high-titer cold agglutinins or those that react at 37 degrees Celsius demand attention.",
+        "diagram": null
+      },
+      {
+        "heading": "The crossmatch and the minimum required database",
+        "body": "The crossmatch tests donor red cells against recipient plasma at multiple phases: immediate spin detects ABO incompatibility (and clinically significant cold antibodies), while the AHG phase detects IgG antibodies that could cause delayed or acute reactions. If the antibody screen is negative and the patient has no record of unexpected antibodies, many transfusion services accept an immediate-spin-only crossmatch or even an electronic (computer) crossmatch, in which validated software confirms ABO compatibility without a serologic crossmatch; these approaches require strict quality systems and are not used for patients with a positive screen or antibody history. When unexpected antibodies are present, the crossmatch must be performed at AHG and only antigen-negative units are tested. The minimum required database for a patient with a history of antibodies includes the ABO/Rh type, the identified antibody or antibodies, and antigen typing of the patient (or genotyping) to rule out additional underlying antibodies. Specimen labeling rules are strict: the specimen must be positively identified and drawn at the bedside, because mislabeling is the leading root cause of ABO-incompatible transfusion. Pretransfusion testing validity windows (commonly 72 hours for type and screen in actively transfused or pregnant patients) are set by local policy.",
+        "diagram": null
+      },
+      {
+        "heading": "Blood components and their indications",
+        "body": "Modern transfusion therapy uses components rather than whole blood. Packed red cells restore oxygen-carrying capacity; transfusion thresholds are clinical, and restrictive strategies (transfusing at lower hemoglobin triggers in stable patients) are supported by trial evidence, with decisions individualized for active bleeding and cardiopulmonary disease. Platelet concentrates come from apheresis collections or pooled from random donors; they are given for thrombocytopenic bleeding or prophylaxis below procedure-dependent thresholds, and refractoriness may be immune (HLA/HPA antibodies) or nonimmune (sepsis, splenomegaly, fever). Fresh frozen plasma provides all coagulation factors and is used for multiple factor deficiencies with bleeding or before invasive procedures; it must be ABO compatible and is not a volume expander. Cryoprecipitate is rich in fibrinogen, factor VIII, von Willebrand factor, and factor XIII, and is used for hypofibrinogenemia, including disseminated intravascular coagulation and obstetric hemorrhage. Modifications improve safety: leukoreduction reduces febrile reactions, HLA alloimmunization, and cytomegalovirus transmission; irradiation prevents transfusion-associated graft-versus-host disease in at-risk recipients; washing removes plasma for IgA-deficient patients with anti-IgA; and pathogen reduction technologies are applied to some platelet and plasma products. Each component has storage requirements and outdate limits defined by regulatory standards and local policy.",
+        "diagram": null
+      },
+      {
+        "heading": "Transfusion reactions: recognition and workup",
+        "body": "Transfusion reactions are classified as acute (during or within hours) or delayed (days to weeks later). Acute hemolytic transfusion reactions are medical emergencies, most often due to ABO-incompatible red cells from clerical or bedside identification errors: fever, rigors, flank pain, hemoglobinemia, hemoglobinuria, disseminated intravascular coagulation, and renal failure may follow. The workup stops the transfusion immediately and includes: clerical check of all records and labels, visual inspection of plasma and urine for hemolysis, DAT on the post-reaction specimen, repeat ABO typing of patient and unit, and antibody screen and identification. Febrile nonhemolytic reactions present with fever and rigors without hemolysis, caused by cytokines accumulated in stored components or recipient antibodies against donor leukocytes; leukoreduction and premedication reduce their frequency. Allergic reactions range from urticaria to anaphylaxis; severe anaphylaxis suggests IgA deficiency with anti-IgA, and washed components are indicated. Transfusion-associated circulatory overload (TACO) presents with dyspnea, hypertension, and pulmonary edema, treated with diuresis and slower infusion. Transfusion-related acute lung injury (TRALI) presents within 6 hours with acute hypoxemia and bilateral pulmonary infiltrates without circulatory overload, thought to be mediated by donor anti-HLA or anti-HNA antibodies; management is supportive. Bacterial contamination, particularly of platelets stored at room temperature, causes fever, shock, and hemolysis; cultures of the bag and patient are essential. Delayed hemolytic reactions occur days to weeks later as an anamnestic response to a previously immunized antigen (often Kidd or Rh antibodies), with falling hemoglobin, positive DAT, and newly detectable antibody.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Every unit issued carries residual risk that compatibility testing cannot fully eliminate. The laboratory reduces risk through disciplined specimen labeling, rigorous antibody identification, antigen-matched blood for patients with clinically significant antibodies, and rapid reaction investigation. Choosing the right component also matters: plasma does not raise hemoglobin, red cells do not correct coagulopathy, and inappropriate component use exposes patients to risk without benefit.",
+    "labInterpretation": "Report antibody screens as negative or positive with the identified specificity and titer if relevant; record alloantibodies permanently. Interpret DAT results in the context of the clinical picture: a positive DAT after a transfusion supports antibody coating but must be correlated with hemolysis markers. Reaction workups should include the unit segment recheck, direct antiglobulin testing, and visual inspection, and results should be trended. Antigen typing of patients with antibodies (serologic or molecular) guides lifelong antigen-negative selection. All interpretations must follow local blood bank procedures and regulatory requirements.",
+    "comparisonTables": [
+      {
+        "title": "Acute vs delayed hemolytic transfusion reactions",
+        "columns": ["Feature", "Acute hemolytic (AHTR)", "Delayed hemolytic (DHTR)"],
+        "rows": [
+          ["Timing", "During or within hours of transfusion", "Days to weeks after transfusion"],
+          ["Usual cause", "ABO incompatibility (clerical error)", "Anamnestic response to prior antigen (e.g., Kidd, Rh)"],
+          ["Hemolysis", "Mainly intravascular", "Mainly extravascular"],
+          ["DAT", "Usually positive", "Often positive (may weaken)"],
+          ["Presentation", "Fever, pain, hemoglobinuria, DIC, renal failure", "Falling hemoglobin, jaundice, mild symptoms"]
+        ]
+      },
+      {
+        "title": "Component quick guide",
+        "columns": ["Need", "Component of choice"],
+        "rows": [
+          ["Increase oxygen-carrying capacity", "Packed red cells"],
+          ["Correct thrombocytopenic bleeding", "Platelet concentrate"],
+          ["Replace multiple coagulation factors", "Fresh frozen plasma"],
+          ["Replace fibrinogen specifically", "Cryoprecipitate"],
+          ["Prevent TA-GVHD in at-risk patient", "Irradiated components"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A negative antibody screen does not eliminate the need for an ABO-confirmed crossmatch; the crossmatch still catches ABO errors.",
+      "Febrile nonhemolytic reactions are diagnoses of exclusion — hemolysis must be ruled out before attributing fever to cytokines.",
+      "Plasma is ABO compatible but not a volume expander, and platelet ABO compatibility matters too: out-of-group platelets can lower post-transfusion increments and may contain isohemagglutinins."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "For reaction workup: STOP the transfusion, CHECK the clerical record, LOOK at plasma, DAT the patient, REPEAT the type.",
+      "funny": "Reaction checklist: itigil, i-check, tingnan, i-DAT, ulitin. Parang ex mo — kung may reaction, i-stop agad, huwag ipagpatuloy 'just to see'."
+    },
+    {
+      "type": "VISUAL",
+      "text": "Panel of reagent cells = police lineup; the antibody is the suspect who only reacts with victims carrying its antigen.",
+      "funny": "Antibody ID = police lineup. Kung walang reaction sa cell na may antigen, 'di siya yun — rule out, move on, next suspect!"
+    }
+  ],
+  "practiceQuestionIds": ["bb-q-021", "bb-q-022", "bb-q-023"],
+  "relatedFlashcardIds": ["bb-fc-021", "bb-fc-022", "bb-fc-023"],
+  "followUp": ["blood-banking/abo-basics", "blood-banking/rh-hdfn"],
+  "references": [
+    { "title": "Harmening's Blood Banking and Transfusion Fundamentals", "detail": "6th ed., chapters on pretransfusion testing, blood components, and transfusion reactions", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., transfusion medicine section", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}

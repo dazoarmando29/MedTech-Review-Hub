@@ -1,0 +1,114 @@
+{
+  "id": "clinical-chemistry/renal-electrolytes",
+  "subjectId": "clinical-chemistry",
+  "topicId": "kidney-electrolytes",
+  "title": "Renal Function Tests and Electrolytes: BUN, Creatinine, eGFR, Na, K, Cl, CO2, and the Anion Gap",
+  "summary": "How the laboratory tracks kidney function (urea, creatinine, estimated GFR, cystatin C) and interprets the routine electrolyte panel, including the tricks of pseudohyponatremia and pseudohyperkalemia and the diagnostic power of the anion gap in acid-base disorders.",
+  "readingMinutes": 15,
+  "difficulty": "INTERMEDIATE",
+  "keywords": ["BUN", "creatinine", "eGFR", "CKD-EPI", "sodium", "potassium", "anion gap", "pseudohyponatremia", "pseudohyperkalemia"],
+  "objectives": [
+    "Compare urea and creatinine as markers of glomerular filtration and list factors that alter each independent of GFR.",
+    "Describe how eGFR equations (CKD-EPI) are used and their limitations.",
+    "Explain the mechanisms of pseudohyponatremia and pseudohyperkalemia and how to avoid analytical errors.",
+    "Calculate the anion gap and use it to classify metabolic acidosis into high-gap and normal-gap forms."
+  ],
+  "quickReview": {
+    "highYield": [
+      "Creatinine is produced from muscle creatine at a fairly constant rate and reflects glomerular filtration; it rises late and is influenced by muscle mass, diet, and assay method.",
+      "BUN (urea) is influenced by protein intake, hydration, catabolism, gastrointestinal bleeding, corticosteroids, and hepatic urea synthesis — it is not a pure filtration marker.",
+      "The BUN-to-creatinine ratio (mass units) is often elevated in prerenal states, but the ratio must be interpreted with the local reference interval and clinical context.",
+      "Pseudohyponatremia occurs with severe hyperlipidemia or hyperproteinemia in indirect ion-selective electrode methods; pseudohyperkalemia is usually caused by hemolyzed specimens or delayed plasma separation.",
+      "Anion gap = Na - (Cl + HCO3); a high-gap metabolic acidosis points to accumulation of unmeasured anions (ketoacids, lactate, uremic toxins, certain toxins)."
+    ],
+    "mustKnowTable": {
+      "columns": ["Test", "Reflects", "Key interferents / caveats"],
+      "rows": [
+        ["Urea (BUN)", "Renal excretion plus hepatic production and protein load", "Diet, catabolism, GI bleed, steroids, liver disease"],
+        ["Creatinine", "Glomerular filtration (steady-state production)", "Muscle mass, diet (cooked meat), Jaffe vs enzymatic method"],
+        ["eGFR (CKD-EPI)", "Estimated filtration rate from creatinine, age, sex", "Validated limitations in extremes of muscle mass; equations evolve"],
+        ["Sodium", "Effective osmolality (water balance)", "Pseudohyponatremia (lipids/proteins); hyperglycemia translocation"],
+        ["Potassium", "Membrane potential; renal handling", "Hemolysis, delayed separation, fist clenching, acid-base shifts"],
+        ["Anion gap", "Unmeasured anions minus unmeasured cations", "Depends on local reference interval and whether potassium is included"]
+      ]
+    },
+    "mnemonic": "For high anion gap acidosis: MUDPILES (Methanol, Uremia, Diabetic ketoacidosis, Propylene glycol, Isoniazid/Iron, Lactic acidosis, Ethylene glycol, Salicylates)."
+  },
+  "deepStudy": {
+    "introduction": "Two of the most frequently ordered tests in medicine are the basic metabolic panel and the renal function panel, and most of the diagnostic information comes from relationships between analytes rather than single values. Kidney function is estimated from filtration markers (urea, creatinine, cystatin C and eGFR equations), while electrolytes reveal water balance, potassium homeostasis, and acid-base status. The classic safety themes of this topic are analytical: a sodium that is falsely low because of lipids, and a potassium that is falsely high because of a traumatic draw. Mastering these preanalytical traps, plus the anion gap, turns a routine panel into a diagnostic engine.",
+    "sections": [
+      {
+        "heading": "Urea, creatinine, and estimated GFR",
+        "body": "Urea (measured as blood urea nitrogen, BUN, in some reporting systems) is synthesized by the liver and excreted by the kidney; it is reabsorbed in the tubules when flow is low, so it rises in prerenal states (dehydration, heart failure, gastrointestinal bleeding with protein digestion) and falls in advanced liver disease and low-protein states. Creatinine comes from the nonenzymatic breakdown of muscle creatine at a relatively constant rate and is filtered freely with some tubular secretion; it is a better filtration marker than urea but is not perfect: it lags behind real changes in GFR, is lower in patients with low muscle mass (masking renal impairment), and is affected by diet (cooked meat, supplements) and by assay chemistry (Jaffe methods can be biased by interfering chromogens; enzymatic and IDMS-traceable methods improve accuracy). Because single creatinine values poorly represent filtration across body types, laboratories report eGFR from equations such as CKD-EPI (using creatinine, age, and sex; modern versions are race-free). eGFR is an estimate validated in populations with limitations at extremes of muscle mass, in pregnancy, and in rapidly changing function; cystatin C provides an alternative less dependent on muscle mass. In acute kidney injury, trends and urine output matter more than any one value.",
+        "diagram": null
+      },
+      {
+        "heading": "Sodium and water balance: real and pseudo-hyponatremia",
+        "body": "Sodium concentration reflects water balance more than total body sodium. True hyponatremia is usually hypotonic and results from impaired free water excretion (SIADH, heart failure, cirrhosis, adrenal insufficiency, thiazides) or from hypotonic fluid intake. Two analytical mimics must be excluded. Pseudohyponatremia occurs when the plasma water fraction is displaced by extreme hyperlipidemia or hyperproteinemia (for example paraproteins); direct ion-selective electrode methods measure sodium in the whole specimen and are less affected, while indirect (indirectly diluted) ISE methods can report spuriously low sodium; measurement of serum osmolality and, if needed, direct ISE or osmolality-based approaches resolves the question. Translocational hyponatremia occurs with hyperglycemia, where glucose draws water from cells and dilutes measured sodium; a correction factor (commonly a sodium fall of roughly 1.6 to 2.4 mmol/L per 100 mg/dL glucose rise, method and guideline dependent) is applied. Pseudohypernatremia is rare and mostly historical. The correct sequence is: confirm with osmolality, assess tonicity, then classify by volume status and urine studies. Reference intervals for electrolytes vary slightly by method and population; verify locally.",
+        "diagram": null
+      },
+      {
+        "heading": "Potassium: the hemolysis trap and transcellular shifts",
+        "body": "Potassium is the classic preanalytical problem in clinical chemistry. Red cells contain far more potassium than plasma, so hemolysis during collection (small needles, fist clenching, difficult draws, prolonged tourniquet use), delayed separation of plasma from cells, and marked thrombocytosis or extreme leukocytosis can all raise measured potassium without raising the patient's true potassium (pseudohyperkalemia). True hyperkalemia arises from reduced renal excretion (acute or chronic kidney disease, aldosterone deficiency, potassium-sparing drugs), transcellular shifts (acidosis, insulin deficiency, hyperosmolality, beta-blockers, digitalis toxicity), or massive intake/release (rhabdomyolysis, tumor lysis, hemolysis in vivo). Hypokalemia reflects losses (vomiting, diarrhea, diuretics, renal tubular acidosis), transcellular shifts (insulin, alkalosis, beta-agonists), or poor intake. Laboratory confirmation of unexpected results includes checking the specimen index for hemolysis and repeating the test on a cleanly collected sample; some laboratories report the hemolysis index alongside results. Electrocardiographic changes guide emergency management of severe dyskalemia, but the number itself must first be real.",
+        "diagram": null
+      },
+      {
+        "heading": "Chloride, CO2, and the anion gap",
+        "body": "Chloride and total CO2 (bicarbonate) complete the acid-base picture. In metabolic acidosis, the anion gap distinguishes two families of causes. The anion gap is calculated as sodium minus the sum of chloride and bicarbonate (some laboratories include potassium; the reference interval is method-specific, commonly reported in the single digits to low teens in mass units, and must be taken from the performing laboratory). A high-gap acidosis means unmeasured anions are present: the classic mnemonic is MUDPILES (methanol, uremia, diabetic ketoacidosis, propylene glycol, isoniazid or iron, lactic acidosis, ethylene glycol, salicylates), with ketones, lactate, and uremic toxins as everyday causes. A normal-gap (hyperchloremic) acidosis follows bicarbonate loss (diarrhea, renal tubular acidosis, saline resuscitation). The delta gap (change in anion gap versus change in bicarbonate) helps detect mixed disorders. Respiratory compensation is predicted by Winter's formula (expected PaCO2 roughly 1.5 times bicarbonate plus 8, plus or minus a small range; formula variants exist). Electrolyte panels are strongly affected by specimen handling and by fluid administration; interpret values as trends with clinical correlation and local reference intervals.",
+        "diagram": null
+      }
+    ],
+    "clinicalSignificance": "Renal function determines drug dosing and contrast risk; electrolyte derangements cause arrhythmias and seizures; and the anion gap is the fastest route from a routine panel to a serious diagnosis such as ketoacidosis, sepsis-associated lactic acidosis, or toxic alcohol ingestion. Recognizing pseudo-results prevents treating the tube instead of the patient: correcting a false potassium prevents dangerous therapy, while missing a true one endangers the heart.",
+    "labInterpretation": "Report electrolytes with local reference intervals and units, and flag hemolyzed, lipemic, or icteric specimens where relevant. Interpret sodium with osmolality when values are unexpected; interpret potassium with the hemolysis index and clinical picture; interpret eGFR as an estimate with stated limitations. When reporting critical values (severe hyperkalemia, severe hyponatremia), follow local critical-result notification policy. Reference intervals vary by laboratory, method, age, sex, and population — always verify against your local laboratory.",
+    "comparisonTables": [
+      {
+        "title": "Prerenal vs intrinsic renal azotemia (classic teaching)",
+        "columns": ["Feature", "Prerenal", "Intrinsic renal"],
+        "rows": [
+          ["BUN:creatinine ratio (mass units)", "Often elevated (classically above 20:1)", "Often lower (classically 10:1 to 15:1)"],
+          ["Urine sodium", "Low (typically below 20 mmol/L)", "Higher (typically above 20 mmol/L)"],
+          ["Urine osmolality", "Concentrated", "Dilute or fixed"],
+          ["Response to fluids", "Function improves", "No immediate improvement"]
+        ]
+      },
+      {
+        "title": "High-gap vs normal-gap metabolic acidosis",
+        "columns": ["Type", "Mechanism", "Examples"],
+        "rows": [
+          ["High anion gap", "Unmeasured anions accumulate", "Ketoacidosis, lactic acidosis, uremia, toxic alcohols, salicylates"],
+          ["Normal gap (hyperchloremic)", "Bicarbonate loss with chloride retention", "Diarrhea, renal tubular acidosis, saline infusion"],
+          ["Pseudohyponatremia", "Displaced plasma water (lipids/proteins)", "Severe hyperlipidemia, paraproteinemia"],
+          ["Pseudohyperkalemia", "In vitro potassium release", "Hemolysis, delayed separation, marked thrombocytosis"]
+        ]
+      }
+    ],
+    "examTraps": [
+      "A low sodium in a lipemic specimen may be an indirect-ISE artifact: check osmolality before treating; a high potassium in a hemolyzed tube may be entirely artifactual.",
+      "BUN is not a pure kidney test — liver disease can lower it and gastrointestinal bleeding can raise it, independent of filtration.",
+      "The anion gap reference interval depends on the local method and on whether potassium is included in the formula; always use the performing laboratory's own reference interval."
+    ],
+    "workedExample": null
+  },
+  "memoryHooks": [
+    {
+      "type": "MNEMONIC",
+      "text": "Anion gap acidosis causes: MUDPILES — Methanol, Uremia, Diabetic ketoacidosis, Propylene glycol, Isoniazid/Iron, Lactic acidosis, Ethylene glycol, Salicylates.",
+      "funny": "MUDPILES: parang bundok ng gamot at lason. Pag tumaas ang gap, mag-hanap ng hidden anion — wag lang maghanap ng hidden na jowa, iba yun."
+    },
+    {
+      "type": "VISUAL",
+      "text": "Hemolyzed tube = red flag with a red top: potassium walks out of the broken red cells and ruins your day.",
+      "funny": "Hemolyzed specimen: ang RBC ay 'bumigay' at nagkalat ang potassium sa tube. Repeat extraction, baka ikaw rin bumigay sa exam kung di mo maalala."
+    }
+  ],
+  "practiceQuestionIds": ["cc-q-011", "cc-q-012", "cc-q-013"],
+  "relatedFlashcardIds": ["cc-fc-021", "cc-fc-022", "cc-fc-023"],
+  "followUp": ["clinical-chemistry/endocrine-glucose", "clinical-chemistry/cardiac-enzymes"],
+  "references": [
+    { "title": "Tietz Textbook of Clinical Chemistry and Molecular Diagnostics", "detail": "7th ed., chapters on renal function, electrolytes, and acid-base balance", "url": null },
+    { "title": "Henry's Clinical Diagnosis and Management by Laboratory Methods", "detail": "24th ed., chapters on electrolytes and kidney disease assessment", "url": null }
+  ],
+  "editorialStatus": "PUBLISHED",
+  "reviewedAt": "2026-01-15",
+  "reviewerNote": "Medical accuracy self-checked against listed textbook references; verify against local laboratory procedures before clinical use."
+}
