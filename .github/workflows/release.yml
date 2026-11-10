@@ -100,11 +100,12 @@ jobs:
       - name: Create GitHub Release with artifacts
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_BODY: ${{ steps.notes.outputs.body }}
         run: |
           cd ..
           gh release create "$GITHUB_REF_NAME" \
-            --title "MedTech Review Hub $GITHUB_REF_NAME" \
-            --notes "${{ steps.notes.outputs.body }}" \
+            --title "MedTech Study Companion $GITHUB_REF_NAME" \
+            --notes "$RELEASE_BODY" \
             --verify-tag \
             android/dist/* \
             --latest
