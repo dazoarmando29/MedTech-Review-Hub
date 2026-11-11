@@ -1,7 +1,7 @@
 // Helpers for whole-document AI generation: page text collection is done by the
 // caller (needs the live pdf.js handle); chunking is pure and unit-tested.
 
-export function chunkText(text: string, maxChars = 5500): string[] {
+export function chunkText(text: string, maxChars = 7500): string[] {
   const clean = text.replace(/\s+/g, ' ').trim();
   if (!clean) return [];
   // Split at sentence boundaries without regex lookbehind (older iPad Safari
@@ -43,4 +43,4 @@ export function stripFrontMatter(text: string): string {
     .trim();
 }
 
-export const MAX_AI_PARTS = 8; // bound cost/latency for whole-document jobs
+export const MAX_AI_PARTS = 10; // bound cost/latency for whole-document jobs

@@ -6,7 +6,7 @@
 // to pick up the fresh build; real render errors get a friendly recovery card.
 import React from 'react';
 
-const RECOVERABLE = /loading chunk|failed to fetch dynamically imported|dynamically imported module|importing a module script|error loading dynamically imported/i;
+const RECOVERABLE = /loading chunk|chunkloaderror|failed to fetch|dynamically imported|dynamically imported module|importing a module script|error loading dynamically imported|loading css chunk|networkerror|failed to fetch dynamically/i;
 
 interface State {
   error: Error | null;
@@ -21,15 +21,17 @@ export class ErrorBoundary extends React.Component<{ children: React.ReactNode }
 
   componentDidCatch(error: Error): void {
     if (typeof window === 'undefined') return;
-    const isChunkError = RECOVERABLE.test(error.message);
+    const looksLikeCacheIssue =
+      RECOVERABLE.test(error.message) || /undefined is not a function|cannot read propert/i.test(error.message);
     const alreadyReloaded = window.sessionStorage.getItem('mtrh-recovered') === '1';
-    if (isChunkError && !alreadyReloaded) {
+    // Self-heal once per session from any failure — a stale cached bundle after
+    // a deploy is by far the most common cause, and one reload fixes it.
+    if (!alreadyReloaded) {
       window.sessionStorage.setItem('mtrh-recovered', '1');
       window.location.reload();
       return;
     }
-    if (!isChunkError) {
-      // keep a breadcrumb for debugging; never crash the study session
+    if (!looksLikeCacheIssue) {
       console.warn('[Study Companion] recovered from an error:', error.message);
     }
   }
@@ -46,6 +48,9 @@ export class ErrorBoundary extends React.Component<{ children: React.ReactNode }
           <button className="btn-primary mt-4" onClick={() => window.location.reload()}>
             Reload the page
           </button>
+          <p className="text-[10px] mt-3" style={{ color: 'var(--muted)' }}>
+            {String(this.state.error.message || '').slice(0, 160)}
+          </p>
         </div>
       );
     }
