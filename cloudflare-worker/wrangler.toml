@@ -10,6 +10,7 @@ compatibility_date = "2026-11-01"
 GEMINI_MODEL = "gemini-3.5-flash"
 AUTH_PBKDF2_ITERATIONS = "100000"
 AI_DAILY_TOKEN_BUDGET = "20000"
+AI_DAILY_TOKEN_BUDGET_ANON = "20000"
 # Comma-separated allowed origins; "*" allows any origin (development).
 ALLOWED_ORIGINS = "*"
 

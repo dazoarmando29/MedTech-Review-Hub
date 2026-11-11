@@ -32,10 +32,26 @@ function corsHeaders(env: Env, request: Request): Record<string, string> {
   return {
     'Access-Control-Allow-Origin': allow,
     'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+    'Access-Control-Allow-Headers': 'Content-Type,Authorization,X-Device-Id',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin',
   };
+}
+
+/** Identity for AI budgets: signed-in user id, or a stable per-device id. */
+async function aiIdentity(env: Env, request: Request): Promise<string> {
+  const header = request.headers.get('Authorization') ?? '';
+  if (header.startsWith('Bearer ')) {
+    try {
+      const claims = await verifyAccessToken(env.JWT_SECRET ?? '', header.slice(7));
+      return claims.sub;
+    } catch {
+      /* fall through to device identity */
+    }
+  }
+  const deviceId = request.headers.get('X-Device-Id')?.trim();
+  if (deviceId && /^[\w-]{8,64}$/.test(deviceId)) return `device:${deviceId}`;
+  return `device:${request.headers.get('CF-ConnectingIP') ?? 'anon'}`;
 }
 
 async function requireAuth(env: Env, request: Request): Promise<study.UserRow & { claims: { sub: string; role: string } }> {
@@ -171,6 +187,19 @@ export default {
         if (res) return withCors(res, cors);
       }
 
+      // --- AI tools: NO account required (personal study app) ---
+      // Identity = signed-in user when a valid token is present, otherwise a
+      // stable per-device id (X-Device-Id header) used for rate limits and the
+      // daily AI budget. This keeps AI permanently available on her devices.
+      if (path.startsWith('/ai/') && method === 'POST') {
+        const identity = await aiIdentity(env, request);
+        rateLimit(`${identity}:ai`, 20);
+        const tool = path.slice('/ai/'.length) as Parameters<typeof runAiTool>[2];
+        const valid = ['summarize', 'explain', 'flashcards', 'quiz', 'keyterms', 'outline', 'diary-summary'];
+        if (!valid.includes(tool)) throw new HttpError(404, 'NOT_FOUND', `Unknown AI tool: ${tool}`);
+        return withCors(await runAiTool(env, identity, tool, await readJson(request)), cors);
+      }
+
       // --- authenticated ---
       const user = await requireAuth(env, request);
       rateLimit(`${user.id}:general`, 240);
@@ -232,14 +261,6 @@ export default {
         if (pdfMatch[2] && method === 'GET') return withCors(await study.getAnnotations(env, user.id, id), cors);
         if (pdfMatch[2] && method === 'PUT') return withCors(await study.putAnnotations(env, user.id, id, request), cors);
         if (!pdfMatch[2] && method === 'DELETE') return withCors(await study.deletePdf(env, user.id, id), cors);
-      }
-
-      if (path.startsWith('/ai/') && method === 'POST') {
-        rateLimit(`${user.id}:ai`, 20);
-        const tool = path.slice('/ai/'.length) as Parameters<typeof runAiTool>[2];
-        const valid = ['summarize', 'explain', 'flashcards', 'quiz', 'keyterms', 'outline', 'diary-summary'];
-        if (!valid.includes(tool)) throw new HttpError(404, 'NOT_FOUND', `Unknown AI tool: ${tool}`);
-        return withCors(await runAiTool(env, user.id, tool, await readJson(request)), cors);
       }
 
       throw new HttpError(404, 'NOT_FOUND', `No route: ${method} ${PREFIX}${path}`);
