@@ -27,6 +27,11 @@ const COLORS: { id: HighlightColor }[] = [
   { id: 'ROSE' },
 ];
 
+type PdfHandle = {
+  numPages: number;
+  getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: { str: string }[] }> }>;
+};
+
 type ScopeChoice = { mode: 'selection' | 'page' | 'whole' | 'pages'; from?: number; to?: number };
 
 export default function PdfPage() {
@@ -162,23 +167,37 @@ export default function PdfPage() {
   };
 
   // --- scope-aware generation: selection / this page / page range / whole PDF ---
+  // Per-page text cache: once a page has been read it is reused instantly,
+  // so repeat generations and scope changes feel immediate.
+  const pageTextCache = useRef<Map<number, string>>(new Map());
+
+  const extractOnePage = async (pdf: PdfHandle, n: number): Promise<string> => {
+    const cached = pageTextCache.current.get(n);
+    if (cached !== undefined) return cached;
+    const pg = await pdf.getPage(n);
+    const tc = await pg.getTextContent();
+    const text = stripFrontMatter(tc.items.map((i) => i.str).join(' '));
+    pageTextCache.current.set(n, text);
+    return text;
+  };
+
   const collectPagesText = async (from: number, to: number): Promise<string> => {
-    const pdf = (window as unknown as {
-      __pdf?: { numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: { str: string }[] }> }> };
-    }).__pdf;
-    if (!pdf) return pageText;
-    const parts: string[] = [];
+    const pdf = (window as unknown as { __pdf?: PdfHandle }).__pdf;
+    if (!pdf) return stripFrontMatter(pageText);
+    const start = Math.max(1, from);
     const end = Math.min(to, pdf.numPages);
-    for (let n = Math.max(1, from); n <= end; n++) {
-      setGenProgress(`Reading page ${n} of ${end}…`);
-      try {
-        const pg = await pdf.getPage(n);
-        const tc = await pg.getTextContent();
-        const text = stripFrontMatter(tc.items.map((i) => i.str).join(' '));
-        if (text) parts.push(text);
-      } catch {
-        /* skip unreadable pages */
-      }
+    const numbers: number[] = [];
+    for (let n = start; n <= end; n++) numbers.push(n);
+
+    const parts: string[] = [];
+    // Read pages in parallel batches of 4: pdf.js parses in its worker, so
+    // this saturates it and reads a 200-page document in seconds.
+    const BATCH = 4;
+    for (let i = 0; i < numbers.length; i += BATCH) {
+      const batch = numbers.slice(i, i + BATCH);
+      setGenProgress(`Reading pages ${batch[0]}–${batch[batch.length - 1]} of ${end}…`);
+      const texts = await Promise.all(batch.map((n) => extractOnePage(pdf, n).catch(() => '')));
+      parts.push(...texts.filter(Boolean));
     }
     return parts.join('\n');
   };
@@ -244,12 +263,15 @@ export default function PdfPage() {
       setBusyAction('flashcards');
       try {
         const all: ParsedFlashcard[] = [];
-        for (let i = 0; i < parts.length; i++) {
-          setGenProgress(`Writing cards from part ${i + 1} of ${parts.length}…`);
-          const res = await api.aiFlashcards(parts[i]);
-          all.push(
-            ...parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)),
-          );
+        // 3 concurrent AI calls — big documents finish in a third of the time.
+        const CONCURRENCY = 3;
+        for (let i = 0; i < parts.length; i += CONCURRENCY) {
+          const batch = parts.slice(i, i + CONCURRENCY);
+          setGenProgress(`Writing cards… part ${i + 1}–${Math.min(i + CONCURRENCY, parts.length)} of ${parts.length}`);
+          const results = await Promise.all(batch.map((part) => api.aiFlashcards(part)));
+          for (const res of results) {
+            all.push(...parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)));
+          }
         }
         const seen = new Set<string>();
         const unique = all.filter((c) => {
@@ -282,12 +304,14 @@ export default function PdfPage() {
     setBusyAction('quiz');
     try {
       const all: ParsedQuestion[] = [];
-      for (let i = 0; i < parts.length; i++) {
-        setGenProgress(`Writing questions from part ${i + 1} of ${parts.length}…`);
-        const res = await api.aiQuiz(parts[i]);
-        all.push(
-          ...parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)),
-        );
+      const CONCURRENCY = 3;
+      for (let i = 0; i < parts.length; i += CONCURRENCY) {
+        const batch = parts.slice(i, i + CONCURRENCY);
+        setGenProgress(`Writing questions… part ${i + 1}–${Math.min(i + CONCURRENCY, parts.length)} of ${parts.length}`);
+        const results = await Promise.all(batch.map((part) => api.aiQuiz(part)));
+        for (const res of results) {
+          all.push(...parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)));
+        }
       }
       const unique = all.filter((q, i) => all.findIndex((x) => x.stem === q.stem) === i).slice(0, 20);
       if (!unique.length) {

@@ -5,6 +5,10 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Changed
+- **PDF generation is much faster and handles big documents**: pages are read in parallel (4 at a time) into a per-document text cache, and AI generation runs 3 chunks concurrently with larger chunks (fewer round trips). Whole-PDF decks build up to ~3x faster; repeat generation from the same document is near-instant from cache.
+- Error boundary now self-heals from ANY stale-cache failure after a deploy (one automatic reload per session) and shows the error text when manual recovery is needed.
+
 ### Fixed
 - **Clicking the PDF tab crashed with 'Application error' for users with uploaded PDFs**: a store selector referencing the active-PDF id was declared before its useState (temporal dead zone). Caught by reproducing the click in a real browser with seeded user state; the exact ReferenceError is now impossible. Added a self-healing error boundary (auto-recovers from stale-chunk load failures after deploys) and removed a regex lookbehind that older iPad Safari cannot parse.
 
