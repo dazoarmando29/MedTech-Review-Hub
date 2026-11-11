@@ -26,28 +26,30 @@ object PlanGenerator {
     data class GeneratedPlan(val days: List<PlanDay>, val weightsJson: String, val label: String)
 
     private val ASCPI_WEIGHTS = mapOf(
-        "blood-banking" to 0.09,
-        "clinical-chemistry" to 0.17,
-        "hematology" to 0.16,
-        "microbiology" to 0.18,
-        "immunology" to 0.10,
-        "urinalysis" to 0.10,
+        "blood-banking" to 0.08,
+        "clinical-chemistry" to 0.16,
+        "hematology" to 0.15,
+        "microbiology" to 0.15,
+        "parasitology" to 0.08,
+        "immunology" to 0.09,
+        "urinalysis" to 0.09,
         "lab-operations" to 0.12,
     )
 
     private val PH_BOARD_WEIGHTS = mapOf(
-        "blood-banking" to 0.15,
-        "clinical-chemistry" to 0.20,
-        "hematology" to 0.20,
-        "microbiology" to 0.20,
-        "immunology" to 0.10,
-        "urinalysis" to 0.10,
-        "lab-operations" to 0.05,
+        "blood-banking" to 0.09,
+        "clinical-chemistry" to 0.16,
+        "hematology" to 0.14,
+        "microbiology" to 0.14,
+        "parasitology" to 0.11,
+        "immunology" to 0.09,
+        "urinalysis" to 0.12,
+        "lab-operations" to 0.15,
     )
 
     private val SUBJECT_ORDER = listOf(
         "blood-banking", "clinical-chemistry", "hematology", "microbiology",
-        "immunology", "urinalysis", "lab-operations",
+        "parasitology", "immunology", "urinalysis", "lab-operations",
     )
 
     private val ITEM_CYCLE = listOf(

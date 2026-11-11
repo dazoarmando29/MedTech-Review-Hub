@@ -1,0 +1,22 @@
+{
+  "id": "parasitology",
+  "name": "Parasitology",
+  "shortName": "Parasitology",
+  "description": "Filipino examinees review parasitology as a dedicated subject covering protozoa, helminths, and blood and tissue parasites; the material maps to the Microbiology content domain of the ASCP BOC MLS content outline while remaining its own subject in Philippine ASCPi review programs.",
+  "phReviewLabel": "ACTS: MP · Pioneer: Parasitology",
+  "phEmphasisHours": 8,
+  "blueprintNote": "Mapped to the ASCP BOC MLS content outline (topic level) and to the subject structure used by Philippine ASCPi review centers (approximate weights, not official percentages; not affiliated with ASCP or any review center).",
+  "colorToken": "teal",
+  "topics": [
+    {
+      "id": "intestinal-parasites",
+      "name": "Intestinal Protozoa & Helminths",
+      "lessonIds": ["parasitology/intestinal-protozoa-helminths"]
+    },
+    {
+      "id": "blood-tissue-parasites",
+      "name": "Blood & Tissue Parasites",
+      "lessonIds": ["parasitology/malaria-microfilariae"]
+    }
+  ]
+}

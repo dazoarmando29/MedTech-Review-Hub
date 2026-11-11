@@ -5,10 +5,28 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
-### Added (website + Cloudflare Worker; Android unchanged since v1.2.0)
-- **Easy Mode (calm & simple)** — an ADHD- and beginner-friendly setting:
-  simplified dashboard (3 key stats instead of 6), extra breathing room, and
-  secondary/technical details tucked away. Toggle in Settings → Experience.
+### Added (website + content; Android keeps parity where noted)
+- **Library rebuilt around the Philippine ASCPi review structure**: subject
+  names now match what Filipino review centers teach (ACTS: CC / MP / CM / Hema /
+  ISBB; Pioneer: Blood Banking, Clinical Chemistry, Clinical Microscopy–AUBF,
+  Hematology–Coagulation, Immunology & Serology, Lab Operations, Microbiology,
+  Parasitology) — with review-emphasis hints from Pioneer's posted program hours.
+- **NEW Parasitology subject** (a distinctly emphasized PH review area): 2 full
+  lessons (intestinal protozoa & helminths; malaria & microfilariae), 20 original
+  questions, 18 flashcards. Library total: 19 lessons, 230 questions.
+- Study planners (web, backend, Android) updated with parasitology weights.
+
+### Changed
+- **Calm design is now the official design** (ADHD & beginner friendly) — not a
+  settings button. Secondary/technical detail is folded away everywhere; the
+  dashboard shows 3 key stats with a quiet "show more stats" link.
+- **Official logo lockup in the nav**: mascot + stacked "MedTech / Study
+  Companion" wordmark (like the brand artwork), with proper breathing room
+  between the logo and the navigation buttons.
+
+## [1.2.1] — 2026-11-11
+
+### Added (website + Worker)
 - **Plain-language copy** where jargon lived (e.g. flashcards now say "cards
   come back right before you would forget them" with the FSRS note folded away);
   the library page now opens with a friendly "New here? Start like this" guide.
@@ -139,7 +157,7 @@ space for a future MLS, with the reviewer itself kept serious and accurate.
 - Note for existing users: your study data is preserved — v1.0.0 settings,
   highlights, and annotations are migrated in place on first load.
 
-## [Unreleased]
+## [1.0.1] � 2026-11-11
 
 ### Added
 - **Cloudflare Worker backend + AI tools (live production deployment):**

@@ -150,10 +150,6 @@ export default function SettingsPage() {
             Serious Mode (hides jokes, memes, mascot commentary)
           </label>
           <label className="flex items-center gap-2">
-            <input type="checkbox" checked={settings.easyMode} onChange={(e) => patch({ easyMode: e.target.checked })} />
-            Easy Mode — calm &amp; simple (great for ADHD &amp; beginners)
-          </label>
-          <label className="flex items-center gap-2">
             <input type="checkbox" checked={settings.funnyCommentary} onChange={(e) => patch({ funnyCommentary: e.target.checked })} />
             Funny quiz result commentary
           </label>

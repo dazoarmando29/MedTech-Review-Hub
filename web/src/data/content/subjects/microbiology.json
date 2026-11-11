@@ -1,9 +1,11 @@
 {
   "id": "microbiology",
-  "name": "Diagnostic Microbiology",
+  "name": "Medical Microbiology",
   "shortName": "Microbiology",
   "description": "Clinical bacteriology, mycology, mycobacteriology, and antimicrobial susceptibility testing as practiced in a diagnostic laboratory: Gram stain interpretation, organism workups, sterile-site cultures, and reporting principles.",
-  "blueprintNote": "Mapped to the ASCP BOC MLS examination microbiology content domain and to the PH MTLE microbiology subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS content outline (topic level) and to the subject structure used by Philippine ASCPi review centers (approximate weights, not official percentages; not affiliated with ASCP or any review center).",
+  "phReviewLabel": "ACTS: MP · Pioneer: Microbiology",
+  "phEmphasisHours": 16,
   "colorToken": "teal",
   "topics": [
     {

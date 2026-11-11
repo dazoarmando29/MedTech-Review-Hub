@@ -1,0 +1,189 @@
+[
+  {
+    "id": "para-deck-01",
+    "title": "Parasitology Essentials",
+    "subjectId": "parasitology",
+    "cards": [
+      {
+        "id": "para-fc-001",
+        "type": "BASIC",
+        "front": "Which fixative preserves stool for permanent stained smears (trichrome, iron hematoxylin), and what is 10% formalin used for?",
+        "back": "PVA (or SAF) preserves material for permanent stained smears. Ten percent formalin preserves eggs, cysts, and larvae for wet mounts and concentration - but formalin-fixed material cannot be permanently stained.",
+        "tags": ["specimen-preservation", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-002",
+        "type": "CLOZE",
+        "front": "Formalin-ethyl acetate concentration recovers [[1]], [[2]], and [[3]] from stool, but material fixed in formalin can never be used for trichrome staining.",
+        "back": "1: eggs  2: cysts  3: larvae",
+        "tags": ["concentration", "specimen-preservation"],
+        "difficulty": 2,
+        "note": "Trichrome and iron hematoxylin require PVA or SAF fixation.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-003",
+        "type": "BASIC",
+        "front": "Why can morphology alone never confirm Entamoeba histolytica?",
+        "back": "E. histolytica and E. dispar are morphologically identical. Report the E. histolytica/dispar complex unless a species-specific antigen test or PCR resolves the identification.",
+        "tags": ["entamoeba", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-004",
+        "type": "CLOZE",
+        "front": "E. histolytica/dispar mature cysts have up to [[1]] nuclei with fine peripheral chromatin and splintered chromatoid bars; E. coli cysts have up to [[2]] nuclei with coarse chromatin.",
+        "back": "1: 4  2: 8",
+        "tags": ["entamoeba", "morphology"],
+        "difficulty": 2,
+        "note": "Mnemonic: 'cultured ladies eat 4-course meals' - E. coli up to 8, E. histolytica/dispar up to 4.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-005",
+        "type": "BASIC",
+        "front": "What is the respective role of the thick film and the thin film in the malaria workup?",
+        "back": "Thick film: screens a larger blood volume for parasitemia (red cells lysed, parasites concentrated). Thin film: intact red cells allow Plasmodium species identification and staging.",
+        "tags": ["malaria", "blood-films", "high-yield"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-006",
+        "type": "CLOZE",
+        "front": "P. falciparum gametocytes are [[1]]-shaped; its rings may show [[2]] forms at the red cell margin, and several rings may infect one [[3]].",
+        "back": "1: banana (crescent)  2: appliqué (accolé)  3: red cell",
+        "tags": ["malaria", "plasmodium-falciparum"],
+        "difficulty": 2,
+        "note": "Falciparum schizonts sequester and are rarely seen in peripheral blood.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-007",
+        "type": "BASIC",
+        "front": "What are Schüffner dots, and which Plasmodium species show them?",
+        "back": "Fine pink-red cytoplasmic stippling seen on Giemsa-stained thin films, characteristic of P. vivax (fine) and P. ovale (coarser, sometimes called James dots). P. falciparum shows bluish Maurer's clefts instead.",
+        "tags": ["malaria", "morphology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-008",
+        "type": "CLOZE",
+        "front": "P. malariae is famous for [[1]]-shaped trophozoites and [[2]] (72-hour) fever periodicity.",
+        "back": "1: band  2: quartan",
+        "tags": ["malaria", "plasmodium-malariae"],
+        "difficulty": 2,
+        "note": "Its schizonts cluster merozoites into rosettes (6-12 merozoites).",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-009",
+        "type": "BASIC",
+        "front": "How are Wuchereria bancrofti and Brugia malayi distinguished on a stained blood film?",
+        "back": "Both are sheathed. W. bancrofti: body nuclei stop short of the tail tip (tip clear). B. malayi: two distinct subterminal nuclei in the tail. Both are sought in night blood (nocturnal periodicity).",
+        "tags": ["microfilariae", "filariasis", "high-yield"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-010",
+        "type": "BASIC",
+        "front": "What is the diagnostic specimen and collection method for Enterobius vermicularis?",
+        "back": "A morning cellophane tape (Graham) swab of the perianal skin, taken before bathing or defecation, repeated over several mornings. Enterobius eggs are not reliably found on routine stool examination.",
+        "tags": ["enterobius", "specimen-collection"],
+        "difficulty": 1,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-011",
+        "type": "CLOZE",
+        "front": "Trichuris trichiura egg: barrel-shaped with [[1]] polar mucoid plugs. Hookworm egg: thin shell with a [[2]]-cell morula.",
+        "back": "1: two  2: 4-8",
+        "tags": ["helminth-eggs", "high-yield"],
+        "difficulty": 2,
+        "note": "In Philippine stools, a 'small Trichuris' with flattened plugs suggests Capillaria philippinensis.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-012",
+        "type": "BASIC",
+        "front": "How are Strongyloides stercoralis rhabditiform larvae distinguished from hookworm larvae in stool?",
+        "back": "Strongyloides L1: long buccal cavity, small genital primordium. Hookworm L1: short buccal cavity, large genital primordium. Strongyloides passes larvae in stool - not eggs.",
+        "tags": ["strongyloides", "larvae"],
+        "difficulty": 3,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-013",
+        "type": "BASIC",
+        "front": "How is Cryptosporidium detected in stool, and why can routine trichrome miss it?",
+        "back": "Modified acid-fast staining (or antigen/immunofluorescence methods) demonstrates 4-6 micrometer oocysts. The oocysts are so small that routine trichrome can overlook them.",
+        "tags": ["cryptosporidium", "coccidia"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-014",
+        "type": "CLOZE",
+        "front": "Giardia lamblia cysts are oval with [[1]] to [[2]] nuclei and curved [[3]] bodies; the trophozoite has two nuclei (owl face).",
+        "back": "1: 2  2: 4  3: median",
+        "tags": ["giardia", "morphology"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/intestinal-protozoa-helminths" }
+      },
+      {
+        "id": "para-fc-015",
+        "type": "BASIC",
+        "front": "When should blood be collected to detect Wuchereria bancrofti and Brugia malayi microfilariae, and when for Loa loa?",
+        "back": "W. bancrofti and B. malayi show nocturnal periodicity: draw night blood (roughly 10 p.m. to 2 a.m.). Loa loa is diurnal: draw day blood.",
+        "tags": ["microfilariae", "specimen-collection"],
+        "difficulty": 1,
+        "note": "Some Pacific strains of W. bancrofti are subperiodic - follow local epidemiology.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-016",
+        "type": "CLOZE",
+        "front": "Knott's concentration lyses red cells with [[1]], centrifuges the sample, and examines the stained sediment for [[2]] microfilariae.",
+        "back": "1: 2% formalin  2: low-density",
+        "tags": ["microfilariae", "methods"],
+        "difficulty": 3,
+        "note": "Membrane filtration is an alternative concentration method.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-017",
+        "type": "BASIC",
+        "front": "Why does a single negative blood film not exclude malaria?",
+        "back": "Parasitemia fluctuates as broods mature and sequester. When suspicion is high, repeat thick and thin smears at 12- to 24-hour intervals for two or three additional sets before excluding malaria.",
+        "tags": ["malaria", "reporting", "high-yield"],
+        "difficulty": 2,
+        "note": "",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      },
+      {
+        "id": "para-fc-018",
+        "type": "CLOZE",
+        "front": "P. vivax infects [[1]] red cells (enlarged, distorted) with [[2]] trophozoites and fine Schüffner dots; P. ovale red cells are [[3]] with fimbriated edges.",
+        "back": "1: young (reticulocyte)  2: amoeboid  3: oval",
+        "tags": ["malaria", "morphology"],
+        "difficulty": 2,
+        "note": "Ovale schizonts: up to 8 merozoites; vivax schizonts: 12-24 merozoites.",
+        "source": { "kind": "MANUAL", "lessonId": "parasitology/malaria-microfilariae" }
+      }
+    ]
+  }
+]

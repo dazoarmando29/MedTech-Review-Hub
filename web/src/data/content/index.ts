@@ -5,6 +5,7 @@ import f_flashcards_hematology_decks_json from './flashcards/hematology-decks.js
 import f_flashcards_immunology_decks_json from './flashcards/immunology-decks.json';
 import f_flashcards_lab_operations_decks_json from './flashcards/lab-operations-decks.json';
 import f_flashcards_microbiology_decks_json from './flashcards/microbiology-decks.json';
+import f_flashcards_parasitology_decks_json from './flashcards/parasitology-decks.json';
 import f_flashcards_urinalysis_decks_json from './flashcards/urinalysis-decks.json';
 import f_formulas_json from './formulas.json';
 import f_glossary_json from './glossary.json';
@@ -23,6 +24,8 @@ import f_lessons_lab_operations_preanalytic_poct_math_json from './lessons/lab-o
 import f_lessons_lab_operations_quality_control_regulatory_json from './lessons/lab-operations/quality-control-regulatory.json';
 import f_lessons_microbiology_enteric_gnr_sterile_sites_json from './lessons/microbiology/enteric-gnr-sterile-sites.json';
 import f_lessons_microbiology_gram_positive_cocci_json from './lessons/microbiology/gram-positive-cocci.json';
+import f_lessons_parasitology_intestinal_protozoa_helminths_json from './lessons/parasitology/intestinal-protozoa-helminths.json';
+import f_lessons_parasitology_malaria_microfilariae_json from './lessons/parasitology/malaria-microfilariae.json';
 import f_lessons_urinalysis_body_fluid_analysis_json from './lessons/urinalysis/body-fluid-analysis.json';
 import f_lessons_urinalysis_physical_chemical_testing_json from './lessons/urinalysis/physical-chemical-testing.json';
 import f_manifest_json from './manifest.json';
@@ -35,6 +38,7 @@ import f_questions_hematology_json from './questions/hematology.json';
 import f_questions_immunology_json from './questions/immunology.json';
 import f_questions_lab_operations_json from './questions/lab-operations.json';
 import f_questions_microbiology_json from './questions/microbiology.json';
+import f_questions_parasitology_json from './questions/parasitology.json';
 import f_questions_urinalysis_json from './questions/urinalysis.json';
 import f_resources_json from './resources.json';
 import f_subjects_blood_banking_json from './subjects/blood-banking.json';
@@ -43,6 +47,7 @@ import f_subjects_hematology_json from './subjects/hematology.json';
 import f_subjects_immunology_json from './subjects/immunology.json';
 import f_subjects_lab_operations_json from './subjects/lab-operations.json';
 import f_subjects_microbiology_json from './subjects/microbiology.json';
+import f_subjects_parasitology_json from './subjects/parasitology.json';
 import f_subjects_urinalysis_json from './subjects/urinalysis.json';
 import f_visual_id_json from './visual-id.json';
 
@@ -55,6 +60,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./flashcards/immunology-decks.json", data: f_flashcards_immunology_decks_json },
   { path: "./flashcards/lab-operations-decks.json", data: f_flashcards_lab_operations_decks_json },
   { path: "./flashcards/microbiology-decks.json", data: f_flashcards_microbiology_decks_json },
+  { path: "./flashcards/parasitology-decks.json", data: f_flashcards_parasitology_decks_json },
   { path: "./flashcards/urinalysis-decks.json", data: f_flashcards_urinalysis_decks_json },
   { path: "./formulas.json", data: f_formulas_json },
   { path: "./glossary.json", data: f_glossary_json },
@@ -73,6 +79,8 @@ export const contentFiles: ContentFile[] = [
   { path: "./lessons/lab-operations/quality-control-regulatory.json", data: f_lessons_lab_operations_quality_control_regulatory_json },
   { path: "./lessons/microbiology/enteric-gnr-sterile-sites.json", data: f_lessons_microbiology_enteric_gnr_sterile_sites_json },
   { path: "./lessons/microbiology/gram-positive-cocci.json", data: f_lessons_microbiology_gram_positive_cocci_json },
+  { path: "./lessons/parasitology/intestinal-protozoa-helminths.json", data: f_lessons_parasitology_intestinal_protozoa_helminths_json },
+  { path: "./lessons/parasitology/malaria-microfilariae.json", data: f_lessons_parasitology_malaria_microfilariae_json },
   { path: "./lessons/urinalysis/body-fluid-analysis.json", data: f_lessons_urinalysis_body_fluid_analysis_json },
   { path: "./lessons/urinalysis/physical-chemical-testing.json", data: f_lessons_urinalysis_physical_chemical_testing_json },
   { path: "./manifest.json", data: f_manifest_json },
@@ -85,6 +93,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./questions/immunology.json", data: f_questions_immunology_json },
   { path: "./questions/lab-operations.json", data: f_questions_lab_operations_json },
   { path: "./questions/microbiology.json", data: f_questions_microbiology_json },
+  { path: "./questions/parasitology.json", data: f_questions_parasitology_json },
   { path: "./questions/urinalysis.json", data: f_questions_urinalysis_json },
   { path: "./resources.json", data: f_resources_json },
   { path: "./subjects/blood-banking.json", data: f_subjects_blood_banking_json },
@@ -93,6 +102,7 @@ export const contentFiles: ContentFile[] = [
   { path: "./subjects/immunology.json", data: f_subjects_immunology_json },
   { path: "./subjects/lab-operations.json", data: f_subjects_lab_operations_json },
   { path: "./subjects/microbiology.json", data: f_subjects_microbiology_json },
+  { path: "./subjects/parasitology.json", data: f_subjects_parasitology_json },
   { path: "./subjects/urinalysis.json", data: f_subjects_urinalysis_json },
   { path: "./visual-id.json", data: f_visual_id_json },
 ];
