@@ -542,6 +542,8 @@ function openDb(): Promise<IDBDatabase> {
   });
 }
 
+const MemoPdfViewer = React.memo(PdfViewer);
+
 // ---- Anki-style review-before-add dialogs ----
 
 function GenCardsDialog({ cards, pdfId, onClose }: {
