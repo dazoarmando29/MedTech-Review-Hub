@@ -56,7 +56,8 @@ fun FocusScreen(
     timerVm: FocusTimerViewModel,
     appsVm: FocusAppsViewModel,
     mascotKind: MascotKind,
-    focusFeatureEnabled: Boolean
+    focusFeatureEnabled: Boolean,
+    reduceAnimation: Boolean = false
 ) {
     val timer by timerVm.state.collectAsState()
     val appsState by appsVm.state.collectAsState()
@@ -102,7 +103,8 @@ fun FocusScreen(
                 FocusTimerViewModel.Phase.BREAK -> "Break time! Tubig muna, tapos balik tayo."
                 FocusTimerViewModel.Phase.DONE -> "Session complete! Deserve mo yan!"
                 else -> "Ready when you are. Choose a Pomodoro and start."
-            }
+            },
+            reduceAnimation = reduceAnimation
         )
 
         Spacer(Modifier.height(12.dp))

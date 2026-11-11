@@ -255,6 +255,7 @@ fun QuizResultScreen(
     questions: List<com.medtech.reviewhub.domain.model.QuizQuestion>,
     answers: Map<String, String>,
     mascotKind: MascotKind,
+    reduceAnimation: Boolean = false,
     onOpenLesson: (lessonId: String) -> Unit,
     onReviewIncorrect: () -> Unit,
     onDone: () -> Unit
@@ -265,10 +266,11 @@ fun QuizResultScreen(
             kind = mascotKind,
             mood = if (pct >= 75) MascotMood.CELEBRATING else if (pct >= 50) MascotMood.HAPPY else MascotMood.ENCOURAGING,
             line = when {
-                pct >= 75 -> "Grabe! $pct% — pang-topnotcher ang performance!"
+                pct >= 75 -> "Grabe! $pct% - pang-topnotcher ang performance!"
                 pct >= 50 -> "Solid, $pct%. Konting polish pa sa weak topics."
-                else -> "$pct%… okay lang yan. Laban ulit, walang iwanan!"
-            }
+                else -> "$pct%. okay lang yan. Laban ulit, walang iwanan!"
+            },
+            reduceAnimation = reduceAnimation
         )
         Spacer(Modifier.height(16.dp))
         Text("Results", style = MaterialTheme.typography.headlineSmall)

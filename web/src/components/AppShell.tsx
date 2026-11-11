@@ -4,8 +4,9 @@
 // hydration-safe content mount, offline notice.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState, useSyncExternalStore } from 'react';
+import React, { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import { useStore, updateSettings } from '@/lib/store';
+import { motivation } from '@/lib/content';
 import type { ThemeId } from '@/lib/types';
 import { Mochi, type MochiMood } from './Mochi';
 import { MiniPlayer, usePlayer } from './MiniPlayer';
@@ -42,6 +43,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const reduceMotion = useStore((s) => s.settings.reduceMotion);
   const seriousMode = useStore((s) => s.settings.seriousMode);
   const easyMode = useStore((s) => s.settings.easyMode);
+  const ambientAnimations = useStore((s) => s.settings.music.ambientAnimations);
   const mascotName = useStore((s) => s.settings.mascotName);
   const mascotKind = useStore((s) => s.settings.mascot);
   const commentary = useStore((s) => s.settings.mascotCommentary);
@@ -58,7 +60,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     document.body.classList.toggle('no-decor', resolved === 'minimal' || lowBandwidth || seriousMode);
     document.body.classList.toggle('no-motion', reduceMotion || lowBandwidth);
     document.body.classList.toggle('easy-mode', easyMode);
-  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode, easyMode]);
+    document.body.classList.toggle('calm-mascot', !ambientAnimations);
+  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode, easyMode, ambientAnimations]);
 
   useEffect(() => {
     setOnline(navigator.onLine);
@@ -243,24 +246,36 @@ function MochiDock({ name, kind, commentary }: { name: string; kind: 'cat' | 'do
     : pathname.startsWith('/garden') ? 'garden'
     : pathname === '/' ? 'home' : 'default';
   const lines = LINES[key][kind === 'cat' ? 'cat' : 'dog'];
+  const lalabs = motivation.mascotLines.lalabs ?? [];
+
+  // Mochi alternates between study quips and love notes from Lalabs 💗
+  const pool = useMemo(() => {
+    const out: string[] = [];
+    const max = Math.max(lines.length, lalabs.length);
+    for (let i = 0; i < max; i++) {
+      if (lalabs[i % Math.max(1, lalabs.length)]) out.push(lalabs[i % lalabs.length]);
+      if (lines[i % lines.length]) out.push(lines[i % lines.length]);
+    }
+    return out;
+  }, [lines, lalabs]);
 
   useEffect(() => {
-    setIdx(Math.floor(Math.random() * lines.length));
+    setIdx(Math.floor(Math.random() * Math.max(1, pool.length)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key, kind]);
 
-  if (!commentary) return null;
+  if (!commentary || pool.length === 0) return null;
 
   const mood: MochiMood = key === 'quiz' ? 'encouraging' : key === 'garden' ? 'excited' : 'happy';
 
   return (
     <div className="fixed bottom-4 right-4 z-40 hidden sm:block">
       <div className="flex items-start gap-1">
-        <Mochi mood={mood} size={72} className="" />
+        <Mochi mood={mood} size={72} />
         <div className="card-soft p-3 text-xs leading-snug max-w-[210px]">
           <strong className="font-heading block" style={{ color: 'var(--primary)' }}>{name}</strong>
-          <p>{lines[idx % lines.length]}</p>
-          <button className="underline mt-1" style={{ color: 'var(--muted)' }} onClick={() => setIdx((i) => (i + 1) % lines.length)}>
+          <p>{pool[idx % pool.length]}</p>
+          <button className="underline mt-1" style={{ color: 'var(--muted)' }} onClick={() => setIdx((i) => (i + 1) % pool.length)}>
             another one
           </button>
         </div>

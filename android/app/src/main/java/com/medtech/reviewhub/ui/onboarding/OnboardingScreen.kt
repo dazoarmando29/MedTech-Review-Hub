@@ -48,7 +48,8 @@ import kotlinx.coroutines.launch
 fun OnboardingScreen(
     subjectNames: Map<String, String>,
     onDone: () -> Unit,
-    vm: OnboardingViewModel
+    vm: OnboardingViewModel,
+    reduceAnimation: Boolean = false
 ) {
     val state by vm.state.collectAsState()
     val scope = rememberCoroutineScope()
@@ -63,7 +64,8 @@ fun OnboardingScreen(
         MascotBubble(
             kind = MascotKind.CAT,
             mood = MascotMood.ENCOURAGING,
-            line = "Kaya mo 'to, future MLS! Sagutin mo lang ito, tapos may study plan ka na."
+            line = "Kaya mo 'to, future MLS! Sagutin mo lang ito, tapos may study plan ka na.",
+            reduceAnimation = reduceAnimation
         )
         Spacer(Modifier.height(16.dp))
 

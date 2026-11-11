@@ -29,7 +29,7 @@ export function Mochi({
       viewBox="0 0 160 160"
       width={size}
       height={size}
-      className={className}
+      className={`mochi-idle ${className ?? ''}`}
       role="img"
       aria-label={`Mochi the study cat (${mood})`}
     >
@@ -43,7 +43,7 @@ export function Mochi({
       <path d="M63 130 h6 M66 127 v6" stroke="#db2777" strokeWidth="1.4" strokeLinecap="round" />
 
       {/* tail */}
-      <path d="M120 132 q22 -6 18 -26" fill="none" stroke="#f3b9cd" strokeWidth="7" strokeLinecap="round" />
+      <path className="mochi-tail" d="M120 132 q22 -6 18 -26" fill="none" stroke="#f3b9cd" strokeWidth="7" strokeLinecap="round" />
 
       {/* ears */}
       <path d="M44 56 l-6 -28 24 14 z" fill="#f8bbd0" stroke="#e79ab8" strokeWidth="2" />
@@ -64,12 +64,12 @@ export function Mochi({
           <path d="M90 72 q6 6 12 0" fill="none" stroke="#4b3548" strokeWidth="3.2" strokeLinecap="round" />
         </>
       ) : happyEyes ? (
-        <>
+        <g className="mochi-blink">
           <path d="M57 74 q6 -9 13 0" fill="none" stroke="#4b3548" strokeWidth="3.4" strokeLinecap="round" />
           <path d="M90 74 q6 -9 13 0" fill="none" stroke="#4b3548" strokeWidth="3.4" strokeLinecap="round" />
-        </>
+        </g>
       ) : (
-        <>
+        <g className="mochi-blink">
           <ellipse cx="64" cy="73" rx="8" ry={worried ? 9.5 : 10} fill="#4b3548" />
           <ellipse cx="96" cy="73" rx="8" ry={worried ? 9.5 : 10} fill="#4b3548" />
           <circle cx="67" cy="69.5" r="3" fill="#fff" />
@@ -80,7 +80,7 @@ export function Mochi({
               <path d="M87 58 q9 -4 18 1" fill="none" stroke="#b98da5" strokeWidth="2.4" strokeLinecap="round" />
             </>
           )}
-        </>
+        </g>
       )}
 
       {/* nose + mouth */}
@@ -109,7 +109,7 @@ export function Mochi({
         </g>
       )}
       {(mood === 'celebrating' || mood === 'excited') && (
-        <g className="decor-only">
+        <g className="decor-only mochi-twinkle">
           <path d="M28 40 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1z" fill="#fbbf24" />
           <path d="M128 34 l2.5 6 6 1 -4.5 4 1 6 -5 -2.5 -5 2.5 1 -6 -4.5 -4 6 -1z" fill="#f472b6" />
           <circle cx="136" cy="66" r="3.5" fill="#a78bfa" />
@@ -117,10 +117,10 @@ export function Mochi({
         </g>
       )}
       {mood === 'sleepy' && (
-        <text x="116" y="52" fontSize="16" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">z z</text>
+        <text className="mochi-drift" x="116" y="52" fontSize="16" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">z z</text>
       )}
       {mood === 'encouraging' && (
-        <text x="112" y="48" fontSize="18" fill="#f472b6" fontFamily="sans-serif">♥</text>
+        <text className="mochi-heart" x="112" y="48" fontSize="18" fill="#f472b6" fontFamily="sans-serif">♥</text>
       )}
       {mood === 'confused' && (
         <text x="112" y="50" fontSize="20" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">?</text>

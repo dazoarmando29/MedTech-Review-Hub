@@ -235,6 +235,69 @@ body {
   animation: none;
 }
 
+/* ---- Mochi's gentle animations (slow & calm — never jiggly) ----
+   All are disabled by prefers-reduced-motion, body.no-motion,
+   or the "Ambient animations" setting (body.calm-mascot). */
+.mochi-idle {
+  transform-box: fill-box;
+  animation: mochi-breathe 6.5s ease-in-out infinite;
+}
+@keyframes mochi-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1.5px) scale(1.008); }
+}
+.mochi-tail {
+  transform-box: fill-box;
+  transform-origin: 8% 25%;
+  animation: mochi-wag 5s ease-in-out infinite;
+}
+@keyframes mochi-wag {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(7deg); }
+}
+.mochi-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mochi-blink 6s ease-in-out infinite;
+}
+@keyframes mochi-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+.mochi-twinkle {
+  animation: mochi-twinkle 3.2s ease-in-out infinite;
+}
+@keyframes mochi-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.mochi-drift {
+  transform-box: fill-box;
+  animation: mochi-drift 4.5s ease-in-out infinite;
+}
+@keyframes mochi-drift {
+  0%, 100% { transform: translateY(0); opacity: 0.75; }
+  50% { transform: translateY(-3px); opacity: 1; }
+}
+.mochi-heart {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mochi-heartbeat 2.8s ease-in-out infinite;
+}
+@keyframes mochi-heartbeat {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.14); }
+}
+body.calm-mascot .mochi-idle,
+body.calm-mascot .mochi-tail,
+body.calm-mascot .mochi-blink,
+body.calm-mascot .mochi-twinkle,
+body.calm-mascot .mochi-drift,
+body.calm-mascot .mochi-heart {
+  animation: none !important;
+  transform: none !important;
+}
+
 .confetti-pop {
   animation: pop 0.45s ease-out;
 }

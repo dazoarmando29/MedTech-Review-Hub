@@ -7,7 +7,7 @@ import { Badge, Card, EmptyState, ProgressRing, SectionTitle, cx } from '@/compo
 import { Mochi } from '@/components/Mochi';
 import { AiCoach } from '@/components/AiCoach';
 import { contextQuote } from '@/lib/motivation';
-import { getQuestion, subjects } from '@/lib/content';
+import { getQuestion, motivation, subjects } from '@/lib/content';
 import {
   MOCK_QUESTION_COUNT, MOCK_TIME_LIMIT_SECONDS, computeResult, newAttemptId,
   nextAdaptiveQuestion, selectQuestions,
@@ -354,6 +354,11 @@ export default function QuizPage() {
   return <EmptyState icon="📝" title="No active quiz" action={<button className="btn-primary" onClick={() => setPhase('setup')}>Set up a quiz</button>} />;
 }
 
+function lalabsCheer(): string {
+  const lines = motivation.mascotLines.lalabs ?? ['Lalabs is always here for you. 💗'];
+  return lines[Math.floor(Math.random() * lines.length)];
+}
+
 function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: () => void }) {
   const result = useMemo(() => computeResult(attempt), [attempt]);
   const funny = useStore((s) => s.settings.funnyCommentary);
@@ -386,6 +391,11 @@ function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: 
             {result.incorrectQuestionIds.length > 0 && (
               <p className="text-sm mt-2 sticky-note inline-block">
                 💗 {contextQuote('afterWrong')}
+              </p>
+            )}
+            {result.score < 0.6 && (
+              <p className="text-sm mt-2 rounded-[12px] p-3" style={{ background: 'var(--chip)' }}>
+                💗 <em>{lalabsCheer()}</em>
               </p>
             )}
             <button className="btn-primary mt-3" onClick={onRestart}>New quiz</button>
