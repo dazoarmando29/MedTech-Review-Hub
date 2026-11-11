@@ -7,7 +7,7 @@ import { Badge, Card, EmptyState, SectionTitle, StatTile, cx } from '@/component
 import { Mochi } from '@/components/Mochi';
 import { MotivationWidget } from '@/components/MotivationWidget';
 import { IconGarden } from '@/components/icons';
-import { getLesson, getSubject, lessons } from '@/lib/content';
+import { getLesson, getSubject, lessons, motivation } from '@/lib/content';
 import { computeStreak, weeklyWrapped, flowerStage } from '@/lib/cozy';
 import { dailyQuote } from '@/lib/motivation';
 import { examCountdownDays, planForDate } from '@/lib/plan';
@@ -126,13 +126,7 @@ export default function DashboardPage() {
           <p className="text-sm italic leading-relaxed">“{settings.giftNote}”</p>
           <p className="text-[11px] mt-2" style={{ color: 'var(--muted)' }}>A little note for you — edit it in Settings.</p>
         </div>
-        <div className="card p-5">
-          <SectionTitle icon="🛋️">Cozy Study Room</SectionTitle>
-          <p className="text-xs" style={{ color: 'var(--muted)' }}>
-            Music + Pomodoro + motivation in one calm, full-focus space.
-          </p>
-          <Link href="/study-room/" className="btn-primary mt-3 w-full">Enter Study Room</Link>
-        </div>
+        <LalabsCard />
       </section>
 
       {/* stats */}
@@ -327,4 +321,28 @@ function greeting(): string {
     const h = new Date().getHours();
     return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
   }
+}
+
+function LalabsCard() {
+  const lines = motivation.mascotLines.lalabs ?? [];
+  const dayIdx = Math.abs([...todayKey()].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) | 0, 7));
+  const [offset, setOffset] = useState(0);
+  const line = lines.length ? lines[(dayIdx + offset) % lines.length] : 'Lalabs is always here for you. 💗';
+
+  return (
+    <div className="card p-5">
+      <SectionTitle icon="💗">From Lalabs</SectionTitle>
+      <div className="sticky-note">
+        <p className="text-sm italic leading-relaxed">{line}</p>
+      </div>
+      <div className="flex gap-2 mt-3">
+        <button className="btn-secondary !py-1.5 text-xs flex-1" onClick={() => setOffset((o) => o + 1)}>
+          another note 💗
+        </button>
+        <Link href="/study-room/" className="btn-primary !py-1.5 text-xs flex-1 text-center">
+          Study Room 🛋️
+        </Link>
+      </div>
+    </div>
+  );
 }

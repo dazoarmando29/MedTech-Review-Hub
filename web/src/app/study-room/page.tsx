@@ -8,8 +8,8 @@ import { Badge, Card, SectionTitle, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
 import { usePlayer } from '@/components/MiniPlayer';
 import { formatTime, player, playlistTracks } from '@/lib/audio/engine';
-import { musicCatalog } from '@/lib/content';
-import { contextQuote, dailyQuote, pickLoveNote } from '@/lib/motivation';
+import { musicCatalog, motivation } from '@/lib/content';
+import { contextQuote, dailyQuote, dayKey, pickLoveNote } from '@/lib/motivation';
 import { logSession, useStore } from '@/lib/store';
 
 type Phase = 'focus' | 'shortBreak' | 'longBreak';
@@ -49,6 +49,8 @@ export default function StudyRoomPage() {
   const preset = PRESETS.find((p) => p.id === presetId) ?? PRESETS[0];
   const note = pickLoveNote(loveNotes);
   const quote = dailyQuote();
+  const lalabsLines = motivation.mascotLines.lalabs ?? ['Lalabs is always here for you. 💗'];
+  const lalabsLine = lalabsLines[Math.abs([...dayKey()].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) | 0, 7)) % lalabsLines.length];
   const playerPrefs = settings.music;
 
   const currentPlaylist =
@@ -249,6 +251,10 @@ export default function StudyRoomPage() {
                 <p className="text-sm italic mt-1">“{note.text}”</p>
               </div>
             )}
+            <div className="mt-3 rounded-[14px] p-3 text-left" style={{ background: 'var(--surface-2)' }}>
+              <p className="text-xs uppercase tracking-wide" style={{ color: 'var(--muted)' }}>From Lalabs 💗</p>
+              <p className="text-sm italic mt-1">{lalabsLine}</p>
+            </div>
             <p className="text-xs mt-3" style={{ color: 'var(--muted)' }}>
               🌷 {garden.flowers.length} flowers in your Study Garden
             </p>
