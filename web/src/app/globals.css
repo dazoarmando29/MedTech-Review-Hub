@@ -238,55 +238,45 @@ body {
 /* ---- Mochi's gentle animations (slow & calm — never jiggly) ----
    All are disabled by prefers-reduced-motion, body.no-motion,
    or the "Ambient animations" setting (body.calm-mascot). */
+/* ---- Mochi's gentle animations — RULES (enforced by mochi-animations.test.ts):
+   1. Whole-mascot motion: translateY ONLY (compositor-safe, no shimmer).
+   2. Never scale() or rotate() SVG parts — they re-rasterize and glitch.
+   3. Every loop >= 5s and tiny in distance. Opacity-only extras allowed.
+   All disabled by prefers-reduced-motion, body.no-motion, or body.calm-mascot. */
 .mochi-idle {
-  transform-box: fill-box;
-  animation: mochi-breathe 6.5s ease-in-out infinite;
+  will-change: transform;
+  animation: mochi-breathe 7s ease-in-out infinite;
 }
 @keyframes mochi-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-1.5px) scale(1.008); }
-}
-.mochi-tail {
-  transform-box: fill-box;
-  transform-origin: 8% 25%;
-  animation: mochi-wag 5s ease-in-out infinite;
-}
-@keyframes mochi-wag {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(7deg); }
-}
-.mochi-blink {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: mochi-blink 6s ease-in-out infinite;
-}
-@keyframes mochi-blink {
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.08); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
 }
 .mochi-twinkle {
-  animation: mochi-twinkle 3.2s ease-in-out infinite;
+  animation: mochi-twinkle 5s ease-in-out infinite;
 }
 @keyframes mochi-twinkle {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+  50% { opacity: 0.55; }
 }
 .mochi-drift {
-  transform-box: fill-box;
-  animation: mochi-drift 4.5s ease-in-out infinite;
+  animation: mochi-drift 6s ease-in-out infinite;
 }
 @keyframes mochi-drift {
-  0%, 100% { transform: translateY(0); opacity: 0.75; }
-  50% { transform: translateY(-3px); opacity: 1; }
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
 }
 .mochi-heart {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: mochi-heartbeat 2.8s ease-in-out infinite;
+  animation: mochi-heartbeat 5s ease-in-out infinite;
 }
 @keyframes mochi-heartbeat {
-  0%, 100% { transform: scale(1); }
-  45% { transform: scale(1.14); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+/* tail wag and eye blink are intentionally static: transform animations on
+   SVG inner parts re-rasterize and look glitchy (see rules above). */
+.mochi-tail,
+.mochi-blink {
+  animation: none;
 }
 body.calm-mascot .mochi-idle,
 body.calm-mascot .mochi-tail,
