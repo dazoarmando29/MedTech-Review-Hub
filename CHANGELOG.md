@@ -5,6 +5,13 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Added
+- **Scope picker for AI generation**: choose 'my selection / this page / the whole PDF / a page range' before making flashcards, quizzes, or summaries — whole-document jobs run in parts with live progress (Reading page 12… / Writing cards from part 2 of 5…).
+- **'Where did it go?' solved**: flashcards link to the 'From my PDFs' deck, generated questions get a 'From my materials' practice card on the Quiz page, and every summary/key-term/explanation is saved to 'Your saved AI notes' in the PDF reader.
+
+### Fixed
+- **AI focused on the wrong content** (author/publisher front matter): generation prompts now extract only subject/review content with answers supported by the source, and locally strip copyright/ISBN/TOC junk before sending. Front-matter pages now give a helpful hint instead of a failure.
+
 ### Fixed
 - **AI buttons felt dead while generating**: generation dialogs now open instantly with animated buffering (Mochi + shimmer skeletons + bouncing dots) and name exactly what is being written. Upload shows a real progress bar; PDF parsing shows a buffering overlay.
 - **AI generation was slow and could return truncated JSON** (breaking flashcard imports): output budgets fixed, 20s per-model abort timeout prevents hangs, and the parser now recovers cards even from truncated responses.

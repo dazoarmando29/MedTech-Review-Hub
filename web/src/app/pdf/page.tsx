@@ -2,6 +2,7 @@
 
 // Smart PDF reader: zoom, navigation, in-document search, bookmarks, resume
 // position, semantic highlight colors, notes, and AI tools (server-side AI).
+import Link from 'next/link';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, cx } from '@/components/ui';
@@ -9,10 +10,11 @@ import { Mochi } from '@/components/Mochi';
 import { api, configureApi, friendlyApiError, isSignedIn } from '@/lib/api';
 import { parseFlashcardsFromAi, parseQuestionsFromAi, type ParsedFlashcard, type ParsedQuestion } from '@/lib/aiParse';
 import { toQuizQuestion } from '@/lib/questions';
+import { chunkText, MAX_AI_PARTS, stripFrontMatter } from '@/lib/pdfText';
 import { newAttemptId } from '@/lib/quiz';
 import {
   addCustomQuestions, addPdf, addPdfAnnotation, removePdf, removePdfAnnotation, setPdfLastPage,
-  startQuiz, updateSettings, upsertCard, useStore,
+  addAiNote, removeAiNote, startQuiz, updateSettings, upsertCard, useStore,
 } from '@/lib/store';
 import type { HighlightColor, PdfAnnotation, PdfDocMeta, QuizAttempt } from '@/lib/types';
 
@@ -25,11 +27,15 @@ const COLORS: { id: HighlightColor }[] = [
   { id: 'ROSE' },
 ];
 
+type ScopeChoice = { mode: 'selection' | 'page' | 'whole' | 'pages'; from?: number; to?: number };
+
 export default function PdfPage() {
   const router = useRouter();
   const pdfs = useStore((s) => s.pdfs);
   const annotations = useStore((s) => s.pdfAnnotations);
   const settings = useStore((s) => s.settings);
+  const aiNotes = useStore((s) => s.aiNotes);
+  const activePdfName = useStore((s) => s.pdfs.find((p) => p.id === activeId)?.name ?? null);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selection, setSelection] = useState<string | null>(null);
   const [pageText, setPageText] = useState('');
@@ -39,6 +45,8 @@ export default function PdfPage() {
   const [busyAction, setBusyAction] = useState<string | null>(null);
   const [genLoading, setGenLoading] = useState<'cards' | 'quiz' | null>(null);
   const [uploading, setUploading] = useState<{ name: string; pct: number } | null>(null);
+  const [scopeFor, setScopeFor] = useState<'cards' | 'quiz' | 'summarize' | null>(null);
+  const [genProgress, setGenProgress] = useState<string | null>(null);
   const [authed, setAuthed] = useState(false);
   const [genCards, setGenCards] = useState<ParsedFlashcard[] | null>(null);
   const [genQuestions, setGenQuestions] = useState<ParsedQuestion[] | null>(null);
@@ -141,6 +149,152 @@ export default function PdfPage() {
     startQuiz(attempt);
     setGenQuestions(null);
     router.push('/quiz/');
+  };
+
+  // --- scope-aware generation: selection / this page / page range / whole PDF ---
+  const collectPagesText = async (from: number, to: number): Promise<string> => {
+    const pdf = (window as unknown as {
+      __pdf?: { numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: { str: string }[] }> }> };
+    }).__pdf;
+    if (!pdf) return pageText;
+    const parts: string[] = [];
+    const end = Math.min(to, pdf.numPages);
+    for (let n = Math.max(1, from); n <= end; n++) {
+      setGenProgress(`Reading page ${n} of ${end}…`);
+      try {
+        const pg = await pdf.getPage(n);
+        const tc = await pg.getTextContent();
+        const text = stripFrontMatter(tc.items.map((i) => i.str).join(' '));
+        if (text) parts.push(text);
+      } catch {
+        /* skip unreadable pages */
+      }
+    }
+    return parts.join('\n');
+  };
+
+  const scopeText = async (choice: ScopeChoice): Promise<{ text: string; label: string }> => {
+    if (choice.mode === 'selection' && selection) return { text: selection, label: 'your selection' };
+    if (choice.mode === 'pages') {
+      const text = await collectPagesText(choice.from ?? 1, choice.to ?? 1);
+      return { text, label: `pages ${choice.from}-${choice.to}` };
+    }
+    if (choice.mode === 'whole') {
+      const pdf = (window as unknown as { __pdf?: { numPages: number } }).__pdf;
+      const text = await collectPagesText(1, pdf?.numPages ?? 1);
+      return { text, label: 'the whole PDF' };
+    }
+    return { text: stripFrontMatter(pageText), label: 'this page' };
+  };
+
+  const handleScope = async (choice: ScopeChoice) => {
+    setScopeFor(null);
+    setAiError(null);
+    const { text, label } = await scopeText(choice);
+    if (text.trim().length < 40) {
+      setAiError('This passage looks like front matter (publisher/author info). Choose a page with subject content — or pick "Whole PDF" so the AI can pick out the review-worthy parts.');
+      setGenProgress(null);
+      return;
+    }
+    if (scopeFor === 'summarize') {
+      setAiBusy(true);
+      setBusyAction('Summary');
+      try {
+        const res = await api.aiSummarize(text, label === 'the whole PDF' ? 'CHAPTER' : 'PAGE');
+        const body = typeof res.result === 'string' ? res.result : JSON.stringify(res.result, null, 2);
+        setAiResult(`Summary of ${label}\n\n${body}`);
+        addAiNote({
+          id: `note-${Date.now()}`,
+          kind: 'summary',
+          title: `Summary - ${label}`,
+          text: body,
+          pdfName: activePdfName,
+          createdAt: new Date().toISOString(),
+        });
+      } catch (e) {
+        setAiError(friendlyApiError(e));
+      } finally {
+        setAiBusy(false);
+        setBusyAction(null);
+        setGenProgress(null);
+      }
+      return;
+    }
+    // flashcards / quiz: generate per chunk so whole documents work too
+    const parts = chunkText(text).slice(0, MAX_AI_PARTS);
+    if (!parts.length) {
+      setAiError('Nothing question-worthy was found in that range. Try another part of the document.');
+      setGenProgress(null);
+      return;
+    }
+    if (scopeFor === 'cards') {
+      setGenCards([]);
+      setGenLoading('cards');
+      setAiBusy(true);
+      setBusyAction('flashcards');
+      try {
+        const all: ParsedFlashcard[] = [];
+        for (let i = 0; i < parts.length; i++) {
+          setGenProgress(`Writing cards from part ${i + 1} of ${parts.length}…`);
+          const res = await api.aiFlashcards(parts[i]);
+          all.push(
+            ...parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)),
+          );
+        }
+        const seen = new Set<string>();
+        const unique = all.filter((c) => {
+          const key = c.front.toLowerCase();
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+        if (!unique.length) {
+          setGenCards(null);
+          setAiError('The AI found no testable facts here (this can happen on publisher or preface pages). Try subject-content pages, or "Whole PDF".');
+        } else {
+          setGenCards(unique.map((c) => ({ ...c, note: label })));
+        }
+      } catch (e) {
+        setGenCards(null);
+        setAiError(friendlyApiError(e));
+      } finally {
+        setGenLoading(null);
+        setAiBusy(false);
+        setBusyAction(null);
+        setGenProgress(null);
+      }
+      return;
+    }
+    // quiz
+    setGenQuestions([]);
+    setGenLoading('quiz');
+    setAiBusy(true);
+    setBusyAction('quiz');
+    try {
+      const all: ParsedQuestion[] = [];
+      for (let i = 0; i < parts.length; i++) {
+        setGenProgress(`Writing questions from part ${i + 1} of ${parts.length}…`);
+        const res = await api.aiQuiz(parts[i]);
+        all.push(
+          ...parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)),
+        );
+      }
+      const unique = all.filter((q, i) => all.findIndex((x) => x.stem === q.stem) === i).slice(0, 20);
+      if (!unique.length) {
+        setGenQuestions(null);
+        setAiError('The AI found no question-worthy facts here. Try subject-content pages, or "Whole PDF".');
+      } else {
+        setGenQuestions(unique);
+      }
+    } catch (e) {
+      setGenQuestions(null);
+      setAiError(friendlyApiError(e));
+    } finally {
+      setGenLoading(null);
+      setAiBusy(false);
+      setBusyAction(null);
+      setGenProgress(null);
+    }
   };
 
   return (
@@ -325,20 +479,17 @@ export default function PdfPage() {
               source page or passage — and says so when the document does not contain the answer.
             </p>
             <div className="flex flex-wrap gap-2">
-              <button className="btn-ghost text-xs" disabled={aiBusy || !pageText}
-                onClick={() => runAi(() => api.aiSummarize(selection || pageText, selection ? 'PASSAGE' : 'PAGE'), 'Summary')}>
-                Summarize {selection ? 'selection' : 'page'}
+              <button className="btn-ghost text-xs" disabled={aiBusy || !pageText} onClick={() => setScopeFor('summarize')}>
+                Summarize…
               </button>
               <button className="btn-ghost text-xs" disabled={aiBusy || !(selection || pageText)}
                 onClick={() => runAi(() => api.aiKeyterms(selection || pageText), 'Key terms')}>
                 Extract key terms
               </button>
-              <button className="btn-secondary text-xs" disabled={aiBusy || !(selection || pageText)}
-                onClick={() => void runGenCards(selection || pageText)}>
+              <button className="btn-secondary text-xs" disabled={aiBusy || !pageText} onClick={() => setScopeFor('cards')}>
                 Turn into flashcards
               </button>
-              <button className="btn-secondary text-xs" disabled={aiBusy || !(selection || pageText)}
-                onClick={() => void runGenQuiz(selection || pageText)}>
+              <button className="btn-secondary text-xs" disabled={aiBusy || !pageText} onClick={() => setScopeFor('quiz')}>
                 Make me a quiz
               </button>
               <button className="btn-ghost text-xs" disabled={aiBusy || !(selection || pageText)}
@@ -351,9 +502,10 @@ export default function PdfPage() {
                 <Mochi mood="studying" size={48} />
                 <div className="flex-1">
                   <p className="text-sm font-semibold">
-                    {busyAction === 'flashcards' ? 'Writing your flashcards…'
-                      : busyAction === 'quiz' ? 'Writing your quiz…'
-                      : busyAction ? `${busyAction}…` : 'Working…'}
+                    {genProgress ??
+                      (busyAction === 'flashcards' ? 'Writing your flashcards…'
+                        : busyAction === 'quiz' ? 'Writing your quiz…'
+                        : busyAction ? `${busyAction}…` : 'Working…')}
                   </p>
                   <div className="flex gap-1.5 mt-1.5"><span className="buffer-dot" /><span className="buffer-dot" /><span className="buffer-dot" /></div>
                 </div>
@@ -369,6 +521,36 @@ export default function PdfPage() {
         </div>
       </div>
 
+      {aiNotes.length > 0 && (
+        <Card>
+          <SectionTitle icon="🗒️">Your saved AI notes ({aiNotes.length})</SectionTitle>
+          <p className="text-xs mb-2" style={{ color: 'var(--muted)' }}>
+            Every summary, key-term list, and explanation is saved here so you can find it again.
+          </p>
+          <ul className="space-y-2">
+            {aiNotes.map((n) => (
+              <li key={n.id} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
+                <div className="flex items-center justify-between gap-2">
+                  <strong className="text-sm">{n.title}</strong>
+                  <ConfirmButton label="Delete" confirmLabel="Confirm?" className="chip"
+                    onConfirm={() => removeAiNote(n.id)} />
+                </div>
+                <p className="text-xs mt-1 whitespace-pre-wrap max-h-24 overflow-auto">{n.text}</p>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
+
+      {scopeFor && (
+        <GenScopeDialog
+          kind={scopeFor}
+          hasSelection={Boolean(selection)}
+          defaultTo={1}
+          onClose={() => setScopeFor(null)}
+          onChoose={(choice) => void handleScope(choice)}
+        />
+      )}
       {(genCards !== null || genLoading === 'cards') && (
         <GenCardsDialog
           cards={genCards ?? []}
@@ -616,6 +798,50 @@ const MemoPdfViewer = React.memo(PdfViewer);
 
 // ---- Anki-style review-before-add dialogs ----
 
+function GenScopeDialog({ kind, hasSelection, defaultTo, onClose, onChoose }: {
+  kind: 'cards' | 'quiz' | 'summarize';
+  hasSelection: boolean;
+  defaultTo: number;
+  onClose: () => void;
+  onChoose: (choice: { mode: 'selection' | 'page' | 'whole' | 'pages'; from?: number; to?: number }) => void;
+}) {
+  const [from, setFrom] = useState(defaultTo);
+  const [to, setTo] = useState(defaultTo);
+  const label = kind === 'cards' ? 'flashcards' : kind === 'quiz' ? 'a quiz' : 'a summary';
+  return (
+    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div className="card p-5 w-full max-w-md">
+        <SectionTitle icon="🎯">What should become {label}?</SectionTitle>
+        <div className="space-y-2">
+          {hasSelection && (
+            <button className="btn-primary w-full justify-start" onClick={() => onChoose({ mode: 'selection' })}>
+              🖍 My selection
+            </button>
+          )}
+          <button className="btn-secondary w-full justify-start" onClick={() => onChoose({ mode: 'page' })}>
+            📄 This page
+          </button>
+          <button className="btn-secondary w-full justify-start" onClick={() => onChoose({ mode: 'whole' })}>
+            📚 The whole PDF (best for making a full deck)
+          </button>
+          <div className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
+            <p className="text-xs mb-2">Or a page range:</p>
+            <div className="flex items-center gap-2">
+              <input className="input !w-20" type="number" min={1} value={from} onChange={(e) => setFrom(Number(e.target.value))} aria-label="From page" />
+              <span>to</span>
+              <input className="input !w-20" type="number" min={1} value={to} onChange={(e) => setTo(Number(e.target.value))} aria-label="To page" />
+              <button className="btn-ghost text-xs" onClick={() => onChoose({ mode: 'pages', from: Math.min(from, to), to: Math.max(from, to) })}>
+                Go
+              </button>
+            </div>
+          </div>
+        </div>
+        <button className="btn-ghost w-full mt-4" onClick={onClose}>Cancel</button>
+      </div>
+    </div>
+  );
+}
+
 function GenCardsDialog({ cards, loading, pdfId, onClose }: {
   cards: ParsedFlashcard[]; loading: boolean; pdfId: string | null; onClose: () => void;
 }) {
@@ -698,6 +924,12 @@ function GenCardsDialog({ cards, loading, pdfId, onClose }: {
             {loading ? 'Generating…' : `Add ${checked.filter(Boolean).length} cards to my deck`}
           </button>
         </div>
+        {done > 0 && (
+          <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
+            Find them under <Link href="/flashcards/" className="link-cute">Flashcards → deck “From my PDFs”</Link> —
+            they are scheduled with spaced repetition automatically.
+          </p>
+        )}
       </div>
     </div>
   );
@@ -759,6 +991,10 @@ function GenQuizDialog({ questions, loading, label, onStart, onClose }: {
             {loading ? 'Generating…' : `Start quiz with ${checked.filter(Boolean).length} questions`}
           </button>
         </div>
+        <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
+          Saved automatically — practice them again anytime from{' '}
+          <Link href="/quiz/" className="link-cute">Quiz → “From my materials”</Link>.
+        </p>
       </div>
     </div>
   );
