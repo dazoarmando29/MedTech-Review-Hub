@@ -4,17 +4,30 @@
 export function chunkText(text: string, maxChars = 5500): string[] {
   const clean = text.replace(/\s+/g, ' ').trim();
   if (!clean) return [];
-  const chunks: string[] = [];
+  // Split at sentence boundaries without regex lookbehind (older iPad Safari
+  // cannot parse lookbehind and would crash the whole PDF page at load).
+  const sentences: string[] = [];
   let current = '';
-  for (const sentence of clean.split(/(?<=[.!?])\s+/)) {
-    if ((current + ' ' + sentence).length > maxChars && current) {
-      chunks.push(current.trim());
-      current = sentence;
-    } else {
-      current = current ? `${current} ${sentence}` : sentence;
+  for (const word of clean.split(' ')) {
+    current = current ? `${current} ${word}` : word;
+    if (/[.!?]$/.test(word)) {
+      sentences.push(current);
+      current = '';
     }
   }
-  if (current.trim()) chunks.push(current.trim());
+  if (current) sentences.push(current);
+
+  const chunks: string[] = [];
+  let buf = '';
+  for (const sentence of sentences) {
+    if ((buf + ' ' + sentence).length > maxChars && buf) {
+      chunks.push(buf.trim());
+      buf = sentence;
+    } else {
+      buf = buf ? `${buf} ${sentence}` : sentence;
+    }
+  }
+  if (buf.trim()) chunks.push(buf.trim());
   return chunks;
 }
 

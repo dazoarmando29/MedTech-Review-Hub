@@ -10,6 +10,7 @@ import { motivation } from '@/lib/content';
 import type { ThemeId } from '@/lib/types';
 import { Mochi, type MochiMood } from './Mochi';
 import { MiniPlayer, usePlayer } from './MiniPlayer';
+import { ErrorBoundary } from './ErrorBoundary';
 import {
   IconBook, IconCards, IconGarden, IconHabits, IconHome, IconPdf, IconPlanner,
   IconQuiz, IconResources, IconSearch, IconSettings, IconSparkle,
@@ -178,7 +179,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         className="flex-1 max-w-6xl w-full mx-auto px-4"
         style={{ paddingTop: 24, paddingBottom: playerState.trackId ? 110 : 24 }}
       >
-        {mounted ? children : <LoadingMochi />}
+        <ErrorBoundary>{mounted ? children : <LoadingMochi />}</ErrorBoundary>
       </main>
 
       <MiniPlayer />
