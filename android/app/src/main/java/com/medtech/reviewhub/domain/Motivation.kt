@@ -80,6 +80,18 @@ object Motivation {
         return list.pick(Math.floorMod(seed, list.size))
     }
 
+    /** mascotLines group holding the partner's love notes (mascotLines.lalabs). */
+    const val LALABS = "lalabs"
+
+    /**
+     * "From Lalabs" love note: deterministic day-of-year index into
+     * mascotLines.lalabs (same note all day), with [offset] advancing to the
+     * next note ("another note"); wraps, and returns "" when the bank has no
+     * lalabs lines.
+     */
+    fun lalabsNote(bank: MotivationBank, dayOfYear: Int, offset: Int = 0): String =
+        bank.mascotLines[LALABS].orEmpty().pick(dayOfYear + offset)
+
     private fun List<String>.pick(index: Int): String =
         if (isEmpty()) "" else this[Math.floorMod(index, size)]
 }

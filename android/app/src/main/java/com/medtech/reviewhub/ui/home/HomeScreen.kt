@@ -81,6 +81,16 @@ fun HomeScreen(
         )
         Spacer(Modifier.height(12.dp))
 
+        // ---- "From Lalabs" love note (motivation.json mascotLines.lalabs) ----
+        val lalabsOffset by vm.lalabsOffset.collectAsState()
+        val lalabsLine = com.medtech.reviewhub.domain.Motivation.lalabsNote(
+            motivationBank, state.dayOfYear, lalabsOffset
+        )
+        if (lalabsLine.isNotBlank()) {
+            FromLalabsCard(line = lalabsLine, onAnother = { vm.nextLalabsNote() })
+            Spacer(Modifier.height(12.dp))
+        }
+
         // ---- "Little Notes for You" (private personal notes, never auto-generated) ----
         state.loveNote?.let { note ->
             Box(
@@ -299,7 +309,12 @@ private fun GreetingBanner(state: HomeViewModel.Dashboard, decorations: Boolean)
             )
         }
         Spacer(Modifier.width(8.dp))
-        MascotFace(kind = state.mascotKind, mood = state.mascotMood, sizeDp = 64)
+        MascotFace(
+            kind = state.mascotKind,
+            mood = state.mascotMood,
+            sizeDp = 64,
+            reduceAnimation = state.settings.reduceAnimation
+        )
     }
 }
 
@@ -318,6 +333,28 @@ private fun GiftNoteCard(note: String) {
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSecondaryContainer
         )
+    }
+}
+
+/**
+ * Compact "From Lalabs" sticky note (motivation.json mascotLines.lalabs):
+ * one partner love note per day (day-of-year index), "another note" advances.
+ */
+@Composable
+private fun FromLalabsCard(line: String, onAnother: () -> Unit) {
+    AppCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            "From Lalabs 💗",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(line, style = MaterialTheme.typography.bodyMedium)
+        Spacer(Modifier.height(4.dp))
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Spacer(Modifier.weight(1f))
+            TextButton(onClick = onAnother) { Text("another note 💗") }
+        }
     }
 }
 

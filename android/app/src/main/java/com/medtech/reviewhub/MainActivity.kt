@@ -295,6 +295,7 @@ fun ReviewHubNavGraph(container: AppContainer) {
                             detail = event.detail,
                             bank = motivationBank,
                             mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
+                            reduceAnimation = settingsState?.reduceAnimation ?: false,
                             onDismiss = { EncouragementBus.dismiss() }
                         )
                     }
@@ -317,6 +318,7 @@ fun ReviewHubNavGraph(container: AppContainer) {
                     }
                     OnboardingScreen(
                         subjectNames = subjectNames,
+                        reduceAnimation = settingsState?.reduceAnimation ?: false,
                         onDone = {
                             navController.navigate(Routes.HOME) { popUpTo(Routes.HOME) { inclusive = true } }
                         },
@@ -453,6 +455,7 @@ fun ReviewHubNavGraph(container: AppContainer) {
                             questions = state.questions,
                             answers = state.answers,
                             mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
+                            reduceAnimation = settingsState?.reduceAnimation ?: false,
                             onOpenLesson = { navController.navigate(Routes.lesson(it)) },
                             onReviewIncorrect = { navController.navigate(Routes.QUIZ_SETUP) },
                             onDone = {
@@ -492,6 +495,7 @@ fun ReviewHubNavGraph(container: AppContainer) {
                         vm = vm,
                         mascotKind = settingsState?.mascotKind ?: MascotKind.CAT,
                         aiEnabled = !settingsState?.apiBaseUrl.isNullOrBlank(),
+                        reduceAnimation = settingsState?.reduceAnimation ?: false,
                         onAiSummary = {
                             kotlinx.coroutines.runBlocking {
                                 val base = container.settings.current().apiBaseUrl

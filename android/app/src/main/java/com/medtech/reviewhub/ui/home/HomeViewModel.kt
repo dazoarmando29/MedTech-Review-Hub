@@ -83,6 +83,16 @@ class HomeViewModel(
     private val _dashboard = MutableStateFlow(Dashboard())
     val dashboard: StateFlow<Dashboard> = _dashboard.asStateFlow()
 
+    // "From Lalabs" note rotation (shared/content/motivation.json mascotLines.lalabs):
+    // the daily note is the day-of-year index; "another note" advances the offset.
+    private val _lalabsOffset = MutableStateFlow(0)
+    val lalabsOffset: StateFlow<Int> = _lalabsOffset.asStateFlow()
+
+    /** "another note": advance to the next lalabs note (wraps). */
+    fun nextLalabsNote() {
+        _lalabsOffset.update { it + 1 }
+    }
+
     fun load() {
         viewModelScope.launch {
             val settings = settingsRepository.current()

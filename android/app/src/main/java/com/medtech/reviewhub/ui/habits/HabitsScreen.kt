@@ -42,7 +42,7 @@ import com.medtech.reviewhub.domain.MascotMood
 import com.medtech.reviewhub.ui.components.SectionHeader
 
 @Composable
-fun HabitsScreen(vm: HabitsViewModel, mascotKind: MascotKind, aiEnabled: Boolean, onAiSummary: () -> Unit) {
+fun HabitsScreen(vm: HabitsViewModel, mascotKind: MascotKind, aiEnabled: Boolean, reduceAnimation: Boolean = false, onAiSummary: () -> Unit) {
     val state by vm.state.collectAsState()
     LaunchedEffect(Unit) { vm.load() }
 
@@ -59,7 +59,8 @@ fun HabitsScreen(vm: HabitsViewModel, mascotKind: MascotKind, aiEnabled: Boolean
                 kind = mascotKind,
                 mood = if (streak.restDayMessage != null) MascotMood.ENCOURAGING else MascotMood.HAPPY,
                 line = streak.restDayMessage
-                    ?: "Streak: ${streak.current} day(s)! Best: ${streak.best}. Tuloy lang!"
+                    ?: "Streak: ${streak.current} day(s)! Best: ${streak.best}. Tuloy lang!",
+                reduceAnimation = reduceAnimation
             )
         }
         Spacer(Modifier.height(8.dp))

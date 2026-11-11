@@ -1,6 +1,11 @@
 package com.medtech.reviewhub.ui.components
 
+import androidx.compose.animation.core.EaseInOut
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,7 +35,7 @@ import com.medtech.reviewhub.domain.MascotMood
 /**
  * Mascot bubble (shared/DESIGN.md v2 "MochiBubble" / "MascotBubble").
  * Vector-drawable mascot illustrations: res/drawable/mochi_*.xml (Mochi the
- * cat in a tiny lab coat) and bantay_*.xml (the optional dog companion) —
+ * cat in a tiny lab coat) and bantay_*.xml (the optional dog companion) �?"
  * original simple shapes, one drawing per mood.
  */
 @Composable
@@ -54,6 +59,7 @@ fun MascotBubble(
             contentDescription = "$name (${mood.name.lowercase()})",
             modifier = Modifier
                 .size(sizeDp.dp)
+                .mascotBreathing(enabled = !reduceAnimation)
                 .graphicsLayer { scaleX = scale; scaleY = scale }
         )
         Spacer(Modifier.width(8.dp))
@@ -71,13 +77,36 @@ fun MascotBubble(
     }
 }
 
+/**
+ * Slow, calming idle "breathing" bob: a 6-second ease-in-out cycle (3s up,
+ * 3s down) with at most 3dp of vertical travel. Deliberately gentle - nothing
+ * faster than 4s and no rotation - per feedback about fast jiggling.
+ */
+@Composable
+private fun Modifier.mascotBreathing(enabled: Boolean): Modifier {
+    if (!enabled) return this
+    val transition = rememberInfiniteTransition(label = "mascotBreathing")
+    val bob by transition.animateFloat(
+        initialValue = -1.5f,
+        targetValue = 1.5f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 3000, easing = EaseInOut),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "mascotBob"
+    )
+    return graphicsLayer { translationY = bob.dp.toPx() }
+}
+
 /** Compact mascot row without bubble (e.g. streak reactions). */
 @Composable
-fun MascotFace(kind: MascotKind, mood: MascotMood, sizeDp: Int = 48, modifier: Modifier = Modifier) {
+fun MascotFace(kind: MascotKind, mood: MascotMood, sizeDp: Int = 48, modifier: Modifier = Modifier, reduceAnimation: Boolean = false) {
     Image(
         painter = painterResource(mood.drawable(kind)),
         contentDescription = null,
-        modifier = modifier.size(sizeDp.dp)
+        modifier = modifier
+            .size(sizeDp.dp)
+            .mascotBreathing(enabled = !reduceAnimation)
     )
 }
 

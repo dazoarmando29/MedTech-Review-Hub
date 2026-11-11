@@ -383,7 +383,8 @@ fun StudyRoomScreen(
                         timerVm = timerVm,
                         appsVm = appsVm,
                         mascotKind = mascotKind,
-                        focusFeatureEnabled = focusFeatureEnabled
+                        focusFeatureEnabled = focusFeatureEnabled,
+                        reduceAnimation = reduceAnimation
                     )
                 }
             }

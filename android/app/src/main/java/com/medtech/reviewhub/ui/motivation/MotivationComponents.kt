@@ -141,12 +141,18 @@ fun EncouragementBanner(
     detail: String = "",
     bank: MotivationBank,
     mascotKind: com.medtech.reviewhub.domain.MascotKind,
+    reduceAnimation: Boolean = false,
     onDismiss: () -> Unit
 ) {
     val quote = Motivation.contextQuote(bank, kind, seed)
     AppCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            MascotFace(kind = mascotKind, mood = com.medtech.reviewhub.domain.MascotMood.ENCOURAGING, sizeDp = 48)
+            MascotFace(
+                kind = mascotKind,
+                mood = com.medtech.reviewhub.domain.MascotMood.ENCOURAGING,
+                sizeDp = 48,
+                reduceAnimation = reduceAnimation
+            )
             Spacer(Modifier.width(10.dp))
             Column(modifier = Modifier.weight(1f)) {
                 if (detail.isNotBlank()) {
