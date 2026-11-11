@@ -5,6 +5,9 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Fixed
+- **PDF reader freezes after upload and while using AI tools**: the text-selection layer (thousands of spans on textbook pages) was re-rendered through React on every interaction, blocking the main thread. The layer is now built imperatively in small yielding chunks, the viewer is memoized with stable callbacks, and a 'Preparing your PDF…' overlay shows during parsing. Clicks and AI tools respond instantly.
+
 ### Changed
 - **AI tools never need an account — permanently.** The server recognizes the device (X-Device-Id) instead of a login; accounts are now optional and only used for cross-device sync. Signed-in users get silent token refresh so they are never logged out either.
 
