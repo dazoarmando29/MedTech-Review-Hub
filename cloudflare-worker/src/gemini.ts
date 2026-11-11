@@ -33,14 +33,25 @@ function cacheSet(key: string, value: AiEnvelope): void {
 }
 
 async function enforceBudget(env: Env, userId: string, estimate: number): Promise<void> {
-  const budget = Number(env.AI_DAILY_TOKEN_BUDGET ?? 20000);
+  // Signed-in users get the full budget; anonymous devices get a smaller
+  // (but permanent, no-login) daily allowance — this is a personal study app.
+  const isDevice = userId.startsWith('device:');
+  const budget = Number(
+    (isDevice ? env.AI_DAILY_TOKEN_BUDGET_ANON : env.AI_DAILY_TOKEN_BUDGET) ?? 20000,
+  );
   const day = new Date().toISOString().slice(0, 10);
   const row = await env.DB.prepare('SELECT tokens FROM ai_usage WHERE user_id = ? AND day = ?')
     .bind(userId, day)
     .first<{ tokens: number }>();
   const used = row?.tokens ?? 0;
   if (used + estimate > budget) {
-    throw new HttpError(429, 'RATE_LIMITED', 'Daily AI budget exhausted. Try again tomorrow.');
+    throw new HttpError(
+      429,
+      'RATE_LIMITED',
+      isDevice
+        ? "Today's free AI limit was reached on this device. It resets tomorrow — sign in (Login page) only if you want a bigger daily allowance and cross-device sync."
+        : 'Daily AI budget exhausted. Try again tomorrow.',
+    );
   }
   await env.DB.prepare(
     `INSERT INTO ai_usage (user_id, day, tokens) VALUES (?, ?, ?)

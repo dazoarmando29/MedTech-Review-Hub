@@ -8,6 +8,7 @@ export interface Env {
   GEMINI_MODEL?: string;
   AUTH_PBKDF2_ITERATIONS?: string;
   AI_DAILY_TOKEN_BUDGET?: string;
+  AI_DAILY_TOKEN_BUDGET_ANON?: string;
   ALLOWED_ORIGINS?: string;
   PDFS?: R2Bucket;
 }

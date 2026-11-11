@@ -259,7 +259,7 @@ export default function PdfPage() {
             <SectionTitle icon="🤖" action={
               <>
                 <Badge tone={authed ? 'success' : 'warn'}>
-                  {authed ? 'signed in' : 'sign in for AI'}
+                  {authed ? 'sync on' : 'AI ready · no account'}
                 </Badge>
                 <Badge tone={settings.apiBaseUrl ? 'success' : 'warn'}>
                   {settings.apiBaseUrl ? 'server configured' : 'offline'}
@@ -269,7 +269,7 @@ export default function PdfPage() {
               AI review tools
             </SectionTitle>
             <p className="text-xs text-[var(--ink-muted)] mb-2">
-              AI runs on the server (keys are never shipped in the app). Every answer cites the
+              No account needed — AI works on this device right away. Every answer cites the
               source page or passage — and says so when the document does not contain the answer.
             </p>
             <div className="flex flex-wrap gap-2">

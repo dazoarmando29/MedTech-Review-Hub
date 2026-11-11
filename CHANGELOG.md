@@ -5,6 +5,9 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Changed
+- **AI tools never need an account — permanently.** The server recognizes the device (X-Device-Id) instead of a login; accounts are now optional and only used for cross-device sync. Signed-in users get silent token refresh so they are never logged out either.
+
 ### Fixed
 - **AI tools misreported auth failures as 'No backend configured'/'Could not generate flashcards'**: the real cause was an expired or missing login token (401). Errors are now truthful and specific ('Please sign in to use AI tools'), the client silently refreshes expired tokens and retries, and the PDF AI panel shows a live 'signed in / sign in for AI' badge. 5 new regression tests lock this in.
 
@@ -160,7 +163,7 @@ space for a future MLS, with the reviewer itself kept serious and accurate.
 - Note for existing users: your study data is preserved — v1.0.0 settings,
   highlights, and annotations are migrated in place on first load.
 
-## [1.0.1] � 2026-11-11
+## [1.0.1] � 2026-11-11
 
 ### Added
 - **Cloudflare Worker backend + AI tools (live production deployment):**

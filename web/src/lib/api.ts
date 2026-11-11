@@ -35,6 +35,29 @@ interface StoredAuth {
 let baseUrl = '';
 let token: string | null = null;
 let refreshToken: string | null = null;
+let deviceId: string | null = null;
+
+/** Stable per-device id — lets AI work permanently with no account at all. */
+export function getDeviceId(): string {
+  if (deviceId) return deviceId;
+  if (typeof window === 'undefined') return 'server';
+  try {
+    const saved = window.localStorage.getItem('mtrh-device-id');
+    if (saved && /^[\w-]{8,64}$/.test(saved)) {
+      deviceId = saved;
+      return deviceId;
+    }
+    const fresh =
+      typeof crypto !== 'undefined' && 'randomUUID' in crypto
+        ? crypto.randomUUID().replace(/-/g, '')
+        : `dev${Date.now().toString(36)}${Math.random().toString(36).slice(2, 12)}`;
+    window.localStorage.setItem('mtrh-device-id', fresh);
+    deviceId = fresh;
+    return fresh;
+  } catch {
+    return 'ephemeral';
+  }
+}
 
 function loadAuthFromStorage(): void {
   if (typeof window === 'undefined') return;
@@ -125,6 +148,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       ...init,
       headers: {
         'Content-Type': 'application/json',
+        'X-Device-Id': getDeviceId(),
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
         ...(init?.headers ?? {}),
       },
@@ -165,7 +189,7 @@ export function friendlyApiError(e: unknown): string {
   }
   if (e instanceof ApiUnavailableError) {
     if (e.reason === 'SIGN_IN_REQUIRED') {
-      return 'Please sign in (Login page) to use AI tools — it takes a moment and also syncs your study data.';
+      return 'This action needs an account (Login page) — only if you want cross-device sync. AI tools never need one.';
     }
     if (e.reason === 'NETWORK') {
       return 'Could not reach the server. Check your connection and try again.';

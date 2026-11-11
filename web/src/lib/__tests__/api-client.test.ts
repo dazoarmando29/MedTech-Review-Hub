@@ -21,7 +21,7 @@ afterEach(() => {
 });
 
 describe('API auth + error truthfulness (regression guard)', () => {
-  it('maps 401 to a clear SIGN_IN_REQUIRED error (never "no backend configured")', async () => {
+  it('maps 401 to a clear sign-in error (never "no backend configured")', async () => {
     vi.stubGlobal('fetch', fetchMock);
     configureApi('https://example.test', 'expired-token');
     fetchMock.mockResolvedValue(jsonResponse(401, { error: { code: 'UNAUTHORIZED' } }));
@@ -30,8 +30,22 @@ describe('API auth + error truthfulness (regression guard)', () => {
       reason: 'SIGN_IN_REQUIRED',
     });
     const msg = await api.aiKeyterms('some text that is long enough').catch((e) => friendlyApiError(e));
-    expect(msg).toContain('sign in');
+    expect(msg).toContain('needs an account');
+    expect(msg).toContain('AI tools never need one');
     expect(msg).not.toContain('backend configured');
+  });
+
+  it('always sends a persistent X-Device-Id so AI works with no account', async () => {
+    vi.stubGlobal('fetch', fetchMock);
+    configureApi('https://example.test', null);
+    fetchMock.mockImplementation(() => Promise.resolve(jsonResponse(200, { result: 'ok', citations: [], warnings: [] })));
+
+    await api.aiKeyterms('some text that is long enough');
+    await api.aiKeyterms('another text that is long enough');
+    const headers1 = fetchMock.mock.calls[0][1]?.headers as Record<string, string>;
+    const headers2 = fetchMock.mock.calls[1][1]?.headers as Record<string, string>;
+    expect(headers1['X-Device-Id']).toBeTruthy();
+    expect(headers1['X-Device-Id']).toBe(headers2['X-Device-Id']); // stable across calls
   });
 
   it('transparently refreshes an expired token and retries once', async () => {
@@ -81,7 +95,7 @@ describe('API auth + error truthfulness (regression guard)', () => {
 
   it('friendlyApiError tells the truth for every failure kind', () => {
     expect(friendlyApiError(new AiUnavailableError())).toContain('AI is not configured');
-    expect(friendlyApiError(new ApiUnavailableError('x', 'SIGN_IN_REQUIRED'))).toContain('sign in');
+    expect(friendlyApiError(new ApiUnavailableError('x', 'SIGN_IN_REQUIRED'))).toContain('needs an account');
     expect(friendlyApiError(new ApiUnavailableError('x', 'NETWORK'))).toContain('connection');
     expect(friendlyApiError(new ApiUnavailableError('HTTP 500', 'HTTP'))).toContain('HTTP 500');
   });
