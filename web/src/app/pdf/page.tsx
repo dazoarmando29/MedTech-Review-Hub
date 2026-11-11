@@ -10,7 +10,7 @@ import { Mochi } from '@/components/Mochi';
 import { api, configureApi, friendlyApiError, isSignedIn } from '@/lib/api';
 import { parseFlashcardsFromAi, parseQuestionsFromAi, type ParsedFlashcard, type ParsedQuestion } from '@/lib/aiParse';
 import { toQuizQuestion } from '@/lib/questions';
-import { chunkText, MAX_AI_PARTS, stripFrontMatter } from '@/lib/pdfText';
+import { chunkText, MAX_AI_PARTS, pickSpread, samplePages, stripFrontMatter } from '@/lib/pdfText';
 import { newAttemptId } from '@/lib/quiz';
 import {
   addCustomQuestions, addPdf, addPdfAnnotation, removePdf, removePdfAnnotation, setPdfLastPage,
@@ -192,7 +192,7 @@ export default function PdfPage() {
     const parts: string[] = [];
     // Read pages in parallel batches of 4: pdf.js parses in its worker, so
     // this saturates it and reads a 200-page document in seconds.
-    const BATCH = 4;
+    const BATCH = 8;
     for (let i = 0; i < numbers.length; i += BATCH) {
       const batch = numbers.slice(i, i + BATCH);
       setGenProgress(`Reading pages ${batch[0]}–${batch[batch.length - 1]} of ${end}…`);
@@ -209,8 +209,24 @@ export default function PdfPage() {
       return { text, label: `pages ${choice.from}-${choice.to}` };
     }
     if (choice.mode === 'whole') {
-      const pdf = (window as unknown as { __pdf?: { numPages: number } }).__pdf;
-      const text = await collectPagesText(1, pdf?.numPages ?? 1);
+      const pdf = (window as unknown as { __pdf?: PdfHandle }).__pdf;
+      const total = pdf?.numPages ?? 1;
+      if (!pdf) return { text: stripFrontMatter(pageText), label: 'this page' };
+      if (total > 140) {
+        // Big book: sample pages evenly across all chapters (fast + covered),
+        // skipping the front matter. Run again for a fresh sample.
+        const pages = samplePages(total, 120);
+        const parts: string[] = [];
+        const BATCH = 8;
+        for (let i = 0; i < pages.length; i += BATCH) {
+          const batch = pages.slice(i, i + BATCH);
+          setGenProgress(`Reading pages ${batch[0]}–${batch[batch.length - 1]} of ${total} (sampling the whole book)…`);
+          const texts = await Promise.all(batch.map((n) => extractOnePage(pdf, n).catch(() => '')));
+          parts.push(...texts.filter(Boolean));
+        }
+        return { text: parts.join('\n'), label: 'the whole PDF (sampled across chapters)' };
+      }
+      const text = await collectPagesText(1, total);
       return { text, label: 'the whole PDF' };
     }
     return { text: stripFrontMatter(pageText), label: 'this page' };
@@ -250,7 +266,19 @@ export default function PdfPage() {
       return;
     }
     // flashcards / quiz: generate per chunk so whole documents work too
-    const parts = chunkText(text).slice(0, MAX_AI_PARTS);
+    // Cover the WHOLE text: pick chunks evenly across it (not just the start).
+    const parts = pickSpread(chunkText(text), MAX_AI_PARTS);
+    const withRetry = async <T,>(fn: () => Promise<T>): Promise<T> => {
+      try {
+        return await fn();
+      } catch (e) {
+        if (String((e as Error)?.message ?? e).includes('502')) {
+          await new Promise((r) => setTimeout(r, 2500));
+          return await fn(); // one patient retry: the AI helper was busy
+        }
+        throw e;
+      }
+    };
     if (!parts.length) {
       setAiError('Nothing question-worthy was found in that range. Try another part of the document.');
       setGenProgress(null);
@@ -268,7 +296,7 @@ export default function PdfPage() {
         for (let i = 0; i < parts.length; i += CONCURRENCY) {
           const batch = parts.slice(i, i + CONCURRENCY);
           setGenProgress(`Writing cards… part ${i + 1}–${Math.min(i + CONCURRENCY, parts.length)} of ${parts.length}`);
-          const results = await Promise.all(batch.map((part) => api.aiFlashcards(part)));
+          const results = await Promise.all(batch.map((part) => withRetry(() => api.aiFlashcards(part))));
           for (const res of results) {
             all.push(...parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)));
           }
@@ -308,7 +336,7 @@ export default function PdfPage() {
       for (let i = 0; i < parts.length; i += CONCURRENCY) {
         const batch = parts.slice(i, i + CONCURRENCY);
         setGenProgress(`Writing questions… part ${i + 1}–${Math.min(i + CONCURRENCY, parts.length)} of ${parts.length}`);
-        const results = await Promise.all(batch.map((part) => api.aiQuiz(part)));
+        const results = await Promise.all(batch.map((part) => withRetry(() => api.aiQuiz(part))));
         for (const res of results) {
           all.push(...parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result)));
         }

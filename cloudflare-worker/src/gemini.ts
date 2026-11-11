@@ -77,11 +77,12 @@ async function callGemini(env: Env, prompt: string, maxOutputTokens = 2048): Pro
 
   let lastErr: unknown;
   for (const model of models) {
-    for (let attempt = 0; attempt < 1; attempt++) {
+    for (let attempt = 0; attempt < 2; attempt++) {
       try {
         const res = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
           {
+            signal: AbortSignal.timeout(45000),
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -98,7 +99,7 @@ async function callGemini(env: Env, prompt: string, maxOutputTokens = 2048): Pro
         if (!res.ok) {
           const bodyText = await res.text();
           if ((res.status === 429 || res.status >= 500) && attempt < 1) {
-            await new Promise((r) => setTimeout(r, 700));
+            await new Promise((r) => setTimeout(r, 1200));
             continue;
           }
           lastErr = new HttpError(502, 'INTERNAL', `AI provider error ${res.status}: ${bodyText.slice(0, 200)}`);

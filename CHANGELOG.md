@@ -5,6 +5,12 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Fixed
+- **'HTTP 502' on generation**: my per-model 20s timeout aborted legitimate slow AI calls and there was no retry; the Worker now allows 45s per attempt and retries on busy/limited responses, and the client patiently retries once on 502.
+
+### Changed
+- **600-page books now work fast and fairly**: pages are read 8-wide in parallel; on big documents 'whole PDF' samples ~120 pages evenly across ALL chapters (front matter skipped), and generation chunks are spread across the whole text instead of only the start. Run again for a fresh sample.
+
 ### Changed
 - **PDF generation is much faster and handles big documents**: pages are read in parallel (4 at a time) into a per-document text cache, and AI generation runs 3 chunks concurrently with larger chunks (fewer round trips). Whole-PDF decks build up to ~3x faster; repeat generation from the same document is near-instant from cache.
 - Error boundary now self-heals from ANY stale-cache failure after a deploy (one automatic reload per session) and shows the error text when manual recovery is needed.
