@@ -285,6 +285,33 @@ body.calm-mascot .mochi-pop {
 body.no-decor .decor-only { display: none !important; }
 body.no-motion * { animation: none !important; transition: none !important; }
 
+/* ---- Buffering / loading indicators (disabled by no-motion) ---- */
+.shimmer {
+  background: linear-gradient(90deg, var(--chip) 25%, var(--surface-2) 50%, var(--chip) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.buffer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--primary);
+  display: inline-block;
+  animation: buffer-bounce 1s ease-in-out infinite;
+}
+.buffer-dot:nth-child(2) { animation-delay: 0.15s; }
+.buffer-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes buffer-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-5px); opacity: 1; }
+}
+body.no-motion .shimmer,
+body.no-motion .buffer-dot { animation: none !important; }
+
 /* ---- Calm-by-default design (ADHD & beginner friendly) ----
    Secondary/technical detail is folded away as the official design —
    not a mode. Primary actions stay obvious, layouts breathe. */

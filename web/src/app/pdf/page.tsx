@@ -5,6 +5,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, cx } from '@/components/ui';
+import { Mochi } from '@/components/Mochi';
 import { api, configureApi, friendlyApiError, isSignedIn } from '@/lib/api';
 import { parseFlashcardsFromAi, parseQuestionsFromAi, type ParsedFlashcard, type ParsedQuestion } from '@/lib/aiParse';
 import { toQuizQuestion } from '@/lib/questions';
@@ -35,6 +36,9 @@ export default function PdfPage() {
   const [aiResult, setAiResult] = useState<string | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
+  const [busyAction, setBusyAction] = useState<string | null>(null);
+  const [genLoading, setGenLoading] = useState<'cards' | 'quiz' | null>(null);
+  const [uploading, setUploading] = useState<{ name: string; pct: number } | null>(null);
   const [authed, setAuthed] = useState(false);
   const [genCards, setGenCards] = useState<ParsedFlashcard[] | null>(null);
   const [genQuestions, setGenQuestions] = useState<ParsedQuestion[] | null>(null);
@@ -64,6 +68,7 @@ export default function PdfPage() {
       setAiError(friendlyApiError(e));
     } finally {
       setAiBusy(false);
+      setBusyAction(null);
     }
   };
 
@@ -71,37 +76,51 @@ export default function PdfPage() {
   // -> real deck cards / real quiz session (never silently added).
   const runGenCards = async (text: string) => {
     setAiBusy(true);
+    setBusyAction('flashcards');
+    setGenLoading('cards'); // dialog opens instantly with a buffering skeleton
+    setGenCards([]);
     setAiError(null);
     try {
       const res = await api.aiFlashcards(text);
       const cards = parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result));
       if (!cards.length) {
+        setGenCards(null);
         setAiError('The AI did not return usable flashcards for this text. Try selecting a fuller passage.');
       } else {
         setGenCards(cards);
       }
     } catch (e) {
+      setGenCards(null);
       setAiError(friendlyApiError(e));
     } finally {
+      setGenLoading(null);
       setAiBusy(false);
+      setBusyAction(null);
     }
   };
 
   const runGenQuiz = async (text: string) => {
     setAiBusy(true);
+    setBusyAction('quiz');
+    setGenLoading('quiz'); // dialog opens instantly with a buffering skeleton
+    setGenQuestions([]);
     setAiError(null);
     try {
       const res = await api.aiQuiz(text);
       const qs = parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result));
       if (!qs.length) {
+        setGenQuestions(null);
         setAiError('The AI did not return usable questions for this text. Try selecting a fuller passage.');
       } else {
         setGenQuestions(qs);
       }
     } catch (e) {
+      setGenQuestions(null);
       setAiError(friendlyApiError(e));
     } finally {
+      setGenLoading(null);
       setAiBusy(false);
+      setBusyAction(null);
     }
   };
 
@@ -126,6 +145,23 @@ export default function PdfPage() {
 
   return (
     <div className="space-y-6">
+      {uploading && (
+        <div className="card p-4 flex items-center gap-4" role="status" aria-live="polite">
+          <Mochi mood="studying" size={64} className="loading-mochi" />
+          <div className="flex-1">
+            <p className="text-sm font-semibold">
+              {uploading.pct < 100 ? `Buffering ${uploading.name}… ${uploading.pct}%` : `Opening ${uploading.name}…`}
+            </p>
+            <div className="h-2 rounded-full overflow-hidden mt-2" style={{ background: 'var(--chip)' }}>
+              <div
+                className="h-full rounded-full transition-all"
+                style={{ width: `${uploading.pct}%`, background: 'var(--primary)' }}
+              />
+            </div>
+            <div className="flex gap-1.5 mt-2"><span className="buffer-dot" /><span className="buffer-dot" /><span className="buffer-dot" /></div>
+          </div>
+        </div>
+      )}
       <div>
         <h1 className="font-heading text-2xl font-bold">Smart PDF Reader</h1>
         <p className="text-sm text-[var(--ink-muted)] max-w-2xl">
@@ -156,7 +192,17 @@ export default function PdfPage() {
                   return;
                 }
                 const id = `pdf-${Date.now()}`;
-                saveBlob(id, file).then(() => {
+                setUploading({ name: file.name, pct: 0 });
+                // FileReader progress gives a real buffering indicator for big PDFs
+                const reader = new FileReader();
+                reader.onprogress = (ev) => {
+                  if (ev.lengthComputable) {
+                    setUploading({ name: file.name, pct: Math.round((ev.loaded / ev.total) * 100) });
+                  }
+                };
+                reader.onload = async () => {
+                  setUploading({ name: file.name, pct: 100 });
+                  await saveBlob(id, new Blob([reader.result as ArrayBuffer], { type: 'application/pdf' }));
                   addPdf({
                     id,
                     name: file.name,
@@ -167,7 +213,13 @@ export default function PdfPage() {
                     sizeBytes: file.size,
                   });
                   setActiveId(id);
-                });
+                  setUploading(null);
+                };
+                reader.onerror = () => {
+                  setUploading(null);
+                  alert('Could not read that file. Please try again.');
+                };
+                reader.readAsArrayBuffer(file);
               }}
             />
           </label>
@@ -294,7 +346,19 @@ export default function PdfPage() {
                 Explain simply
               </button>
             </div>
-            {aiBusy && <p className="text-sm mt-3 animate-pulse-soft">Working…</p>}
+            {aiBusy && (
+              <div className="card-soft p-3 mt-3 flex items-center gap-3" role="status" aria-live="polite">
+                <Mochi mood="studying" size={48} />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">
+                    {busyAction === 'flashcards' ? 'Writing your flashcards…'
+                      : busyAction === 'quiz' ? 'Writing your quiz…'
+                      : busyAction ? `${busyAction}…` : 'Working…'}
+                  </p>
+                  <div className="flex gap-1.5 mt-1.5"><span className="buffer-dot" /><span className="buffer-dot" /><span className="buffer-dot" /></div>
+                </div>
+              </div>
+            )}
             {aiError && (
               <p className="text-sm mt-3 rounded-md bg-amber-50 dark:bg-amber-950/40 p-3">{aiError}</p>
             )}
@@ -305,15 +369,21 @@ export default function PdfPage() {
         </div>
       </div>
 
-      {genCards && (
-        <GenCardsDialog cards={genCards} pdfId={activeId} onClose={() => setGenCards(null)} />
+      {(genCards !== null || genLoading === 'cards') && (
+        <GenCardsDialog
+          cards={genCards ?? []}
+          loading={genLoading === 'cards'}
+          pdfId={activeId}
+          onClose={() => { setGenCards(null); setGenLoading(null); }}
+        />
       )}
-      {genQuestions && (
+      {(genQuestions !== null || genLoading === 'quiz') && (
         <GenQuizDialog
-          questions={genQuestions}
+          questions={genQuestions ?? []}
+          loading={genLoading === 'quiz'}
           label={selection ? 'your selection' : 'this page'}
           onStart={(sel, label) => startGeneratedQuiz(sel, label)}
-          onClose={() => setGenQuestions(null)}
+          onClose={() => { setGenQuestions(null); setGenLoading(null); }}
         />
       )}
     </div>
@@ -546,8 +616,8 @@ const MemoPdfViewer = React.memo(PdfViewer);
 
 // ---- Anki-style review-before-add dialogs ----
 
-function GenCardsDialog({ cards, pdfId, onClose }: {
-  cards: ParsedFlashcard[]; pdfId: string | null; onClose: () => void;
+function GenCardsDialog({ cards, loading, pdfId, onClose }: {
+  cards: ParsedFlashcard[]; loading: boolean; pdfId: string | null; onClose: () => void;
 }) {
   const [checked, setChecked] = useState<boolean[]>(cards.map(() => true));
   const [edits, setEdits] = useState(cards.map((c) => ({ front: c.front, back: c.back })));
@@ -589,6 +659,21 @@ function GenCardsDialog({ cards, pdfId, onClose }: {
           AI drafted these from your document — edit anything, untick what you do not want,
           then add them to your real review deck (they will be scheduled with spaced repetition).
         </p>
+        {loading && (
+          <div className="card-soft p-4 mb-3 flex items-center gap-3" role="status" aria-live="polite">
+            <Mochi mood="studying" size={56} />
+            <div className="flex-1">
+              <p className="text-sm font-semibold">Mochi is writing your flashcards…</p>
+              <div className="flex gap-1.5 mt-2"><span className="buffer-dot" /><span className="buffer-dot" /><span className="buffer-dot" /></div>
+            </div>
+          </div>
+        )}
+        {loading && [0, 1, 2].map((i) => (
+          <div key={i} className="rounded-[12px] p-3 space-y-2" style={{ background: 'var(--surface-2)' }}>
+            <div className="h-10 rounded-md shimmer" />
+            <div className="h-14 rounded-md shimmer" />
+          </div>
+        ))}
         {done > 0 && <p className="sticky-note mb-3">🌸 Added {done} cards to your deck. Find them under Flashcards!</p>}
         <ul className="space-y-3">
           {cards.map((c, i) => (
@@ -609,8 +694,8 @@ function GenCardsDialog({ cards, pdfId, onClose }: {
         </ul>
         <div className="flex justify-end gap-2 mt-4">
           <button className="btn-ghost" onClick={onClose}>Cancel</button>
-          <button className="btn-primary" onClick={addSelected} disabled={!checked.some(Boolean)}>
-            Add {checked.filter(Boolean).length} cards to my deck
+          <button className="btn-primary" onClick={addSelected} disabled={loading || !checked.some(Boolean)}>
+            {loading ? 'Generating…' : `Add ${checked.filter(Boolean).length} cards to my deck`}
           </button>
         </div>
       </div>
@@ -618,8 +703,8 @@ function GenCardsDialog({ cards, pdfId, onClose }: {
   );
 }
 
-function GenQuizDialog({ questions, label, onStart, onClose }: {
-  questions: ParsedQuestion[]; label: string;
+function GenQuizDialog({ questions, loading, label, onStart, onClose }: {
+  questions: ParsedQuestion[]; loading: boolean; label: string;
   onStart: (selected: ParsedQuestion[], label: string) => void; onClose: () => void;
 }) {
   const [checked, setChecked] = useState<boolean[]>(questions.map(() => true));
@@ -631,6 +716,21 @@ function GenQuizDialog({ questions, label, onStart, onClose }: {
           Review before you start — untick anything that looks off. These questions are saved
           to your collection so you can practice them again later.
         </p>
+        {loading && (
+          <div className="card-soft p-4 mb-3 flex items-center gap-3" role="status" aria-live="polite">
+            <Mochi mood="studying" size={56} />
+            <div className="flex-1">
+              <p className="text-sm font-semibold">Mochi is writing your quiz…</p>
+              <div className="flex gap-1.5 mt-2"><span className="buffer-dot" /><span className="buffer-dot" /><span className="buffer-dot" /></div>
+            </div>
+          </div>
+        )}
+        {loading && [0, 1, 2].map((i) => (
+          <div key={i} className="rounded-[12px] p-3 space-y-2" style={{ background: 'var(--surface-2)' }}>
+            <div className="h-6 rounded-md shimmer w-3/4" />
+            <div className="h-12 rounded-md shimmer" />
+          </div>
+        ))}
         <ul className="space-y-3">
           {questions.map((q, i) => (
             <li key={i} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
@@ -655,8 +755,8 @@ function GenQuizDialog({ questions, label, onStart, onClose }: {
         <div className="flex justify-end gap-2 mt-4">
           <button className="btn-ghost" onClick={onClose}>Cancel</button>
           <button className="btn-primary" onClick={() => onStart(questions.filter((_, i) => checked[i]), label)}
-            disabled={!checked.some(Boolean)}>
-            Start quiz with {checked.filter(Boolean).length} questions
+            disabled={loading || !checked.some(Boolean)}>
+            {loading ? 'Generating…' : `Start quiz with ${checked.filter(Boolean).length} questions`}
           </button>
         </div>
       </div>
