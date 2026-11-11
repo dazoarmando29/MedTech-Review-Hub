@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chunkText, MAX_AI_PARTS, stripFrontMatter } from '../pdfText';
+import { chunkText, MAX_AI_PARTS, pickSpread, samplePages, stripFrontMatter } from '../pdfText';
 
 describe('whole-document generation helpers', () => {
   it('chunks long text at sentence boundaries', () => {
@@ -25,5 +25,23 @@ describe('whole-document generation helpers', () => {
 
   it('bounds whole-document jobs to a maximum number of parts', () => {
     expect(MAX_AI_PARTS).toBeLessThanOrEqual(12);
+  });
+
+  it('pickSpread covers the whole document with a bounded budget', () => {
+    const items = Array.from({ length: 60 }, (_, i) => i);
+    const picked = pickSpread(items, 10);
+    expect(picked.length).toBe(10);
+    expect(picked[0]).toBe(0);
+    expect(picked[picked.length - 1]).toBe(59); // first AND last are covered
+    expect(pickSpread([1, 2, 3], 10)).toEqual([1, 2, 3]); // small lists pass through
+  });
+
+  it('samplePages skips front matter and spreads across big books', () => {
+    const pages = samplePages(604, 120, 10);
+    expect(Math.max(...pages)).toBe(604); // reaches the end of the book
+    expect(Math.min(...pages)).toBeGreaterThan(10); // front matter skipped
+    expect(pages.length).toBeLessThanOrEqual(120);
+    const small = samplePages(20, 120, 10);
+    expect(Math.max(...small)).toBe(20);
   });
 });
