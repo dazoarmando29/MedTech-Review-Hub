@@ -44,7 +44,7 @@ export default function GardenPage() {
               Quiz and reading sessions are counted automatically too.
             </p>
           </div>
-          <GardenArt flowers={garden.flowers} />
+          {garden.flowers.length > 0 ? <GardenArt flowers={garden.flowers} /> : <Mochi mood="encouraging" size={130} />}
         </div>
       </div>
 
