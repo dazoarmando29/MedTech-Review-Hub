@@ -470,6 +470,7 @@ export interface Settings {
   appTheme: ThemeId | 'system';
   textScale: 100 | 115 | 130 | 150;
   seriousMode: boolean;
+  easyMode: boolean;
   reduceMotion: boolean;
   lowBandwidth: boolean;
   funnyCommentary: boolean;

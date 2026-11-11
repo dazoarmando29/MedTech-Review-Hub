@@ -148,7 +148,16 @@ export async function runAiTool(
   if (cachedHit) return json(cachedHit);
 
   const pageNote = req.page ? ` (page ${req.page})` : '';
-  const styleNote = req.style === 'TAGLISH' ? ' Use Taglish for friendly asides only.' : req.style === 'SIMPLE_ENGLISH' ? ' Use simple English.' : '';
+  const styleNote =
+    req.style === 'TAGLISH'
+      ? ' Use Taglish (natural Tagalog-English mix) for friendly asides while keeping medical terms in English.'
+      : req.style === 'SIMPLE_ENGLISH'
+        ? ' Use simple English.'
+        : req.style === 'FUNNY'
+          ? ' Explain in a funny, meme-like way — like the wittiest reviewer on TikTok — but keep every fact scientifically accurate and end with one memory hook.'
+          : req.style === 'TAGLISH_FUNNY'
+            ? ' Explain in funny Taglish (natural Tagalog-English mix) like a funny study buddy — so easy that even someone who is NOT a medtech student can understand. Keep every fact accurate. End with 1-2 practical, kind study tips (what to review first).'
+            : '';
 
   const prompts: Record<typeof tool, string> = {
     summarize:

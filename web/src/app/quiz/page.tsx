@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { useMemo, useRef, useState } from 'react';
 import { Badge, Card, EmptyState, ProgressRing, SectionTitle, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
+import { AiCoach } from '@/components/AiCoach';
 import { contextQuote } from '@/lib/motivation';
 import { getQuestion, subjects } from '@/lib/content';
 import {
@@ -461,6 +462,8 @@ function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: 
           </div>
         )}
       </Card>
+
+      <AiCoach attempt={attempt} result={result} />
     </div>
   );
 }

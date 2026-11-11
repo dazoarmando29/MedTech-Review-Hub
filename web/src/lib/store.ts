@@ -72,6 +72,7 @@ export const DEFAULT_SETTINGS: Settings = {
   appTheme: 'strawberry',
   textScale: 100,
   seriousMode: false,
+  easyMode: false,
   reduceMotion: false,
   lowBandwidth: false,
   funnyCommentary: true,

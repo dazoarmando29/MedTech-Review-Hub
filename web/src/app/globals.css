@@ -253,3 +253,10 @@ body {
 
 body.no-decor .decor-only { display: none !important; }
 body.no-motion * { animation: none !important; transition: none !important; }
+
+/* Easy Mode — calm & simple (ADHD / beginner friendly):
+   hides secondary detail, adds breathing room, keeps one clear path. */
+body.easy-mode .detail-secondary { display: none !important; }
+body.easy-mode main { max-width: 60rem; }
+body.easy-mode .card { padding: 1.5rem; }
+body.easy-mode .space-y-6 > * + * { margin-top: 2rem; }

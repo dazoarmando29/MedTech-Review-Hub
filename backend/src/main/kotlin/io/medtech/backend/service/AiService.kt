@@ -79,8 +79,15 @@ class AiService(
 
     suspend fun explain(userId: String, text: String, style: String): AiEnvelope {
         requireProvider()
+        val styleGuide = when (style) {
+            "TAGLISH" -> "Use Taglish (natural Tagalog-English mix) for friendly asides while keeping medical terms in English."
+            "SIMPLE_ENGLISH" -> "Use simple English."
+            "FUNNY" -> "Explain in a funny, meme-like way - like the wittiest reviewer - but keep every fact scientifically accurate and end with one memory hook."
+            "TAGLISH_FUNNY" -> "Explain in funny Taglish (natural Tagalog-English mix) like a funny study buddy - so easy that even someone who is NOT a medtech student can understand. Keep every fact accurate. End with 1-2 practical, kind study tips (what to review first)."
+            else -> "Use the style: $style."
+        }
         val prompt = """
-            Explain the document text below to a student using the style: $style.
+            Explain the document text below to a student. $styleGuide
             CITATION RULES (mandatory): every factual statement must include [cite]exact quote[/cite], or state 'not found in document'.
             Return strict JSON: {"explanation":"..."}
             Document text:

@@ -22,6 +22,7 @@ export default function DashboardPage() {
   const lessonProgress = useStore((s) => s.lessonProgress);
   const quizAttempts = useStore((s) => s.quizAttempts);
   const settings = useStore((s) => s.settings);
+  const easyMode = settings.easyMode;
   const garden = useStore((s) => s.garden);
   const cardsDue = useStore((s) => dueCardList(s).length);
   const streak = useStore((s) => computeStreak(s));
@@ -138,15 +139,17 @@ export default function DashboardPage() {
       <section aria-label="Key statistics" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         <StatTile label="Streak" value={<span>{streak} 🔥</span>} sub="study days in a row" />
         <StatTile label="Minutes today" value={minutes} sub={`goal ${profile.minutesPerDay} min`} />
-        <StatTile label="Flashcards due" value={cardsDue} sub="FSRS schedule" href="/flashcards/" />
-        <StatTile label="Questions today" value={answered} sub="answered" href="/quiz/" />
-        <StatTile
-          label="Recent accuracy"
-          value={accuracy === null ? '—' : `${Math.round(accuracy * 100)}%`}
-          sub="your own estimate — not an ASCP score"
-          href="/quiz/"
-        />
-        <StatTile label="Total studied" value={`${Math.round(total / 60)}h`} sub="all time" href="/planner/" />
+        <StatTile label="Flashcards due" value={cardsDue} sub="ready to review" href="/flashcards/" />
+        {!easyMode && <StatTile label="Questions today" value={answered} sub="answered" href="/quiz/" />}
+        {!easyMode && (
+          <StatTile
+            label="Recent accuracy"
+            value={accuracy === null ? '—' : `${Math.round(accuracy * 100)}%`}
+            sub="your own estimate — not an ASCP score"
+            href="/quiz/"
+          />
+        )}
+        {!easyMode && <StatTile label="Total studied" value={`${Math.round(total / 60)}h`} sub="all time" href="/planner/" />}
       </section>
 
       {/* plan + continue */}

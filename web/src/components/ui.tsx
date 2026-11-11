@@ -85,7 +85,7 @@ export function Badge({ children, tone = 'default' }: { children: React.ReactNod
   };
   return (
     <span
-      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold"
+      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap shrink-0"
       style={{ background: tones[tone], color: inks[tone] }}
     >
       {children}

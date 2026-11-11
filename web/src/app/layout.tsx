@@ -17,7 +17,13 @@ export const metadata: Metadata = {
   description:
     'A cozy pink ASCPi MLS board exam study companion for Filipino Medical Technology graduates: lessons, FSRS flashcards, quizzes, PDF reviewer tools, study garden, and a cat named Mochi.',
   manifest: `${basePath}/manifest.webmanifest`,
-  icons: { icon: `${basePath}/icon.svg` },
+  icons: { icon: `${basePath}/icon.svg`, apple: `${basePath}/apple-touch-icon.png` },
+  appleWebApp: {
+    capable: true,
+    title: 'Study Companion',
+    statusBarStyle: 'default',
+  },
+  applicationName: 'MedTech Study Companion',
 };
 
 export const viewport: Viewport = {
@@ -27,6 +33,7 @@ export const viewport: Viewport = {
   ],
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

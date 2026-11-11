@@ -28,7 +28,10 @@ export function MiniPlayer() {
       <div className="h-1" style={{ background: 'var(--chip)' }}>
         <div className="h-full" style={{ width: `${progress * 100}%`, background: 'var(--primary)' }} />
       </div>
-      <div className="max-w-6xl mx-auto px-4 py-2 flex items-center gap-3">
+      <div
+        className="max-w-6xl mx-auto px-4 py-2 flex items-center gap-3"
+        style={{ paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom, 0px))' }}
+      >
         <MusicArt id={(musicCatalog.categories.find((c) => c.id === track.categoryId)?.art) ?? 'focus-orb'} size={44} />
         <div className="min-w-0 flex-1">
           <div className="text-sm font-semibold truncate">

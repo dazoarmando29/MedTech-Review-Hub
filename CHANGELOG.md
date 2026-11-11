@@ -3,6 +3,32 @@
 All notable changes to MedTech Review Hub are documented here.
 Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
+## [Unreleased]
+
+### Added (website + Cloudflare Worker; Android unchanged since v1.2.0)
+- **Easy Mode (calm & simple)** — an ADHD- and beginner-friendly setting:
+  simplified dashboard (3 key stats instead of 6), extra breathing room, and
+  secondary/technical details tucked away. Toggle in Settings → Experience.
+- **Plain-language copy** where jargon lived (e.g. flashcards now say "cards
+  come back right before you would forget them" with the FSRS note folded away);
+  the library page now opens with a friendly "New here? Start like this" guide.
+- **Funny AI explanations**: "Explain it funny" (meme-like but accurate) on
+  lessons and in the PDF AI panel; AI styles `FUNNY` and `TAGLISH_FUNNY` on both
+  the Worker and the Ktor backend.
+- **Post-exam AI coach** on quiz results: ask anything in funny Taglish that a
+  non-medtech can understand, with ready-made prompts ("What should I review
+  first?", "Explain my mistakes the funny way", "Make the hardest topic easy",
+  "Cheer me up + advice") and real advice computed from her actual weak topics.
+- **iPad support**: installable via "Add to Home Screen" (apple web-app metadata
+  + 180px apple-touch-icon), `viewport-fit=cover` with safe-area padding for
+  notch iPads, tablet-width layouts verified at 1024×1366 and 1366×1024.
+
+### Fixed
+- Library subject cards: "3 lessons" badges no longer wrap, cards in a row now
+  align evenly (progress pinned to the bottom), long outline disclaimers moved
+  off the cards to a single friendly page note.
+- Global badge/spacing consistency (badges never wrap or squeeze).
+
 ## [1.2.0] — 2026-11-11
 
 ### Cozy Study Music & Daily Motivation 🌸
