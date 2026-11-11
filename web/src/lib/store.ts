@@ -15,6 +15,15 @@ import type {
 
 const STORAGE_KEY = 'mtrh-state-v1';
 
+export interface AiNote {
+  id: string;
+  kind: 'summary' | 'keyterms' | 'explanation';
+  title: string;
+  text: string;
+  pdfName: string | null;
+  createdAt: string;
+}
+
 export interface AdminOverride {
   lessons: Record<string, unknown>;
   questions: Record<string, unknown>;
@@ -45,6 +54,7 @@ export interface AppState {
   garden: { flowers: GardenFlower[] };
   catRoom: CatRoomState;
   customQuestions: QuizQuestion[];
+  aiNotes: AiNote[];
   music: {
     favorites: string[];
     playlists: { id: string; name: string; trackIds: string[] }[];
@@ -171,6 +181,7 @@ export function initialState(): AppState {
     garden: { flowers: [] },
     catRoom: { equipped: [] },
     customQuestions: [],
+    aiNotes: [],
     music: { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 },
     loveNotes: [],
     quoteFavorites: [],
@@ -223,6 +234,7 @@ export function migrateState(raw: Partial<AppState>): Partial<AppState> {
   if (!raw.garden) out.garden = { flowers: [] };
   if (!raw.catRoom) out.catRoom = { equipped: [] };
   if (!raw.customQuestions) out.customQuestions = [];
+  if (!raw.aiNotes) out.aiNotes = [];
   if (!raw.music) out.music = { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 };
   if (!raw.loveNotes) out.loveNotes = [];
   if (!raw.quoteFavorites) out.quoteFavorites = [];
@@ -417,6 +429,15 @@ export function toggleSavedQuestion(questionId: string): void {
       ? s.savedQuestions.filter((q) => q !== questionId)
       : [...s.savedQuestions, questionId],
   }));
+}
+
+/** Saves AI outputs (summaries, key terms, explanations) so they can be found again. */
+export function addAiNote(note: AiNote): void {
+  setState((s) => ({ ...s, aiNotes: [note, ...s.aiNotes].slice(0, 100) }));
+}
+
+export function removeAiNote(id: string): void {
+  setState((s) => ({ ...s, aiNotes: s.aiNotes.filter((n) => n.id !== id) }));
 }
 
 /** Saves AI/PDF-generated questions so they can be practiced again like bank questions. */

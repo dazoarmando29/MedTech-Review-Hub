@@ -177,15 +177,15 @@ export async function runAiTool(
     explain:
       `Task: Explain the following passage in a way a struggling student understands.${styleNote} Cite quotes.\n\nSOURCE TEXT:\n${source}`,
     flashcards:
-      `Task: Generate 5-10 study flashcards from the source text.\n` +
+      `Task: Generate 5-6 study flashcards from the source text.\n` +
       `Return ONLY strict JSON (no markdown fences, no commentary) in exactly this shape:\n` +
-      `{"flashcards":[{"front":"question or cloze prompt","back":"answer","quote":"short exact quote from the source"}]}\n` +
-      `Only use facts present in the source. Each "quote" must be an exact snippet of the source text.\n\nSOURCE TEXT:\n${source}`,
+      `{"flashcards":[{"front":"question or cloze prompt","back":"answer","quote":"short exact quote"}]}` +
+      ` Keep each quote under 12 words. Focus ONLY on subject/review content (lab science facts, definitions, findings, values, procedures). IGNORE prefaces, author bios, publisher/marketing text, copyright pages, tables of contents, and ads. Only create an item when the answer is explicitly in the source text - every answer must be supported by its quote. Skip passages with no testable facts.\n\nSOURCE TEXT:\n${source.slice(0, 6000)}`,
     quiz:
       `Task: Write 3 multiple-choice questions (4 options A-D, one best answer) from the source text.\n` +
       `Return ONLY strict JSON (no markdown fences, no commentary) in exactly this shape:\n` +
-      `{"questions":[{"stem":"question","vignette":"short clinical setup or null","choices":{"A":"...","B":"...","C":"...","D":"..."},"correct":"A","rationale":"why the correct answer is right","misconception":"the trap behind the common wrong answer","quote":"short exact quote from the source"}]}\n` +
-      `Only use facts present in the source; every "quote" must be an exact snippet of it.\n\nSOURCE TEXT:\n${source}`,
+      `{"questions":[{"stem":"question","vignette":"short clinical setup or null","choices":{"A":"...","B":"...","C":"...","D":"..."},"correct":"A","rationale":"why the correct answer is right","misconception":"the trap behind the common wrong answer","quote":"short exact quote"}]}` +
+      ` Every answer must be supported by the source text. Focus ONLY on subject/review content (lab science facts, definitions, findings, values, procedures). IGNORE prefaces, author bios, publisher/marketing text, copyright pages, tables of contents, and ads. Only create an item when the answer is explicitly in the source text - every answer must be supported by its quote. Skip passages with no testable facts.\n\nSOURCE TEXT:\n${source.slice(0, 6000)}`,
     keyterms:
       `Task: Extract the key terms and their definitions from the source text as a bullet list. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
     outline:

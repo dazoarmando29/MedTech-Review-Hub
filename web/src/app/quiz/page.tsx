@@ -212,6 +212,24 @@ export default function QuizPage() {
           </Card>
         )}
 
+        <FromMyMaterials onPractice={(ids, label) => {
+          const attempt: QuizAttempt = {
+            id: newAttemptId(),
+            startedAt: new Date().toISOString(),
+            finishedAt: null,
+            mode: 'STUDY',
+            filters: { label },
+            questionIds: ids,
+            answers: [],
+            timeLimitSeconds: null,
+            finished: false,
+          };
+          startQuiz(attempt);
+          setPhase('running');
+          setCurrentIdx(0);
+          setChosenByQ({});
+        }} />
+
         <Card>
           <SectionTitle icon="📊">Recent attempts</SectionTitle>
           {attempts.filter((a) => a.finished).length === 0 ? (
@@ -476,5 +494,25 @@ function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: 
 
       <AiCoach attempt={attempt} result={result} />
     </div>
+  );
+}
+
+
+function FromMyMaterials({ onPractice }: { onPractice: (ids: string[], label: string) => void }) {
+  const customQuestions = useStore((s) => s.customQuestions);
+  if (!customQuestions.length) return null;
+  return (
+    <Card>
+      <SectionTitle icon="📥">From my materials ({customQuestions.length})</SectionTitle>
+      <p className="text-sm" style={{ color: 'var(--muted-strong)' }}>
+        Questions you generated from your own PDFs and notes live here — practice them any time.
+      </p>
+      <button
+        className="btn-primary mt-3"
+        onClick={() => onPractice(customQuestions.map((q) => q.id), 'From my materials')}
+      >
+        Practice these {customQuestions.length} questions
+      </button>
+    </Card>
   );
 }
