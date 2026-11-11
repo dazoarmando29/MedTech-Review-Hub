@@ -41,6 +41,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const lowBandwidth = useStore((s) => s.settings.lowBandwidth);
   const reduceMotion = useStore((s) => s.settings.reduceMotion);
   const seriousMode = useStore((s) => s.settings.seriousMode);
+  const easyMode = useStore((s) => s.settings.easyMode);
   const mascotName = useStore((s) => s.settings.mascotName);
   const mascotKind = useStore((s) => s.settings.mascot);
   const commentary = useStore((s) => s.settings.mascotCommentary);
@@ -56,7 +57,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     root.style.setProperty('--text-scale', String(textScale / 100));
     document.body.classList.toggle('no-decor', resolved === 'minimal' || lowBandwidth || seriousMode);
     document.body.classList.toggle('no-motion', reduceMotion || lowBandwidth);
-  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode]);
+    document.body.classList.toggle('easy-mode', easyMode);
+  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode, easyMode]);
 
   useEffect(() => {
     setOnline(navigator.onLine);

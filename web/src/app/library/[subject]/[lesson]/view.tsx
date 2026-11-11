@@ -37,7 +37,7 @@ export default function LessonView() {
   const savedQuestions = useStore((s) => s.savedQuestions);
   const wrongQuestions = useStore((s) => s.wrongQuestions);
 
-  const explainSimply = async () => {
+  const explainSimply = async (style: 'SIMPLE_ENGLISH' | 'FUNNY' = 'SIMPLE_ENGLISH') => {
     if (!lesson) return;
     configureApi(apiBase);
     setAiNote(null);
@@ -45,7 +45,7 @@ export default function LessonView() {
     try {
       const res = await ai.aiExplain(
         `${lesson.title}\n${lesson.summary}\n${lesson.deepStudy.introduction}\n${lesson.deepStudy.sections.map((s) => s.body).join('\n')}`,
-        'SIMPLE_ENGLISH',
+        style,
       );
       setAiText(typeof res.result === 'string' ? res.result : JSON.stringify(res.result, null, 2));
     } catch (e) {
@@ -140,8 +140,11 @@ export default function LessonView() {
           }}>
             🃏 Turn this into a flashcard
           </button>
-          <button className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={explainSimply}>
+          <button className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={() => void explainSimply('SIMPLE_ENGLISH')}>
             💬 Explain this simply
+          </button>
+          <button className="btn-secondary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={() => void explainSimply('FUNNY')}>
+            😂 Explain it funny
           </button>
           <button className="btn-primary !py-1.5 !px-3 !min-h-[36px] text-xs" onClick={quizMe}>
             📝 Quiz me on this!

@@ -61,10 +61,14 @@ export default function FlashcardsPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex-1 min-w-[220px]">
-          <h1 className="font-heading text-2xl font-bold">Smart Flashcards</h1>
-          <p className="text-sm text-[var(--ink-muted)]">
-            Spaced repetition powered by FSRS-4.5 — ratings ({'Again / Hard / Good / Easy'}) really
-            reschedule every card from predicted recall. Next review dates are shown on each button.
+          <h1 className="font-display text-2xl font-bold">Smart Flashcards 🃏</h1>
+          <p className="text-sm" style={{ color: 'var(--muted-strong)' }}>
+            Cards come back right before you would forget them — just tap how well you
+            remembered: <strong>Again · Hard · Good · Easy</strong>. The app handles the schedule.
+          </p>
+          <p className="text-xs detail-secondary" style={{ color: 'var(--muted)' }}>
+            Spaced repetition powered by FSRS-4.5 (shared/FSRS.md) — ratings really reschedule
+            every card from predicted recall, identical to the Android app.
           </p>
         </div>
         <div className="flex gap-2">
