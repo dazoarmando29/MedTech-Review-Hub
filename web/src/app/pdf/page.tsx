@@ -3,7 +3,7 @@
 // Smart PDF reader: zoom, navigation, in-document search, bookmarks, resume
 // position, semantic highlight colors, notes, and AI tools (server-side AI).
 import Link from 'next/link';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, cx } from '@/components/ui';
 import { Mochi } from '@/components/Mochi';
@@ -35,7 +35,6 @@ export default function PdfPage() {
   const annotations = useStore((s) => s.pdfAnnotations);
   const settings = useStore((s) => s.settings);
   const aiNotes = useStore((s) => s.aiNotes);
-  const activePdfName = useStore((s) => s.pdfs.find((p) => p.id === activeId)?.name ?? null);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selection, setSelection] = useState<string | null>(null);
   const [pageText, setPageText] = useState('');
@@ -48,6 +47,17 @@ export default function PdfPage() {
   const [scopeFor, setScopeFor] = useState<'cards' | 'quiz' | 'summarize' | null>(null);
   const [genProgress, setGenProgress] = useState<string | null>(null);
   const [authed, setAuthed] = useState(false);
+  // NOTE: must come after the activeId declaration above (TDZ safety).
+  const activePdfName = useStore((s) => s.pdfs.find((p) => p.id === activeId)?.name ?? null);
+
+  // Stable callbacks + memoized annotations keep the heavy PDF layer from
+  // re-rendering while typing, selecting text, or running AI tools.
+  const handlePageText = useCallback((t: string) => setPageText(t), []);
+  const handleSelection = useCallback((t: string | null) => setSelection(t), []);
+  const activeAnnotations = useMemo(
+    () => annotations.filter((a) => a.pdfId === activeId),
+    [annotations, activeId],
+  );
   const [genCards, setGenCards] = useState<ParsedFlashcard[] | null>(null);
   const [genQuestions, setGenQuestions] = useState<ParsedQuestion[] | null>(null);
 
@@ -417,11 +427,11 @@ export default function PdfPage() {
 
         <div className="lg:col-span-2 space-y-4">
           {activeId ? (
-            <PdfViewer
+            <MemoPdfViewer
               pdfId={activeId}
-              onPageText={setPageText}
-              onSelection={setSelection}
-              annotations={annotations.filter((a) => a.pdfId === activeId)}
+              onPageText={handlePageText}
+              onSelection={handleSelection}
+              annotations={activeAnnotations}
             />
           ) : (
             <EmptyState

@@ -5,6 +5,9 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Fixed
+- **Clicking the PDF tab crashed with 'Application error' for users with uploaded PDFs**: a store selector referencing the active-PDF id was declared before its useState (temporal dead zone). Caught by reproducing the click in a real browser with seeded user state; the exact ReferenceError is now impossible. Added a self-healing error boundary (auto-recovers from stale-chunk load failures after deploys) and removed a regex lookbehind that older iPad Safari cannot parse.
+
 ### Added
 - **Scope picker for AI generation**: choose 'my selection / this page / the whole PDF / a page range' before making flashcards, quizzes, or summaries — whole-document jobs run in parts with live progress (Reading page 12… / Writing cards from part 2 of 5…).
 - **'Where did it go?' solved**: flashcards link to the 'From my PDFs' deck, generated questions get a 'From my materials' practice card on the Quiz page, and every summary/key-term/explanation is saved to 'Your saved AI notes' in the PDF reader.
