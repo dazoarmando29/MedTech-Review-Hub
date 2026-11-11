@@ -11,6 +11,7 @@ export interface Env {
   AI_DAILY_TOKEN_BUDGET_ANON?: string;
   ALLOWED_ORIGINS?: string;
   PDFS?: R2Bucket;
+  AI?: Ai;
 }
 
 export class HttpError extends Error {

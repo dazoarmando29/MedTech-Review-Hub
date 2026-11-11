@@ -25,3 +25,6 @@ database_id = "a9127a5c-d2ef-4a20-b306-8e7c025c305a"
 # [[r2_buckets]]
 # binding = "PDFS"
 # bucket_name = "medtech-review-hub-pdfs"
+
+[ai]
+binding = "AI"

@@ -69,6 +69,38 @@ Rules you MUST follow:
 4. Keep explanations exam-focused and accurate. Optional light Taglish only when the requested style is TAGLISH.
 5. Respond in plain text (markdown ok).`;
 
+let geminiQuotaExhausted = false;
+
+/** Backup brain: Cloudflare Workers AI (built into this Worker's account). */
+const CF_MODELS = [
+  '@cf/meta/llama-3.3-70b-instruct-fp8',
+  '@cf/mistral/mistral-small-3.1-24b-instruct',
+  '@cf/google/gemma-3-12b-it',
+  '@cf/qwen/qwen2.5-coder-32b-instruct',
+  '@cf/meta/llama-3.1-8b-instruct',
+];
+
+async function callCloudflareAi(env: Env, prompt: string, maxOutputTokens: number): Promise<{ text: string; tokensEstimate: number }> {
+  if (!env.AI) throw new HttpError(502, 'INTERNAL', 'No AI fallback available');
+  const fullPrompt = SYSTEM_RULES + '\n\n' + prompt.slice(0, 6000);
+  let lastErr: unknown = new Error('no Cloudflare AI model available');
+  // Try current models in order — self-heals when Cloudflare retires one.
+  for (const model of CF_MODELS) {
+    try {
+      const res = (await env.AI.run(model, {
+        prompt: fullPrompt,
+        max_tokens: Math.min(maxOutputTokens, 1400),
+      })) as { response?: string };
+      const text = (res?.response ?? '').trim();
+      if (text) return { text, tokensEstimate: Math.ceil(prompt.length / 4) + 800 };
+      lastErr = new Error(`${model} returned no text`);
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw new HttpError(502, 'INTERNAL', String((lastErr as Error)?.message ?? lastErr).slice(0, 160));
+}
+
 async function callGemini(env: Env, prompt: string, maxOutputTokens = 2048): Promise<{ text: string; tokensEstimate: number }> {
   const key = env.GEMINI_API_KEY;
   if (!key) throw new HttpError(503, 'AI_UNAVAILABLE', 'AI features are not configured on this server');
@@ -98,6 +130,11 @@ async function callGemini(env: Env, prompt: string, maxOutputTokens = 2048): Pro
         }
         if (!res.ok) {
           const bodyText = await res.text();
+          if (res.status === 429 && /quota|billing/i.test(bodyText)) {
+            geminiQuotaExhausted = true;
+            lastErr = new HttpError(429, 'RATE_LIMITED', 'Gemini quota exhausted');
+            break; // stop trying Gemini models; use the fallback
+          }
           if ((res.status === 429 || res.status >= 500) && attempt < 1) {
             await new Promise((r) => setTimeout(r, 1200));
             continue;
@@ -198,7 +235,26 @@ export async function runAiTool(
 
   await enforceBudget(env, userId, 800);
   const genBudget = tool === 'flashcards' ? 1600 : tool === 'quiz' ? 1800 : tool === 'keyterms' ? 1024 : 2048;
-  const { text, tokensEstimate } = await callGemini(env, prompts[tool], genBudget);
+  let text: string;
+  let tokensEstimate: number;
+  try {
+    ({ text, tokensEstimate } = await callGemini(env, prompts[tool], genBudget));
+  } catch (geminiErr) {
+    // Provider-agnostic design: when Gemini quota is exhausted (or down),
+    // answer with the built-in Cloudflare Workers AI instead.
+    try {
+      ({ text, tokensEstimate } = await callCloudflareAi(env, prompts[tool], genBudget));
+    } catch (cfErr) {
+      if (geminiQuotaExhausted) {
+        throw new HttpError(
+          429,
+          'RATE_LIMITED',
+          `Gemini quota is exhausted and the backup AI said: ${String((cfErr as Error)?.message ?? cfErr).slice(0, 160)}`,
+        );
+      }
+      throw geminiErr;
+    }
+  }
   const envelope = parseEnvelope(text, req.pdfId, req.page, false, tokensEstimate);
   cacheSet(cacheKey, envelope);
   return json(envelope);
