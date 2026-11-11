@@ -1,5 +1,8 @@
 'use client';
 
+import React, { useState } from 'react';
+const cx = (...parts: (string | false | null | undefined)[]) => parts.filter(Boolean).join(' ');
+
 // Mochi 🐾 — the original pink-and-white study cat in a tiny lab coat.
 // One parameterized SVG (8 moods) per shared/DESIGN.md v2. Lightweight and
 // disableable via settings (no-decor / no-motion classes handle the rest).
@@ -23,15 +26,28 @@ export function Mochi({
   const happyEyes = mood === 'happy' || mood === 'celebrating' || mood === 'excited';
   const closedEyes = sleepy;
   const worried = mood === 'confused' || mood === 'disappointed';
+  const [pop, setPop] = useState(false);
+
+  // One-shot "hello" hop on tap — the mascot is otherwise always still
+  // (continuous SVG motion vibrates on iPad Safari; see globals.css policy).
+  const cheer = () => {
+    setPop(false);
+    requestAnimationFrame(() => setPop(true));
+    setTimeout(() => setPop(false), 600);
+  };
 
   return (
     <svg
       viewBox="0 0 160 160"
       width={size}
       height={size}
-      className={`mochi-idle ${className ?? ''}`}
-      role="img"
-      aria-label={`Mochi the study cat (${mood})`}
+      className={cx(className, pop && 'mochi-pop')}
+      role="button"
+      tabIndex={0}
+      aria-label={`Mochi the study cat (${mood}) — tap for a little cheer`}
+      onClick={cheer}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && cheer()}
+      style={{ cursor: 'pointer' }}
     >
       {/* body + lab coat */}
       <ellipse cx="80" cy="128" rx="42" ry="26" fill="#fff" stroke="#f3b9cd" strokeWidth="2.5" />
@@ -43,7 +59,7 @@ export function Mochi({
       <path d="M63 130 h6 M66 127 v6" stroke="#db2777" strokeWidth="1.4" strokeLinecap="round" />
 
       {/* tail */}
-      <path className="mochi-tail" d="M120 132 q22 -6 18 -26" fill="none" stroke="#f3b9cd" strokeWidth="7" strokeLinecap="round" />
+      <path d="M120 132 q22 -6 18 -26" fill="none" stroke="#f3b9cd" strokeWidth="7" strokeLinecap="round" />
 
       {/* ears */}
       <path d="M44 56 l-6 -28 24 14 z" fill="#f8bbd0" stroke="#e79ab8" strokeWidth="2" />
@@ -64,12 +80,12 @@ export function Mochi({
           <path d="M90 72 q6 6 12 0" fill="none" stroke="#4b3548" strokeWidth="3.2" strokeLinecap="round" />
         </>
       ) : happyEyes ? (
-        <g className="mochi-blink">
+        <g>
           <path d="M57 74 q6 -9 13 0" fill="none" stroke="#4b3548" strokeWidth="3.4" strokeLinecap="round" />
           <path d="M90 74 q6 -9 13 0" fill="none" stroke="#4b3548" strokeWidth="3.4" strokeLinecap="round" />
         </g>
       ) : (
-        <g className="mochi-blink">
+        <g>
           <ellipse cx="64" cy="73" rx="8" ry={worried ? 9.5 : 10} fill="#4b3548" />
           <ellipse cx="96" cy="73" rx="8" ry={worried ? 9.5 : 10} fill="#4b3548" />
           <circle cx="67" cy="69.5" r="3" fill="#fff" />
@@ -109,7 +125,7 @@ export function Mochi({
         </g>
       )}
       {(mood === 'celebrating' || mood === 'excited') && (
-        <g className="decor-only mochi-twinkle">
+        <g className="decor-only">
           <path d="M28 40 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1z" fill="#fbbf24" />
           <path d="M128 34 l2.5 6 6 1 -4.5 4 1 6 -5 -2.5 -5 2.5 1 -6 -4.5 -4 6 -1z" fill="#f472b6" />
           <circle cx="136" cy="66" r="3.5" fill="#a78bfa" />
@@ -117,10 +133,10 @@ export function Mochi({
         </g>
       )}
       {mood === 'sleepy' && (
-        <text className="mochi-drift" x="116" y="52" fontSize="16" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">z z</text>
+        <text x="116" y="52" fontSize="16" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">z z</text>
       )}
       {mood === 'encouraging' && (
-        <text className="mochi-heart" x="112" y="48" fontSize="18" fill="#f472b6" fontFamily="sans-serif">♥</text>
+        <text x="112" y="48" fontSize="18" fill="#f472b6" fontFamily="sans-serif">♥</text>
       )}
       {mood === 'confused' && (
         <text x="112" y="50" fontSize="20" fill="#c3aef0" fontFamily="sans-serif" fontWeight="bold">?</text>

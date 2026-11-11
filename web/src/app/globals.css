@@ -238,52 +238,30 @@ body {
 /* ---- Mochi's gentle animations (slow & calm — never jiggly) ----
    All are disabled by prefers-reduced-motion, body.no-motion,
    or the "Ambient animations" setting (body.calm-mascot). */
-/* ---- Mochi's gentle animations — RULES (enforced by mochi-animations.test.ts):
-   1. Whole-mascot motion: translateY ONLY (compositor-safe, no shimmer).
-   2. Never scale() or rotate() SVG parts — they re-rasterize and glitch.
-   3. Every loop >= 5s and tiny in distance. Opacity-only extras allowed.
-   All disabled by prefers-reduced-motion, body.no-motion, or body.calm-mascot. */
-.mochi-idle {
-  will-change: transform;
-  animation: mochi-breathe 7s ease-in-out infinite;
-}
-@keyframes mochi-breathe {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-}
-.mochi-twinkle {
-  animation: mochi-twinkle 5s ease-in-out infinite;
-}
-@keyframes mochi-twinkle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
-}
-.mochi-drift {
-  animation: mochi-drift 6s ease-in-out infinite;
-}
-@keyframes mochi-drift {
-  0%, 100% { opacity: 0.75; }
-  50% { opacity: 1; }
-}
-.mochi-heart {
-  animation: mochi-heartbeat 5s ease-in-out infinite;
-}
-@keyframes mochi-heartbeat {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
-}
-/* tail wag and eye blink are intentionally static: transform animations on
-   SVG inner parts re-rasterize and look glitchy (see rules above). */
+/* ---- Mochi animation policy (enforced by mochi-animations.test.ts):
+   ZERO continuous motion on the mascot. iPad Safari re-rasterizes animated
+   SVG transforms every frame, which looks like vibrating — so the mascot is
+   always still. Life comes from ONE-SHOT reactions only (tap, celebration),
+   which are short, translateY-only, and instantly settle.
+   Kill switches: prefers-reduced-motion, body.no-motion, body.calm-mascot. */
+.mochi-idle,
 .mochi-tail,
-.mochi-blink {
-  animation: none;
+.mochi-blink,
+.mochi-twinkle,
+.mochi-drift,
+.mochi-heart {
+  animation: none !important;
+  transform: none !important;
 }
-body.calm-mascot .mochi-idle,
-body.calm-mascot .mochi-tail,
-body.calm-mascot .mochi-blink,
-body.calm-mascot .mochi-twinkle,
-body.calm-mascot .mochi-drift,
-body.calm-mascot .mochi-heart {
+.mochi-pop {
+  animation: mochi-pop 0.55s ease-out 1;
+}
+@keyframes mochi-pop {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+body.calm-mascot .mochi-pop {
   animation: none !important;
   transform: none !important;
 }
