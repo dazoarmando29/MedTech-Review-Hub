@@ -44,6 +44,9 @@ export default function StudyRoomPage() {
   const [scene, setScene] = useState<Scene>('sakura');
   const [distractionFree, setDistractionFree] = useState(false);
   const [nudge, setNudge] = useState<string | null>(null);
+  const [awayCount, setAwayCount] = useState(0);
+  const [welcomeBack, setWelcomeBack] = useState(false);
+  const hiddenSinceRef = useRef<number | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const preset = PRESETS.find((p) => p.id === presetId) ?? PRESETS[0];
@@ -103,6 +106,27 @@ export default function StudyRoomPage() {
     setRunning((r) => !r);
   };
 
+  // Gentle accountability (NOT blocking): iPadOS/ web cannot block other apps,
+  // so we simply notice when she steps away during a focus session and welcome
+  // her back warmly.
+  useEffect(() => {
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (running && phase === 'focus') hiddenSinceRef.current = Date.now();
+      } else if (hiddenSinceRef.current) {
+        const awaySec = Math.round((Date.now() - hiddenSinceRef.current) / 1000);
+        hiddenSinceRef.current = null;
+        if (awaySec >= 20) {
+          setAwayCount((c) => c + 1);
+          setWelcomeBack(true);
+          setTimeout(() => setWelcomeBack(false), 8000);
+        }
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, [running, phase]);
+
   const reset = () => {
     setRunning(false);
     setPhase('focus');
@@ -118,7 +142,13 @@ export default function StudyRoomPage() {
       style={{ borderColor: 'var(--line)', background: sceneDef.bg, minHeight: '72vh' }}
     >
       {/* scene decorations */}
-      {!distractionFree && <SceneDecor scene={scene} />}
+        {!distractionFree && <SceneDecor scene={scene} />}
+
+        {welcomeBack && (
+          <div className="relative mx-6 mt-4 sticky-note confetti-pop">
+            💗 Welcome back! Mochi kept your seat warm — you were away for a moment. No pressure, just keep going.
+          </div>
+        )}
 
       <div className="relative p-6 sm:p-10 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -260,6 +290,50 @@ export default function StudyRoomPage() {
             </p>
           </Card>
         </div>
+
+        {/* iPad focus guide — honest tools, since iPadOS does not let apps block apps */}
+        <Card>
+          <SectionTitle icon="🍎">Focus on iPad (real tools that work)</SectionTitle>
+          <p className="text-sm" style={{ color: 'var(--muted-strong)' }}>
+            An honest note: iPadOS never lets an app block other apps (that is an Apple rule for
+            every app, including this one). But the iPad has built-in tools that do exactly this
+            job — and Mochi will notice when you step away and welcome you back
+            {awayCount > 0 && <> (away moments this session: <strong>{awayCount}</strong>)</>}.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-3 mt-4">
+            <details className="rounded-[14px] p-3" style={{ background: 'var(--surface-2)' }}>
+              <summary className="font-semibold text-sm cursor-pointer">🔒 Guided Access (closest to an app blocker)</summary>
+              <ol className="text-xs mt-2 space-y-1 list-decimal pl-4" style={{ color: 'var(--muted-strong)' }}>
+                <li>Settings → Accessibility → Guided Access → turn it on (set a passcode).</li>
+                <li>Open this app, then triple-click the top/side button.</li>
+                <li>Press Start — the iPad is now locked into this app until you enter the passcode.</li>
+                <li>Perfect for study blocks: nothing else can be opened.</li>
+              </ol>
+            </details>
+            <details className="rounded-[14px] p-3" style={{ background: 'var(--surface-2)' }}>
+              <summary className="font-semibold text-sm cursor-pointer">⏱ Screen Time limits for distracting apps</summary>
+              <ol className="text-xs mt-2 space-y-1 list-decimal pl-4" style={{ color: 'var(--muted-strong)' }}>
+                <li>Settings → Screen Time → App Limits → Add Limit.</li>
+                <li>Pick the apps that eat your time (TikTok, Instagram, games).</li>
+                <li>Set a daily limit like 15 minutes during review season.</li>
+                <li>Enable Downtime for your study hours so only study apps stay open.</li>
+              </ol>
+            </details>
+            <details className="rounded-[14px] p-3" style={{ background: 'var(--surface-2)' }}>
+              <summary className="font-semibold text-sm cursor-pointer">🌙 A Study Focus mode</summary>
+              <ol className="text-xs mt-2 space-y-1 list-decimal pl-4" style={{ color: 'var(--muted-strong)' }}>
+                <li>Settings → Focus → add a new Focus called “Study”.</li>
+                <li>Silence notifications from everyone except a few people.</li>
+                <li>Link it to a Home Screen page that only has this app + Music.</li>
+                <li>Turn it on before you start — your brain will thank you.</li>
+              </ol>
+            </details>
+          </div>
+          <p className="text-xs mt-3" style={{ color: 'var(--muted)' }}>
+            The Android version has a true distraction blocker (with your permission). On iPad,
+            Guided Access is the strongest protection Apple allows — and honestly, it works.
+          </p>
+        </Card>
       </div>
     </div>
   );
