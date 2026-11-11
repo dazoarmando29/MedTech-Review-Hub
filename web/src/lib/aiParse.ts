@@ -47,6 +47,12 @@ function extractJson(text: string): unknown | null {
   return null;
 }
 
+function isFrontMatterJunk(text: string): boolean {
+  return /copyright|isbn|all rights reserved|published by|table of contents|resource pages|davisplus|publisher/i.test(
+    text,
+  );
+}
+
 export function parseFlashcardsFromAi(text: string): ParsedFlashcard[] {
   const json = extractJson(text) as
     | { flashcards?: { front?: unknown; back?: unknown; quote?: unknown }[] }
@@ -59,7 +65,8 @@ export function parseFlashcardsFromAi(text: string): ParsedFlashcard[] {
       back: String((c as { back?: unknown }).back ?? '').trim(),
       quote: (c as { quote?: unknown }).quote ? String((c as { quote?: unknown }).quote).trim() : undefined,
     }))
-    .filter((c) => c.front && c.back);
+    .filter((c) => c.front && c.back)
+    .filter((c) => !isFrontMatterJunk(c.front) && !isFrontMatterJunk(c.back));
   if (cards.length) return cards;
 
   // Tolerant pass: pick {"front":...,"back":...} objects even out of a
@@ -79,7 +86,7 @@ export function parseFlashcardsFromAi(text: string): ParsedFlashcard[] {
     const m = p.match(/Q[:.]\s*([\s\S]+?)\nA[:.]\s*([\s\S]+?)(?:\n|$)/i);
     if (m) out.push({ front: m[1].trim(), back: m[2].trim() });
   }
-  return out.filter((c) => c.front && c.back);
+  return out.filter((c) => c.front && c.back && !isFrontMatterJunk(c.front));
 }
 
 export function parseQuestionsFromAi(text: string): ParsedQuestion[] {
@@ -106,7 +113,7 @@ export function parseQuestionsFromAi(text: string): ParsedQuestion[] {
     const correctChoiceId = /^[A-D]$/.test(correctRaw)
       ? correctRaw
       : (choices.find((c) => c.text.trim().toLowerCase() === rawCorrect.toLowerCase())?.id ?? 'A');
-    if (!stem || choices.length < 2) continue;
+    if (!stem || choices.length < 2 || isFrontMatterJunk(stem)) continue;
     out.push({
       stem,
       vignette: q.vignette ? String(q.vignette).trim() : null,
