@@ -80,7 +80,8 @@ class StudyPlanGeneratorTest {
     fun `PH profile uses its own weights`() {
         val ph = StudyPlanGenerator.weightsFor(ExamTarget.PH_BOARD)
         val ascpi = StudyPlanGenerator.weightsFor(ExamTarget.MLS_ASCPI)
-        assertEquals(ph.getValue("clinical-chemistry"), 20.0, 0.0001)
-        assertTrue(ph.getValue("clinical-chemistry") != ascpi.getValue("clinical-chemistry"))
+        assertEquals(ph.getValue("clinical-chemistry"), 16.0, 0.0001)
+        assertTrue(ph.getValue("urinalysis") != ascpi.getValue("urinalysis"))
+        assertTrue(ph.getValue("parasitology") > ascpi.getValue("parasitology"))
     }
 }

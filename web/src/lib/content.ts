@@ -65,21 +65,23 @@ export function allTags(): string[] {
 
 /** Approximate content-outline weights used by the study planner (documented as approximate). */
 export const SUBJECT_WEIGHTS_ASCPI: Record<string, number> = {
-  'blood-banking': 0.09,
-  'clinical-chemistry': 0.17,
-  hematology: 0.16,
-  microbiology: 0.18,
-  immunology: 0.1,
-  urinalysis: 0.1,
+  'blood-banking': 0.08,
+  'clinical-chemistry': 0.16,
+  hematology: 0.15,
+  microbiology: 0.15,
+  parasitology: 0.08,
+  immunology: 0.09,
+  urinalysis: 0.09,
   'lab-operations': 0.12,
 };
 
 export const SUBJECT_WEIGHTS_PH: Record<string, number> = {
-  'blood-banking': 0.1,
-  'clinical-chemistry': 0.15,
-  hematology: 0.15,
-  microbiology: 0.2,
-  immunology: 0.1,
-  urinalysis: 0.15,
+  'blood-banking': 0.09,
+  'clinical-chemistry': 0.16,
+  hematology: 0.14,
+  microbiology: 0.14,
+  parasitology: 0.11,
+  immunology: 0.09,
+  urinalysis: 0.12,
   'lab-operations': 0.15,
 };

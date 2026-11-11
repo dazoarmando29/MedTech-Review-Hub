@@ -42,7 +42,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const lowBandwidth = useStore((s) => s.settings.lowBandwidth);
   const reduceMotion = useStore((s) => s.settings.reduceMotion);
   const seriousMode = useStore((s) => s.settings.seriousMode);
-  const easyMode = useStore((s) => s.settings.easyMode);
   const ambientAnimations = useStore((s) => s.settings.music.ambientAnimations);
   const mascotName = useStore((s) => s.settings.mascotName);
   const mascotKind = useStore((s) => s.settings.mascot);
@@ -59,9 +58,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     root.style.setProperty('--text-scale', String(textScale / 100));
     document.body.classList.toggle('no-decor', resolved === 'minimal' || lowBandwidth || seriousMode);
     document.body.classList.toggle('no-motion', reduceMotion || lowBandwidth);
-    document.body.classList.toggle('easy-mode', easyMode);
     document.body.classList.toggle('calm-mascot', !ambientAnimations);
-  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode, easyMode, ambientAnimations]);
+  }, [appTheme, textScale, lowBandwidth, reduceMotion, seriousMode, ambientAnimations]);
 
   useEffect(() => {
     setOnline(navigator.onLine);
@@ -83,17 +81,21 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-40 border-b" style={{ background: 'color-mix(in srgb, var(--bg) 88%, transparent)', borderColor: 'var(--line)', backdropFilter: 'blur(10px)' }}>
-        <div className="max-w-[1480px] mx-auto px-4 py-3 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-lg shrink-0 whitespace-nowrap">
+      <header className="sticky top-0 z-40 border-b" style={{ background: 'color-mix(in srgb, var(--bg) 92%, transparent)', borderColor: 'var(--line)', backdropFilter: 'blur(10px)' }}>
+        <div className="mx-auto flex items-center gap-6 lg:gap-12 px-5 lg:px-8 py-3" style={{ maxWidth: 1480 }}>
+          {/* Official logo lockup — mascot + stacked wordmark */}
+          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="MedTech Study Companion — home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icon.svg`} alt="" width={42} height={42} className="rounded-xl shrink-0" />
-            <span className="leading-tight">
-              MedTech <span style={{ color: 'var(--primary)' }}>Study Companion</span>
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icon.svg`} alt="" width={52} height={52} className="rounded-2xl shrink-0" />
+            <span className="hidden sm:flex flex-col leading-[1.08]">
+              <span className="font-display font-bold text-[1.4rem] tracking-tight">MedTech</span>
+              <span className="font-display font-bold text-[1.05rem] tracking-tight" style={{ color: 'var(--primary)' }}>
+                Study Companion
+              </span>
             </span>
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:flex items-center gap-1.5 ml-auto">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-2 mx-auto">
             {NAV.map((item) => {
               const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
               const Icon = item.icon;
@@ -101,11 +103,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.href}
                   href={item.href as string}
-                  className="px-3 py-2 rounded-full text-sm font-semibold flex items-center gap-1.5 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-colors whitespace-nowrap"
                   style={{
                     background: active ? 'var(--primary)' : 'transparent',
                     color: active ? 'var(--primary-ink)' : 'var(--muted-strong)',
-                    minHeight: 40,
+                    minHeight: 42,
                   }}
                   aria-current={active ? 'page' : undefined}
                   aria-label={item.label}
@@ -118,7 +120,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             })}
           </nav>
 
-          <div className="ml-auto lg:ml-3 flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0 ml-auto lg:ml-0">
             <button
               className="btn-ghost !p-2 !min-h-[40px] !w-[40px] text-base"
               aria-label={`Theme: ${appTheme}. Click to switch.`}

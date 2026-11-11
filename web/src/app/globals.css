@@ -317,9 +317,8 @@ body.calm-mascot .mochi-heart {
 body.no-decor .decor-only { display: none !important; }
 body.no-motion * { animation: none !important; transition: none !important; }
 
-/* Easy Mode — calm & simple (ADHD / beginner friendly):
-   hides secondary detail, adds breathing room, keeps one clear path. */
-body.easy-mode .detail-secondary { display: none !important; }
-body.easy-mode main { max-width: 60rem; }
-body.easy-mode .card { padding: 1.5rem; }
-body.easy-mode .space-y-6 > * + * { margin-top: 2rem; }
+/* ---- Calm-by-default design (ADHD & beginner friendly) ----
+   Secondary/technical detail is folded away as the official design —
+   not a mode. Primary actions stay obvious, layouts breathe. */
+.detail-secondary { display: none !important; }
+.card { padding: 1.45rem; }

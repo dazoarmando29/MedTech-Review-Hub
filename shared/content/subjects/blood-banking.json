@@ -1,9 +1,11 @@
 {
   "id": "blood-banking",
-  "name": "Blood Banking / Immunohematology",
+  "name": "Blood Banking & Immunohematology",
   "shortName": "Blood Banking",
   "description": "ABO and Rh typing, antibody screening and identification, compatibility testing, blood components, transfusion reactions, and hemolytic disease of the newborn.",
-  "blueprintNote": "ASCP BOC MLS content guide: immunohematology topics (ABO/Rh typing, antibody detection and identification, compatibility testing, transfusion reactions, HDFN) map to roughly 7-9% of the exam blueprint; PH MTLE weight is higher (~15%). Weights are approximations of published outlines. Topic-level mapping only; this product is not affiliated with or endorsed by ASCP or any examining body.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS content outline (topic level) and to the subject structure used by Philippine ASCPi review centers (approximate weights, not official percentages; not affiliated with ASCP or any review center).",
+  "phReviewLabel": "ACTS: ISBB · Pioneer: Blood Banking",
+  "phEmphasisHours": 10,
   "colorToken": "teal",
   "topics": [
     {

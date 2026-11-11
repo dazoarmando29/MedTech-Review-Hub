@@ -36,6 +36,10 @@ export interface Subject {
   description: string;
   blueprintNote: string;
   colorToken: SubjectColor;
+  /** How PH ASCPi review centers label this subject (e.g. "ACTS: ISBB · Pioneer: Blood Banking"). */
+  phReviewLabel?: string;
+  /** Approximate teaching hours in a major PH ASCPi review program (emphasis hint). */
+  phEmphasisHours?: number;
   topics: Topic[];
 }
 

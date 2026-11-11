@@ -1,0 +1,542 @@
+[
+  {
+    "id": "para-q-001",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A fresh stool specimen is received split between a 10% formalin vial and a polyvinyl alcohol (PVA) vial. Permanent stained smears (trichrome) are required. Which vial should be used?",
+    "choices": [
+      { "id": "A", "text": "The 10% formalin vial" },
+      { "id": "B", "text": "The PVA vial" },
+      { "id": "C", "text": "Either vial, because both fixatives preserve staining quality equally" },
+      { "id": "D", "text": "Only a freshly collected unpreserved specimen can be permanently stained" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "PVA (and SAF) fixatives preserve protozoan morphology for permanent stained smears such as trichrome and iron hematoxylin. Ten percent formalin preserves eggs, cysts, and larvae for concentration and direct wet mounts, but it denatures the material so that permanent stained smears cannot be made from it.",
+    "rationales": {
+      "A": "Formalin-preserved material is used for concentration and wet mounts; it cannot produce a valid trichrome smear.",
+      "B": "Correct: PVA fixation is the standard requirement for permanent stained smears of intestinal protozoa.",
+      "C": "The fixatives are not interchangeable; formalin-fixed specimens fail permanent staining procedures.",
+      "D": "Unpreserved specimens are examined fresh for motility within a short time after passage; routine permanent staining uses preservative-fixed material."
+    },
+    "misconception": "Learners assume formalin preserves everything and that any preserved stool can be trichrome-stained; in fact, formalin-fixed material is procedurally excluded from permanent staining.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Formalin-fixed stool can never be used for trichrome or iron hematoxylin permanent stains; PVA or SAF is required."]
+  },
+  {
+    "id": "para-q-002",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which set of procedures can correctly be performed on a stool specimen preserved in 10% formalin?",
+    "choices": [
+      { "id": "A", "text": "Direct wet mount and formalin-ethyl acetate concentration" },
+      { "id": "B", "text": "Trichrome permanent staining and iron hematoxylin staining" },
+      { "id": "C", "text": "Iron hematoxylin staining and culture for Entamoeba histolytica" },
+      { "id": "D", "text": "Trichrome permanent staining and a direct wet mount for motility" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Formalin preserves eggs, cysts, and larvae, so concentration (formalin-ethyl acetate) and direct wet mounts are valid. Permanent stains such as trichrome and iron hematoxylin require PVA- or SAF-fixed material, and culture requires unpreserved, promptly processed specimens.",
+    "rationales": {
+      "A": "Correct: formalin supports wet mounts and concentration methods that recover eggs, cysts, and larvae.",
+      "B": "Both permanent stains require PVA or SAF fixation, not formalin.",
+      "C": "Iron hematoxylin needs properly fixed smears, and culture requires fresh unpreserved stool processed promptly.",
+      "D": "Trichrome requires PVA or SAF, and motility is examined on fresh unpreserved specimens; formalin kills the organisms."
+    },
+    "misconception": "Students remember 'formalin = preservation' and overgeneralize it to every method, forgetting that each examination method has a matching preservative.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Match the method to the vial: formalin for concentration and wet mounts; PVA or SAF for permanent stains; fresh unpreserved stool for motility and culture."]
+  },
+  {
+    "id": "para-q-003",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "SCENARIO",
+    "vignette": "A 28-year-old man from a rural community presents with bloody diarrhea and right upper quadrant pain. Stool submitted in PVA is processed for a permanent stained smear. A cyst with four nuclei is seen: the nuclei have fine, evenly distributed peripheral chromatin, and the cytoplasm contains splinter-shaped chromatoid bars. A stool antigen test specific for Entamoeba histolytica is positive.",
+    "stem": "Which statement best supports the laboratory's identification?",
+    "choices": [
+      { "id": "A", "text": "The four-nucleate cyst with splintered chromatoid bars alone identifies Entamoeba histolytica" },
+      { "id": "B", "text": "Entamoeba histolytica and Entamoeba dispar are morphologically identical; the specific antigen test is what resolves the complex as E. histolytica" },
+      { "id": "C", "text": "The cyst is Entamoeba coli, which is the pathogenic species when four nuclei are present" },
+      { "id": "D", "text": "The organism is Entamoeba hartmanni, a small pathogenic ameba" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "E. histolytica and E. dispar cannot be separated by morphology; without antigen or molecular testing the correct report is 'E. histolytica/dispar complex'. In this case the specific positive antigen test resolves the complex as E. histolytica, which fits the invasive disease picture.",
+    "rationales": {
+      "A": "The morphology seen is that of the E. histolytica/dispar complex; it cannot speciate the organism by itself.",
+      "B": "Correct: morphology identifies the complex, and the species-specific antigen test (or PCR) is what names E. histolytica.",
+      "C": "E. coli is a commensal with mature cysts of up to eight nuclei, coarse chromatin, and blunt chromatoid bars - not this picture.",
+      "D": "E. hartmanni is a small, nonpathogenic ameba with tiny cysts; it does not cause bloody diarrhea and hepatic disease."
+    },
+    "misconception": "Students see textbook 'E. histolytica' morphology and report the species outright, forgetting that E. dispar is identical morphologically and is generally nonpathogenic.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Morphology alone separates E. coli from E. histolytica, but never E. histolytica from E. dispar - antigen or PCR resolves the pair."]
+  },
+  {
+    "id": "para-q-004",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which description matches a Giardia lamblia cyst on a permanent stained smear?",
+    "choices": [
+      { "id": "A", "text": "Round, with a single nucleus and splinter-shaped chromatoid bars" },
+      { "id": "B", "text": "Oval, with 2 to 4 nuclei and curved median bodies" },
+      { "id": "C", "text": "Barrel-shaped with transparent mucoid plugs at both poles" },
+      { "id": "D", "text": "Thin-shelled with a morula of 4 to 8 cells" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Giardia lamblia cysts are oval with 2 to 4 nuclei and curved median bodies; the trophozoite is pear-shaped with two nuclei giving an owl-face appearance. The other options describe an Entamoeba cyst (A), a Trichuris egg (C), and a hookworm egg (D).",
+    "rationales": {
+      "A": "Splinter-shaped chromatoid bars and a single nucleus belong to the Entamoeba complex, not Giardia.",
+      "B": "Correct: oval cyst, 2-4 nuclei, and curved median bodies are the classic Giardia cyst features.",
+      "C": "Barrel shape with two polar mucoid plugs is the Trichuris trichiura egg.",
+      "D": "A thin shell with a 4-8 cell morula describes a hookworm egg."
+    },
+    "misconception": "Learners mix up the small intestinal protozoa and the helminth eggs, so it pays to anchor each organism to one unforgettable shape before the exam.",
+    "reference": "Ash & Orihel's Atlas of Human Parasitology, 5th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Giardia cyst = oval, 2-4 nuclei, curved median bodies; Giardia trophozoite = pear-shaped, two nuclei (owl face)."]
+  },
+  {
+    "id": "para-q-005",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A child has perianal itching that is worse at night. Which specimen and collection method is most likely to recover Enterobius vermicularis eggs?",
+    "choices": [
+      { "id": "A", "text": "Three consecutive stool specimens in 10% formalin" },
+      { "id": "B", "text": "A morning cellophane tape (Graham) swab taken before bathing or defecation" },
+      { "id": "C", "text": "A midstream urine specimen collected at noon" },
+      { "id": "D", "text": "A duodenal aspirate collected after a fatty meal" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "Enterobius vermicularis eggs are deposited on the perianal skin, not reliably passed in stool. The standard collection is a morning cellophane tape swab (Graham test) applied to the perianal area before bathing or defecation, repeated on several consecutive mornings.",
+    "rationales": {
+      "A": "Routine stool examinations frequently miss Enterobius because the eggs are not shed into the stool lumen.",
+      "B": "Correct: the morning cellophane tape test before bathing or defecation is the diagnostic standard for Enterobius.",
+      "C": "Urine does not carry Enterobius eggs; this collection would be for something like Schistosoma haematobium, not pinworm.",
+      "D": "Duodenal aspirates are used for Strongyloides larvae or Giardia in difficult cases, not for Enterobius."
+    },
+    "misconception": "Students reflexively order 'three stool samples' for every suspected parasite; for Enterobius the answer is always the perianal tape test.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Enterobius = D-shaped larvated egg found by morning cellophane tape, not by routine stool exam."]
+  },
+  {
+    "id": "para-q-006",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "SCENARIO",
+    "vignette": "A 34-year-old man with HIV infection (CD4 count 90 cells per microliter) has chronic watery diarrhea, nausea, and weight loss. Routine trichrome staining of the stool shows no definite intestinal protozoa. Modified acid-fast staining of concentrated sediment reveals round oocysts measuring 4-6 micrometers, some with a granular interior.",
+    "stem": "What is the most likely organism?",
+    "choices": [
+      { "id": "A", "text": "Cyclospora cayetanensis" },
+      { "id": "B", "text": "Cryptosporidium species" },
+      { "id": "C", "text": "Cystoisospora belli (Isospora belli)" },
+      { "id": "D", "text": "Microsporidia" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Cryptosporidium oocysts are tiny (4-6 micrometers) and are demonstrated with modified acid-fast staining (or antigen/immunofluorescence methods); routine trichrome can miss them. Size separates it from Cyclospora (about 8-10 micrometers) and the much larger lemon-shaped Cystoisospora oocysts, while microsporidia require special stains such as modified trichrome or optical brighteners.",
+    "rationales": {
+      "A": "Cyclospora oocysts are larger (about 8-10 micrometers) and acid-fast staining is variable; they also autofluoresce under UV microscopy.",
+      "B": "Correct: 4-6 micrometer acid-fast oocysts in a patient with advanced HIV infection are classic Cryptosporidium.",
+      "C": "Cystoisospora belli oocysts are large (20-33 micrometers), lemon-shaped, and often contain two sporocysts.",
+      "D": "Microsporidia are far too small for routine acid-fast methods and are identified with modified trichrome (Weber) stains or fluorescent brighteners."
+    },
+    "misconception": "Learners expect trichrome to detect every intestinal protozoan; the coccidia (Cryptosporidium, Cyclospora, Cystoisospora) are small or variable on trichrome and need modified acid-fast or antigen methods.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Cryptosporidium oocysts (4-6 micrometers) are modified acid-fast positive and are easily missed on routine trichrome."]
+  },
+  {
+    "id": "para-q-007",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which egg is barrel- or lemon-shaped with transparent mucoid plugs at both poles?",
+    "choices": [
+      { "id": "A", "text": "Ascaris lumbricoides" },
+      { "id": "B", "text": "Hookworm (Ancylostoma or Necator)" },
+      { "id": "C", "text": "Trichuris trichiura" },
+      { "id": "D", "text": "Enterobius vermicularis" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "The Trichuris trichiura (whipworm) egg is barrel- or lemon-shaped with a smooth shell and transparent mucoid plugs at both poles. Ascaris eggs have a mammillated outer coat, hookworm eggs are thin-shelled with a 4-8 cell morula, and Enterobius eggs are D-shaped and larvated.",
+    "rationales": {
+      "A": "Ascaris lumbricoides eggs are round to oval with a thick mammillated (bumpy) albuminoid coat; fertilized and decorticated forms exist.",
+      "B": "Hookworm eggs are thin-shelled ovals containing a 4-8 cell morula and no polar plugs.",
+      "C": "Correct: barrel shape with two polar mucoid plugs is the classic Trichuris egg.",
+      "D": "Enterobius eggs are D-shaped, flattened on one side, and already larvated when seen."
+    },
+    "misconception": "Small round objects in stool are reflexively called 'Trichuris' or 'hookworm'; anchoring the polar plugs to Trichuris and the morula to hookworm prevents the swap.",
+    "reference": "Ash & Orihel's Atlas of Human Parasitology, 5th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Trichuris egg = barrel with two polar plugs; hookworm egg = thin shell with a 4-8 cell morula - never confuse the pair."]
+  },
+  {
+    "id": "para-q-008",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "On a wet mount of concentrated stool, how are rhabditiform larvae of Strongyloides stercoralis distinguished from those of hookworm?",
+    "choices": [
+      { "id": "A", "text": "Strongyloides L1 has a short buccal cavity and a large genital primordium" },
+      { "id": "B", "text": "Strongyloides L1 has a long buccal cavity and a small genital primordium" },
+      { "id": "C", "text": "Strongyloides larvae are sheathed with subterminal nuclei in the tail" },
+      { "id": "D", "text": "Hookworm L1 has a notched tail and refractile granules" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Strongyloides stercoralis is diagnosed in stool by larvae, not eggs. Its rhabditiform L1 has a long buccal cavity and a small genital primordium, whereas hookworm L1 has a short buccal cavity and a large genital primordium. Sheathed larvae with subterminal tail nuclei describe microfilariae, not intestinal nematode larvae.",
+    "rationales": {
+      "A": "That description fits hookworm L1, the mimic that must be excluded.",
+      "B": "Correct: long buccal cavity plus small genital primordium identifies Strongyloides rhabditiform larvae.",
+      "C": "Sheathed larvae with tail nuclei are filarial microfilariae from blood, not stool larvae.",
+      "D": "Hookworm L1 is not recognized by a notched tail or refractile granules; the buccal cavity and genital primordium are the keys."
+    },
+    "misconception": "Students look for eggs in Strongyloides infection; only larvae appear in stool, and without the buccal-cavity comparison they are misreported as hookworm.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Strongyloides = larvae in stool (long buccal cavity, small genital primordium); hookworm L1 = short buccal cavity, large genital primordium."]
+  },
+  {
+    "id": "para-q-009",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "SCENARIO",
+    "vignette": "A 45-year-old male fisherman from a coastal town in Luzon has a 3-month history of chronic watery diarrhea, abdominal pain, malabsorption, and weight loss. Stool examination shows numerous small, barrel-shaped eggs with flattened (rather than prominent) polar plugs and a striated shell, measuring about 45 by 25 micrometers. Mild eosinophilia is present.",
+    "stem": "Which organism is most likely responsible?",
+    "choices": [
+      { "id": "A", "text": "Trichuris trichiura" },
+      { "id": "B", "text": "Capillaria philippinensis" },
+      { "id": "C", "text": "Enterobius vermicularis" },
+      { "id": "D", "text": "Hymenolepis nana" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Capillaria philippinensis is a fish-borne intestinal nematode endemic in the Philippines; raw or undercooked freshwater and brackish fish transmit it. It causes malabsorption, chronic diarrhea, and wasting. Its eggs resemble small Trichuris eggs but have flattened polar plugs and a striated shell - the classic trap where a 'small Trichuris' in a Filipino patient is really Capillaria.",
+    "rationales": {
+      "A": "Trichuris eggs are larger with prominent rounded bipolar plugs, and trichuriasis presents with dysentery and possible rectal prolapse, not malabsorption.",
+      "B": "Correct: small plugged eggs with flattened plugs plus malabsorption in a Filipino fisherman point to Capillaria philippinensis.",
+      "C": "Enterobius eggs are D-shaped and larvated and are recovered by cellophane tape, not in stool plugs.",
+      "D": "Hymenolepis nana eggs are thin-shelled with polar filaments and a hooked oncosphere, not plugged."
+    },
+    "misconception": "Any plugged egg gets labeled Trichuris; in Philippine practice a plugged egg with flattened plugs and malabsorption must raise Capillaria philippinensis.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["When a 'small Trichuris' appears in a Philippine stool with malabsorption, think Capillaria philippinensis (flattened plugs)."]
+  },
+  {
+    "id": "para-q-010",
+    "subjectId": "parasitology",
+    "topicId": "intestinal-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A mature cyst with up to eight nuclei, coarse irregular peripheral chromatin, and blunt chromatoid bars is seen on a trichrome-stained smear. The organism is:",
+    "choices": [
+      { "id": "A", "text": "Entamoeba histolytica" },
+      { "id": "B", "text": "Entamoeba dispar" },
+      { "id": "C", "text": "Entamoeba coli" },
+      { "id": "D", "text": "Entamoeba hartmanni" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "MEDIUM",
+    "explanation": "Entamoeba coli cysts mature with up to eight nuclei, have coarse uneven peripheral chromatin, and carry blunt (splinterless) chromatoid bars. E. histolytica and E. dispar cysts have up to four nuclei with fine peripheral chromatin and splinter-shaped chromatoid bars; E. hartmanni is a smaller version of the histolytica morphology and is nonpathogenic.",
+    "rationales": {
+      "A": "E. histolytica cysts have up to four nuclei, fine chromatin, and splintered chromatoid bars.",
+      "B": "E. dispar is morphologically identical to E. histolytica and also shows up to four nuclei, not eight.",
+      "C": "Correct: eight nuclei with coarse chromatin and blunt chromatoid bars identify the nonpathogenic E. coli.",
+      "D": "E. hartmanni cysts are small (under 10 micrometers) with up to four nuclei and are harmless."
+    },
+    "misconception": "Because its name says 'coli', students assume it is a pathogen of the colon; E. coli (the ameba) is a harmless commensal and only its morphology matters in exams.",
+    "reference": "Ash & Orihel's Atlas of Human Parasitology, 5th ed.",
+    "lessonId": "parasitology/intestinal-protozoa-helminths",
+    "examTraps": ["Mature cyst nuclei count: E. coli up to 8, E. histolytica/dispar up to 4 ('cultured ladies eat 4-course meals')."]
+  },
+  {
+    "id": "para-q-011",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "In the malaria workup, what is the primary purpose of the thin blood film?",
+    "choices": [
+      { "id": "A", "text": "To detect very low-level parasitemia by screening a larger volume of blood" },
+      { "id": "B", "text": "To identify Plasmodium species and evaluate parasite morphology" },
+      { "id": "C", "text": "To lyse red cells so that parasites collect at the buffy coat" },
+      { "id": "D", "text": "To quantify microfilariae after formalin concentration" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "EASY",
+    "explanation": "The thin film keeps red cells intact, so red cell changes, stippling, and parasite morphology can be evaluated - it is the smear used for species identification and staging. The thick film, in which red cells are lysed, screens a larger blood volume for parasitemia.",
+    "rationales": {
+      "A": "That is the role of the thick film, not the thin film.",
+      "B": "Correct: intact red cells on the thin film allow Plasmodium speciation and stage identification.",
+      "C": "Red cell lysis characterizes the thick film; no buffy-coat concentration step applies here.",
+      "D": "Microfilariae quantitation uses thick films or concentration methods such as Knott's, not the thin film's primary role."
+    },
+    "misconception": "Learners treat the two smears as duplicates; the thick film is the sensitive screen, the thin film is the identification tool.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Thick film = detection (more blood, lysed cells); thin film = species identification (intact red cells)."]
+  },
+  {
+    "id": "para-q-012",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "SCENARIO",
+    "vignette": "A 26-year-old returning traveler from a malaria-endemic area presents with high fever, chills, and headache. A Giemsa-stained thin film shows delicate ring forms, some red cells containing two or three rings, and several rings touching the red cell margin (applique forms). A banana-shaped gametocyte is also seen.",
+    "stem": "Which species is most likely, and which feature is most characteristic?",
+    "choices": [
+      { "id": "A", "text": "Plasmodium vivax - Schüffner dots in enlarged red cells" },
+      { "id": "B", "text": "Plasmodium falciparum - banana-shaped gametocytes and applique ring forms" },
+      { "id": "C", "text": "Plasmodium malariae - band-form trophozoites" },
+      { "id": "D", "text": "Plasmodium ovale - oval red cells with fimbriated edges" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Multiple delicate rings in one red cell, marginal applique (accolé) forms, and a banana (crescent)-shaped gametocyte are the hallmark combination of Plasmodium falciparum. The banana gametocyte is the only gametocyte morphology that identifies a species directly.",
+    "rationales": {
+      "A": "Schüffner dots and enlarged red cells describe P. vivax, which has amoeboid trophozoites and round gametocytes.",
+      "B": "Correct: delicate rings, applique forms, and banana gametocytes identify P. falciparum.",
+      "C": "Band forms belong to P. malariae, whose gametocytes are round in normal-sized red cells.",
+      "D": "Oval fimbriated red cells describe P. ovale, which also shows compact trophozoites and round gametocytes."
+    },
+    "misconception": "Students memorize ring morphology but skip the gametocyte; the banana shape is the single most exam-worthy clue for falciparum.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Banana gametocytes and applique rings = P. falciparum; multiple rings per cell also favor falciparum."]
+  },
+  {
+    "id": "para-q-013",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which combination is most characteristic of Plasmodium vivax on a Giemsa-stained thin film?",
+    "choices": [
+      { "id": "A", "text": "Small delicate rings, multiple infections per red cell, and Maurer's clefts" },
+      { "id": "B", "text": "Amoeboid trophozoites, enlarged and distorted red cells, and fine Schüffner dots" },
+      { "id": "C", "text": "Band-form trophozoites in normal-sized red cells" },
+      { "id": "D", "text": "Compact trophozoites in oval red cells with fimbriated edges" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "P. vivax parasitizes young red cells, which enlarge and distort; its trophozoites are amoeboid and spreading, and fine pink Schüffner dots fill the cytoplasm. Option A describes P. falciparum, option C P. malariae, and option D P. ovale.",
+    "rationales": {
+      "A": "Delicate multiple rings with Maurer's clefts describe P. falciparum.",
+      "B": "Correct: amoeboid trophozoites, enlarged red cells, and fine Schüffner dots are the P. vivax triad.",
+      "C": "Band forms in normal red cells are P. malariae.",
+      "D": "Oval fimbriated red cells with compact trophozoites are P. ovale."
+    },
+    "misconception": "Vivax and ovale both show stippling; learners forget that the red cell (enlarged and distorted versus oval and fimbriated) and the trophozoite shape (amoeboid versus compact) separate them.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Vivax = big distorted cells with amoeboid trophozoites; ovale = oval fimbriated cells with compact trophozoites."]
+  },
+  {
+    "id": "para-q-014",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A mature trophozoite stretched across the red cell like a belt is seen on a Giemsa smear. This 'band form' is most typical of:",
+    "choices": [
+      { "id": "A", "text": "Plasmodium falciparum" },
+      { "id": "B", "text": "Plasmodium vivax" },
+      { "id": "C", "text": "Plasmodium malariae" },
+      { "id": "D", "text": "Plasmodium ovale" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Band-form trophozoites stretched across normal-sized red cells are the classic morphology of Plasmodium malariae, the quartan parasite with a 72-hour fever cycle and rosette schizonts.",
+    "rationales": {
+      "A": "Falciparum shows delicate rings and banana gametocytes; mature trophozoites are rarely seen in peripheral blood.",
+      "B": "Vivax trophozoites are amoeboid and irregular, not band-shaped.",
+      "C": "Correct: band forms are the signature of P. malariae.",
+      "D": "Ovale trophozoites are compact and rounded in oval fimbriated red cells."
+    },
+    "misconception": "Students expect 'band' to describe a cell shape rather than the parasite; it is the trophozoite that forms the band across the red cell.",
+    "reference": "Ash & Orihel's Atlas of Human Parasitology, 5th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Band forms = P. malariae (quartan, 72-hour cycle)."]
+  },
+  {
+    "id": "para-q-015",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Red cells that are oval with fimbriated (tufted) edges and contain compact trophozoites with fairly coarse stippling suggest:",
+    "choices": [
+      { "id": "A", "text": "Plasmodium ovale" },
+      { "id": "B", "text": "Plasmodium vivax" },
+      { "id": "C", "text": "Plasmodium falciparum" },
+      { "id": "D", "text": "Plasmodium malariae" }
+    ],
+    "correctChoiceId": "A",
+    "difficulty": "MEDIUM",
+    "explanation": "Oval red cells with fimbriated edges, compact trophozoites, and coarse Schüffner/James-type stippling are the triad of Plasmodium ovale. Vivax cells are enlarged and distorted with amoeboid trophozoites; falciparum shows delicate rings; malariae shows band forms.",
+    "rationales": {
+      "A": "Correct: oval fimbriated red cells with compact trophozoites identify P. ovale.",
+      "B": "Vivax enlarges and distorts red cells and shows amoeboid trophozoites, not fimbriated ovals.",
+      "C": "Falciparum does not enlarge red cells and produces delicate rings and banana gametocytes.",
+      "D": "Malariae red cells are normal in size and carry band trophozoites."
+    },
+    "misconception": "The stippling in ovale is often called Schüffner dots too; the decisive features are the oval fimbriated cell and the compact trophozoite.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Ovale schizonts carry up to 8 merozoites versus 12-24 in vivax - a backup tie-breaker if the cell shape is ambiguous."]
+  },
+  {
+    "id": "para-q-016",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "SCENARIO",
+    "vignette": "A malaria smear is prepared from a lavender-top (EDTA) tube about 8 hours after collection. The technologist notes small blue dots and ring-like inclusions on many red cells, and some inclusions appear to sit on top of the red cells. The patient is afebrile with no travel history, and a repeat smear made from a fresh capillary sample is negative.",
+    "stem": "What is the most appropriate interpretation of the original smear?",
+    "choices": [
+      { "id": "A", "text": "Plasmodium falciparum ring stages - report immediately and notify the clinician" },
+      { "id": "B", "text": "Stain precipitate and overlying platelets simulating parasites, worsened by delayed smear preparation" },
+      { "id": "C", "text": "Plasmodium vivax early trophozoites with Schüffner dots" },
+      { "id": "D", "text": "Howell-Jolly bodies indicating splenic dysfunction" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "HARD",
+    "explanation": "Platelets overlying red cells mimic ring forms with pseudo-chromatin, and stain precipitate mimics stippling or intracellular parasites - artifacts that multiply when smears are delayed in EDTA. Real parasites lie within the red cell cytoplasm and are consistent in size and staining across the monolayer; a fresh smear plus the clinical picture supports an artifact call.",
+    "rationales": {
+      "A": "Calling falciparum from artifacts on a delayed smear is a dangerous overcall; the structures must first pass the in-the-cytoplasm test.",
+      "B": "Correct: platelet overlay and stain precipitate on a delayed EDTA smear are classic parasite mimics, confirmed by the negative fresh smear.",
+      "C": "Schüffner dots lie within the cytoplasm of infected red cells and accompany genuine vivax morphology, which is absent here.",
+      "D": "Howell-Jolly bodies are single round inclusions in red cells of asplenic patients and do not resemble ring forms with pseudo-chromatin."
+    },
+    "misconception": "Every dot on a malaria smear is called a parasite; the discipline is to verify intracellular location, consistent morphology, and a plausible pattern before reporting.",
+    "reference": "Henry's Clinical Diagnosis and Management by Laboratory Methods, 24th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Prepare smears promptly from EDTA blood: delayed specimens breed platelet overlays and precipitate that fake rings and dots."]
+  },
+  {
+    "id": "para-q-017",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Thick and thin films for malaria are negative, but clinical suspicion remains high. What is the recommended laboratory follow-up?",
+    "choices": [
+      { "id": "A", "text": "Report malaria excluded and perform no further testing" },
+      { "id": "B", "text": "Repeat thick and thin smears at 12- to 24-hour intervals for two or three additional sets before excluding malaria" },
+      { "id": "C", "text": "Rely on a single rapid antigen test to rule out all species" },
+      { "id": "D", "text": "Request a white blood cell count instead" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Parasitemia fluctuates as parasite broods mature and sequester, so a single negative set does not exclude malaria. The standard practice is serial thick and thin films at 12- to 24-hour intervals for two or three additional sets when suspicion is high; rapid antigen tests support but do not replace microscopy for species and staging.",
+    "rationales": {
+      "A": "A negative single set is a snapshot; malaria remains possible and serial sampling is required.",
+      "B": "Correct: repeat films at 12- to 24-hour intervals (two or three sets) are the accepted approach before excluding malaria.",
+      "C": "Antigen tests can miss species other than falciparum or fail with HRP2 deletions; they do not replace smears.",
+      "D": "A leukocyte count adds no diagnostic value for excluding malaria."
+    },
+    "misconception": "'Not seen' is read as 'not there'; examiners repeatedly test that negative smears need serial repetition before the case is closed.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Negative smear + high suspicion = repeat at 12-24 h for 2-3 more sets; reporting methods vary by laboratory, so state the method used."]
+  },
+  {
+    "id": "para-q-018",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "A Giemsa-stained thick film from a night blood sample shows a sheathed microfilaria whose body nuclei stop short of the pointed tail, leaving the tail tip itself free of nuclei. The patient comes from an area endemic for lymphatic filariasis. Which organism is most likely?",
+    "choices": [
+      { "id": "A", "text": "Brugia malayi" },
+      { "id": "B", "text": "Wuchereria bancrofti" },
+      { "id": "C", "text": "Loa loa" },
+      { "id": "D", "text": "Onchocerca volvulus" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "A sheathed microfilaria with nuclei that stop short of the tail tip (clear tip) in a night blood sample is Wuchereria bancrofti, the leading cause of lymphatic filariasis. Brugia malayi tails carry two distinct subterminal nuclei; Loa loa has nuclei running to the tip and is diurnal; Onchocerca is not found in blood.",
+    "rationales": {
+      "A": "Brugia malayi has two distinct subterminal nuclei in the tail - the contrast with this picture.",
+      "B": "Correct: sheathed, clear tail tip, and nocturnal blood identify W. bancrofti.",
+      "C": "Loa loa is diurnal, has a poorly stained sheath, and its nuclei extend to the tail tip.",
+      "D": "Onchocerca volvulus microfilariae are unsheathed and live in skin, recovered by skin snips, not blood films."
+    },
+    "misconception": "Students remember 'sheathed' and stop there; the tail nuclei and the collection time are what name the species.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["W. bancrofti = clear tail tip; B. malayi = two subterminal tail nuclei; both need night blood."]
+  },
+  {
+    "id": "para-q-019",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "SCENARIO",
+    "vignette": "A night blood specimen collected around 11 p.m. is processed by Knott's concentration and stained. A sheathed microfilaria is found: the body nuclei are discrete, and two distinct nuclei are present in the tail just below the tip (subterminal nuclei). The patient has recurrent lymphangitis and lives in a rural village in Southeast Asia.",
+    "stem": "Which organism is most likely identified?",
+    "choices": [
+      { "id": "A", "text": "Wuchereria bancrofti" },
+      { "id": "B", "text": "Brugia malayi" },
+      { "id": "C", "text": "Loa loa" },
+      { "id": "D", "text": "Mansonella perstans" }
+    ],
+    "correctChoiceId": "B",
+    "difficulty": "MEDIUM",
+    "explanation": "Two distinct subterminal tail nuclei in a sheathed microfilaria are the signature of Brugia malayi, a cause of lymphatic filariasis in rural Southeast Asia. Wuchereria bancrofti has a clear tail tip; Loa loa is diurnal with nuclei at the tip; Mansonella perstans is unsheathed with nuclei extending to the tail tip and no strict periodicity.",
+    "rationales": {
+      "A": "W. bancrofti lacks subterminal tail nuclei - its tail tip is clear of nuclei.",
+      "B": "Correct: sheathed microfilaria with two subterminal tail nuclei identifies Brugia malayi.",
+      "C": "Loa loa is a daytime microfilaria whose sheath stains poorly and whose nuclei reach the tail tip.",
+      "D": "Mansonella perstans is unsheathed, nonperiodic, and its nuclei extend into the tail tip."
+    },
+    "misconception": "All sheathed microfilariae get called bancrofti; the tail-nuclei detail separates Brugia, and remembering it is worth several exam points.",
+    "reference": "Ash & Orihel's Atlas of Human Parasitology, 5th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Knott's concentration (blood lysed with 2% formalin, centrifuged, sediment stained) rescues low-density microfilariae missed by plain thick films."]
+  },
+  {
+    "id": "para-q-020",
+    "subjectId": "parasitology",
+    "topicId": "blood-tissue-parasites",
+    "type": "MCQ",
+    "vignette": null,
+    "stem": "Which microfilaria is typically NOT recovered from peripheral blood and is instead demonstrated in skin snips?",
+    "choices": [
+      { "id": "A", "text": "Wuchereria bancrofti" },
+      { "id": "B", "text": "Brugia malayi" },
+      { "id": "C", "text": "Onchocerca volvulus" },
+      { "id": "D", "text": "Loa loa" }
+    ],
+    "correctChoiceId": "C",
+    "difficulty": "EASY",
+    "explanation": "Onchocerca volvulus microfilariae are unsheathed and inhabit the skin (and eyes), causing onchocerciasis (river blindness); diagnosis is by skin snips examined fresh or after incubation in saline. The other three species circulate in blood and are found on appropriately timed blood films.",
+    "rationales": {
+      "A": "W. bancrofti circulates in blood with nocturnal periodicity and is looked for in night blood samples.",
+      "B": "B. malayi also circulates in blood at night and is identified on stained films or Knott's concentrate.",
+      "C": "Correct: Onchocerca volvulus lives in skin; skin snips, not blood films, demonstrate its microfilariae.",
+      "D": "Loa loa circulates in blood during the daytime and is found on appropriately timed day blood films."
+    },
+    "misconception": "Every filarial worm is hunted in blood; the tissue-dwelling Onchocerca breaks that rule entirely.",
+    "reference": "Garcia's Diagnostic Medical Parasitology, 8th ed.",
+    "lessonId": "parasitology/malaria-microfilariae",
+    "examTraps": ["Blood: W. bancrofti (night), B. malayi (night), Loa loa (day). Skin: Onchocerca volvulus."]
+  }
+]

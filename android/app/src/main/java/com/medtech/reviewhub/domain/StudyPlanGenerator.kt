@@ -26,23 +26,25 @@ import java.util.UUID
 object StudyPlanGenerator {
 
     val ASCPI_WEIGHTS: Map<String, Double> = mapOf(
-        "blood-banking" to 9.0,
-        "clinical-chemistry" to 17.0,
-        "hematology" to 16.0,
-        "microbiology" to 18.0,
-        "immunology" to 10.0,
-        "urinalysis" to 10.0,
+        "blood-banking" to 8.0,
+        "clinical-chemistry" to 16.0,
+        "hematology" to 15.0,
+        "microbiology" to 15.0,
+        "parasitology" to 8.0,
+        "immunology" to 9.0,
+        "urinalysis" to 9.0,
         "lab-operations" to 12.0
     )
 
     val PH_WEIGHTS: Map<String, Double> = mapOf(
-        "clinical-chemistry" to 20.0,
-        "microbiology" to 20.0,
-        "hematology" to 20.0,
-        "blood-banking" to 15.0,
-        "immunology" to 10.0,
-        "urinalysis" to 5.0,
-        "lab-operations" to 10.0
+        "clinical-chemistry" to 16.0,
+        "microbiology" to 14.0,
+        "hematology" to 14.0,
+        "blood-banking" to 9.0,
+        "parasitology" to 11.0,
+        "immunology" to 9.0,
+        "urinalysis" to 12.0,
+        "lab-operations" to 15.0
     )
 
     const val WEAK_SUBJECT_MULTIPLIER = 1.5

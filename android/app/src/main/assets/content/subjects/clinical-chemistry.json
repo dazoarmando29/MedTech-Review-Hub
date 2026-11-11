@@ -3,7 +3,9 @@
   "name": "Clinical Chemistry",
   "shortName": "Clinical Chemistry",
   "description": "Cardiac markers and serum enzymes, renal function tests, electrolytes and the anion gap, diabetes diagnostics, and thyroid function testing.",
-  "blueprintNote": "ASCP BOC MLS content guide: clinical chemistry topics (enzymes and cardiac markers, renal function, electrolytes/acid-base, endocrine tests including glucose and thyroid) map to roughly 17-20% of the exam blueprint; PH MTLE weight ~20%. Weights are approximations of published outlines. Topic-level mapping only; this product is not affiliated with or endorsed by ASCP or any examining body.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS content outline (topic level) and to the subject structure used by Philippine ASCPi review centers (approximate weights, not official percentages; not affiliated with ASCP or any review center).",
+  "phReviewLabel": "ACTS: CC · Pioneer: Clinical Chemistry",
+  "phEmphasisHours": 25,
   "colorToken": "blue",
   "topics": [
     {

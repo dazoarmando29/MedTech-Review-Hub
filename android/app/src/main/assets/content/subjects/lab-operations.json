@@ -1,9 +1,11 @@
 {
   "id": "lab-operations",
-  "name": "Laboratory Operations, Quality, and Safety",
+  "name": "Laboratory Operations, Quality & Safety",
   "shortName": "Lab Operations",
   "description": "Quality control theory and practice (Levey-Jennings charts, Westgard multirule interpretation), regulatory frameworks (CLIA, accreditation, proficiency testing), method validation concepts (precision, accuracy, LOD/LOQ, reference intervals), biosafety levels, preanalytic error prevention, order of draw, specimen rejection, point-of-care testing, and laboratory mathematics.",
-  "blueprintNote": "Mapped to the ASCP BOC MLS examination laboratory operations/quality content domain and to the PH MTLE clinical laboratory management subject list; the two profiles are kept separate. Domain weights vary by edition of each official content outline - consult the current official outlines for exact percentages. Content here is for study planning only and implies no endorsement by any certifying body.",
+  "blueprintNote": "Mapped to the ASCP BOC MLS content outline (topic level) and to the subject structure used by Philippine ASCPi review centers (approximate weights, not official percentages; not affiliated with ASCP or any review center).",
+  "phReviewLabel": "Pioneer: Laboratory Operations",
+  "phEmphasisHours": 6,
   "colorToken": "blue",
   "topics": [
     {
