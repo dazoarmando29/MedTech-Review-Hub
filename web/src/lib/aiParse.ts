@@ -62,8 +62,18 @@ export function parseFlashcardsFromAi(text: string): ParsedFlashcard[] {
     .filter((c) => c.front && c.back);
   if (cards.length) return cards;
 
-  // fallback: plain-text "Q: ... A: ..." pairs
+  // Tolerant pass: pick {"front":...,"back":...} objects even out of a
+  // truncated response (long generations can get cut mid-JSON).
   const out: ParsedFlashcard[] = [];
+  const objRe = /\{[^{}]*"front"\s*:\s*"((?:[^"\\]|\\.)*)"[^{}]*"back"\s*:\s*"((?:[^"\\]|\\.)*)"[^{}]*\}/g;
+  for (const m of text.matchAll(objRe)) {
+    const front = JSON.parse(`"${m[1]}"`) as string;
+    const back = JSON.parse(`"${m[2]}"`) as string;
+    if (front.trim() && back.trim()) out.push({ front: front.trim(), back: back.trim() });
+  }
+  if (out.length) return out;
+
+  // fallback: plain-text "Q: ... A: ..." pairs
   const pairs = text.split(/\n(?=Q[:.])/i);
   for (const p of pairs) {
     const m = p.match(/Q[:.]\s*([\s\S]+?)\nA[:.]\s*([\s\S]+?)(?:\n|$)/i);

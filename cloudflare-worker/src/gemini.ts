@@ -69,15 +69,15 @@ Rules you MUST follow:
 4. Keep explanations exam-focused and accurate. Optional light Taglish only when the requested style is TAGLISH.
 5. Respond in plain text (markdown ok).`;
 
-async function callGemini(env: Env, prompt: string): Promise<{ text: string; tokensEstimate: number }> {
+async function callGemini(env: Env, prompt: string, maxOutputTokens = 2048): Promise<{ text: string; tokensEstimate: number }> {
   const key = env.GEMINI_API_KEY;
   if (!key) throw new HttpError(503, 'AI_UNAVAILABLE', 'AI features are not configured on this server');
   // Preferred model first, then fallbacks (Google retires model versions over time).
-  const models = [...new Set([env.GEMINI_MODEL ?? 'gemini-3.5-flash', 'gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-flash-latest'])];
+  const models = [...new Set([env.GEMINI_MODEL ?? 'gemini-3.5-flash', 'gemini-3.5-flash', 'gemini-flash-latest'])];
 
   let lastErr: unknown;
   for (const model of models) {
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < 1; attempt++) {
       try {
         const res = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
@@ -87,7 +87,7 @@ async function callGemini(env: Env, prompt: string): Promise<{ text: string; tok
             body: JSON.stringify({
               systemInstruction: { parts: [{ text: SYSTEM_RULES }] },
               contents: [{ role: 'user', parts: [{ text: prompt }] }],
-              generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
+              generationConfig: { temperature: 0.3, maxOutputTokens },
             }),
           },
         );
@@ -196,7 +196,8 @@ export async function runAiTool(
   };
 
   await enforceBudget(env, userId, 800);
-  const { text, tokensEstimate } = await callGemini(env, prompts[tool]);
+  const genBudget = tool === 'flashcards' ? 1600 : tool === 'quiz' ? 1800 : tool === 'keyterms' ? 1024 : 2048;
+  const { text, tokensEstimate } = await callGemini(env, prompts[tool], genBudget);
   const envelope = parseEnvelope(text, req.pdfId, req.page, false, tokensEstimate);
   cacheSet(cacheKey, envelope);
   return json(envelope);

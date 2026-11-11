@@ -6,6 +6,10 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 ## [Unreleased]
 
 ### Fixed
+- **AI buttons felt dead while generating**: generation dialogs now open instantly with animated buffering (Mochi + shimmer skeletons + bouncing dots) and name exactly what is being written. Upload shows a real progress bar; PDF parsing shows a buffering overlay.
+- **AI generation was slow and could return truncated JSON** (breaking flashcard imports): output budgets fixed, 20s per-model abort timeout prevents hangs, and the parser now recovers cards even from truncated responses.
+
+### Fixed
 - **PDF reader freezes after upload and while using AI tools**: the text-selection layer (thousands of spans on textbook pages) was re-rendered through React on every interaction, blocking the main thread. The layer is now built imperatively in small yielding chunks, the viewer is memoized with stable callbacks, and a 'Preparing your PDF…' overlay shows during parsing. Clicks and AI tools respond instantly.
 
 ### Changed
