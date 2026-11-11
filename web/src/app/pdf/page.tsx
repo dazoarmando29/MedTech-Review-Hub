@@ -587,6 +587,7 @@ export default function PdfPage() {
       )}
       {(genCards !== null || genLoading === 'cards') && (
         <GenCardsDialog
+          key={(genCards ?? []).length}
           cards={genCards ?? []}
           loading={genLoading === 'cards'}
           pdfId={activeId}
@@ -595,6 +596,7 @@ export default function PdfPage() {
       )}
       {(genQuestions !== null || genLoading === 'quiz') && (
         <GenQuizDialog
+          key={(genQuestions ?? []).length}
           questions={genQuestions ?? []}
           loading={genLoading === 'quiz'}
           label={selection ? 'your selection' : 'this page'}
@@ -939,12 +941,12 @@ function GenCardsDialog({ cards, loading, pdfId, onClose }: {
           {cards.map((c, i) => (
             <li key={i} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
               <label className="flex items-start gap-2">
-                <input type="checkbox" checked={checked[i]} className="mt-1"
+                <input type="checkbox" checked={checked[i] ?? true} className="mt-1"
                   onChange={(e) => setChecked((arr) => arr.map((v, j) => (j === i ? e.target.checked : v)))} />
                 <div className="flex-1 space-y-2">
-                  <input className="input" value={edits[i].front}
+                  <input className="input" value={edits[i]?.front ?? c.front}
                     onChange={(e) => setEdits((arr) => arr.map((v, j) => (j === i ? { ...v, front: e.target.value } : v)))} />
-                  <textarea className="input" rows={2} value={edits[i].back}
+                  <textarea className="input" rows={2} value={edits[i]?.back ?? c.back}
                     onChange={(e) => setEdits((arr) => arr.map((v, j) => (j === i ? { ...v, back: e.target.value } : v)))} />
                   {c.quote && <p className="text-[11px]" style={{ color: 'var(--muted)' }}>source: “{c.quote}”</p>}
                 </div>
@@ -1001,7 +1003,7 @@ function GenQuizDialog({ questions, loading, label, onStart, onClose }: {
           {questions.map((q, i) => (
             <li key={i} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
               <label className="flex items-start gap-2">
-                <input type="checkbox" checked={checked[i]} className="mt-1"
+                <input type="checkbox" checked={checked[i] ?? true} className="mt-1"
                   onChange={(e) => setChecked((arr) => arr.map((v, j) => (j === i ? e.target.checked : v)))} />
                 <div className="flex-1 text-sm">
                   <p className="font-semibold">{q.stem}</p>
