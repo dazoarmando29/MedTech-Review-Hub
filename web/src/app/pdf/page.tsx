@@ -5,7 +5,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, cx } from '@/components/ui';
-import { api, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
+import { api, configureApi, friendlyApiError, isSignedIn } from '@/lib/api';
 import { parseFlashcardsFromAi, parseQuestionsFromAi, type ParsedFlashcard, type ParsedQuestion } from '@/lib/aiParse';
 import { toQuizQuestion } from '@/lib/questions';
 import { newAttemptId } from '@/lib/quiz';
@@ -35,11 +35,13 @@ export default function PdfPage() {
   const [aiResult, setAiResult] = useState<string | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
+  const [authed, setAuthed] = useState(false);
   const [genCards, setGenCards] = useState<ParsedFlashcard[] | null>(null);
   const [genQuestions, setGenQuestions] = useState<ParsedQuestion[] | null>(null);
 
   useEffect(() => {
     configureApi(settings.apiBaseUrl);
+    setAuthed(isSignedIn());
   }, [settings.apiBaseUrl]);
 
   useEffect(() => {
@@ -59,13 +61,7 @@ export default function PdfPage() {
       const body = typeof res.result === 'string' ? res.result : JSON.stringify(res.result, null, 2);
       setAiResult(`${label}\n\n${body}${res.warnings?.length ? `\n\nWarnings: ${res.warnings.join('; ')}` : ''}`);
     } catch (e) {
-      if (e instanceof AiUnavailableError) {
-        setAiError('AI features are not configured on this server. Everything else in the reader keeps working.');
-      } else if (e instanceof ApiUnavailableError) {
-        setAiError('No backend configured. Set an API base URL in Settings to enable AI tools.');
-      } else {
-        setAiError(String(e));
-      }
+      setAiError(friendlyApiError(e));
     } finally {
       setAiBusy(false);
     }
@@ -85,11 +81,7 @@ export default function PdfPage() {
         setGenCards(cards);
       }
     } catch (e) {
-      setAiError(
-        e instanceof AiUnavailableError
-          ? 'AI is not configured on this server — you can still create cards manually from a selection.'
-          : 'Could not generate flashcards. Please try again.',
-      );
+      setAiError(friendlyApiError(e));
     } finally {
       setAiBusy(false);
     }
@@ -107,11 +99,7 @@ export default function PdfPage() {
         setGenQuestions(qs);
       }
     } catch (e) {
-      setAiError(
-        e instanceof AiUnavailableError
-          ? 'AI is not configured on this server — quiz generation needs it.'
-          : 'Could not generate a quiz. Please try again.',
-      );
+      setAiError(friendlyApiError(e));
     } finally {
       setAiBusy(false);
     }
@@ -269,9 +257,14 @@ export default function PdfPage() {
 
           <Card>
             <SectionTitle icon="🤖" action={
-              <Badge tone={settings.apiBaseUrl ? 'success' : 'warn'}>
-                {settings.apiBaseUrl ? 'server configured' : 'offline'}
-              </Badge>
+              <>
+                <Badge tone={authed ? 'success' : 'warn'}>
+                  {authed ? 'signed in' : 'sign in for AI'}
+                </Badge>
+                <Badge tone={settings.apiBaseUrl ? 'success' : 'warn'}>
+                  {settings.apiBaseUrl ? 'server configured' : 'offline'}
+                </Badge>
+              </>
             }>
               AI review tools
             </SectionTitle>

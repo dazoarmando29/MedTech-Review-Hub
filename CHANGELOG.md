@@ -5,6 +5,9 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 
 ## [Unreleased]
 
+### Fixed
+- **AI tools misreported auth failures as 'No backend configured'/'Could not generate flashcards'**: the real cause was an expired or missing login token (401). Errors are now truthful and specific ('Please sign in to use AI tools'), the client silently refreshes expired tokens and retries, and the PDF AI panel shows a live 'signed in / sign in for AI' badge. 5 new regression tests lock this in.
+
 ### Added (website + content; Android keeps parity where noted)
 - **Library rebuilt around the Philippine ASCPi review structure**: subject
   names now match what Filipino review centers teach (ACTS: CC / MP / CM / Hema /
