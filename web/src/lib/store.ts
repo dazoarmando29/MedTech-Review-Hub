@@ -9,8 +9,8 @@ import { applyReview, isDue, newSchedule } from './fsrs';
 import type {
   CatRoomState, ContentIssueReport, DiaryEntry, FlashcardSeed, FocusSession, GardenFlower,
   Habit, HighlightEntry, HighlightColor, LessonProgress, LoveNote, MusicPrefs, PdfAnnotation,
-  PdfDocMeta, PlanDay, Profile, QuizAttempt, Rating, ReviewRecord, Settings, StudyPlan,
-  StudySession, ThemeId, UserCard,
+  PdfDocMeta, PlanDay, Profile, QuizAttempt, QuizQuestion, Rating, ReviewRecord, Settings,
+  StudyPlan, StudySession, ThemeId, UserCard,
 } from './types';
 
 const STORAGE_KEY = 'mtrh-state-v1';
@@ -44,6 +44,7 @@ export interface AppState {
   admin: AdminOverride;
   garden: { flowers: GardenFlower[] };
   catRoom: CatRoomState;
+  customQuestions: QuizQuestion[];
   music: {
     favorites: string[];
     playlists: { id: string; name: string; trackIds: string[] }[];
@@ -169,6 +170,7 @@ export function initialState(): AppState {
     admin: { lessons: {}, questions: {}, statuses: {}, audit: [] },
     garden: { flowers: [] },
     catRoom: { equipped: [] },
+    customQuestions: [],
     music: { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 },
     loveNotes: [],
     quoteFavorites: [],
@@ -220,6 +222,7 @@ export function migrateState(raw: Partial<AppState>): Partial<AppState> {
   }
   if (!raw.garden) out.garden = { flowers: [] };
   if (!raw.catRoom) out.catRoom = { equipped: [] };
+  if (!raw.customQuestions) out.customQuestions = [];
   if (!raw.music) out.music = { favorites: [], playlists: [], downloads: [], lastTrackId: null, lastPositionSec: 0 };
   if (!raw.loveNotes) out.loveNotes = [];
   if (!raw.quoteFavorites) out.quoteFavorites = [];
@@ -414,6 +417,15 @@ export function toggleSavedQuestion(questionId: string): void {
       ? s.savedQuestions.filter((q) => q !== questionId)
       : [...s.savedQuestions, questionId],
   }));
+}
+
+/** Saves AI/PDF-generated questions so they can be practiced again like bank questions. */
+export function addCustomQuestions(questions: QuizQuestion[]): void {
+  setState((s) => {
+    const existing = new Set(s.customQuestions.map((q) => q.id));
+    const fresh = questions.filter((q) => !existing.has(q.id));
+    return { ...s, customQuestions: [...s.customQuestions, ...fresh] };
+  });
 }
 
 // ---------- sessions / habits / diary ----------

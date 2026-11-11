@@ -97,6 +97,11 @@ export const api = {
       method: 'POST',
       body: JSON.stringify({ text }),
     }),
+  aiQuiz: (text: string) =>
+    request<{ result: unknown; citations: unknown[]; warnings: string[] }>('/ai/quiz', {
+      method: 'POST',
+      body: JSON.stringify({ text }),
+    }),
   aiKeyterms: (text: string) =>
     request<{ result: unknown; citations: unknown[]; warnings: string[] }>('/ai/keyterms', {
       method: 'POST',

@@ -166,11 +166,15 @@ export async function runAiTool(
     explain:
       `Task: Explain the following passage in a way a struggling student understands.${styleNote} Cite quotes.\n\nSOURCE TEXT:\n${source}`,
     flashcards:
-      `Task: Generate 5-10 study flashcards from the source text. Format each as:\nQ: <question>\nA: <answer>\n` +
-      `Only use facts present in the source. Cite a quote per card.\n\nSOURCE TEXT:\n${source}`,
+      `Task: Generate 5-10 study flashcards from the source text.\n` +
+      `Return ONLY strict JSON (no markdown fences, no commentary) in exactly this shape:\n` +
+      `{"flashcards":[{"front":"question or cloze prompt","back":"answer","quote":"short exact quote from the source"}]}\n` +
+      `Only use facts present in the source. Each "quote" must be an exact snippet of the source text.\n\nSOURCE TEXT:\n${source}`,
     quiz:
-      `Task: Write 3 multiple-choice questions (4 options A-D, one best answer) from the source text. ` +
-      `For each: stem, options, correct letter, short rationale for each option, and a misconception note. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
+      `Task: Write 3 multiple-choice questions (4 options A-D, one best answer) from the source text.\n` +
+      `Return ONLY strict JSON (no markdown fences, no commentary) in exactly this shape:\n` +
+      `{"questions":[{"stem":"question","vignette":"short clinical setup or null","choices":{"A":"...","B":"...","C":"...","D":"..."},"correct":"A","rationale":"why the correct answer is right","misconception":"the trap behind the common wrong answer","quote":"short exact quote from the source"}]}\n` +
+      `Only use facts present in the source; every "quote" must be an exact snippet of it.\n\nSOURCE TEXT:\n${source}`,
     keyterms:
       `Task: Extract the key terms and their definitions from the source text as a bullet list. Cite quotes.\n\nSOURCE TEXT:\n${source}`,
     outline:

@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { notFound, useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Badge, Card, DataTable, EmptyState, RichText, SectionTitle, Tabs, cx } from '@/components/ui';
-import { getLesson, getQuestion, getSubject, questionBank } from '@/lib/content';
+import { getLesson, getSubject, questionBank } from '@/lib/content';
+import { resolveQuestion } from '@/lib/questions';
 import {
   addCardFromSeed, addGlossaryTerm, addHighlight, setLessonProgress, toggleSavedQuestion, useStore,
 } from '@/lib/store';
@@ -100,7 +101,7 @@ export default function LessonView() {
   if (!lesson) return notFound();
   const subject = getSubject(lesson.subjectId);
   const questions = lesson.practiceQuestionIds
-    .map((id) => getQuestion(id))
+    .map((id) => resolveQuestion(id))
     .filter((q): q is NonNullable<typeof q> => Boolean(q));
 
   const markRead = () => {
@@ -490,7 +491,7 @@ function RevealKeyword({ word }: { word: string }) {
 }
 
 function PracticeQuestion({ questionId, saved, wrongCount }: { questionId: string; saved: boolean; wrongCount: number }) {
-  const q = getQuestion(questionId);
+  const q = resolveQuestion(questionId);
   const [chosen, setChosen] = useState<string | null>(null);
   const [showWhy, setShowWhy] = useState(false);
   if (!q) return null;

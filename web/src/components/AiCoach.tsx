@@ -4,7 +4,7 @@
 // plus practical advice on what to review first.
 import React, { useState } from 'react';
 import { SectionTitle } from './ui';
-import { getQuestion } from '@/lib/content';
+import { resolveQuestion } from '@/lib/questions';
 import { api, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
 import type { QuizResult } from '@/lib/quiz';
 import type { QuizAttempt } from '@/lib/types';
@@ -41,7 +41,7 @@ export function AiCoach({ attempt, result }: { attempt: QuizAttempt; result: Qui
 
   const buildContext = () => {
     const wrongList = result.incorrectQuestionIds
-      .map((id) => getQuestion(id))
+      .map((id) => resolveQuestion(id))
       .filter(Boolean)
       .slice(0, 8)
       .map((q) => `- ${q!.stem} | correct: ${q!.choices.find((c) => c.id === q!.correctChoiceId)?.text} | why tricky: ${q!.misconception}`)

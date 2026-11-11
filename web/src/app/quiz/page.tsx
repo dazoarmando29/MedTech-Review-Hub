@@ -7,7 +7,8 @@ import { Badge, Card, EmptyState, ProgressRing, SectionTitle, cx } from '@/compo
 import { Mochi } from '@/components/Mochi';
 import { AiCoach } from '@/components/AiCoach';
 import { contextQuote } from '@/lib/motivation';
-import { getQuestion, motivation, subjects } from '@/lib/content';
+import { motivation, subjects } from '@/lib/content';
+import { resolveQuestion } from '@/lib/questions';
 import {
   MOCK_QUESTION_COUNT, MOCK_TIME_LIMIT_SECONDS, computeResult, newAttemptId,
   nextAdaptiveQuestion, selectQuestions,
@@ -43,7 +44,7 @@ export default function QuizPage() {
   const attempt = attemptRef.current;
   const questions: QuizQuestion[] = useMemo(() => {
     if (!attempt) return [];
-    return attempt.questionIds.map((id) => getQuestion(id)).filter((q): q is QuizQuestion => Boolean(q));
+    return attempt.questionIds.map((id) => resolveQuestion(id)).filter((q): q is QuizQuestion => Boolean(q));
   }, [attempt, currentIdx]);
 
   const current = questions[Math.min(currentIdx, questions.length - 1)];
@@ -448,7 +449,7 @@ function ResultsView({ attempt, onRestart }: { attempt: QuizAttempt; onRestart: 
         ) : (
           <div className="space-y-3">
             {result.incorrectQuestionIds.map((id) => {
-              const q = getQuestion(id);
+              const q = resolveQuestion(id);
               if (!q) return null;
               return (
                 <div key={id} className="rounded-md border border-slate-200 dark:border-slate-700 p-3 text-sm">
