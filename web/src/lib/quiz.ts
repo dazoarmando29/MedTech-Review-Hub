@@ -1,6 +1,7 @@
 // Quiz engine: selection modes, grading, and results analytics.
 // Mirrors Android QuizScoring and backend QuizService semantics.
-import { questionBank, getQuestion, SUBJECT_WEIGHTS_ASCPI } from './content';
+import { questionBank, SUBJECT_WEIGHTS_ASCPI } from './content';
+import { resolveQuestion } from './questions';
 import type { QuizAttempt, QuizQuestion } from './types';
 
 export type QuizMode = 'STUDY' | 'EXAM' | 'ADAPTIVE' | 'MOCK';
@@ -23,7 +24,7 @@ export function selectQuestions(filters: QuizFilters, count: number): QuizQuesti
 
   if (filters.questionIds?.length) {
     pool = filters.questionIds
-      .map((id) => getQuestion(id))
+      .map((id) => resolveQuestion(id))
       .filter((q): q is QuizQuestion => Boolean(q));
   } else {
     switch (filters.kind) {
@@ -108,7 +109,7 @@ export function computeResult(attempt: QuizAttempt): QuizResult {
   const bySubjectMap = new Map<string, { correct: number; total: number }>();
   const byTopicMap = new Map<string, { correct: number; total: number }>();
   for (const a of answers) {
-    const q = getQuestion(a.questionId);
+    const q = resolveQuestion(a.questionId);
     if (!q) continue;
     const s = bySubjectMap.get(q.subjectId) ?? { correct: 0, total: 0 };
     s.total += 1;

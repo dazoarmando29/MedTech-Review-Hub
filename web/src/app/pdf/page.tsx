@@ -3,13 +3,17 @@
 // Smart PDF reader: zoom, navigation, in-document search, bookmarks, resume
 // position, semantic highlight colors, notes, and AI tools (server-side AI).
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Badge, Card, ConfirmButton, EmptyState, SectionTitle, cx } from '@/components/ui';
 import { api, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
+import { parseFlashcardsFromAi, parseQuestionsFromAi, type ParsedFlashcard, type ParsedQuestion } from '@/lib/aiParse';
+import { toQuizQuestion } from '@/lib/questions';
+import { newAttemptId } from '@/lib/quiz';
 import {
-  addPdf, addPdfAnnotation, removePdf, removePdfAnnotation, setPdfLastPage,
-  updateSettings, useStore,
+  addCustomQuestions, addPdf, addPdfAnnotation, removePdf, removePdfAnnotation, setPdfLastPage,
+  startQuiz, updateSettings, upsertCard, useStore,
 } from '@/lib/store';
-import type { HighlightColor, PdfAnnotation, PdfDocMeta } from '@/lib/types';
+import type { HighlightColor, PdfAnnotation, PdfDocMeta, QuizAttempt } from '@/lib/types';
 
 const COLORS: { id: HighlightColor }[] = [
   { id: 'YELLOW' },
@@ -21,6 +25,7 @@ const COLORS: { id: HighlightColor }[] = [
 ];
 
 export default function PdfPage() {
+  const router = useRouter();
   const pdfs = useStore((s) => s.pdfs);
   const annotations = useStore((s) => s.pdfAnnotations);
   const settings = useStore((s) => s.settings);
@@ -30,6 +35,8 @@ export default function PdfPage() {
   const [aiResult, setAiResult] = useState<string | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
+  const [genCards, setGenCards] = useState<ParsedFlashcard[] | null>(null);
+  const [genQuestions, setGenQuestions] = useState<ParsedQuestion[] | null>(null);
 
   useEffect(() => {
     configureApi(settings.apiBaseUrl);
@@ -62,6 +69,71 @@ export default function PdfPage() {
     } finally {
       setAiBusy(false);
     }
+  };
+
+  // Anki-style flow: AI drafts flashcards/quiz from the text -> user reviews
+  // -> real deck cards / real quiz session (never silently added).
+  const runGenCards = async (text: string) => {
+    setAiBusy(true);
+    setAiError(null);
+    try {
+      const res = await api.aiFlashcards(text);
+      const cards = parseFlashcardsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result));
+      if (!cards.length) {
+        setAiError('The AI did not return usable flashcards for this text. Try selecting a fuller passage.');
+      } else {
+        setGenCards(cards);
+      }
+    } catch (e) {
+      setAiError(
+        e instanceof AiUnavailableError
+          ? 'AI is not configured on this server — you can still create cards manually from a selection.'
+          : 'Could not generate flashcards. Please try again.',
+      );
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
+  const runGenQuiz = async (text: string) => {
+    setAiBusy(true);
+    setAiError(null);
+    try {
+      const res = await api.aiQuiz(text);
+      const qs = parseQuestionsFromAi(typeof res.result === 'string' ? res.result : JSON.stringify(res.result));
+      if (!qs.length) {
+        setAiError('The AI did not return usable questions for this text. Try selecting a fuller passage.');
+      } else {
+        setGenQuestions(qs);
+      }
+    } catch (e) {
+      setAiError(
+        e instanceof AiUnavailableError
+          ? 'AI is not configured on this server — quiz generation needs it.'
+          : 'Could not generate a quiz. Please try again.',
+      );
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
+  const startGeneratedQuiz = (selected: ParsedQuestion[], label: string) => {
+    const questions = selected.map((p, i) => toQuizQuestion(p, label, `${Date.now()}-${i}`));
+    addCustomQuestions(questions);
+    const attempt: QuizAttempt = {
+      id: newAttemptId(),
+      startedAt: new Date().toISOString(),
+      finishedAt: null,
+      mode: 'STUDY',
+      filters: { label: `From your PDF — ${label}` },
+      questionIds: questions.map((q) => q.id),
+      answers: [],
+      timeLimitSeconds: null,
+      finished: false,
+    };
+    startQuiz(attempt);
+    setGenQuestions(null);
+    router.push('/quiz/');
   };
 
   return (
@@ -216,9 +288,13 @@ export default function PdfPage() {
                 onClick={() => runAi(() => api.aiKeyterms(selection || pageText), 'Key terms')}>
                 Extract key terms
               </button>
-              <button className="btn-ghost text-xs" disabled={aiBusy || !(selection || pageText)}
-                onClick={() => runAi(() => api.aiFlashcards(selection || pageText), 'Generated flashcards')}>
-                Generate flashcards
+              <button className="btn-secondary text-xs" disabled={aiBusy || !(selection || pageText)}
+                onClick={() => void runGenCards(selection || pageText)}>
+                Turn into flashcards
+              </button>
+              <button className="btn-secondary text-xs" disabled={aiBusy || !(selection || pageText)}
+                onClick={() => void runGenQuiz(selection || pageText)}>
+                Make me a quiz
               </button>
               <button className="btn-ghost text-xs" disabled={aiBusy || !(selection || pageText)}
                 onClick={() => runAi(() => api.aiExplain(selection || pageText, settings.explanationStyle), 'Simple explanation')}>
@@ -235,6 +311,18 @@ export default function PdfPage() {
           </Card>
         </div>
       </div>
+
+      {genCards && (
+        <GenCardsDialog cards={genCards} pdfId={activeId} onClose={() => setGenCards(null)} />
+      )}
+      {genQuestions && (
+        <GenQuizDialog
+          questions={genQuestions}
+          label={selection ? 'your selection' : 'this page'}
+          onStart={(sel, label) => startGeneratedQuiz(sel, label)}
+          onClose={() => setGenQuestions(null)}
+        />
+      )}
     </div>
   );
 }
@@ -459,4 +547,124 @@ function openDb(): Promise<IDBDatabase> {
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
   });
+}
+
+// ---- Anki-style review-before-add dialogs ----
+
+function GenCardsDialog({ cards, pdfId, onClose }: {
+  cards: ParsedFlashcard[]; pdfId: string | null; onClose: () => void;
+}) {
+  const [checked, setChecked] = useState<boolean[]>(cards.map(() => true));
+  const [edits, setEdits] = useState(cards.map((c) => ({ front: c.front, back: c.back })));
+  const [done, setDone] = useState(0);
+
+  const addSelected = () => {
+    const chosen = cards.map((c, i) => ({ ...c, ...edits[i], on: checked[i] })).filter((c) => c.on);
+    chosen.forEach((c, i) => {
+      upsertCard({
+        id: `fc-pdf-${Date.now()}-${i}`,
+        deckId: 'from-my-pdfs',
+        front: c.front,
+        back: c.back,
+        type: 'BASIC',
+        tags: ['from-pdf'],
+        subjectId: 'custom',
+        topicId: null,
+        difficulty: 2,
+        note: c.quote ? `Source: “${c.quote}”` : '',
+        favorite: false,
+        imageRef: null,
+        source: { kind: 'PDF_HIGHLIGHT', pdfId, page: null, needsReview: false },
+        schedule: {
+          state: 'NEW', stability: 0, difficulty: 0,
+          dueAt: new Date().toISOString(), lastReviewAt: null, reps: 0, lapses: 0,
+        },
+        history: [],
+      });
+    });
+    setDone(chosen.length);
+    setTimeout(onClose, 1200);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div className="card p-5 w-full max-w-2xl max-h-[85vh] overflow-auto">
+        <SectionTitle icon="🃏">Review flashcards before adding</SectionTitle>
+        <p className="text-xs mb-3" style={{ color: 'var(--muted)' }}>
+          AI drafted these from your document — edit anything, untick what you do not want,
+          then add them to your real review deck (they will be scheduled with spaced repetition).
+        </p>
+        {done > 0 && <p className="sticky-note mb-3">🌸 Added {done} cards to your deck. Find them under Flashcards!</p>}
+        <ul className="space-y-3">
+          {cards.map((c, i) => (
+            <li key={i} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
+              <label className="flex items-start gap-2">
+                <input type="checkbox" checked={checked[i]} className="mt-1"
+                  onChange={(e) => setChecked((arr) => arr.map((v, j) => (j === i ? e.target.checked : v)))} />
+                <div className="flex-1 space-y-2">
+                  <input className="input" value={edits[i].front}
+                    onChange={(e) => setEdits((arr) => arr.map((v, j) => (j === i ? { ...v, front: e.target.value } : v)))} />
+                  <textarea className="input" rows={2} value={edits[i].back}
+                    onChange={(e) => setEdits((arr) => arr.map((v, j) => (j === i ? { ...v, back: e.target.value } : v)))} />
+                  {c.quote && <p className="text-[11px]" style={{ color: 'var(--muted)' }}>source: “{c.quote}”</p>}
+                </div>
+              </label>
+            </li>
+          ))}
+        </ul>
+        <div className="flex justify-end gap-2 mt-4">
+          <button className="btn-ghost" onClick={onClose}>Cancel</button>
+          <button className="btn-primary" onClick={addSelected} disabled={!checked.some(Boolean)}>
+            Add {checked.filter(Boolean).length} cards to my deck
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GenQuizDialog({ questions, label, onStart, onClose }: {
+  questions: ParsedQuestion[]; label: string;
+  onStart: (selected: ParsedQuestion[], label: string) => void; onClose: () => void;
+}) {
+  const [checked, setChecked] = useState<boolean[]>(questions.map(() => true));
+  return (
+    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div className="card p-5 w-full max-w-2xl max-h-[85vh] overflow-auto">
+        <SectionTitle icon="📝">Quiz questions from {label}</SectionTitle>
+        <p className="text-xs mb-3" style={{ color: 'var(--muted)' }}>
+          Review before you start — untick anything that looks off. These questions are saved
+          to your collection so you can practice them again later.
+        </p>
+        <ul className="space-y-3">
+          {questions.map((q, i) => (
+            <li key={i} className="rounded-[12px] p-3" style={{ background: 'var(--surface-2)' }}>
+              <label className="flex items-start gap-2">
+                <input type="checkbox" checked={checked[i]} className="mt-1"
+                  onChange={(e) => setChecked((arr) => arr.map((v, j) => (j === i ? e.target.checked : v)))} />
+                <div className="flex-1 text-sm">
+                  <p className="font-semibold">{q.stem}</p>
+                  <ul className="mt-1 text-xs space-y-0.5">
+                    {q.choices.map((c) => (
+                      <li key={c.id} className={cx(c.id === q.correctChoiceId && 'font-semibold')}>
+                        {c.id}. {c.text} {c.id === q.correctChoiceId && '✓'}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>{q.rationale}</p>
+                </div>
+              </label>
+            </li>
+          ))}
+        </ul>
+        <div className="flex justify-end gap-2 mt-4">
+          <button className="btn-ghost" onClick={onClose}>Cancel</button>
+          <button className="btn-primary" onClick={() => onStart(questions.filter((_, i) => checked[i]), label)}
+            disabled={!checked.some(Boolean)}>
+            Start quiz with {checked.filter(Boolean).length} questions
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

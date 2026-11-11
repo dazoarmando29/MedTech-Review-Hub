@@ -1,6 +1,6 @@
 // Cozy feature logic: Study Garden growth, Cat Room unlocks, motivational
 // rotation, and Weekly Wrapped computations. Pure functions (unit-tested).
-import { getQuestion } from './content';
+import { resolveQuestion } from './questions';
 import type { AppState } from './store';
 import type { GardenFlower } from './types';
 
@@ -159,7 +159,7 @@ export function weeklyWrapped(state: AppState, now: Date = new Date()): WeeklyWr
 }
 
 function questionSubjectOf(_state: AppState, questionId: string): string {
-  return getQuestion(questionId)?.subjectId ?? 'mixed';
+  return resolveQuestion(questionId)?.subjectId ?? 'mixed';
 }
 
 /** Consecutive study days ending today (or yesterday if today is still in progress). */

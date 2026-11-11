@@ -5,7 +5,8 @@
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { Badge, Card, EmptyState, SectionTitle } from '@/components/ui';
-import { getQuestion, getSubject, questionBank, getLesson } from '@/lib/content';
+import { getSubject, questionBank, getLesson } from '@/lib/content';
+import { resolveQuestion } from '@/lib/questions';
 import { newAttemptId, selectQuestions } from '@/lib/quiz';
 import { startQuiz, useStore } from '@/lib/store';
 import type { QuizAttempt, QuizQuestion } from '@/lib/types';
@@ -19,7 +20,7 @@ export default function MistakesPage() {
   const mistakes = useMemo(() => {
     const byQuestion = new Map<string, { question: QuizQuestion; wrongCount: number; lastChosen: string | null }>();
     for (const [qid, count] of Object.entries(wrongQuestions)) {
-      const q = getQuestion(qid);
+      const q = resolveQuestion(qid);
       if (q) byQuestion.set(qid, { question: q, wrongCount: count, lastChosen: null });
     }
     for (const a of attempts) {
