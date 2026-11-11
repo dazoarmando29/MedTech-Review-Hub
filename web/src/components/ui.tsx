@@ -100,7 +100,7 @@ export function EmptyState({
 }) {
   return (
     <div className="card p-10 text-center flex flex-col items-center gap-3">
-      <Mochi mood={mood} size={110} className="loading-mochi" />
+      <Mochi mood={mood} size={110} className="" />
       <div className="text-2xl" aria-hidden>{icon}</div>
       <div className="font-heading text-lg font-bold">{title}</div>
       {hint && <p className="text-sm max-w-md" style={{ color: 'var(--muted)' }}>{hint}</p>}

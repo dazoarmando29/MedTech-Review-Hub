@@ -79,16 +79,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </a>
 
       <header className="sticky top-0 z-40 border-b" style={{ background: 'color-mix(in srgb, var(--bg) 88%, transparent)', borderColor: 'var(--line)', backdropFilter: 'blur(10px)' }}>
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 font-display font-bold text-lg">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-2.5 font-display font-bold text-lg shrink-0 whitespace-nowrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icon.svg`} alt="" width={44} height={44} className="rounded-xl" />
-            <span>
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icon.svg`} alt="" width={42} height={42} className="rounded-xl shrink-0" />
+            <span className="leading-tight">
               MedTech <span style={{ color: 'var(--primary)' }}>Study Companion</span>
             </span>
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:flex items-center gap-1 ml-auto">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-1.5 ml-auto flex-wrap justify-end">
             {NAV.map((item) => {
               const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
               const Icon = item.icon;
@@ -96,7 +96,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.href}
                   href={item.href as string}
-                  className="px-3 py-2 rounded-full text-sm font-semibold flex items-center gap-1.5 transition-colors"
+                  className="px-3.5 py-2 rounded-full text-sm font-semibold flex items-center gap-1.5 transition-colors whitespace-nowrap"
                   style={{
                     background: active ? 'var(--primary)' : 'transparent',
                     color: active ? 'var(--primary-ink)' : 'var(--muted-strong)',
@@ -111,7 +111,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             })}
           </nav>
 
-          <div className="ml-auto lg:ml-2 flex items-center gap-2">
+          <div className="ml-auto lg:ml-3 flex items-center gap-2 shrink-0">
             <button
               className="btn-ghost !p-2 !min-h-[40px] !w-[40px] text-base"
               aria-label={`Theme: ${appTheme}. Click to switch.`}
@@ -197,7 +197,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 function LoadingMochi() {
   return (
     <div className="flex flex-col items-center justify-center py-24 gap-4" role="status" aria-live="polite">
-      <Mochi mood="studying" size={110} className="loading-mochi" />
+      <Mochi mood="studying" size={110} className="" />
       <p className="text-sm" style={{ color: 'var(--muted)' }}>Warming up your study nook…</p>
     </div>
   );
@@ -252,7 +252,7 @@ function MochiDock({ name, kind, commentary }: { name: string; kind: 'cat' | 'do
   return (
     <div className="fixed bottom-4 right-4 z-40 hidden sm:block">
       <div className="flex items-start gap-1">
-        <Mochi mood={mood} size={72} className="loading-mochi" />
+        <Mochi mood={mood} size={72} className="" />
         <div className="card-soft p-3 text-xs leading-snug max-w-[210px]">
           <strong className="font-heading block" style={{ color: 'var(--primary)' }}>{name}</strong>
           <p>{lines[idx % lines.length]}</p>

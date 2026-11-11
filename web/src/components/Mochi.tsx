@@ -173,7 +173,7 @@ export function MochiBubble({
 }) {
   return (
     <div className="flex items-start gap-2">
-      <Mochi mood={mood} size={64} className="shrink-0 loading-mochi" />
+      <Mochi mood={mood} size={64} className="shrink-0" />
       <div className="card-soft p-3 text-xs leading-snug max-w-[220px]">
         <strong className="font-heading block" style={{ color: 'var(--primary)' }}>{name}</strong>
         <p>{text}</p>

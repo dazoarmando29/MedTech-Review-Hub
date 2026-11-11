@@ -55,7 +55,7 @@ export function MotivationWidget() {
           Today’s motivation
         </SectionTitle>
         <div className="flex items-start gap-4">
-          {!seriousMode && <Mochi mood="encouraging" size={84} className="loading-mochi" />}
+          {!seriousMode && <Mochi mood="encouraging" size={84} className="" />}
           <div className="flex-1">
             <p className="font-heading font-bold text-lg leading-relaxed">“{current}”</p>
             <div className="flex flex-wrap gap-2 mt-3">

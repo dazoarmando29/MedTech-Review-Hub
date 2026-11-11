@@ -76,7 +76,7 @@ export default function DashboardPage() {
     return (
       <div className="hero-gradient p-8 sm:p-12">
         <div className="flex flex-wrap items-center gap-8">
-          <Mochi mood="excited" size={150} className="loading-mochi" />
+          <Mochi mood="excited" size={150} className="" />
           <div className="flex-1 min-w-[260px]">
             <h1 className="font-display text-3xl font-bold">Welcome to your study companion 🌸</h1>
             <p className="mt-2 text-sm max-w-md" style={{ color: 'var(--muted-strong)' }}>

@@ -228,12 +228,11 @@ body {
 
 .flower-petal { transform-origin: center; }
 
+/* Mochi stays still by default — motion only via one-shot reactions
+   (e.g. .confetti-pop) so nothing ever jiggles continuously. */
 .loading-mochi {
-  animation: bob 4.5s ease-in-out infinite;
-}
-@keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
-  50% { transform: translateY(-3px) rotate(0.6deg); }
+  transform: none;
+  animation: none;
 }
 
 .confetti-pop {
