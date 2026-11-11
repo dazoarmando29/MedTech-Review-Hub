@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { SectionTitle } from './ui';
 import { resolveQuestion } from '@/lib/questions';
-import { api, AiUnavailableError, ApiUnavailableError, configureApi } from '@/lib/api';
+import { api, configureApi, friendlyApiError } from '@/lib/api';
 import type { QuizResult } from '@/lib/quiz';
 import type { QuizAttempt } from '@/lib/types';
 
@@ -78,13 +78,7 @@ export function AiCoach({ attempt, result }: { attempt: QuizAttempt; result: Qui
       setAnswer(res);
     } catch (e) {
       setAnswer(null);
-      setNote(
-        e instanceof AiUnavailableError
-          ? 'The AI coach is not configured on this server yet — your results and explanations above still work perfectly.'
-          : e instanceof ApiUnavailableError
-            ? 'No server connection right now. Try again in a moment — everything else works offline.'
-            : 'Something went wrong asking the AI coach. Please try again.',
-      );
+      setNote(friendlyApiError(e));
     } finally {
       setBusy(false);
     }

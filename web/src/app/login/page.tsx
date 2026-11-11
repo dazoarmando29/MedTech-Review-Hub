@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, SectionTitle } from '@/components/ui';
-import { api, ApiUnavailableError, configureApi } from '@/lib/api';
+import { api, ApiUnavailableError, configureApi, saveAuth } from '@/lib/api';
 import { updateSettings, useStore } from '@/lib/store';
 
 export default function LoginPage() {
@@ -29,7 +29,11 @@ export default function LoginPage() {
           : await api.register(email, password, displayName || email.split('@')[0]);
       updateSettings({ apiBaseUrl: settings.apiBaseUrl });
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem('mtrh-auth', JSON.stringify({ email: res.user.email, token: res.accessToken }));
+        saveAuth({ token: res.accessToken, refreshToken: res.refreshToken });
+        try {
+          const prev = JSON.parse(window.localStorage.getItem('mtrh-auth') ?? '{}');
+          window.localStorage.setItem('mtrh-auth', JSON.stringify({ ...prev, email: res.user.email }));
+        } catch { /* ignore */ }
       }
       router.push('/');
     } catch (e) {
