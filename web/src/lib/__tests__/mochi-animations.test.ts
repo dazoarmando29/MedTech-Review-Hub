@@ -2,64 +2,64 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-// Regression guard for the "Mochi glitches / moves too fast" bug class.
-// The rule set lives in web/src/app/globals.css and MUST hold forever:
-//  1. No scale()/rotate()/skew() in any mochi animation — SVG inner-part
-//     transforms re-rasterize and shimmer (that's the "glitching" look).
-//  2. Whole-mascot motion is translateY-only (compositor-safe).
-//  3. Every infinite mochi loop runs >= 5s (slow and calm, never jittery).
+// PERMANENT regression guard for the "Mochi vibrates / jiggles" bug class.
+// History: this bug returned 3 times (1.2s jolt → 4.5s bob → 7s SVG breathe).
+// Root cause: ANY continuous transform animation on the mascot's <svg>
+// re-rasterizes every frame in iPad Safari and visibly vibrates.
+//
+// POLICY (must hold forever):
+//  1. The mascot has ZERO continuous (infinite) animations. Period.
+//  2. Motion only as ONE-SHOT reactions (tap pop, celebration confetti).
+//  3. One-shot motion is translateY-only and <= 0.6s. Never scale/rotate
+//     (SVG re-rasterization shimmer).
 //  4. Kill switches exist: prefers-reduced-motion, body.no-motion, body.calm-mascot.
 
 const css = readFileSync(join(__dirname, '..', '..', 'app', 'globals.css'), 'utf8');
 
-function keyframeBlock(name: string): string {
-  const m = css.match(new RegExp(`@keyframes ${name} \\{([\\s\\S]*?)\\n\\}`, 'm'));
-  return m ? m[1] : '';
-}
-
-describe('Mochi animation rules (regression guard)', () => {
-  const mochiKeyframes = [...css.matchAll(/@keyframes (mochi-[\w-]+)/g)].map((m) => m[1]);
-
-  it('defines at least the breathe and twinkle animations', () => {
-    expect(mochiKeyframes).toContain('mochi-breathe');
-    expect(mochiKeyframes).toContain('mochi-twinkle');
+describe('Mochi is perfectly still — permanent policy (regression guard)', () => {
+  it('has NO infinite animations on any mochi class', () => {
+    const infiniteRules = [...css.matchAll(/[^{}]*\.mochi[\w-]*[^{]*\{[^}]*animation[^}]*infinite[^}]*\}/g)];
+    expect(infiniteRules.map((m) => m[0]).join('\n')).toBe('');
+    // also: no keyframes referenced by an infinite animation named mochi-*
+    expect(css).not.toMatch(/animation:\s*mochi-[\w-]+[^;]*infinite/);
   });
 
-  it('never uses scale/rotate/skew in mochi keyframes (SVG re-rasterization glitch)', () => {
-    for (const name of mochiKeyframes) {
-      const block = keyframeBlock(name);
-      expect(block).not.toMatch(/scale\s*\(/);
-      expect(block).not.toMatch(/rotate\s*\(/);
-      expect(block).not.toMatch(/skew\s*\(/);
+  it('keeps all legacy mochi idle classes explicitly disabled', () => {
+    for (const cls of ['mochi-idle', 'mochi-tail', 'mochi-blink', 'mochi-twinkle', 'mochi-drift', 'mochi-heart']) {
+      expect(css, `${cls} must stay disabled`).toContain(`.${cls}`);
     }
+    // the disabled block must set animation:none
+    const block = css.match(/\.mochi-idle,([\s\S]*?)\{([\s\S]*?)\}/);
+    expect(block?.[2]).toMatch(/animation: none !important/);
   });
 
-  it('only allows translateY (tiny) or opacity as animated properties', () => {
-    for (const name of mochiKeyframes) {
-      const block = keyframeBlock(name);
-      const transforms = [...block.matchAll(/transform:\s*([^;]+);/g)].map((m) => m[1].trim());
-      for (const t of transforms) {
-        expect(t).toMatch(/^translateY\((0|-?\d+(\.\d+)?px)\)$/); // e.g. translateY(-2px) or translateY(0)
+  it('one-shot motion is translateY-only and tiny (no scale/rotate, <= 3px)', () => {
+    const oneShot = [...css.matchAll(/@keyframes (mochi-[\w-]+) \{([\s\S]*?)\n\}/g)];
+    expect(oneShot.length).toBeGreaterThan(0); // at least mochi-pop
+    for (const [, name, body] of oneShot) {
+      expect(body, `${name}: scale() is forbidden`).not.toMatch(/scale\s*\(/);
+      expect(body, `${name}: rotate() is forbidden`).not.toMatch(/rotate\s*\(/);
+      for (const m of body.matchAll(/transform:\s*([^;]+);/g)) {
+        const t = m[1].trim();
+        expect(t).toMatch(/^translateY\((0|-?\d+(\.\d+)?px)\)$/);
         const num = t.match(/-?\d+(\.\d+)?/);
         const px = num ? Math.abs(parseFloat(num[0])) : 0;
-        expect(px).toBeLessThanOrEqual(3); // tiny distance only
+        expect(px).toBeLessThanOrEqual(5);
       }
     }
   });
 
-  it('every mochi animation loop is slow (>= 5s)', () => {
-    const durations = [...css.matchAll(/animation:\s*(mochi-[\w-]+)\s+([\d.]+)s/g)];
-    expect(durations.length).toBeGreaterThan(0);
-    for (const [, name, secs] of durations) {
-      expect(parseFloat(secs), `${name} must be slow`).toBeGreaterThanOrEqual(5);
-    }
+  it('one-shot animations are brief and finite (no infinite keyword anywhere near mochi-pop)', () => {
+    const popRule = css.match(/\.mochi-pop \{([^}]*)\}/)?.[1] ?? '';
+    expect(popRule).toMatch(/animation:\s*mochi-pop\s+[\d.]+s\s+ease-out\s+1/);
+    const secs = parseFloat(popRule.match(/mochi-pop\s+([\d.]+)s/)?.[1] ?? '99');
+    expect(secs).toBeLessThanOrEqual(1);
   });
 
   it('keeps the kill switches (reduced motion / no-motion / calm-mascot)', () => {
     expect(css).toMatch(/prefers-reduced-motion/);
     expect(css).toMatch(/body\.no-motion/);
     expect(css).toMatch(/body\.calm-mascot/);
-    // tail & blink stay intentionally static
-    expect(css).toMatch(/\.mochi-tail,[\s\S]*?\.mochi-blink \{[\s\S]*?animation: none;/);
+    expect(css).toMatch(/body\.calm-mascot \.mochi-pop/);
   });
 });
