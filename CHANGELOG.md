@@ -6,6 +6,9 @@ Versioning follows Semantic Versioning (`vMAJOR.MINOR.PATCH`).
 ## [Unreleased]
 
 ### Fixed
+- **AI outage resilience**: the Gemini key's quota is a user-side limit (429 quota) that made every generation fail. The server now detects quota exhaustion and automatically answers with Cloudflare's built-in Workers AI — trying several current models in order (self-healing when Cloudflare retires one). Verified live: with Gemini quota dead, generation works again. Clear message when both AIs are unavailable.
+
+### Fixed
 - **'HTTP 502' on generation**: my per-model 20s timeout aborted legitimate slow AI calls and there was no retry; the Worker now allows 45s per attempt and retries on busy/limited responses, and the client patiently retries once on 502.
 
 ### Changed
